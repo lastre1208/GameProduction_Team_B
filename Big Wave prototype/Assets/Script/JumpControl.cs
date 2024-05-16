@@ -40,9 +40,7 @@ public class JumpControl : MonoBehaviour
         if ((Input.GetKey(KeyCode.JoystickButton5)||Input.GetKey(KeyCode.JoystickButton4)||Input.GetKey("space"))  && t.gameObject.CompareTag("Wave"))
         {
             player.ChargeTRICK();
-        
         }
-     
     }
 
     void Jump()//ジャンプしてない時のみジャンプ可能(ジャンプしたらジャンプしてる判定にする)、ジャンプ時のトリックの値に応じてジャンプの高さが変化する

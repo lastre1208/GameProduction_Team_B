@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4079814728936319760}
   - component: {fileID: 7472395978349252991}
   - component: {fileID: 975637546305957095}
-  - component: {fileID: 2023074362026497789}
+  - component: {fileID: 7956593426687758699}
   - component: {fileID: 7661583296785291790}
   - component: {fileID: -4721698264557002706}
   - component: {fileID: 6917817929125569602}
   - component: {fileID: -644923674235814764}
   m_Layer: 0
-  m_Name: Ozyama
+  m_Name: Ozyama Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.81, z: 14.42}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2023074362026497789
-SphereCollider:
+--- !u!136 &7956593426687758699
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,8 +106,10 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7661583296785291790
 Rigidbody:
@@ -173,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a260f14e78e7e02438606d5aad7173fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
-  ifHitDestroy: 1
+  damage: 20
+  ifHitDestroy: 0
