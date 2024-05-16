@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//•ÏX‰ÓŠ‚É@//+ ‚ğ‹Lq‚µ‚Ä‚¢‚Ü‚·!
-
 public class AttackControl : MonoBehaviour
 {
     [SerializeField] float damageAdjustment = 1f;//ƒ_ƒ[ƒW’²®ŒW”
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
-    public bool isAttacked;//UŒ‚‚µ‚½‚©‚µ‚Ä‚¢‚È‚¢‚©‚Ì”»’è//+
+    public bool attacked;//UŒ‚‚µ‚½‚©‚µ‚Ä‚¢‚È‚¢‚©‚Ì”»’è
 
     // Start is called before the first frame update
     void Start()
     {
-       isAttacked = false;
+       attacked = false;
        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
        player = GameObject.FindWithTag("Player").GetComponent<Player>();
        jumpcontrol = GameObject.FindWithTag("Player").GetComponent<JumpControl>();
@@ -40,14 +37,14 @@ public class AttackControl : MonoBehaviour
                     enemy.Damage(player.trick * damageAdjustment);
                 }
 
-                isAttacked = true;//UŒ‚‚µ‚½//+
+                attacked = true;//UŒ‚‚µ‚½
                 player.ConsumeTRICK();
             }
         }
 
-        if(jumpcontrol.jumpNow == false)//…–Ê‚ÉÚ’n‚µ‚Ä‚¢‚é‚È‚ç//+
-        {//+
-            isAttacked = false;//UŒ‚‚µ‚Ä‚¢‚È‚¢//+
-        }//+
+        if(jumpcontrol.jumpNow == false)//…–Ê‚ÉÚ’n‚µ‚Ä‚¢‚é‚È‚ç
+        {
+            attacked = false;//UŒ‚‚µ‚Ä‚¢‚È‚¢
+        }
     }
 }
