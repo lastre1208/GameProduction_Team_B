@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
 
         LimitTRICK();//トリックが限界突破しないように
     }
+
+    public void Damage(float a)//プレイヤーにダメージを与える(aの値分与える)
+    {
+        hp -= a;
+    }
     
     public void ChargeTRICK()//トリックを増やす
     {
