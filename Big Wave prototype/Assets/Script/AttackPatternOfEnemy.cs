@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackPatternOfEnemy : MonoBehaviour
 {
-    enum AttackPattern//攻撃を撃つパターン
+    public enum AttackPattern//攻撃を撃つパターン
     {
         shotStraight,//直線状に撃つ
         shotHoming,//ホーミングしながら撃つ
@@ -20,7 +20,16 @@ public class AttackPatternOfEnemy : MonoBehaviour
     [SerializeField] float shotHomingPower = 9f;//ホーミングしながら弾を撃つ力
     [SerializeField] float shotHighSlashPower = 9f;//斬撃を撃つ力
     [SerializeField] float shotWideWavePower = 9f;//横に広い周波を撃つ力
-    [SerializeField] AttackPattern[] attackPatterns;//敵の行動パターン
+    public FormArray[] form;
+
+    [System.Serializable]
+    public class FormArray
+    {
+        public AttackPattern[] attackPatterns;
+    }
+
+    //[SerializeField] AttackPattern[,] attackPatterns;//第一形態の敵の行動パターン(1行目は第一形態、2行目は第二形態)
+    //[SerializeField] AttackPattern[,] secondFormAttackPatterns;//第二形態の敵の行動パターン
     private int attackPatternNumber;//これで敵の行動パターンを決める
     Rigidbody bulletRb;
     GameObject player;
@@ -38,30 +47,25 @@ public class AttackPatternOfEnemy : MonoBehaviour
         
     }
 
-    public void Attack()//攻撃を撃つ
+    public void Attack(int a)//攻撃を撃つ(第一形態の行動)、aは何形態目か(2まで)
     {
-        attackPatternNumber = Random.Range(0,attackPatterns.Length);
+        if(a==1)
+        {
+            attackPatternNumber = Random.Range(0, form[0].attackPatterns.Length);
+        }
+        else if(a==2)
+        {
+            attackPatternNumber = Random.Range(0, form[1].attackPatterns.Length);
+        }
 
         shotPos = shotPosObject.transform.position;
 
-        if (attackPatterns[attackPatternNumber] == AttackPattern.shotStraight)//直線状に撃つ
+        switch(form[a-1].attackPatterns[attackPatternNumber])
         {
-            ShotStraight();
-        }
-
-        else if (attackPatterns[attackPatternNumber] == AttackPattern.shotHoming)//ホーミングしながら撃つ
-        {
-            ShotHoming();
-        }
-
-        else if (attackPatterns[attackPatternNumber] == AttackPattern.shotHighSlash)//高い斬撃を撃つ
-        {
-            ShotHighSlash();
-        }
-
-        else if (attackPatterns[attackPatternNumber] == AttackPattern.shotWideWave)//横に広い周波を撃つ
-        {
-            ShotWideWave();
+            case AttackPattern.shotStraight: ShotStraight(); break;//直線状に撃つ
+            case AttackPattern.shotHoming: ShotHoming(); break;//ホーミングしながら撃つ
+            case AttackPattern.shotHighSlash: ShotHighSlash(); break;//高い斬撃を撃つ
+            case AttackPattern.shotWideWave: ShotWideWave(); break;//横に広い周波を撃つ
         }
     }
     void ShotStraight()//直線状に撃つ

@@ -470,7 +470,9 @@ MonoBehaviour:
   shotHomingPower: 17
   shotHighSlashPower: 17
   shotWideWavePower: 13
-  attackPatterns: 00000000010000000200000003000000
+  form:
+  - attackPatterns: 00000000
+  - attackPatterns: 0200000003000000
 --- !u!114 &98503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,10 +485,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6209600c849b24586104e8350c2ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 98503817}
+  secondForm: 1
+  secondFormHp: 500
   firstBeginAttackingTime: 5
-  minBeginAttackingTime: 2
-  maxBeginAttackingTime: 4
+  minFirstFormBeginAttackingTime: 5
+  maxFirstFormBeginAttackingTime: 6
+  minSecondFormBeginAttackingTime: 2
+  maxSecondFormBeginAttackingTime: 4
 --- !u!1001 &152158962
 PrefabInstance:
   m_ObjectHideFlags: 0
