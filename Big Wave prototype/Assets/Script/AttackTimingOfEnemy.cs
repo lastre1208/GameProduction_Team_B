@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class AttackTimingOfEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;//“G
+    [SerializeField] bool secondForm=false;//‘æ“ñŒ`‘Ô‚Ì—L–³
+    [SerializeField] float secondFormHp = 500;//‘æ“ñŒ`‘Ô“Ë“üğŒ‘Ì—Í(‚±‚Ì‘Ì—Í–¢–‚Ì‘æ“ñŒ`‘Ô“Ë“ü)
     [SerializeField] float firstBeginAttackingTime = 5f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éŠÔ(‰‰ñ)
-    [SerializeField] float minBeginAttackingTime = 0.1f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ¬ŠÔ
-    [SerializeField] float maxBeginAttackingTime = 0.4f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ‘åŠÔ
+    [SerializeField] float minFirstFormBeginAttackingTime = 0.1f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ¬ŠÔ(‘æˆêŒ`‘Ô)
+    [SerializeField] float maxFirstFormBeginAttackingTime = 0.4f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ‘åŠÔ(‘æˆêŒ`‘Ô)
+    [SerializeField] float minSecondFormBeginAttackingTime = 0.1f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ¬ŠÔ(‘æ“ñŒ`‘Ô)
+    [SerializeField] float maxSecondFormBeginAttackingTime = 0.4f;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éÅ‘åŠÔ(‘æ“ñŒ`‘Ô)
     private float beginAttackingTime;//“G‚ªŸ‚ÉUŒ‚‚ğn‚ß‚éŠÔ
     private float attackTime = 0f;//“G‚ÌUŒ‚‚ğŠÇ—‚·‚éŠÔ
     AttackPatternOfEnemy attackPatternOfEnemy;
+    Enemy enemy;
    
     
     // Start is called before the first frame update
     void Start()
     {
-        attackPatternOfEnemy = enemy.GetComponent<AttackPatternOfEnemy>();
+        enemy = gameObject.GetComponent<Enemy>();
+        attackPatternOfEnemy = gameObject.GetComponent<AttackPatternOfEnemy>();
         beginAttackingTime = firstBeginAttackingTime;
     }
 
@@ -30,11 +35,18 @@ public class AttackTimingOfEnemy : MonoBehaviour
     {
         attackTime += Time.deltaTime;
 
-        if(attackTime>beginAttackingTime)
+        if(attackTime>beginAttackingTime&&enemy.hp<secondFormHp&&secondForm==true)//‘æ“ñŒ`‘Ô‚Ìs“®
         {
             attackTime = 0f;
-            beginAttackingTime = Random.Range(minBeginAttackingTime,maxBeginAttackingTime);
-            attackPatternOfEnemy.Attack();
+            beginAttackingTime = Random.Range(minSecondFormBeginAttackingTime, maxSecondFormBeginAttackingTime);
+            attackPatternOfEnemy.Attack(2);
+        }
+
+        else if(attackTime>beginAttackingTime)//‘æˆêŒ`‘Ô‚Ìs“®
+        {
+            attackTime = 0f;
+            beginAttackingTime = Random.Range(minFirstFormBeginAttackingTime, maxFirstFormBeginAttackingTime);
+            attackPatternOfEnemy.Attack(1);
         }
     }
 
