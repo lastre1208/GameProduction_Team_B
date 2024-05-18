@@ -2604,6 +2604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpNow: 0
   jumpPower: 20
+
 --- !u!114 &1244729535
 MonoBehaviour:
   m_ObjectHideFlags: 0
