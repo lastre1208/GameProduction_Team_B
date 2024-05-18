@@ -9,6 +9,8 @@ TagManager:
   - MoveManager
   - Wave
   - Enemy
+  - OutsideWave
+  - InsideWave
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class JumpControl : MonoBehaviour
 {
-    public bool jumpNow;//今ジャンプしているか
+    [HideInInspector] public bool jumpNow;//今ジャンプしているか
     public float jumpPower=9f;//ジャンプ力
-    [SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
+    //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     Rigidbody rb;
     Player player;
 
@@ -15,7 +15,7 @@ public class JumpControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -35,21 +35,14 @@ public class JumpControl : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider t)
-    {
-        if ((Input.GetKey(KeyCode.JoystickButton5)||Input.GetKey(KeyCode.JoystickButton4)||Input.GetKey("space"))  && t.gameObject.CompareTag("Wave"))
-        {
-            player.ChargeTRICK();
-        }
-    }
-
     void Jump()//ジャンプしてない時のみジャンプ可能(ジャンプしたらジャンプしてる判定にする)、ジャンプ時のトリックの値に応じてジャンプの高さが変化する
     {
         if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4)||Input.GetKeyUp("space"))//スペースキーでジャンプする
         {
             if (jumpNow == true) return;
 
-            this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
+            //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
+            this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは一定
 
             jumpNow = true;
         }

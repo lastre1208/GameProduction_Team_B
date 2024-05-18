@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
         hp -= a;
     }
     
-    public void ChargeTRICK()//トリックを増やす
+    public void ChargeTRICK(float a)//トリックを増やす
     {
-        trick++;
+        trick+=a;
     }
 
     public void ConsumeTRICK()//トリックを0にする
