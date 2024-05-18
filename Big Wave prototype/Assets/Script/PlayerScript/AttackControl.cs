@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 public class AttackControl : MonoBehaviour
 {
-    [SerializeField] float damageAdjustment = 1f;//ダメージ調整係数
+    [SerializeField] float damageMax = 1f;//最大ダメージ(トリックを最大まで溜めた時のダメージ)
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
-    public bool attacked;//攻撃したかしていないかの判定
+    [HideInInspector] public bool attacked;//攻撃したかしていないかの判定
 
     // Start is called before the first frame update
     void Start()
     {
        attacked = false;
        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-       player = GameObject.FindWithTag("Player").GetComponent<Player>();
-       jumpcontrol = GameObject.FindWithTag("Player").GetComponent<JumpControl>();
+       player = gameObject.GetComponent<Player>();
+       jumpcontrol = gameObject.GetComponent<JumpControl>();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class AttackControl : MonoBehaviour
             {
                 if (enemy != null)
                 {
-                    enemy.Damage(player.trick * damageAdjustment);
+                    enemy.Damage(player.trick / player.trickMax * damageMax);
                 }
 
                 attacked = true;//攻撃した
