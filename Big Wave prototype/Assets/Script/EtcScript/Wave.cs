@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ozyama : MonoBehaviour
+public class Wave : MonoBehaviour
 {
-    [SerializeField] float deletetime = 4f;
+    [HideInInspector] public bool isTouched;//ÉvÉåÉCÉÑÅ[Ç…êGÇÍÇÁÇÍÇΩÇ©
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,11 @@ public class Ozyama : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, deletetime);
+        
+    }
+
+    public void Touched()
+    {
+        isTouched = true;
     }
 }
