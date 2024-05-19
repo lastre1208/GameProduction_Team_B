@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InstantiateWave : MonoBehaviour
 {
-    public float Add_y;
     [SerializeField] GameObject instantiateWavePos;//波の生成位置
     [SerializeField] GameObject outSideWave;//外側の波のプレハブ
     [SerializeField] GameObject inSideWave;//内側(中央)の波のプレハブ
@@ -34,7 +33,6 @@ public class InstantiateWave : MonoBehaviour
         outSideWaveTime += Time.deltaTime;
         if (outSideWaveTime > outSideWaveIntervalTime)
         {
-           
             outSideWaveTime = 0f;
             Instantiate(outSideWave, instantiateWavePos.transform.position, transform.rotation);
         }
