@@ -35,9 +35,9 @@ public class Player : MonoBehaviour
         trick+=a;
     }
 
-    public void ConsumeTRICK()//トリックを0にする
+    public void ConsumeTRICK(float a)//トリックを0にする
     {
-        trick = 0;
+        trick -= a;
     }
 
     void LimitHP()//体力が限界突破しないように
