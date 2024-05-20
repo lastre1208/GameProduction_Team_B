@@ -6,6 +6,7 @@ using UnityEngine;
 public class JumpControl : MonoBehaviour
 {
     [HideInInspector] public bool jumpNow;//今ジャンプしているか
+    private bool touchWaveNow=false;//現在波に触っているか
     public float jumpPower=9f;//ジャンプ力
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     Rigidbody rb;
@@ -21,13 +22,17 @@ public class JumpControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(touchWaveNow)//波に触れている間のみジャンプ可能
+        {
             Jump();//ジャンプ
+        }
+        
     }
 
     void OnCollisionEnter(Collision other)
     {
         
-        if (other.gameObject.CompareTag("Ground"))//床に触れた時ジャンプしてない判定にする
+        if (other.gameObject.CompareTag("Ground"))//床に触れた→ジャンプしていない
         {
             Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
             //player.ConsumeTRICK();
@@ -35,16 +40,33 @@ public class JumpControl : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("InsideWave")|| other.gameObject.CompareTag("OutsideWave"))//波に触れている
+        {
+            touchWaveNow = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("InsideWave") || other.gameObject.CompareTag("OutsideWave"))//波から出たら波に触れていない(判定)
+        {
+            touchWaveNow = false;
+        }
+    }
+
     void Jump()//ジャンプしてない時のみジャンプ可能(ジャンプしたらジャンプしてる判定にする)、ジャンプ時のトリックの値に応じてジャンプの高さが変化する
     {
         if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4)||Input.GetKeyUp("space"))//スペースキーでジャンプする
         {
-            if (jumpNow == true) return;
+            if (jumpNow == true) return;//既にジャンプしていたらジャンプできない
+
 
             //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
             this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは一定
 
-            jumpNow = true;
+            jumpNow = true;//ジャンプした
         }
       
     }
