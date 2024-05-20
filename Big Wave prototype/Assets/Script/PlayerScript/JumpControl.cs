@@ -6,7 +6,8 @@ using UnityEngine;
 public class JumpControl : MonoBehaviour
 {
     [HideInInspector] public bool jumpNow;//¡ƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚é‚©
-    private bool touchWaveNow=false;//Œ»İ”g‚ÉG‚Á‚Ä‚¢‚é‚©
+    [HideInInspector] public bool touchInsideWaveNow=false;//Œ»İ“à‘¤‚Ì”g‚ÉG‚Á‚Ä‚¢‚é‚©
+    [HideInInspector] public bool touchOutsideWaveNow = false;//Œ»İŠO‘¤‚Ì”g‚ÉG‚Á‚Ä‚¢‚é‚©
     public float jumpPower=9f;//ƒWƒƒƒ“ƒv—Í
     //[SerializeField] float jumpPowerAdjustment = 60f;//ƒWƒƒƒ“ƒv—Í’²®—pA¬‚³‚¢‚Ù‚ÇÅ‘åƒgƒŠƒbƒN‚ÌƒWƒƒƒ“ƒv‚Ì‚‚³‚ªã‚ª‚é
     Rigidbody rb;
@@ -22,7 +23,7 @@ public class JumpControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(touchWaveNow)//”g‚ÉG‚ê‚Ä‚¢‚éŠÔ‚Ì‚İƒWƒƒƒ“ƒv‰Â”\
+        if(touchInsideWaveNow||touchOutsideWaveNow)//”g‚ÉG‚ê‚Ä‚¢‚éŠÔ‚Ì‚İƒWƒƒƒ“ƒv‰Â”\
         {
             Jump();//ƒWƒƒƒ“ƒv
         }
@@ -42,17 +43,27 @@ public class JumpControl : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("InsideWave")|| other.gameObject.CompareTag("OutsideWave"))//”g‚ÉG‚ê‚Ä‚¢‚é
+        if(other.gameObject.CompareTag("InsideWave"))//“à‘¤‚Ì”g‚ÉG‚ê‚Ä‚¢‚é
         {
-            touchWaveNow = true;
+            touchInsideWaveNow = true;
+        }
+
+        else if(other.gameObject.CompareTag("OutsideWave"))//ŠO‘¤‚Ì”g‚ÉG‚ê‚Ä‚¢‚é
+        {
+            touchOutsideWaveNow = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("InsideWave") || other.gameObject.CompareTag("OutsideWave"))//”g‚©‚ço‚½‚ç”g‚ÉG‚ê‚Ä‚¢‚È‚¢(”»’è)
+        if (other.gameObject.CompareTag("InsideWave"))//“à‘¤‚Ì”g‚©‚ço‚½‚ç“à‘¤‚Ì”g‚ÉG‚ê‚Ä‚¢‚È‚¢(”»’è)
         {
-            touchWaveNow = false;
+            touchInsideWaveNow = false;
+        }
+
+        else if(other.gameObject.CompareTag("OutsideWave"))//ŠO‘¤‚Ì”g‚©‚ço‚½‚çŠO‘¤‚Ì”g‚ÉG‚ê‚Ä‚¢‚È‚¢(”»’è)
+        {
+            touchOutsideWaveNow = false;
         }
     }
 
