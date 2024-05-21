@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouched: 0
+  insideWave: 0
+  outsideWave: 1
