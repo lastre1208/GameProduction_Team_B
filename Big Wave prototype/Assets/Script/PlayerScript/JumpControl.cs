@@ -6,24 +6,24 @@ using UnityEngine;
 public class JumpControl : MonoBehaviour
 {
     [HideInInspector] public bool jumpNow;//今ジャンプしているか
-    [HideInInspector] public bool touchInsideWaveNow=false;//現在内側の波に触っているか
-    [HideInInspector] public bool touchOutsideWaveNow = false;//現在外側の波に触っているか
     public float jumpPower=9f;//ジャンプ力
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     Rigidbody rb;
+    TouchWave touchWave;
     Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        touchWave = gameObject.GetComponent<TouchWave>();
         player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(touchInsideWaveNow||touchOutsideWaveNow)//波に触れている間のみジャンプ可能
+        if(touchWave.touchWaveNow)//波に触れている間のみジャンプ可能
         {
             Jump();//ジャンプ
         }
@@ -38,32 +38,6 @@ public class JumpControl : MonoBehaviour
             Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
             //player.ConsumeTRICK();
             jumpNow = false;
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("InsideWave"))//内側の波に触れている
-        {
-            touchInsideWaveNow = true;
-        }
-
-        else if(other.gameObject.CompareTag("OutsideWave"))//外側の波に触れている
-        {
-            touchOutsideWaveNow = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("InsideWave"))//内側の波から出たら内側の波に触れていない(判定)
-        {
-            touchInsideWaveNow = false;
-        }
-
-        else if(other.gameObject.CompareTag("OutsideWave"))//外側の波から出たら外側の波に触れていない(判定)
-        {
-            touchOutsideWaveNow = false;
         }
     }
 
