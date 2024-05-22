@@ -10,14 +10,15 @@ public class ChargeTrickControl : MonoBehaviour
     [SerializeField] GameObject chargeSpark;//チャージ用の雷エフェクト
     private bool chargeNow=false;//今トリックをチャージしているか
     private float sinceLastChargeTime = 0.1f;//最後にチャージされてからの時間
-    TouchWave touchWave;
+    private float chargeBorderTime = 0.1f;//チャージしていない・しているの境界の時間
+    JudgeTouchWave touchWave;
     Player player;
     Wave wave;
   //コントローラーの接続を確認
     // Start is called before the first frame update
     void Start()
     {
-        touchWave = gameObject.GetComponent<TouchWave>();
+        touchWave = gameObject.GetComponent<JudgeTouchWave>();
         player = gameObject.GetComponent<Player>();
         chargeSpark.SetActive(false);
     }
@@ -37,7 +38,8 @@ public class ChargeTrickControl : MonoBehaviour
             wave = t.GetComponent<Wave>();
         }
 
-        if ((Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space")) && t.gameObject.CompareTag("InsideWave")&&wave.isTouched==false)//スペースキーやボタンを押している間チャージ、一度も触れていない内側の波からチャージする
+        //スペースキーやボタンを押している間チャージ、一度も触れていない内側の波からチャージする
+        if ((Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space")) && t.gameObject.CompareTag("InsideWave")&&wave.isTouched==false)
         {
             //トリックをチャージ、一度触れた波からはチャージできないようにする(触った判定にする)、チャージ用の雷エフェクトを表示
             player.ChargeTRICK(inSideChargeTrick);
@@ -46,7 +48,8 @@ public class ChargeTrickControl : MonoBehaviour
 
         }
 
-        else if((Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space")) && t.gameObject.CompareTag("OutsideWave") && wave.isTouched == false)//スペースキーやボタンを押している間チャージ、一度触れていない外側の波からチャージする
+        //スペースキーやボタンを押している間チャージ、一度触れていない外側の波からチャージする
+        else if ((Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space")) && t.gameObject.CompareTag("OutsideWave") && wave.isTouched == false)
         {
             //トリックをチャージ、一度触れた波からはチャージできないようにする(触った判定にする)、チャージ用の雷エフェクトを表示
             player.ChargeTRICK(outSideChargeTrick);
@@ -59,7 +62,7 @@ public class ChargeTrickControl : MonoBehaviour
     {
         sinceLastChargeTime += Time.deltaTime;
 
-        if (sinceLastChargeTime < 0.1f)
+        if (sinceLastChargeTime < chargeBorderTime)
         {
             chargeNow = true;
 

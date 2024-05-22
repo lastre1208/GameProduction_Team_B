@@ -9,14 +9,14 @@ public class JumpControl : MonoBehaviour
     public float jumpPower=9f;//ジャンプ力
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     Rigidbody rb;
-    TouchWave touchWave;
+    JudgeTouchWave touchWave;
     Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        touchWave = gameObject.GetComponent<TouchWave>();
+        touchWave = gameObject.GetComponent<JudgeTouchWave>();
         player = gameObject.GetComponent<Player>();
     }
 
@@ -35,7 +35,6 @@ public class JumpControl : MonoBehaviour
         
         if (other.gameObject.CompareTag("Ground"))//床に触れた→ジャンプしていない
         {
-            Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
             //player.ConsumeTRICK();
             jumpNow = false;
         }
