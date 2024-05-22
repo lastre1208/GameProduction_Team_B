@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class ChargeTrickControl : MonoBehaviour
 {
     //波の内側に波乗りしているときはoutSideChargeTrick、inSideChargeTrickの合計分トリックが増える
@@ -13,6 +13,7 @@ public class ChargeTrickControl : MonoBehaviour
     TouchWave touchWave;
     Player player;
     Wave wave;
+  //コントローラーの接続を確認
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +62,19 @@ public class ChargeTrickControl : MonoBehaviour
         if (sinceLastChargeTime < 0.1f)
         {
             chargeNow = true;
+
+            if (player.gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
+            {
+                player.gamepad.SetMotorSpeeds(0.35f, 0.35f);
+            }
+           
         }
         else
         {
             chargeNow = false;
+
+           player.gamepad.SetMotorSpeeds(0f,0f);//振動の解除！！！毎回必ず行う事！！！でないとゲーム止まっても振動し続ける事になる！！！
+
         }
     }
 
