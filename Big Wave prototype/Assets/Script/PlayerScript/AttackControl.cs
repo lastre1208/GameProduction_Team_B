@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class AttackControl : MonoBehaviour
 {
     [SerializeField] float strong_TrickCostPercent=50;//強攻撃時の消費トリック(プレイヤーの最大トリックのstrong_TrickCostPercent%分消費)
@@ -40,9 +41,11 @@ public class AttackControl : MonoBehaviour
         trickCost = player.trickMax * strong_TrickCostPercent / 100;//強攻撃時の消費トリック
         if ((Input.GetButtonDown("Fire1")||Input.GetKeyDown("j"))&& jumpcontrol.jumpNow == true&&trickCost<=player.trick&&enemy!=null)//JキーかXボタンを押した＆ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
         {
+            player.AttackVibration(1.0f);
             enemy.Damage(strong_Damage);
             attacked = true;//攻撃した
             player.ConsumeTRICK(trickCost);
+            
         }
     }
 
@@ -54,9 +57,11 @@ public class AttackControl : MonoBehaviour
         trickCost = player.trickMax * medium_TrickCostPercent / 100;//強攻撃時の消費トリック
         if ((Input.GetButtonDown("Fire2") || Input.GetKeyDown("k")) && jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//KキーかBボタンを押した＆ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
         {
+            player.AttackVibration(0.75f);
             enemy.Damage(medium_Damage);
             attacked = true;//攻撃した
             player.ConsumeTRICK(trickCost);
+            StopVibration();
         }
     }
 
@@ -68,9 +73,11 @@ public class AttackControl : MonoBehaviour
         trickCost = player.trickMax * weak_TrickCostPercent / 100;//強攻撃時の消費トリック
         if ((Input.GetButtonDown("Fire3") || Input.GetKeyDown("l")) && jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//LキーかAボタンを押した＆ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
         {
+            player.AttackVibration(0.4f);
             enemy.Damage(weak_Damage);
             attacked = true;//攻撃した
             player.ConsumeTRICK(trickCost);
+            StopVibration();
         }
     }
 
@@ -80,6 +87,14 @@ public class AttackControl : MonoBehaviour
         if (jumpcontrol.jumpNow == false)//水面に接地しているなら
         {
             attacked = false;//攻撃していない
+        }
+    }
+    private IEnumerator StopVibration()//振動を止める
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (player.gamepad != null)
+        {
+            player.gamepad.SetMotorSpeeds(0, 0);
         }
     }
 }
