@@ -20,6 +20,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
     [SerializeField] float shotHomingPower = 9f;//ƒz[ƒ~ƒ“ƒO‚µ‚È‚ª‚ç’e‚ğŒ‚‚Â—Í
     [SerializeField] float shotHighSlashPower = 9f;//aŒ‚‚ğŒ‚‚Â—Í
     [SerializeField] float shotWideWavePower = 9f;//‰¡‚ÉL‚¢ü”g‚ğŒ‚‚Â—Í
+    [SerializeField] Quaternion []attackRotation=new Quaternion [4];//‰¡‚ÉL‚¢ü”g‚ÌŠp“x
     public FormArray[] form;
 
     [System.Serializable]
@@ -70,7 +71,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
     }
     void ShotStraight()//’¼üó‚ÉŒ‚‚Â
     {
-        GameObject straightBullet = Instantiate(normalBulletPrefab, shotPos, transform.rotation);
+        GameObject straightBullet = Instantiate(normalBulletPrefab, shotPos, attackRotation[0]);
         bulletRb = straightBullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(-transform.forward * shotStraightPower, ForceMode.Impulse);
         Debug.Log("Straight");
@@ -79,7 +80,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
     void ShotHoming()//ƒz[ƒ~ƒ“ƒO‚µ‚È‚ª‚çŒ‚‚Â
     {
         Vector3 toPlayer = (player.transform.position - shotPos).normalized;
-        GameObject straightBullet = Instantiate(normalBulletPrefab, shotPos, transform.rotation);
+        GameObject straightBullet = Instantiate(normalBulletPrefab, shotPos, attackRotation[1]);
         bulletRb = straightBullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(toPlayer * shotHomingPower, ForceMode.Impulse);
         Debug.Log("Homing");
@@ -87,7 +88,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
 
     void ShotHighSlash()//‚‚¢aŒ‚‚ğŒ‚‚Â
     {
-        GameObject highSlashBullet = Instantiate(highSlashPrefab, shotPos, transform.rotation);
+        GameObject highSlashBullet = Instantiate(highSlashPrefab, shotPos, attackRotation[2]);
         bulletRb = highSlashBullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(-transform.forward * shotHighSlashPower, ForceMode.Impulse);
         Debug.Log("HighSlash");
@@ -95,7 +96,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
 
     void ShotWideWave()//‰¡‚ÉL‚¢ü”g‚ğŒ‚‚Â
     {
-        GameObject wideWaveBullet = Instantiate(WideWavePrefab, shotPos, transform.rotation);
+        GameObject wideWaveBullet = Instantiate(WideWavePrefab, shotPos, attackRotation[3]);
         bulletRb = wideWaveBullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(-transform.forward * shotWideWavePower, ForceMode.Impulse);
         Debug.Log("WideWave");

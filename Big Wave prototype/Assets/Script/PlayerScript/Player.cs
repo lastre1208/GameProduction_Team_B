@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class Player : MonoBehaviour
     public float hpMax = 100;//最大体力
     public float trick = 0;//現在のトリックゲージ
     public float trickMax = 50;//最大トリックゲージ
-   
-    
+    public Gamepad gamepad = Gamepad.current;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     {
         hp -= a;
     }
-    
+   
     public void ChargeTRICK(float a)//トリックを増やす
     {
         trick+=a;
@@ -55,6 +56,23 @@ public class Player : MonoBehaviour
             trick = trickMax;
         }
     }
+    public void AttackVibration(float a)//攻撃の強さに合わせて振動を強くする
+    {
+        if (gamepad != null)
+        { 
 
-    
+            gamepad.SetMotorSpeeds(a,a);
+        }
+    }
+    public void StopVibration()
+    {
+        if (gamepad != null)
+        { 
+
+            gamepad.SetMotorSpeeds(0,0);
+        }
+    }
+
+
+
 }
