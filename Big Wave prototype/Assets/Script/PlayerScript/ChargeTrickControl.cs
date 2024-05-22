@@ -76,8 +76,10 @@ public class ChargeTrickControl : MonoBehaviour
         {
             chargeNow = false;
 
-           player.gamepad.SetMotorSpeeds(0f,0f);//振動の解除！！！毎回必ず行う事！！！でないとゲーム止まっても振動し続ける事になる！！！
-
+            if (player.gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
+            {
+                player.gamepad.SetMotorSpeeds(0f, 0f);//振動の解除！！！毎回必ず行う事！！！でないとゲーム止まっても振動し続ける事になる！！！
+            }
         }
     }
 
