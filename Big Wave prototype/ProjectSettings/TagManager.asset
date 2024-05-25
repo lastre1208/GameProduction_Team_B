@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - OutsideWave
   - InsideWave
+  - SceneManager
   layers:
   - Default
   - TransparentFX
