@@ -36,4 +36,13 @@ public class SceneControlManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void EndGame()//ÉQÅ[ÉÄÇèIóπÇ∑ÇÈ
+    {
+      #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+      #else
+        Application.Quit();
+      #endif
+    }
 }
