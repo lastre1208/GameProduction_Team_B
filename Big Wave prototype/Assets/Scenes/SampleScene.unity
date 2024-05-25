@@ -2015,7 +2015,7 @@ GameObject:
   - component: {fileID: 654474180}
   m_Layer: 0
   m_Name: SceneManager
-  m_TagString: Untagged
+  m_TagString: SceneManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3609,6 +3609,7 @@ MonoBehaviour:
   outSideChargeTrick: 1
   inSideChargeTrick: 2
   chargeSpark: {fileID: 1722439556}
+  chargeNow: 0
 --- !u!114 &1244729538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,6 +3658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0c677a565ddc64d9419e3073d224a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeTrick_VibrationSpeed: 0.35
 --- !u!1 &1318383700
 GameObject:
   m_ObjectHideFlags: 0
