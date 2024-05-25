@@ -23,11 +23,7 @@ public class JumpControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(touchWave.touchWaveNow)//波に触れている間のみジャンプ可能
-        {
-            Jump();//ジャンプ
-        }
-        
+       
     }
 
     void OnCollisionEnter(Collision other)
@@ -40,13 +36,11 @@ public class JumpControl : MonoBehaviour
         }
     }
 
-    void Jump()//ジャンプしてない時のみジャンプ可能(ジャンプしたらジャンプしてる判定にする)、ジャンプ時のトリックの値に応じてジャンプの高さが変化する
+    public void Jump()//ジャンプ
     {
-        if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4)||Input.GetKeyUp("space"))//スペースキーでジャンプする
+        if (touchWave.touchWaveNow&&jumpNow==false)//ジャンプしていない時かつ波に触れているときのみジャンプ可能
         {
-            if (jumpNow == true) return;//既にジャンプしていたらジャンプできない
-
-
+            //if (jumpNow == true) return;
             //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
             this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは一定
 
