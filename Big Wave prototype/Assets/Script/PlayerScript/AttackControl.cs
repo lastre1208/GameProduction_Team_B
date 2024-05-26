@@ -10,7 +10,7 @@ public class AttackControl : MonoBehaviour
     [SerializeField] float strong_Damage = 100;//強攻撃時の敵に与えるダメージ
     [SerializeField] float medium_Damage = 60;//中攻撃時の敵に与えるダメージ
     [SerializeField] float weak_Damage = 20;//弱攻撃時の敵に与えるダメージ
-    private float trickCost;//消費トリック
+    [SerializeField] float trick_DamageFactor = 0.5f;//トリックをためた時のダメージの上昇具合、1、２、3、nだとそれぞれトリック満タン時、トリック空っぽの時のダメージの2、3、4、(1+1*n)倍になる
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
@@ -31,19 +31,26 @@ public class AttackControl : MonoBehaviour
         AttackedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
     }
 
+    //攻撃
+    void Attack(float strength_TrickCostPercent,float strength_Damage)
+    {
+        float trickPercentage = player.trick / player.trickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
+        float trickCost = player.trickMax * strength_TrickCostPercent / 100;//消費トリック
+        if (jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
+        {
+            //player.AttackVibration(1.0f);
+            enemy.Damage(strength_Damage * (1 + trickPercentage * trick_DamageFactor));
+            attacked = true;//攻撃した
+            player.ConsumeTRICK(trickCost);
+
+        }
+    }
+
     //強攻撃(ジャンプ中にJキーかXボタンを入力)
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
     public void Attack_Strong()
     {
-        trickCost = player.trickMax * strong_TrickCostPercent / 100;//強攻撃時の消費トリック
-        if (jumpcontrol.jumpNow == true&&trickCost<=player.trick&&enemy!=null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
-        {
-            //player.AttackVibration(1.0f);
-            enemy.Damage(strong_Damage);
-            attacked = true;//攻撃した
-            player.ConsumeTRICK(trickCost);
-            
-        }
+        Attack(strong_TrickCostPercent,strong_Damage);
     }
 
 
@@ -51,15 +58,7 @@ public class AttackControl : MonoBehaviour
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
     public void Attack_Medium()
     {
-        trickCost = player.trickMax * medium_TrickCostPercent / 100;//強攻撃時の消費トリック
-        if (jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
-        {
-            //player.AttackVibration(0.75f);
-            enemy.Damage(medium_Damage);
-            attacked = true;//攻撃した
-            player.ConsumeTRICK(trickCost);
-            //StopVibration();
-        }
+        Attack(medium_TrickCostPercent, medium_Damage);
     }
 
 
@@ -67,15 +66,7 @@ public class AttackControl : MonoBehaviour
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
     public void Attack_Weak()
     {
-        trickCost = player.trickMax * weak_TrickCostPercent / 100;//強攻撃時の消費トリック
-        if (jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
-        {
-            //player.AttackVibration(0.4f);
-            enemy.Damage(weak_Damage);
-            attacked = true;//攻撃した
-            player.ConsumeTRICK(trickCost);
-            //StopVibration();
-        }
+        Attack(weak_TrickCostPercent, weak_Damage);
     }
 
     //ジャンプしていない時攻撃していない判定にする
