@@ -481,8 +481,16 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0, w: 0}
   form:
-  - attackPatterns: 00000000
+  - attackPatterns: 0000000001000000
+    attackProbability:
+    - 2
+    - 1
+    attackProbabilitySum: 0
   - attackPatterns: 0200000003000000
+    attackProbability:
+    - 1
+    - 1
+    attackProbabilitySum: 0
 --- !u!114 &98503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,13 +503,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6209600c849b24586104e8350c2ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondForm: 1
-  secondFormHp: 500
   firstBeginAttackingTime: 5
-  minFirstFormBeginAttackingTime: 5
-  maxFirstFormBeginAttackingTime: 6
-  minSecondFormBeginAttackingTime: 2
-  maxSecondFormBeginAttackingTime: 4
+  form:
+  - formHp: 2000
+    minBeginAttackingTime: 5
+    maxBeginAttackingTime: 6
+  - formHp: 1000
+    minBeginAttackingTime: 3
+    maxBeginAttackingTime: 3.5
 --- !u!1 &138943755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,8 +3351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6caf9150bfd14283d02dd47d6c15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  hpMax: 100
+  hp: 1000000
+  hpMax: 1000000
   trick: 0
   trickMax: 200
 --- !u!65 &1244729526
