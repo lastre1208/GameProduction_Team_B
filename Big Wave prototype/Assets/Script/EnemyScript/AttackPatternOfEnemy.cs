@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum AttackPattern//攻撃を撃つパターン
+{
+    shotStraight,//直線状に撃つ
+    shotHoming,//ホーミングしながら撃つ
+    shotHighSlash,//高い斬撃を撃つ
+    shotWideWave//横に広い周波を撃つ
+}
+
+[System.Serializable]
+class FormAttackPattern//形態
+{
+    public AttackPattern[] attackPatterns;//攻撃パターン
+    public float[] attackProbability;//攻撃確率
+    [HideInInspector] public float attackProbabilitySum=0;//攻撃確率(attackProbability)の合計、攻撃をランダムに決める時に使う
+}
+
 public class AttackPatternOfEnemy : MonoBehaviour
 {
-    public enum AttackPattern//攻撃を撃つパターン
-    {
-        shotStraight,//直線状に撃つ
-        shotHoming,//ホーミングしながら撃つ
-        shotHighSlash,//高い斬撃を撃つ
-        shotWideWave//横に広い周波を撃つ
-    }
-
     [SerializeField] GameObject shotPosObject;//弾を撃ちだす位置
     [SerializeField] GameObject normalBulletPrefab;//直線状とホーミング撃ちに使う弾
     [SerializeField] GameObject highSlashPrefab;//高い斬撃
@@ -21,17 +29,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
     [SerializeField] float shotHighSlashPower = 9f;//斬撃を撃つ力
     [SerializeField] float shotWideWavePower = 9f;//横に広い周波を撃つ力
     [SerializeField] Quaternion []attackRotation=new Quaternion [4];//横に広い周波の角度
-    public FormArray[] form;
-
-    [System.Serializable]
-    public class FormArray
-    {
-        public AttackPattern[] attackPatterns;
-    }
-
-    //[SerializeField] AttackPattern[,] attackPatterns;//第一形態の敵の行動パターン(1行目は第一形態、2行目は第二形態)
-    //[SerializeField] AttackPattern[,] secondFormAttackPatterns;//第二形態の敵の行動パターン
-    private int attackPatternNumber;//これで敵の行動パターンを決める
+    [SerializeField] FormAttackPattern[] form;//形態ごとの攻撃パターンと攻撃確率の配列
     Rigidbody bulletRb;
     GameObject player;
     Vector3 shotPos;
@@ -40,6 +38,14 @@ public class AttackPatternOfEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+
+        for(int i=0; i<form.Length;i++)//それぞれの形態のattackProbabilitySumに値を入れる(初期化)
+        {
+            for(int j=0;j<form[i].attackProbability.Length ;j++)
+            {
+                form[i].attackProbabilitySum += form[i].attackProbability[j];
+            }
+        }
     }
 
     // Update is called once per frame
@@ -48,26 +54,43 @@ public class AttackPatternOfEnemy : MonoBehaviour
         
     }
 
-    public void Attack(int a)//攻撃を撃つ(第一形態の行動)、aは何形態目か(2まで)
+    public void Attack(int a)//攻撃を撃つ、aは何形態目か
     {
-        if(a==1)
+        //攻撃をランダムで決定(確率で実装予定)
+        float attackPatternNumber = Random.Range(0, form[a-1].attackProbabilitySum);
+        int attack = 0;//敵の攻撃パターン、どの攻撃パターンをするか決定するときに使用
+        float attackSum = 0;
+
+        //どの攻撃をするか決定するための処理
+        //
+        //
+        for (int i=0; i<form[a-1].attackPatterns.Length;i++)
         {
-            attackPatternNumber = Random.Range(0, form[0].attackPatterns.Length);
-        }
-        else if(a==2)
-        {
-            attackPatternNumber = Random.Range(0, form[1].attackPatterns.Length);
+            //その攻撃パターンの確率を足す
+            attackSum += form[a - 1].attackProbability[i];
+
+            //ランダムで出した値がattackSum未満であれば攻撃決定
+            if(attackPatternNumber<attackSum)
+            {
+                break;
+            }
+
+            //決まらなければ次の攻撃の判定へ
+            attack++;
         }
 
+        //攻撃を撃ちだす位置を取得
         shotPos = shotPosObject.transform.position;
 
-        switch(form[a-1].attackPatterns[attackPatternNumber])
+        //攻撃
+        switch (form[a - 1].attackPatterns[attack])
         {
             case AttackPattern.shotStraight: ShotStraight(); break;//直線状に撃つ
             case AttackPattern.shotHoming: ShotHoming(); break;//ホーミングしながら撃つ
             case AttackPattern.shotHighSlash: ShotHighSlash(); break;//高い斬撃を撃つ
             case AttackPattern.shotWideWave: ShotWideWave(); break;//横に広い周波を撃つ
         }
+       
     }
     void ShotStraight()//直線状に撃つ
     {

@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+class FormAttackTiming//形態
+{
+    public float formHp;//指定形態突入条件体力(この体力以下の時その形態突入)
+    public float minBeginAttackingTime;//敵が次に攻撃を始める最小時間
+    public float maxBeginAttackingTime;//敵が次に攻撃を始める最大時間
+}
+
 public class AttackTimingOfEnemy : MonoBehaviour
 {
-    [SerializeField] bool secondForm=false;//第二形態の有無
-    [SerializeField] float secondFormHp = 500;//第二形態突入条件体力(この体力未満の時第二形態突入)
     [SerializeField] float firstBeginAttackingTime = 5f;//敵が次に攻撃を始める時間(初回)
-    [SerializeField] float minFirstFormBeginAttackingTime = 0.1f;//敵が次に攻撃を始める最小時間(第一形態)
-    [SerializeField] float maxFirstFormBeginAttackingTime = 0.4f;//敵が次に攻撃を始める最大時間(第一形態)
-    [SerializeField] float minSecondFormBeginAttackingTime = 0.1f;//敵が次に攻撃を始める最小時間(第二形態)
-    [SerializeField] float maxSecondFormBeginAttackingTime = 0.4f;//敵が次に攻撃を始める最大時間(第二形態)
+    [SerializeField] FormAttackTiming[] form;//形態ごとの攻撃タイミングと突入条件体力の配列
     private float beginAttackingTime;//敵が次に攻撃を始める時間
     private float attackTime = 0f;//敵の攻撃を管理する時間
     AttackPatternOfEnemy attackPatternOfEnemy;
@@ -23,6 +27,8 @@ public class AttackTimingOfEnemy : MonoBehaviour
         enemy = gameObject.GetComponent<Enemy>();
         attackPatternOfEnemy = gameObject.GetComponent<AttackPatternOfEnemy>();
         beginAttackingTime = firstBeginAttackingTime;
+
+        form[0].formHp = enemy.hpMax;
     }
 
     // Update is called once per frame
@@ -35,18 +41,18 @@ public class AttackTimingOfEnemy : MonoBehaviour
     {
         attackTime += Time.deltaTime;
 
-        if(attackTime>beginAttackingTime&&enemy.hp<secondFormHp&&secondForm==true)//第二形態の行動
+        if(attackTime > beginAttackingTime)
         {
-            attackTime = 0f;
-            beginAttackingTime = Random.Range(minSecondFormBeginAttackingTime, maxSecondFormBeginAttackingTime);
-            attackPatternOfEnemy.Attack(2);
-        }
-
-        else if(attackTime>beginAttackingTime)//第一形態時の行動
-        {
-            attackTime = 0f;
-            beginAttackingTime = Random.Range(minFirstFormBeginAttackingTime, maxFirstFormBeginAttackingTime);
-            attackPatternOfEnemy.Attack(1);
+            for (int i = form.Length-1; 0<=i ; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
+            {
+                if (enemy.hp <= form[i].formHp)//i+1形態目の条件を確認
+                {
+                    attackTime = 0f;
+                    beginAttackingTime = Random.Range(form[i].minBeginAttackingTime, form[i].maxBeginAttackingTime);
+                    attackPatternOfEnemy.Attack(i+1);
+                    break;
+                }
+            }
         }
     }
 
