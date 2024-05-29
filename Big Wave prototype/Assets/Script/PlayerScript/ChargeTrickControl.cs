@@ -73,6 +73,7 @@ public class ChargeTrickControl : MonoBehaviour
         if(chargeNow&&touchWave.touchWaveNow)
         {
             chargeSpark.SetActive(true);
+           
         }
         else
         {
