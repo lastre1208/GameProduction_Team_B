@@ -15,6 +15,7 @@ public class AttackControl : MonoBehaviour
     Player player;
     JumpControl jumpcontrol;
     [HideInInspector] public bool attacked;//UŒ‚‚µ‚½‚©‚µ‚Ä‚¢‚È‚¢‚©‚Ì”»’è
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class AttackControl : MonoBehaviour
        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
        player = gameObject.GetComponent<Player>();
        jumpcontrol = gameObject.GetComponent<JumpControl>();
+      
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class AttackControl : MonoBehaviour
             enemy.Damage(strength_Damage * (1 + trickPercentage * trick_DamageFactor));
             attacked = true;//UŒ‚‚µ‚½
             player.ConsumeTRICK(trickCost);
-
+            player.audioSource.PlayOneShot(player.sound1);//Œø‰Ê‰¹‚ÌÄ¶
         }
     }
 

@@ -10,13 +10,15 @@ public class Player : MonoBehaviour
     public float trick = 0;//現在のトリックゲージ
     public float trickMax = 50;//最大トリックゲージ
     SceneControlManager sceneControlManager;
-
+    public AudioClip sound1;//攻撃に用いる効果音。改善の余地あり。
+   public AudioSource audioSource;//プレイヤーから音を出す為の処置。
     // Start is called before the first frame update
     void Start()
     {
         hp = hpMax;//ステータス初期化
         trick = 0;
         sceneControlManager = GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

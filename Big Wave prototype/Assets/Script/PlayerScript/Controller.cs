@@ -28,6 +28,8 @@ public class Controller : MonoBehaviour
         Jump();//ジャンプ
 
         Attack();//攻撃
+        
+        VibrateController_Charge();//振動
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,6 +38,8 @@ public class Controller : MonoBehaviour
         {
             ChargeTrick(other);//波に触れている間乗ってトリックをチャージ
         }
+      
+       
     }
 
     //移動関連
@@ -52,7 +56,10 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4) || Input.GetKeyUp("space"))
         {
             jumpControl.Jump();
+            StopVibration();
         }
+        
+       
     }
 
 
@@ -85,26 +92,30 @@ public class Controller : MonoBehaviour
     void ChargeTrick(Collider wavePrefab)//波に乗ってトリックをチャージ
     {
         //スペースキーやボタンを押している間チャージ
-        if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
+        if (Input.GetKey(KeyCode.JoystickButton5)  ||Input.GetKey(KeyCode.JoystickButton4)||  Input.GetKey("space"))
         {
             chargeTrickControl.ChargeTrick(wavePrefab);
         }
-
-        VibrateController_Charge();//チャージしている間コントローラーがバイブする
     }
 
-    void VibrateController_Charge()//チャージしている間コントローラーがバイブする
+    void VibrateController_Charge()//振動
     {
-        if(chargeTrickControl.chargeNow)
+        if (chargeTrickControl.chargeNow)
         {
-            if (gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
-            {
-                gamepad.SetMotorSpeeds(chargeTrick_VibrationSpeed, chargeTrick_VibrationSpeed);
-            }
+            Vibration_Charge();
         }
         else
         {
             StopVibration();
+        }
+    }
+
+    //バイブさせる(チャージ)
+    void Vibration_Charge()
+    {
+        if (gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
+        {
+            gamepad.SetMotorSpeeds(chargeTrick_VibrationSpeed, chargeTrick_VibrationSpeed);
         }
     }
 
@@ -116,4 +127,7 @@ public class Controller : MonoBehaviour
             gamepad.SetMotorSpeeds(0f, 0f);
         }
     }
+
+
+
 }
