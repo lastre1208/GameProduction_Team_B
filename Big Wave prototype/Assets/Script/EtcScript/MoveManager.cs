@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveManager : MonoBehaviour
 {
+    //™‰–‚ª‘‚¢‚½
     public float limitRange = 7f;//ˆÚ“®§ŒÀ”ÍˆÍ
     public float forwardSpeed = 16f;//‘O•ûˆÚ“®‘¬“x
     // Start is called before the first frame update

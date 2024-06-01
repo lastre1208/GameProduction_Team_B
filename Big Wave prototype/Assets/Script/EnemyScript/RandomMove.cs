@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomMove : MonoBehaviour
 {
+    //☆塩が書いた
     [SerializeField] float speedMin = 15f;//敵の動く最小スピード
     [SerializeField] float speedMax = 20f;//敵の動く最大スピード
     [SerializeField] float minChangeMoveTime = 0.1f;//敵の動きが変わる最小時間

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3360,8 +3360,6 @@ MonoBehaviour:
   hpMax: 100
   trick: 0
   trickMax: 200
-  sound1: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  audioSource: {fileID: 1244729541}
 --- !u!65 &1244729526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3548,6 +3546,7 @@ MonoBehaviour:
   medium_Damage: 60
   weak_Damage: 20
   trick_DamageFactor: 1.5
+  attackSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
   attacked: 0
 --- !u!108 &1244729536
 Light:

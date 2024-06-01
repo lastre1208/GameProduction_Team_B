@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstantiateBuildings : MonoBehaviour
 {
+    //☆桑原君が書いた
     [SerializeField] GameObject buildingsPrefab;//ビルのプレハブ
     [SerializeField] GameObject buildingsGroundPrefab;//ビルの地面部のプレハブ
     [SerializeField] float buildingsPrefabPosX = -37f;//生成するビルのX軸の座標（調整用）

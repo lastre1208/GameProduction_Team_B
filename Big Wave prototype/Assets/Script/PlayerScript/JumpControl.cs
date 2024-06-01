@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class JumpControl : MonoBehaviour
 {
+    //☆塩が書いた
     [HideInInspector] public bool jumpNow;//今ジャンプしているか
     public float jumpPower=9f;//ジャンプ力
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
@@ -42,7 +43,7 @@ public class JumpControl : MonoBehaviour
         {
             //if (jumpNow == true) return;
             //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
-            this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは一定
+            this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
 
             jumpNow = true;//ジャンプした
         }

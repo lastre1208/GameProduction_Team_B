@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //™‰–‚ª‘‚¢‚½
     public float hp = 1000f;//“G‚ÌHP
     public float hpMax = 1000f;//“G‚ÌÅ‘åHP
     SceneControlManager sceneControlManager;

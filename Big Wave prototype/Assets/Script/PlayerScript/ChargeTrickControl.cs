@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChargeTrickControl : MonoBehaviour
 {
+    //☆塩が書いた
     //波の内側に波乗りしているときはoutSideChargeTrick、inSideChargeTrickの合計分トリックが増える
     [SerializeField] float outSideChargeTrick=1;//波の外側に波乗りした時に溜まるトリックの値
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
@@ -31,28 +32,34 @@ public class ChargeTrickControl : MonoBehaviour
         JudgeChargeNow();//今チャージしているか判定
     }
 
-    public void ChargeTrick(Collider wavePrefab)
+    //波に触れてトリックをチャージ
+    public void ChargeTrickTouchingWave(Collider wavePrefab)
     {
         wave = wavePrefab.GetComponent<Wave>();//Waveの情報(isTouched)を取得
 
         //一度も触れていない内側の波からチャージする
         if (wavePrefab.CompareTag("InsideWave") && wave.isTouched == false)
         {
-            //トリックをチャージ、一度触れた波からはチャージできないようにする(触った判定にする)、チャージ用の雷エフェクトを表示
-            player.ChargeTRICK(inSideChargeTrick);
-            wave.isTouched = true;
-            sinceLastChargeTime = 0f;
+            ProcessingChargeTrick(inSideChargeTrick);
         }
 
         //一度触れていない外側の波からチャージする
         else if (wavePrefab.CompareTag("OutsideWave") && wave.isTouched == false)
         {
-            //トリックをチャージ、一度触れた波からはチャージできないようにする(触った判定にする)、チャージ用の雷エフェクトを表示
-            player.ChargeTRICK(outSideChargeTrick);
-            wave.isTouched = true;
-            sinceLastChargeTime = 0f;
+            ProcessingChargeTrick(outSideChargeTrick);
         }
     }
+
+    //波に触れてトリックをチャージするときの内部の処理
+    //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
+    void ProcessingChargeTrick(float a)
+    {
+        player.ChargeTRICK(a);//トリックをチャージ
+        wave.isTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
+        sinceLastChargeTime = 0f;//今チャージしている判定にする
+    }
+
+
 
     void JudgeChargeNow()//今チャージしているか判定
     {
@@ -68,12 +75,13 @@ public class ChargeTrickControl : MonoBehaviour
         }
     }
 
+
+
     void DisplayChargeSpark()//波に触っているかつトリックをチャージしている時のみチャージ用の雷エフェクトを表示
     {
         if(chargeNow&&touchWave.touchWaveNow)
         {
             chargeSpark.SetActive(true);
-           
         }
         else
         {

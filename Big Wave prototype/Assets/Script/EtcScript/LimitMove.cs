@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LimitMove : MonoBehaviour
 {
+    //™‰–‚ª‘‚¢‚½
     MoveManager movemanager;
 
     // Start is called before the first frame update

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ControlGamespeed : MonoBehaviour
 {
+    //☆桑原君が書いた
     private float nomalSpeedRatio = 1.0f;//通常時のゲームスピード倍率
     [SerializeField] float speedRatio = 0.5f;//ジャンプ時のゲームスピード遅延倍率
     JumpControl playerJump;//プレイヤーが飛んでいるかどうか

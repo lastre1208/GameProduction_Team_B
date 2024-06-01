@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StatusDisplay : MonoBehaviour
 {
+    //☆塩が書いた
     [SerializeField] GameObject playerOfHpGauge;//プレイヤーのHPゲージ
     [SerializeField] GameObject playerOfTrickGauge;//プレイヤーのトリックゲージ
     [SerializeField] GameObject enemyOfHpGauge;//敵のHPゲージ

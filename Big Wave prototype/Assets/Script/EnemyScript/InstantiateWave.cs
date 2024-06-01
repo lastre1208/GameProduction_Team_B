@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstantiateWave : MonoBehaviour
 {
+    //☆塩が書いた
     [SerializeField] GameObject instantiateWavePos;//波の生成位置
     [SerializeField] GameObject outSideWave;//外側の波のプレハブ
     [SerializeField] GameObject inSideWave;//内側(中央)の波のプレハブ
