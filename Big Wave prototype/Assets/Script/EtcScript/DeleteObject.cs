@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeleteObject : MonoBehaviour
 {
+    //™‰–‚ª‘‚¢‚½
     [SerializeField] float deleteTime = 4f;
     
     void Start()

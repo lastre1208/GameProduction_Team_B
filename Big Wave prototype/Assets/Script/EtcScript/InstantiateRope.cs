@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstantiateRope : MonoBehaviour
 {
+    //™ŒKŒ´ŒN‚ª‘‚¢‚½
     Enemy enemy;
     Player player;
 

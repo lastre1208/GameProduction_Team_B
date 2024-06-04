@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class ResultDisplay : MonoBehaviour
 {
+    //™•Ÿ“‡ŒN‚ª‘‚¢‚½
     public TMP_Text Result_UI;
    
     // Start is called before the first frame update

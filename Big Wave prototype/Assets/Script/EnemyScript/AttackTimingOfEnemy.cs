@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//™‰–‚ª‘‚¢‚½
 
 [System.Serializable]
 class FormAttackTiming//Œ`‘Ô

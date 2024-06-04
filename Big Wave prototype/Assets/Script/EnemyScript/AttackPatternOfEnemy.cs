@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//☆塩が書いた
 
 enum AttackPattern//攻撃を撃つパターン
 {
@@ -56,7 +57,7 @@ public class AttackPatternOfEnemy : MonoBehaviour
 
     public void Attack(int a)//攻撃を撃つ、aは何形態目か
     {
-        //攻撃をランダムで決定(確率で実装予定)
+        //攻撃をランダムで決定
         float attackPatternNumber = Random.Range(0, form[a-1].attackProbabilitySum);
         int attack = 0;//敵の攻撃パターン、どの攻撃パターンをするか決定するときに使用
         float attackSum = 0;

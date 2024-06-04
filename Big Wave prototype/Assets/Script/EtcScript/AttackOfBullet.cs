@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackOfBullet : MonoBehaviour
 {
+    //☆塩が書いた
     [SerializeField] float damage;//ダメージ量
     [SerializeField] bool ifHitDestroy=true;//プレイヤーに当たった時に弾を消すか
     Player player;

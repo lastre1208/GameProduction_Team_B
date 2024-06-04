@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
+    //™‰–‚ª‘‚¢‚½
     [HideInInspector] public bool isTouched;//ƒvƒŒƒCƒ„[‚ÉG‚ê‚ç‚ê‚½‚©
    
-
     // Start is called before the first frame update
     void Start()
     {

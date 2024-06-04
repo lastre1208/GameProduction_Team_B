@@ -5,20 +5,18 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    //☆塩が書いた
     public float hp = 100;//現在の体力
     public float hpMax = 100;//最大体力
     public float trick = 0;//現在のトリックゲージ
     public float trickMax = 50;//最大トリックゲージ
     SceneControlManager sceneControlManager;
-    public AudioClip sound1;//攻撃に用いる効果音。改善の余地あり。
-   public AudioSource audioSource;//プレイヤーから音を出す為の処置。
     // Start is called before the first frame update
     void Start()
     {
         hp = hpMax;//ステータス初期化
         trick = 0;
         sceneControlManager = GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,12 +34,12 @@ public class Player : MonoBehaviour
         hp -= a;
     }
    
-    public void ChargeTRICK(float a)//トリックを増やす
+    public void ChargeTRICK(float a)//トリックを増やす(チャージ)
     {
         trick+=a;
     }
 
-    public void ConsumeTRICK(float a)//トリックをa分消費する
+    public void ConsumeTRICK(float a)//トリックをa消費する
     {
         trick -= a;
     }
@@ -62,7 +60,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Dead()//敵プレイヤー死亡時ゲームオーバーシーンに移行
+    void Dead()//プレイヤー死亡時ゲームオーバーシーンに移行
     {
         if(hp<=0)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RopeEffect : MonoBehaviour
 {
+    //☆桑原君が書いた
     Enemy enemy;
     Player player;
     LineRenderer lineRenderer; // LineRendererコンポーネント

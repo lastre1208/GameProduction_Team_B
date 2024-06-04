@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
+    //☆塩が書いた
     [SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックチャージ時のバイブの速さ
     MoveControl moveControl;
     JumpControl jumpControl;
@@ -29,7 +30,7 @@ public class Controller : MonoBehaviour
 
         Attack();//攻撃
         
-        VibrateController_Charge();//振動
+        VibrateController_Charge();//チャージしている間コントローラが振動
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,9 +39,8 @@ public class Controller : MonoBehaviour
         {
             ChargeTrick(other);//波に触れている間乗ってトリックをチャージ
         }
-      
-       
     }
+
 
     //移動関連
     void Move()//プレイヤーの動き
@@ -48,6 +48,7 @@ public class Controller : MonoBehaviour
         //左右キーか右スティック(左右に動かす)でキャラが左右に動く
         moveControl.Move();
     }
+
 
     //ジャンプ関連
     void Jump()//ジャンプ
@@ -58,8 +59,6 @@ public class Controller : MonoBehaviour
             jumpControl.Jump();
             StopVibration();
         }
-        
-       
     }
 
 
@@ -94,28 +93,31 @@ public class Controller : MonoBehaviour
         //スペースキーやボタンを押している間チャージ
         if (Input.GetKey(KeyCode.JoystickButton5)  ||Input.GetKey(KeyCode.JoystickButton4)||  Input.GetKey("space"))
         {
-            chargeTrickControl.ChargeTrick(wavePrefab);
+            chargeTrickControl.ChargeTrickTouchingWave(wavePrefab);
         }
     }
 
-    void VibrateController_Charge()//振動
+    void VibrateController_Charge()//チャージしている間コントローラが振動
     {
         if (chargeTrickControl.chargeNow)
         {
-            Vibration_Charge();
+            Vibration(chargeTrick_VibrationSpeed);//バイブさせる
         }
         else
         {
-            StopVibration();
+            StopVibration();//バイブを止める
         }
     }
 
-    //バイブさせる(チャージ)
-    void Vibration_Charge()
+
+    //バイブ関連
+    //バイブさせる
+    //a(引数)にはバイブのスピードを入れる(0～1fまで)
+    void Vibration(float a)
     {
         if (gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
         {
-            gamepad.SetMotorSpeeds(chargeTrick_VibrationSpeed, chargeTrick_VibrationSpeed);
+            gamepad.SetMotorSpeeds(a, a);
         }
     }
 

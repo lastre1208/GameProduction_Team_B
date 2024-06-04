@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ForwardMove : MonoBehaviour
 {
+    //☆塩が書いた
     MoveManager movemanager;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class ForwardMove : MonoBehaviour
     }
 
     //前方移動
-    //MoveManagerのforwardspeedによって前に進むスピードが違う
+    //MoveManagerのforwardspeedの速さで前に進む
     void Move()
     {
         Vector3 move = Vector3.forward;

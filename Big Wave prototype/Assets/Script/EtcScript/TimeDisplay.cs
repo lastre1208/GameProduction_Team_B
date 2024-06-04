@@ -3,7 +3,7 @@ using TMPro;
 
 public class TimeDisplay : MonoBehaviour
 {
-   
+   //☆福島君が書いた
     public TMP_Text Time_UI;//表示させるテキスト
     public static float seconds;//秒
     public static int minute;//分
