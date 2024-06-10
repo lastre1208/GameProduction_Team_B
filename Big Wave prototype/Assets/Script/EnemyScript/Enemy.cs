@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+//™‰–‚ª‘‚¢‚½
+
+class Enemy : MonoBehaviour
 {
-    //™‰–‚ª‘‚¢‚½
-    public float hp = 1000f;//“G‚ÌHP
+    [Header("¥“G‚ÌHP")]
+    [HideInInspector] public float hp = 1000f;//“G‚ÌHP
+    [Header("¥“G‚ÌÅ‘åHP")]
     public float hpMax = 1000f;//“G‚ÌÅ‘åHP
     SceneControlManager sceneControlManager;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         hp = hpMax;
         sceneControlManager= GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
