@@ -286,8 +286,8 @@ GameObject:
   - component: {fileID: 98503825}
   - component: {fileID: 98503827}
   - component: {fileID: 98503826}
-  - component: {fileID: 98503829}
   - component: {fileID: 98503828}
+  - component: {fileID: 98503829}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -395,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2234283f10fc27a49a8c477c86f7b6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2000
-  hpMax: 2000
+  hp: 4000
+  hpMax: 4000
 --- !u!114 &98503824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,8 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMin: 15
   speedMax: 20
-  minChangeMoveTime: 0.1
-  maxChangeMoveTime: 0.4
+  directionProbability: 60
 --- !u!114 &98503828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,33 +465,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bfed023e96635418b1262a6a3d4fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPosObject: {fileID: 1110614296}
-  normalBulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
-  highSlashPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
-  WideWavePrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
-  shotStraightPower: 17
-  shotHomingPower: 17
-  shotHighSlashPower: 17
-  shotWideWavePower: 13
-  attackRotation:
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 1}
-  - {x: 0, y: 0, z: 0, w: 1}
-  - {x: 0, y: 0, z: 0, w: 0}
-  form:
-  - attackPatterns: 0000000001000000
-    attackProbability:
-    - 2
-    - 1
-    attackProbabilitySum: 0
-  - attackPatterns: 02000000030000000000000001000000
-    attackProbability:
-    - 4
-    - 2
-    - 1
-    - 1
-    attackProbabilitySum: 0
+  firstBeginActTime: 1
+  forms:
+  - actionPatterns:
+    - action: 4
+      actionProbability: 70
+      nextBeginActTime: 0.4
+    - action: 0
+      actionProbability: 10
+      nextBeginActTime: 0.4
+    - action: 1
+      actionProbability: 5
+      nextBeginActTime: 0.4
+    - action: 9
+      actionProbability: 4
+      nextBeginActTime: 0.7
+    - action: 5
+      actionProbability: 3
+      nextBeginActTime: 0.3
+    - action: 6
+      actionProbability: 3
+      nextBeginActTime: 0.3
+    formHp: 4000
+  - actionPatterns:
+    - action: 4
+      actionProbability: 82
+      nextBeginActTime: 0.15
+    - action: 2
+      actionProbability: 9.5
+      nextBeginActTime: 0.4
+    - action: 3
+      actionProbability: 1
+      nextBeginActTime: 1
+    - action: 7
+      actionProbability: 7
+      nextBeginActTime: 0.3
+    - action: 8
+      actionProbability: 0.5
+      nextBeginActTime: 0.6
+    formHp: 2000
 --- !u!114 &98503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,17 +513,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 98503817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b6209600c849b24586104e8350c2ff7, type: 3}
+  m_Script: {fileID: 11500000, guid: 54121df538f172c4ab1f7fcb0e501da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstBeginAttackingTime: 5
-  form:
-  - formHp: 2000
-    minBeginAttackingTime: 5
-    maxBeginAttackingTime: 6
-  - formHp: 1000
-    minBeginAttackingTime: 1
-    maxBeginAttackingTime: 2
+  shotPosObject: {fileID: 1110614296}
+  normalBulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
+  homingBulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
+  highSlashPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
+  wideWavePrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
+  shotStraightPower: 17
+  shotHomingPower: 17
+  shotHighSlashPower: 17
+  shotWideWavePower: 13
 --- !u!1 &138943755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2729,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 163e0244ce5d73b468edba4037a73413, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.175
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
