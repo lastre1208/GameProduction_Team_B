@@ -23,7 +23,7 @@ public class InstantiateRope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy.hp <= 0 || player.hp <= 0)//敵かプレイヤーのhpが0以下になったら
+        if (enemy.Hp <= 0 || player.Hp <= 0)//敵かプレイヤーのhpが0以下になったら
         {
             Destroy(ropeInstance);//ロープ消滅
         }

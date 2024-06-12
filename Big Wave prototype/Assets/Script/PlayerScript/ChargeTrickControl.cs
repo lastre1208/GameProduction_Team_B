@@ -9,13 +9,18 @@ public class ChargeTrickControl : MonoBehaviour
     [SerializeField] float outSideChargeTrick=1;//波の外側に波乗りした時に溜まるトリックの値
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
     [SerializeField] GameObject chargeSpark;//チャージ用の雷エフェクト
-    [HideInInspector] public bool chargeNow=false;//今トリックをチャージしているか
+    private bool chargeNow=false;//今トリックをチャージしているか
     private float sinceLastChargeTime = 0.1f;//最後にチャージされてからの時間
     private float chargeBorderTime = 0.1f;//チャージしていない・しているの境界の時間
     JudgeTouchWave touchWave;
     Player player;
     Wave wave;
-  //コントローラーの接続を確認
+  
+    public bool ChargeNow
+    {
+        get { return chargeNow; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +43,13 @@ public class ChargeTrickControl : MonoBehaviour
         wave = wavePrefab.GetComponent<Wave>();//Waveの情報(isTouched)を取得
 
         //一度も触れていない内側の波からチャージする
-        if (wavePrefab.CompareTag("InsideWave") && wave.isTouched == false)
+        if (wavePrefab.CompareTag("InsideWave") && wave.IsTouched == false)
         {
             ProcessingChargeTrick(inSideChargeTrick);
         }
 
         //一度触れていない外側の波からチャージする
-        else if (wavePrefab.CompareTag("OutsideWave") && wave.isTouched == false)
+        else if (wavePrefab.CompareTag("OutsideWave") && wave.IsTouched == false)
         {
             ProcessingChargeTrick(outSideChargeTrick);
         }
@@ -54,8 +59,8 @@ public class ChargeTrickControl : MonoBehaviour
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a)
     {
-        player.ChargeTRICK(a);//トリックをチャージ
-        wave.isTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
+        player.Trick+=a;//トリックをチャージ
+        wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
         sinceLastChargeTime = 0f;//今チャージしている判定にする
     }
 
@@ -79,7 +84,7 @@ public class ChargeTrickControl : MonoBehaviour
 
     void DisplayChargeSpark()//波に触っているかつトリックをチャージしている時のみチャージ用の雷エフェクトを表示
     {
-        if(chargeNow&&touchWave.touchWaveNow)
+        if(ChargeNow&&touchWave.TouchWaveNow)
         {
             chargeSpark.SetActive(true);
         }

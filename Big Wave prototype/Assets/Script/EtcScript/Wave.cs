@@ -5,8 +5,14 @@ using UnityEngine;
 public class Wave : MonoBehaviour
 {
     //☆塩が書いた
-    [HideInInspector] public bool isTouched;//プレイヤーに触れられたか
-   
+    private bool isTouched;//プレイヤーに触れられたか
+
+    public bool IsTouched
+    {
+        get { return isTouched; }
+        set { isTouched = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +24,4 @@ public class Wave : MonoBehaviour
     {
         
     }
-
-    public void Touched()
-    {
-        isTouched = true;
-    }
-
 }

@@ -99,7 +99,7 @@ public class Controller : MonoBehaviour
 
     void VibrateController_Charge()//チャージしている間コントローラが振動
     {
-        if (chargeTrickControl.chargeNow)
+        if (chargeTrickControl.ChargeNow)
         {
             Vibration(chargeTrick_VibrationSpeed);//バイブさせる
         }

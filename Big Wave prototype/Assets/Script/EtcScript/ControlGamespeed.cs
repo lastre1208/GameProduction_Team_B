@@ -25,7 +25,7 @@ public class ControlGamespeed : MonoBehaviour
 
     void Change_GameSpeed()//ゲームスピードの変化
     {
-        if (playerJump.jumpNow == true && playerAttack.attacked == false)
+        if (playerJump.JumpNow == true && playerAttack.Attacked == false)
             //プレイヤーがジャンプ中かつトリックボタンが押されていない場合
         {
             Time.timeScale = speedRatio;//slowratioの値で倍率調整（小さくするほど遅くなる）
