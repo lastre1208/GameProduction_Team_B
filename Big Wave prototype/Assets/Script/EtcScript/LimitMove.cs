@@ -25,7 +25,7 @@ public class LimitMove : MonoBehaviour
     void MoveLimit() 
     {
         Vector3 currentPlayerPos = transform.position;
-        currentPlayerPos.x = Mathf.Clamp(currentPlayerPos.x, -movemanager.limitRange, movemanager.limitRange);
+        currentPlayerPos.x = Mathf.Clamp(currentPlayerPos.x, -movemanager.LimitRange, movemanager.LimitRange);
         transform.position = currentPlayerPos;
     }
 

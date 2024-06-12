@@ -25,7 +25,7 @@ public class AttackOfBullet : MonoBehaviour
         if(t.gameObject.CompareTag("Player"))
         {
             player= t.GetComponent<Player>();
-            player.Damage(damage);
+            player.Hp-=damage;
             if(ifHitDestroy)
             {
                 Destroy(gameObject);

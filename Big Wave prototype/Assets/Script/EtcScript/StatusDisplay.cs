@@ -31,13 +31,13 @@ public class StatusDisplay : MonoBehaviour
 
     void PlayerOfHPGage()//プレイヤーのHPゲージの処理
     {
-        float hpratio = player.hp / player.hpMax;
+        float hpratio = player.Hp / player.HpMax;
         playerOfHpGauge.GetComponent<Image>().fillAmount = hpratio;
     }
 
     void PlayerOfTRICKGage()//プレイヤーのトリックゲージの処理
     {
-        float trickratio = player.trick / player.trickMax;
+        float trickratio = player.Trick / player.TrickMax;
         playerOfTrickGauge.GetComponent<Image>().fillAmount = trickratio;
     }
 
@@ -45,7 +45,7 @@ public class StatusDisplay : MonoBehaviour
     {
         if (enemy != null)
         {
-            float enemy_hpratio = enemy.hp / enemy.hpMax;
+            float enemy_hpratio = enemy.Hp / enemy.HpMax;
             enemyOfHpGauge.GetComponent<Image>().fillAmount = enemy_hpratio;
         }
     }

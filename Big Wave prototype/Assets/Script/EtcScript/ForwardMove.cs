@@ -23,6 +23,6 @@ public class ForwardMove : MonoBehaviour
     void Move()
     {
         Vector3 move = Vector3.forward;
-        transform.Translate(move * Time.deltaTime * movemanager.forwardSpeed);
+        transform.Translate(move * Time.deltaTime * movemanager.ForwardSpeed);
     }
 }

@@ -13,14 +13,19 @@ public class AttackControl : MonoBehaviour
     [SerializeField] float weak_Damage = 20;//弱攻撃時の敵に与えるダメージ
     [SerializeField] float trick_DamageFactor = 0.5f;//トリックをためた時のダメージの上昇具合、1、２、3、nだとそれぞれトリック満タン時、トリック空っぽの時のダメージの2、3、4、(1+1*n)倍になる
     //☆福島君が書いた
-    public AudioClip attackSound;//攻撃に用いる効果音。改善の余地あり
+    [SerializeField] AudioClip attackSound;//攻撃に用いる効果音。改善の余地あり
+    private bool attacked;//攻撃したかしていないかの判定
    　AudioSource audioSource;//プレイヤーから音を出す為の処置。
     //
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
-    [HideInInspector] public bool attacked;//攻撃したかしていないかの判定
+   
     
+    public bool Attacked
+    {
+        get { return attacked; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,17 +48,17 @@ public class AttackControl : MonoBehaviour
     //攻撃
     void Attack(float strength_TrickCostPercent,float strength_Damage)
     {
-        float trickPercentage = player.trick / player.trickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
-        float trickCost = player.trickMax * strength_TrickCostPercent / 100;//消費トリック
-        if (jumpcontrol.jumpNow == true && trickCost <= player.trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
+        float trickPercentage = player.Trick / player.TrickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
+        float trickCost = player.TrickMax * strength_TrickCostPercent / 100;//消費トリック
+        if (jumpcontrol.JumpNow == true && trickCost <= player.Trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
         {
             //player.AttackVibration(1.0f);
             //☆福島君が書いた
             audioSource.PlayOneShot(attackSound);//効果音の再生
             //
-            enemy.Damage(strength_Damage * (1 + trickPercentage * trick_DamageFactor));//トリックがたまっているときほどダメージが上昇するようになっている
+            enemy.Hp-=strength_Damage * (1 + trickPercentage * trick_DamageFactor);//トリックがたまっているときほどダメージが上昇するようになっている
             attacked = true;//攻撃した
-            player.ConsumeTRICK(trickCost);//トリック消費
+            player.Trick-=trickCost;//トリック消費
         }
     }
 
@@ -84,7 +89,7 @@ public class AttackControl : MonoBehaviour
     //ジャンプしていない時攻撃していない判定にする
     void AttackedtoFalseNoJump()
     {
-        if (jumpcontrol.jumpNow == false)//水面に接地しているなら
+        if (jumpcontrol.JumpNow == false)//水面に接地しているなら
         {
             attacked = false;//攻撃していない
         }

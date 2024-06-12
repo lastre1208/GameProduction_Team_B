@@ -6,11 +6,34 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     //☆塩が書いた
-    public float hp = 100;//現在の体力
-    public float hpMax = 100;//最大体力
-    public float trick = 0;//現在のトリックゲージ
-    public float trickMax = 50;//最大トリックゲージ
+    private float hp = 100;//現在の体力
+    [SerializeField] float hpMax = 100;//最大体力
+    private float trick = 0;//現在のトリックゲージ
+    [SerializeField] float trickMax = 200;//最大トリックゲージ
     SceneControlManager sceneControlManager;
+
+    public float Hp
+    {
+        get { return hp; }
+        set { hp = value; }
+    }
+
+    public float HpMax
+    {
+       get { return hpMax; }
+    }
+
+    public float Trick
+    {
+        get { return trick; }
+        set { trick = value; }
+    }
+
+    public float TrickMax
+    {
+        get { return trickMax; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,47 +45,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LimitHP();//体力が限界突破しないように
+        Mathf.Clamp(hp,0,hpMax);//体力が限界突破しないように
 
-        LimitTRICK();//トリックが限界突破しないように
+        Mathf.Clamp(trick, 0, trickMax);//トリックが限界突破しないように
 
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
 
-    public void Damage(float a)//プレイヤーにダメージを与える(aの値分与える)
-    {
-        hp -= a;
-    }
-   
-    public void ChargeTRICK(float a)//トリックを増やす(チャージ)
-    {
-        trick+=a;
-    }
-
-    public void ConsumeTRICK(float a)//トリックをa消費する
-    {
-        trick -= a;
-    }
-
-    void LimitHP()//体力が限界突破しないように
-    {
-        if (hp > hpMax)
-        {
-            hp = hpMax;
-        }
-    }
-
-    void LimitTRICK()//トリックが限界突破しないように
-    {
-        if (trick > trickMax)
-        {
-            trick = trickMax;
-        }
-    }
-
     void Dead()//プレイヤー死亡時ゲームオーバーシーンに移行
     {
-        if(hp<=0)
+        if(hp <=0)
         {
             sceneControlManager.ChangeGameoverScene();
         }

@@ -6,12 +6,17 @@ using UnityEngine;
 public class JumpControl : MonoBehaviour
 {
     //☆塩が書いた
-    [HideInInspector] public bool jumpNow;//今ジャンプしているか
-    public float jumpPower=9f;//ジャンプ力
+    [SerializeField] float jumpPower=9f;//ジャンプ力
+    private bool jumpNow;//今ジャンプしているか
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     Rigidbody rb;
     JudgeTouchWave touchWave;
     Player player;
+
+    public bool JumpNow
+    {
+        get { return jumpNow; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +44,7 @@ public class JumpControl : MonoBehaviour
 
     public void Jump()//ジャンプ
     {
-        if (touchWave.touchWaveNow&&jumpNow==false)//ジャンプしていない時かつ波に触れているときのみジャンプ可能
+        if (touchWave.TouchWaveNow&&JumpNow==false)//ジャンプしていない時かつ波に触れているときのみジャンプ可能
         {
             //if (jumpNow == true) return;
             //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)

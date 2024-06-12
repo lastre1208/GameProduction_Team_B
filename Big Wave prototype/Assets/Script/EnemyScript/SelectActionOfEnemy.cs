@@ -97,7 +97,7 @@ public class SelectActionOfEnemy : MonoBehaviour
                 forms[i].ActionProbabilitySum += forms[i].ActionPatterns[j].ActionProbability;
             }
         }
-        forms[0].FormHp = enemy.hpMax;
+        forms[0].FormHp = enemy.HpMax;
         beginActTime = firstBeginActTime;
     }
 
@@ -115,7 +115,7 @@ public class SelectActionOfEnemy : MonoBehaviour
         {
             for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
             {
-                if (enemy.hp <= forms[i].FormHp)//i+1形態目の条件を確認
+                if (enemy.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
                 {
                     actTime = 0f;
                     SelectAction(i + 1);

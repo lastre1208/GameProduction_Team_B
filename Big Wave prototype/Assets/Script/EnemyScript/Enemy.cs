@@ -8,9 +8,9 @@ using UnityEngine;
 class Enemy : MonoBehaviour
 {
     [Header("¥“G‚ÌHP")]
-    [HideInInspector] public float hp = 1000f;//“G‚ÌHP
+    private float hp = 4000f;//“G‚ÌHP
     [Header("¥“G‚ÌÅ‘åHP")]
-    public float hpMax = 1000f;//“G‚ÌÅ‘åHP
+    [SerializeField] float hpMax = 4000f;//“G‚ÌÅ‘åHP
     SceneControlManager sceneControlManager;
 
     // Start is called before the first frame update
@@ -19,16 +19,23 @@ class Enemy : MonoBehaviour
         hp = hpMax;
         sceneControlManager= GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
     }
-    
+
+    public float Hp
+    {
+        get { return  hp; }
+        set { hp = value; }
+    }
+
+    public float HpMax
+    {
+        get { return hpMax; }
+        set { hpMax = value; }
+    }
+
     // Update is called once per frame
     void Update()
     {
         Dead();//“G€–SƒNƒŠƒAƒV[ƒ“‚ÉˆÚs
-    }
-
-    public void Damage(float a)//“G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚é(a‚Ì’l•ªƒ_ƒ[ƒW‚ğ—^‚¦‚é)
-    {
-        hp -= a;
     }
 
     void Dead()//“G€–SƒNƒŠƒAƒV[ƒ“‚ÉˆÚs

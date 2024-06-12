@@ -5,9 +5,15 @@ using UnityEngine;
 public class JudgeTouchWave : MonoBehaviour
 {
     //™‰–‚ª‘‚¢‚½
-    [HideInInspector] public bool touchWaveNow=false;//¡”g‚ÉG‚Á‚Ä‚¢‚é‚©
+    private bool touchWaveNow=false;//¡”g‚ÉG‚Á‚Ä‚¢‚é‚©
     private float sinceLastTouchWaveTime = 0.1f;//ÅŒã‚É”g‚ÉG‚Á‚Ä‚©‚ç‚ÌŠÔ
     private float touchBorderTime = 0.1f;//G‚Á‚½EG‚Á‚Ä‚È‚¢‚Ì‹«ŠE‚ÌŠÔ
+
+    public bool TouchWaveNow
+    {
+        get { return touchWaveNow; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

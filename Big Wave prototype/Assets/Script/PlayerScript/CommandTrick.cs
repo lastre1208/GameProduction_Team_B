@@ -31,7 +31,7 @@ public class CommandTrick : MonoBehaviour
             countTimer = 0;
         }
 
-        if (jumpControl.jumpNow)
+        if (jumpControl.JumpNow)
         {
             CheckInputPatterns();
         }

@@ -30,7 +30,7 @@ public class RopeEffect : MonoBehaviour
 
     void Update()
     {
-        if (enemy.hp > 0 && player.hp > 0)
+        if (enemy.Hp > 0 && player.Hp > 0)
         {
             DrawRope();
         }
