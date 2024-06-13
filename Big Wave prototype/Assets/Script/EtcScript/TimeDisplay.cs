@@ -3,8 +3,8 @@ using TMPro;
 
 public class TimeDisplay : MonoBehaviour
 {
-   //☆福島君が書いた
-    public TMP_Text Time_UI;//表示させるテキスト
+    //☆福島君が書いた
+    [SerializeField] TMP_Text Time_UI;//表示させるテキスト
     public static float seconds;//秒
     public static int minute;//分
     private float oldSeconds;//過去の秒。secondsと比較する

@@ -11,7 +11,7 @@ public class RopeEffect : MonoBehaviour
 
     [SerializeField] GameObject startPoint;//ロープの始点
     [SerializeField] GameObject endPoint;//ロープの終点
-    public GameObject[] vertices = new GameObject[20];//ロープの質点
+    [SerializeField] GameObject[] vertices = new GameObject[20];//ロープの質点
 
     void Start()
     {
