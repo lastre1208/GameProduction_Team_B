@@ -2,12 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class CommandPatterns
+{
+    [SerializeField] string patternName; // パターンの名前
+    [SerializeField] List<string> sequence; // コマンドシーケンス
+
+    public string PatternName
+    {
+        get { return patternName; }
+    }
+    public List<string> Sequence
+    {
+        get { return sequence; }
+    }
+}
+
 public class CommandTrick : MonoBehaviour
 {
-    public List<string> commandBuffer = new List<string>();
-    public float bufferDuration = 1.0f;
+    [SerializeField] List<string> commandBuffer = new List<string>();
+    [SerializeField] float bufferDuration = 1.0f; 
+    [SerializeField] List<CommandPatterns> commandPatterns; // インスペクターで設定するパターンのリスト
     private float countTimer = 0;
-    public List<CommandPatterns> commandPatterns; // インスペクターで設定するパターンのリスト
     private JumpControl jumpControl;
     // Update is called once per frame
 
@@ -58,10 +74,10 @@ public class CommandTrick : MonoBehaviour
 
         foreach (var pattern in commandPatterns)
         {
-            string patternSequence = string.Join("", pattern.sequence.ToArray());
+            string patternSequence = string.Join("", pattern.Sequence.ToArray());
             if (inputSequence.Contains(patternSequence))
             {
-                ExecutePattern(pattern.patternName);
+                ExecutePattern(pattern.PatternName);
                 commandBuffer.Clear();
                 break;
             }
