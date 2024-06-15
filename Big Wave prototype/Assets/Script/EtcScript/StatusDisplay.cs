@@ -7,8 +7,15 @@ using UnityEngine.UI;
 public class StatusDisplay : MonoBehaviour
 {
     //☆塩が書いた
+    [Header("▼プレイヤーのHPゲージ")]
     [SerializeField] GameObject playerOfHpGauge;//プレイヤーのHPゲージ
-    [SerializeField] GameObject playerOfTrickGauge;//プレイヤーのトリックゲージ
+    [Header("▼プレイヤーのトリックゲージの黒い部分")]
+    [SerializeField] GameObject outOfPlayerOfTrickGauge;//プレイヤーのトリックゲージ
+    [Header("▼プレイヤーのトリックゲージ")]
+    [SerializeField] GameObject[] playerOfTrickGauge;//プレイヤーのトリックゲージ
+    [Header("▼分割されたトリックゲージをどれくらい離すか")]
+    [SerializeField] float trickGaugeInterval;//分割されたトリックゲージをどれくらい離すか
+    [Header("▼敵のHPゲージ")]
     [SerializeField] GameObject enemyOfHpGauge;//敵のHPゲージ
     Enemy enemy;
     Player player;
@@ -17,6 +24,9 @@ public class StatusDisplay : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+        //トリックゲージの位置調整
+        PositioningTrickGauge();
+
     }
 
     // Update is called once per frame
@@ -35,10 +45,46 @@ public class StatusDisplay : MonoBehaviour
         playerOfHpGauge.GetComponent<Image>().fillAmount = hpratio;
     }
 
+    void PositioningTrickGauge()//トリックゲージの位置調整
+    {
+        //黒い部分のトリックゲージの(横の)大きさを取得
+        Vector2 sd_OutOfTrickGauge = outOfPlayerOfTrickGauge.GetComponent<RectTransform>().sizeDelta;
+        //分割されているトリックゲージの大きさを決める(全て同じ大きさ)
+        Vector2 sd_TrickGauge = playerOfTrickGauge[0].GetComponent<RectTransform>().sizeDelta;
+        sd_TrickGauge.x = ( sd_OutOfTrickGauge.x-(playerOfTrickGauge.Length-1)*trickGaugeInterval )/ playerOfTrickGauge.Length;
+
+        //分割されているトリックゲージの大きさと位置を変更
+        for(int i=0;i<playerOfTrickGauge.Length ;i++)
+        {
+            //大きさを変更
+            playerOfTrickGauge[i].GetComponent<RectTransform>().sizeDelta = sd_TrickGauge;
+            //位置を変更
+            Vector3 pos_TrickGauge;
+            pos_TrickGauge = playerOfTrickGauge[i].GetComponent<RectTransform>().anchoredPosition3D;
+
+            //一つ目のゲージは左端のどこに置くかを決める
+            if (i==0)
+            {
+                pos_TrickGauge.x = -sd_OutOfTrickGauge.x / 2 + sd_TrickGauge.x / 2;
+            }
+            //それ以降のゲージは前に置いたゲージと一定間隔で置く
+            else
+            {
+                Vector3 pos_BeforeTrickGauge= playerOfTrickGauge[i-1].GetComponent<RectTransform>().anchoredPosition3D;
+                pos_TrickGauge.x = pos_BeforeTrickGauge.x + sd_TrickGauge.x + trickGaugeInterval;
+            }
+            playerOfTrickGauge[i].GetComponent<RectTransform>().anchoredPosition3D = pos_TrickGauge;
+        }
+    }
+
     void PlayerOfTRICKGage()//プレイヤーのトリックゲージの処理
     {
-        float trickratio = player.Trick / player.TrickMax;
-        playerOfTrickGauge.GetComponent<Image>().fillAmount = trickratio;
+        float trickMaxRatio = player.TrickMax / playerOfTrickGauge.Length;//分割時の1ゲージに入るトリックの最大量
+        for (int i=0; i<playerOfTrickGauge.Length;i++)
+        {
+            float trickratio = (player.Trick-trickMaxRatio*i)/trickMaxRatio;
+            playerOfTrickGauge[i].GetComponent<Image>().fillAmount = trickratio;
+        }
     }
 
     void EnemyOfHPGage()//敵のHPゲージの処理

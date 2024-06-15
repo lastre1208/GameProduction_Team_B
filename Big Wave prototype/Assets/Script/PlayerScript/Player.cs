@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
 {
     //☆塩が書いた
     private float hp = 100;//現在の体力
+    [Header("プレイヤーの最大体力")]
     [SerializeField] float hpMax = 100;//最大体力
     private float trick = 0;//現在のトリックゲージ
+    [Header("プレイヤーの最大トリック")]
     [SerializeField] float trickMax = 200;//最大トリックゲージ
     SceneControlManager sceneControlManager;
 
@@ -45,9 +47,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Mathf.Clamp(hp,0,hpMax);//体力が限界突破しないように
+        hp=Mathf.Clamp(hp,0,hpMax);//体力が限界突破しないように
 
-        Mathf.Clamp(trick, 0, trickMax);//トリックが限界突破しないように
+        trick=Mathf.Clamp(trick, 0, trickMax);//トリックが限界突破しないように
 
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
