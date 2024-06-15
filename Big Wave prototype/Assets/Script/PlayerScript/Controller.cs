@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     //☆塩が書いた
+    [Header("トリックチャージ時のバイブの速さ")]
     [SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックチャージ時のバイブの速さ
     MoveControl moveControl;
     JumpControl jumpControl;
     ChargeTrickControl chargeTrickControl;
-    AttackControl attackControl;
+    TrickControl attackControl;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class Controller : MonoBehaviour
         moveControl = gameObject.GetComponent<MoveControl>();
         jumpControl = gameObject.GetComponent<JumpControl>();
         chargeTrickControl = gameObject.GetComponent<ChargeTrickControl>();
-        attackControl= gameObject.GetComponent<AttackControl>();
+        attackControl= gameObject.GetComponent<TrickControl>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class Controller : MonoBehaviour
 
         Jump();//ジャンプ
 
-        Attack();//攻撃
+        Trick();//攻撃
         
         VibrateController_Charge();//チャージしている間コントローラが振動
     }
@@ -63,21 +64,21 @@ public class Controller : MonoBehaviour
 
 
     //攻撃関連
-    void Attack()//攻撃
+    void Trick()//攻撃
     {
-        if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時強攻撃
+        if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時バフ
         {
-            attackControl.Attack_Strong();
+            attackControl.Trick_Buff();
         }
 
-        if(Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時中攻撃
+        if(Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時攻撃
         {
-            attackControl.Attack_Medium();
+            attackControl.Trick_attack();
         }
 
-        if(Input.GetButtonDown("Fire3") || Input.GetKeyDown("l"))//LキーかAボタンを押した時弱攻撃
+        if(Input.GetButtonDown("Fire3") || Input.GetKeyDown("l"))//LキーかAボタンを押した時回復
         {
-            attackControl.Attack_Weak();
+            attackControl.Trick_Heal();
         }
     }
 
