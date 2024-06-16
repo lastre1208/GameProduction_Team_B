@@ -2161,41 +2161,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
---- !u!1 &700286110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 700286111}
-  m_Layer: 5
-  m_Name: PlayerTRICKGaugeInsideParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &700286111
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700286110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1700744525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.3}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,8 +3406,6 @@ MonoBehaviour:
   hpMax: 100
   trickGaugeMax: 150
   trickGaugeNum: 6
-  trick: []
-  maxCount: 0
 --- !u!65 &1244729526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5030,16 +4993,15 @@ RectTransform:
   m_GameObject: {fileID: 1700744524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5066324, y: 1.649021, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 700286111}
+  m_Children: []
   m_Father: {fileID: 651057539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280.75998, y: 127.37001}
-  m_SizeDelta: {x: 100, y: 10}
+  m_AnchoredPosition: {x: -282, y: 125.5}
+  m_SizeDelta: {x: 151, y: 16.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700744526
 MonoBehaviour:
@@ -10368,9 +10330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOfHpGauge: {fileID: 1044993408}
   outOfPlayerOfTrickGauge: {fileID: 1700744524}
-  parent: {fileID: 700286111}
+  parent: {fileID: 1700744525}
   playerOfTrickGauge: {fileID: 193812624958497627, guid: 24aaa73ea8b371544bdaca86cc247bb2, type: 3}
-  trickGaugeInterval: 1
+  trickGaugeInterval: 4
   enemyOfHpGauge: {fileID: 207016421}
 --- !u!114 &2119914098
 MonoBehaviour:

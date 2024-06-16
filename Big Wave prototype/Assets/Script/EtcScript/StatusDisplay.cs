@@ -68,6 +68,7 @@ public class StatusDisplay : MonoBehaviour
         //分割されているトリックゲージの大きさを決める(全て同じ大きさ)
         Vector2 sd_TrickGauge = trickGauges[0].GetComponent<RectTransform>().sizeDelta;
         sd_TrickGauge.x = ( sd_OutOfTrickGauge.x-(trickGauges.Length-1)*trickGaugeInterval )/ trickGauges.Length;
+        sd_TrickGauge.y = sd_OutOfTrickGauge.y;
 
         //分割されているトリックゲージの大きさと位置を変更
         for(int i=0;i<trickGauges.Length ;i++)
@@ -89,6 +90,8 @@ public class StatusDisplay : MonoBehaviour
                 Vector3 pos_BeforeTrickGauge= trickGauges[i-1].GetComponent<RectTransform>().anchoredPosition3D;
                 pos_TrickGauge.x = pos_BeforeTrickGauge.x + sd_TrickGauge.x + trickGaugeInterval;
             }
+
+            pos_TrickGauge.y =0;
             trickGauges[i].GetComponent<RectTransform>().anchoredPosition3D = pos_TrickGauge;
         }
     }
