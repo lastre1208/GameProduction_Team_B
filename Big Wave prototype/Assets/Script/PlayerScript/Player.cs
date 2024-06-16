@@ -44,6 +44,11 @@ public class Player : MonoBehaviour
         get { return trickGaugeNum; }
     }
 
+    public int MaxCount
+    {
+        get { return maxCount; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

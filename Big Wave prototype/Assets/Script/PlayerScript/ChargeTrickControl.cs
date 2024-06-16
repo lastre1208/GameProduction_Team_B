@@ -6,8 +6,13 @@ public class ChargeTrickControl : MonoBehaviour
 {
     //☆塩が書いた
     //波の内側に波乗りしているときはoutSideChargeTrick、inSideChargeTrickの合計分トリックが増える
+    [Header("チャージ倍率(トリックゲージの個数分配列を用意してください)")]
+    [SerializeField] float[] chargeRate;//チャージ倍率
+    [Header("波の外側に波乗りした時に溜まるトリックの値")]
     [SerializeField] float outSideChargeTrick=1;//波の外側に波乗りした時に溜まるトリックの値
+    [Header("波の内側(中央)に波乗りした時に溜まるトリックの値")]
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
+    [Header("チャージ用の雷エフェクト")]
     [SerializeField] GameObject chargeSpark;//チャージ用の雷エフェクト
     private bool chargeNow=false;//今トリックをチャージしているか
     private float sinceLastChargeTime = 0.1f;//最後にチャージされてからの時間
@@ -61,7 +66,11 @@ public class ChargeTrickControl : MonoBehaviour
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a)
     {
-        player.ChargeTrick(a * buff.CurrentChargeTrickGrowthRate);//トリックをチャージ
+        if(player.MaxCount!=player.TrickGaugeNum)
+        {
+            player.ChargeTrick(a * buff.CurrentChargeTrickGrowthRate * chargeRate[player.MaxCount]);//トリックをチャージ
+        }
+        
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
         sinceLastChargeTime = 0f;//今チャージしている判定にする
     }

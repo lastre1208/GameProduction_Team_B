@@ -3672,6 +3672,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced1e40561ced0e42a57021e4b7fe186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 1
+  - 0.6
+  - 0.6
+  - 0.3
+  - 0.3
   outSideChargeTrick: 3
   inSideChargeTrick: 6
   chargeSpark: {fileID: 1722439556}
