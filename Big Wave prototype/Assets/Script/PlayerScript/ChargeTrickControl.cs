@@ -61,7 +61,7 @@ public class ChargeTrickControl : MonoBehaviour
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a)
     {
-        player.Trick+=a*buff.CurrentChargeTrickGrowthRate;//トリックをチャージ
+        player.ChargeTrick(a * buff.CurrentChargeTrickGrowthRate);//トリックをチャージ
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
         sinceLastChargeTime = 0f;//今チャージしている判定にする
     }

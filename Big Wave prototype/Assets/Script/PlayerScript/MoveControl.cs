@@ -23,7 +23,7 @@ public class MoveControl : MonoBehaviour
     public void Move()//プレイヤーの動き
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        float trickPercentage = player.Trick / player.TrickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
+        //float trickPercentage = player.Trick / player.TrickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
         transform.Translate(move * Time.deltaTime * speed);//トリックがたまっているほど移動スピードがはやくなる
     }
 }

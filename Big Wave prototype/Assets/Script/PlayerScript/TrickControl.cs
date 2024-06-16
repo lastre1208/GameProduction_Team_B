@@ -14,17 +14,17 @@ enum TrickType
 [System.Serializable]
 class Trick
 {
-    [Header("消費トリック割合(%)")]
-    [SerializeField] float trickCostPercent;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
+    [Header("消費トリック(ゲージ本数)")]
+    [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
     //☆福島君が書いた
     [Header("トリックに用いる効果音")]
     [SerializeField] AudioClip trickSound;//トリックに用いる効果音
     //
     private TrickType trickPattern;//攻撃の種類
 
-    public float TrickCostPercent
+    public int TrickCost
     {
-        get { return trickCostPercent; }
+        get { return trickCost; }
     }
     public AudioClip TrickSound
     {
@@ -94,26 +94,24 @@ public class TrickControl : MonoBehaviour
     //攻撃
     void Trick(Trick trick)
     {
-        float trickPercentage = player.Trick / player.TrickMax;//プレイヤーのトリックの(最大値に対しての現在のトリックの値)割合
-        float trickCost = player.TrickMax * trick.TrickCostPercent / 100;//消費トリック
-        if (jumpcontrol.JumpNow == true && trickCost <= player.Trick && enemy != null)//ジャンプしている＆消費トリックが足りる＆敵がいる時のみ攻撃可能
+        if (jumpcontrol.JumpNow == true && player.ConsumeCharge(trick.TrickCost) && enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
         {
-            switch(trick.TrickPattern)
+            switch (trick.TrickPattern)
             {
                 case TrickType.attack://敵にダメージを与える
                     //トリックがたまっているときほどダメージが上昇するようになっている
                     //enemy.Hp -= strength_Damage * (1 + trickPercentage * trick_DamageFactor);
-                    enemy.Hp -= damageAmount*buff.CurrentPowerUpGrowthRate;
+                    enemy.Hp -= damageAmount * buff.CurrentPowerUpGrowthRate;
                     break;
                 case TrickType.heal://プレイヤーの体力を回復する
                     player.Hp += healAmount;
                     break;
                 case TrickType.buff://プレイヤーにバフをかける
-                    if(powerUpBuff)
+                    if (powerUpBuff)
                     {
                         buff.PowerUpBuff();
                     }
-                    if(chargeTrickBuff)
+                    if (chargeTrickBuff)
                     {
                         buff.ChargeTrickBuff();
                     }
@@ -123,7 +121,6 @@ public class TrickControl : MonoBehaviour
 
             //全てのトリックの共通処理
             tricked = true;//攻撃した
-            player.Trick -= trickCost;//トリック消費
             //☆福島君が書いた
             audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
             //
