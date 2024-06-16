@@ -7,21 +7,26 @@ using UnityEngine.UI;
 public class StatusDisplay : MonoBehaviour
 {
     //☆塩が書いた
+    //プレイヤーのHP関連
     [Header("▼プレイヤーのHPゲージ")]
     [SerializeField] GameObject playerOfHpGauge;//プレイヤーのHPゲージ
+    //プレイヤーのトリック関連
     [Header("▼プレイヤーのトリックゲージの黒い部分")]
     [SerializeField] GameObject outOfPlayerOfTrickGauge;//プレイヤーのトリックゲージの黒い部分
-
-    [SerializeField] Transform parent;
-
     [Header("▼プレイヤーのトリックゲージ")]
     [SerializeField] GameObject playerOfTrickGauge;//プレイヤーのトリックゲージ
-    private GameObject[] trickGauges;//プレイヤーのトリックゲージ(内部処理用)
-
     [Header("▼分割されたトリックゲージをどれくらい離すか")]
     [SerializeField] float trickGaugeInterval;//分割されたトリックゲージをどれくらい離すか
+    [Header("▼通常状態のトリックゲージの色")]
+    [SerializeField] Color trickGaugeNormalColor;
+    [Header("▼満タン状態のトリックゲージの色")]
+    [SerializeField] Color trickGaugeMaxColor;
+    private GameObject[] trickGauges;//プレイヤーのトリックゲージ(内部処理用)
+    //敵のHP関連
     [Header("▼敵のHPゲージ")]
     [SerializeField] GameObject enemyOfHpGauge;//敵のHPゲージ
+
+    Color gaugeColor;
     Enemy enemy;
     Player player;
     // Start is called before the first frame update
@@ -33,7 +38,6 @@ public class StatusDisplay : MonoBehaviour
         GenerateTrickGauge();
         //トリックゲージの位置調整
         PositioningTrickGauge();
-
     }
 
     // Update is called once per frame
@@ -57,7 +61,7 @@ public class StatusDisplay : MonoBehaviour
         trickGauges=new GameObject[player.TrickGaugeNum];
         for(int i=0; i<trickGauges.Length;i++)
         {
-            trickGauges[i] = Instantiate(playerOfTrickGauge,parent);
+            trickGauges[i] = Instantiate(playerOfTrickGauge,outOfPlayerOfTrickGauge.transform);
         }
     }
 
@@ -98,17 +102,21 @@ public class StatusDisplay : MonoBehaviour
 
     void PlayerOfTRICKGage()//プレイヤーのトリックゲージの処理
     {
-        //float trickMaxRatio = player.TrickMax / playerOfTrickGauge.Length;//分割時の1ゲージに入るトリックの最大量
-        //for (int i=0; i<playerOfTrickGauge.Length;i++)
-        //{
-        //    float trickratio = (player.Trick-trickMaxRatio*i)/trickMaxRatio;
-        //    playerOfTrickGauge[i].GetComponent<Image>().fillAmount = trickratio;
-        //}
-
         for(int i=0; i<trickGauges.Length;i++)
         {
             float trickratio = player.Trick[i] / player.TrickMax;
             trickGauges[i].GetComponent<Image>().fillAmount = trickratio;
+
+            
+            //ゲージの色の変更
+            if (trickratio == 1)//満タン時の色
+            {
+                trickGauges[i].GetComponent<Image>().color = trickGaugeMaxColor;
+            }
+            else//それ以外の時の色
+            {
+                trickGauges[i].GetComponent<Image>().color = trickGaugeNormalColor;
+            }
         }
     }
 
