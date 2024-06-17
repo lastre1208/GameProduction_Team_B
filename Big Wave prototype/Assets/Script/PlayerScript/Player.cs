@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         {
             trick[i] += charge;
 
-            if (trick[i]>trickGaugeMax)//今チャージしているゲージが満タンになったら
+            if (trick[i]>=trickGaugeMax)//今チャージしているゲージが満タンになったら
             {
                 charge = trick[i]-trickGaugeMax;//次のゲージにチャージする分
                 trick[i] = trickGaugeMax;//トリックが限界突破しないように
