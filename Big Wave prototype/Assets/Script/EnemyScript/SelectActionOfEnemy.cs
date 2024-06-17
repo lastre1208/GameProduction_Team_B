@@ -78,12 +78,19 @@ public class SelectActionOfEnemy : MonoBehaviour
     [SerializeField] float firstBeginActTime = 5f;//敵が次に行動を始める時間(初回)
     [Header("▼敵の形態ごとの行動")]
     [SerializeField] Form[] forms;//形態ごとの行動パターン
+    private bool stan = false;//動くことができるか 
     private float beginActTime;//敵が次に行動を始める時間
     private float actTime = 0f;//敵の行動を管理する時間
     //[SerializeField] Quaternion []attackRotation=new Quaternion [4];//横に広い周波の角度
 
     Enemy enemy;
     ActOfEnemy actOfEnemy;
+
+　　public bool Stan
+    {
+        get { return stan; }
+        set { stan = value; }
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -109,17 +116,20 @@ public class SelectActionOfEnemy : MonoBehaviour
 
     void ActTiming()//敵の攻撃タイミング
     {
-        actTime += Time.deltaTime;
-
-        if (actTime > beginActTime)
+        if(stan==false)//スタン状態じゃない時動ける
         {
-            for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
+            actTime += Time.deltaTime;
+
+            if (actTime > beginActTime)
             {
-                if (enemy.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
+                for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
                 {
-                    actTime = 0f;
-                    SelectAction(i + 1);
-                    break;
+                    if (enemy.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
+                    {
+                        actTime = 0f;
+                        SelectAction(i + 1);
+                        break;
+                    }
                 }
             }
         }

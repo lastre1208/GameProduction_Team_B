@@ -61,7 +61,7 @@ public class TrickControl : MonoBehaviour
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
-    BuffOfPlayer buff;
+    BuffOfPlayer buffOfPlayer;
    
     
     public bool Tricked
@@ -79,7 +79,7 @@ public class TrickControl : MonoBehaviour
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         player = gameObject.GetComponent<Player>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
-        buff = gameObject.GetComponent<BuffOfPlayer>(); 
+        buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>(); 
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
@@ -101,7 +101,7 @@ public class TrickControl : MonoBehaviour
                 case TrickType.attack://敵にダメージを与える
                     //トリックがたまっているときほどダメージが上昇するようになっている
                     //enemy.Hp -= strength_Damage * (1 + trickPercentage * trick_DamageFactor);
-                    enemy.Hp -= damageAmount * buff.CurrentPowerUpGrowthRate;
+                    enemy.Hp -= damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate;
                     break;
                 case TrickType.heal://プレイヤーの体力を回復する
                     player.Hp += healAmount;
@@ -109,11 +109,11 @@ public class TrickControl : MonoBehaviour
                 case TrickType.buff://プレイヤーにバフをかける
                     if (powerUpBuff)
                     {
-                        buff.PowerUpBuff();
+                        buffOfPlayer.PowerUpBuff();
                     }
                     if (chargeTrickBuff)
                     {
-                        buff.ChargeTrickBuff();
+                        buffOfPlayer.ChargeTrickBuff();
                     }
                     Debug.Log("Buff");
                     break;
