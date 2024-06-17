@@ -3729,7 +3729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0c677a565ddc64d9419e3073d224a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTrick_VibrationSpeed: 0.35
+  chargeTrick_VibrationSpeed: 1
+  trick_VibrationSpeed: 1
+  trickVibeTime: 0.2
 --- !u!82 &1244729541
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3870,12 +3872,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d01bfc928202a24a9d7648fc1b00e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpBuffTime: 5
-  powerUpGrowthRate: 2
-  powerUpBuffEffect: {fileID: 1503523459}
-  chargeTrickBuffTime: 5
-  chargeTrickGrowthRate: 2
-  chargeTrickBuffEffect: {fileID: 1720416255}
+  powerUp:
+    buffTime: 5
+    buffEffect: {fileID: 1503523459}
+    growthRate: 2
+  chargeTrick:
+    buffTime: 5
+    buffEffect: {fileID: 1720416255}
+    growthRate: 2
 --- !u!1 &1318383700
 GameObject:
   m_ObjectHideFlags: 0

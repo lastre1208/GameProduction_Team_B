@@ -57,11 +57,13 @@ public class TrickControl : MonoBehaviour
     [SerializeField] bool chargeTrickBuff=false;//チャージトリック量増加のバフ
     //[SerializeField] float trick_DamageFactor = 0.5f;//トリックをためた時のダメージの上昇具合、1、２、3、nだとそれぞれトリック満タン時、トリック空っぽの時のダメージの2、3、4、(1+1*n)倍になる
     private bool tricked;//トリックしたかしていないかの判定
+
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     Enemy enemy;
     Player player;
     JumpControl jumpcontrol;
-    BuffOfPlayer buff;
+    BuffOfPlayer buffOfPlayer;
+    Controller controller;
    
     
     public bool Tricked
@@ -79,7 +81,8 @@ public class TrickControl : MonoBehaviour
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         player = gameObject.GetComponent<Player>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
-        buff = gameObject.GetComponent<BuffOfPlayer>(); 
+        buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>(); 
+        controller = gameObject.GetComponent<Controller>();
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
@@ -101,7 +104,7 @@ public class TrickControl : MonoBehaviour
                 case TrickType.attack://敵にダメージを与える
                     //トリックがたまっているときほどダメージが上昇するようになっている
                     //enemy.Hp -= strength_Damage * (1 + trickPercentage * trick_DamageFactor);
-                    enemy.Hp -= damageAmount * buff.CurrentPowerUpGrowthRate;
+                    enemy.Hp -= damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate;
                     break;
                 case TrickType.heal://プレイヤーの体力を回復する
                     player.Hp += healAmount;
@@ -109,18 +112,18 @@ public class TrickControl : MonoBehaviour
                 case TrickType.buff://プレイヤーにバフをかける
                     if (powerUpBuff)
                     {
-                        buff.PowerUpBuff();
+                        buffOfPlayer.PowerUpBuff();
                     }
                     if (chargeTrickBuff)
                     {
-                        buff.ChargeTrickBuff();
+                        buffOfPlayer.ChargeTrickBuff();
                     }
-                    Debug.Log("Buff");
                     break;
             }
 
             //全てのトリックの共通処理
-            tricked = true;//攻撃した
+            tricked = true;//トリックした
+            controller.Vibe_Trick();//バイブさせる
             //☆福島君が書いた
             audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
             //

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] float trickGaugeMax = 50;//1ゲージに入る最大トリック(全ゲージ同じ容量)
     [Header("プレイヤーのトリックゲージの数(本数)")]
     [SerializeField] int trickGaugeNum=6;//トリックゲージの本数
+    private bool barrier = false;//無敵状態か(trueの時無敵になる)
     private float[] trick;//トリックゲージ(容量trickMaxのゲージがtrickGaugeNum個ある)
     private int maxCount=0;//満タンのトリックゲージの量
     SceneControlManager sceneControlManager;
@@ -47,6 +48,12 @@ public class Player : MonoBehaviour
     public int MaxCount
     {
         get { return maxCount; }
+    }
+
+    public bool Barrier
+    {
+        get { return barrier; }
+        set { barrier = value; }
     }
 
     // Start is called before the first frame update
