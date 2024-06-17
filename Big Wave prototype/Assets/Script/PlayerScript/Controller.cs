@@ -107,6 +107,10 @@ public class Controller : MonoBehaviour
         remainingTrickVibeTime = trickVibeTime;
     }
 
+    public void StopVibe_Trick()//バイブ止めるための応急処置
+    {
+        remainingTrickVibeTime = 0;
+    }
 
     //トリックのチャージ関連
     void ChargeTrick(Collider wavePrefab)//波に乗ってトリックをチャージ
@@ -143,7 +147,7 @@ public class Controller : MonoBehaviour
     }
 
     //バイブを止める
-    void StopVibration()
+    public void StopVibration()
     {
         if (gamepad != null)
         {

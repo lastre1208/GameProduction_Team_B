@@ -12,12 +12,14 @@ class Enemy : MonoBehaviour
     [Header("Å•ìGÇÃç≈ëÂHP")]
     [SerializeField] float hpMax = 4000f;//ìGÇÃç≈ëÂHP
     SceneControlManager sceneControlManager;
+    Controller controller;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = hpMax;
         sceneControlManager= GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
+        controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
     }
 
     public float Hp
@@ -42,6 +44,7 @@ class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            controller.StopVibe_Trick();//âûã}èàíu
             sceneControlManager.ChangeClearScene();
         }
     }

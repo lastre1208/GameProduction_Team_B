@@ -3729,7 +3729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0c677a565ddc64d9419e3073d224a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTrick_VibrationSpeed: 0.35
+  chargeTrick_VibrationSpeed: 1
+  trick_VibrationSpeed: 1
+  trickVibeTime: 0.2
 --- !u!82 &1244729541
 AudioSource:
   m_ObjectHideFlags: 0
