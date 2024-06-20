@@ -5,18 +5,21 @@ using TMPro;
 public class ResultDisplay : MonoBehaviour
 {
     //☆福島君が書いた
-    [SerializeField] TMP_Text Result_UI;
+    [SerializeField] TMP_Text ResultTime_UI;
+    [SerializeField] TMP_Text ResultScore_UI;
    
     // Start is called before the first frame update
     void Start()
     {
-        if (TimeDisplay.sceneSwitch != false)//クリア画面に移行した事を確認したらその時点の時間を表示する
+        if (TimeDisplay.SceneSwitch != false)//クリア画面に移行した事を確認したらその時点の時間を表示する
         {
-            Result_UI.text = "ClearTime: " + TimeDisplay.minute.ToString("00") + ":" + TimeDisplay.seconds.ToString("00");
+            ResultTime_UI.text = "ClearTime: " + TimeDisplay.Minutes.ToString("00") + ":" + TimeDisplay.Seconds.ToString("00");
+            ResultScore_UI.text = "TotalScore: " + ManagementOfScore.TotalScore.ToString("");
         }
         else
         {
-            Result_UI.text = "ClearTime:00:00";
+            ResultTime_UI.text = "ClearTime:00:00";
+            ResultScore_UI.text = "TotalScore:0 ";
         }
     }
 

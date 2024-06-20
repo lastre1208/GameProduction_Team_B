@@ -12,6 +12,7 @@ TagManager:
   - OutsideWave
   - InsideWave
   - SceneManager
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
