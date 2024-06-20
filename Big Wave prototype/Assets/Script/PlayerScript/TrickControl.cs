@@ -64,6 +64,7 @@ public class TrickControl : MonoBehaviour
     JumpControl jumpcontrol;
     BuffOfPlayer buffOfPlayer;
     Controller controller;
+    ManagementOfScore managementOfScore;
    
     
     public bool Tricked
@@ -86,6 +87,7 @@ public class TrickControl : MonoBehaviour
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
+        managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
     }
 
     // Update is called once per frame
@@ -127,6 +129,7 @@ public class TrickControl : MonoBehaviour
             //☆福島君が書いた
             audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
             //
+            managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
         }
     }
 
