@@ -3848,7 +3848,7 @@ MonoBehaviour:
   buffTrick:
     trickCost: 1
     trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  damageAmount: 10000
+  damageAmount: 100
   healAmount: 50
   powerUpBuff: 1
   chargeTrickBuff: 1
