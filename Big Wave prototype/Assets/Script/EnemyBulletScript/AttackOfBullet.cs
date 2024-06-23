@@ -26,10 +26,9 @@ public class AttackOfBullet : MonoBehaviour
         {
             player= t.GetComponent<Player>();
 
-            if(player.Barrier==false)//無敵状態じゃない時プレイヤーにダメージを与える
-            {
-                player.Hp -= damage;
-            }
+            
+            player.Hp -= damage;
+            
 
             if(ifHitDestroy)//trueかつ当たった時弾が消える
             {
