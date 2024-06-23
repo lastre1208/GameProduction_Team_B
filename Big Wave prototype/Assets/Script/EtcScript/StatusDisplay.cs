@@ -22,11 +22,14 @@ public class StatusDisplay : MonoBehaviour
     [Header("▼満タン状態のトリックゲージの色")]
     [SerializeField] Color trickGaugeMaxColor;
     private GameObject[] trickGauges;//プレイヤーのトリックゲージ(内部処理用)
+    //プレイヤーのフィーバーポイント関連
+    [Header("▼プレイヤーのフィーバーゲージ")]
+    [SerializeField] GameObject playerOfFeverGauge;//プレイヤーのフィーバーゲージ
+
     //敵のHP関連
     [Header("▼敵のHPゲージ")]
     [SerializeField] GameObject enemyOfHpGauge;//敵のHPゲージ
 
-    Color gaugeColor;
     Enemy enemy;
     Player player;
     // Start is called before the first frame update
@@ -43,17 +46,19 @@ public class StatusDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerOfHPGage();
+        PlayerOfHPGauge();
 
-        PlayerOfTRICKGage();
+        PlayerOfTRICKGauge();
 
-        EnemyOfHPGage();
+        PlayerOfFeverGauge();
+
+        EnemyOfHPGauge();
     }
 
-    void PlayerOfHPGage()//プレイヤーのHPゲージの処理
+    void PlayerOfHPGauge()//プレイヤーのHPゲージの処理
     {
-        float hpratio = player.Hp / player.HpMax;
-        playerOfHpGauge.GetComponent<Image>().fillAmount = hpratio;
+        float hpRatio = player.Hp / player.HpMax;
+        playerOfHpGauge.GetComponent<Image>().fillAmount = hpRatio;
     }
 
     void GenerateTrickGauge()
@@ -100,16 +105,16 @@ public class StatusDisplay : MonoBehaviour
         }
     }
 
-    void PlayerOfTRICKGage()//プレイヤーのトリックゲージの処理
+    void PlayerOfTRICKGauge()//プレイヤーのトリックゲージの処理
     {
         for(int i=0; i<trickGauges.Length;i++)
         {
-            float trickratio = player.Trick[i] / player.TrickMax;
-            trickGauges[i].GetComponent<Image>().fillAmount = trickratio;
+            float trickRatio = player.Trick[i] / player.TrickMax;
+            trickGauges[i].GetComponent<Image>().fillAmount = trickRatio;
 
             
             //ゲージの色の変更
-            if (trickratio == 1)//満タン時の色
+            if (trickRatio == 1)//満タン時の色
             {
                 trickGauges[i].GetComponent<Image>().color = trickGaugeMaxColor;
             }
@@ -120,12 +125,18 @@ public class StatusDisplay : MonoBehaviour
         }
     }
 
-    void EnemyOfHPGage()//敵のHPゲージの処理
+    void PlayerOfFeverGauge()//プレイヤーのフィーバーゲージの処理
+    {
+        float feverRatio = player.FeverPoint / player.FeverPointMax;
+        playerOfFeverGauge.GetComponent<Image>().fillAmount = feverRatio;
+    }
+
+    void EnemyOfHPGauge()//敵のHPゲージの処理
     {
         if (enemy != null)
         {
-            float enemy_hpratio = enemy.Hp / enemy.HpMax;
-            enemyOfHpGauge.GetComponent<Image>().fillAmount = enemy_hpratio;
+            float enemy_HpRatio = enemy.Hp / enemy.HpMax;
+            enemyOfHpGauge.GetComponent<Image>().fillAmount = enemy_HpRatio;
         }
     }
 }

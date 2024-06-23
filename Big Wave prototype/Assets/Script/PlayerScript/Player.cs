@@ -6,19 +6,27 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     //☆塩が書いた
-    private float hp = 100;//現在の体力
+    //HP関係
     [Header("プレイヤーの最大体力")]
     [SerializeField] float hpMax = 100;//最大体力
-    
+    private float hp = 100;//現在の体力
+
+    //トリック関係
     [Header("プレイヤーの1ゲージの最大トリック")]
     [SerializeField] float trickGaugeMax = 50;//1ゲージに入る最大トリック(全ゲージ同じ容量)
     [Header("プレイヤーのトリックゲージの数(本数)")]
     [SerializeField] int trickGaugeNum=6;//トリックゲージの本数
-    private bool barrier = false;//無敵状態か(trueの時無敵になる)
     private float[] trick;//トリックゲージ(容量trickMaxのゲージがtrickGaugeNum個ある)
     private int maxCount=0;//満タンのトリックゲージの量
+
+    //フィーバーポイント関係
+    [Header("最大フィーバーポイント")]
+    [SerializeField] float feverPointMax = 500f;//最大フィーバーポイント
+    private float feverPoint=0f;//現在のフィーバーポイント
+
     SceneControlManager sceneControlManager;
 
+    //HP関係
     public float Hp
     {
         get { return hp; }
@@ -30,6 +38,7 @@ public class Player : MonoBehaviour
        get { return hpMax; }
     }
 
+    //トリック関係
     public float[] Trick
     {
         get { return trick; }
@@ -50,10 +59,16 @@ public class Player : MonoBehaviour
         get { return maxCount; }
     }
 
-    public bool Barrier
+    //フィーバーポイント関係
+    public float FeverPoint
     {
-        get { return barrier; }
-        set { barrier = value; }
+        get { return feverPoint; }
+        set { feverPoint = value; }
+    }
+
+    public float FeverPointMax
+    {
+        get { return feverPointMax; }
     }
 
     // Start is called before the first frame update
@@ -65,7 +80,7 @@ public class Player : MonoBehaviour
         trick = new float[trickGaugeNum];
         for(int i=0;i<trick.Length ;i++)
         {
-            trick[i] = 0;
+            trick[i] = 0f;
         }
 
         sceneControlManager = GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
@@ -74,7 +89,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hp=Mathf.Clamp(hp,0,hpMax);//体力が限界突破しないように
+        hp=Mathf.Clamp(hp,0f,hpMax);//体力が限界突破しないように
 
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
