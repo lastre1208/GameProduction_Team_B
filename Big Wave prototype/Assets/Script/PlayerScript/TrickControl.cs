@@ -101,6 +101,11 @@ public class TrickControl : MonoBehaviour
         TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
     }
 
+    float Damage()//敵に与えるダメージ合計
+    {
+        return damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate * processFeverPoint.CurrentPowerUp_GrowthRate;
+    }
+
     //攻撃
     void Trick(Trick trick)
     {
@@ -110,7 +115,7 @@ public class TrickControl : MonoBehaviour
             {
                 case TrickType.attack://敵にダメージを与える
                     
-                    enemy.Hp -= damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate;
+                    enemy.Hp -= Damage();
                     break;
                 case TrickType.heal://プレイヤーの体力を回復する
                     player.Hp += healAmount;

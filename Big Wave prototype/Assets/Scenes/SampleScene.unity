@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2234283f10fc27a49a8c477c86f7b6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 4000
+  hpMax: 15000
 --- !u!114 &98503824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3981,7 +3981,7 @@ MonoBehaviour:
   hpMax: 100
   trickGaugeMax: 150
   trickGaugeNum: 6
-  feverPointMax: 800
+  feverPointMax: 400
 --- !u!65 &1244729526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4480,7 +4480,6 @@ MonoBehaviour:
   feverTime: 20
   powerUp_GrowthRate: 2
   chargeTrick_GrowthRate: 2
-  feverNow: 0
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0

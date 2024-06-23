@@ -18,9 +18,19 @@ public class ProcessFeverPoint : MonoBehaviour
     [Header("フィーバー状態のチャージトリック量アップの増加率")]
     [SerializeField] float chargeTrick_GrowthRate = 1f;//フィーバー状態のチャージトリック量アップの増加率
     private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
-    [SerializeField] bool feverNow=false;//今フィーバー状態か
+    private bool feverNow=false;//今フィーバー状態か
 
     Player player;
+
+    public float CurrentPowerUp_GrowthRate
+    {
+        get { return currentPowerUp_GrowthRate; }
+    }
+
+    public float CurrentChargeTrick_GrowthRate
+    {
+        get { return currentChargeTrick_GrowthRate; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +40,7 @@ public class ProcessFeverPoint : MonoBehaviour
         currentPowerUp_GrowthRate = 1f;
         currentChargeTrick_GrowthRate = 1f;
         feverNow = false;
-        player = gameObject.AddComponent<Player>();
+        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -55,7 +65,7 @@ public class ProcessFeverPoint : MonoBehaviour
     //まだフィーバー状態になっていないかつフィーバーポイントが満タンになったらフィーバー状態に移行
     void Method1()
     {
-        if(feverNow==false&&player.FeverPoint>=player.FeverPointMax)
+        if (feverNow == false && player.FeverPoint >= player.FeverPointMax)
         {
             feverNow = true;
             remainingFeverTime = feverTime;
@@ -86,7 +96,7 @@ public class ProcessFeverPoint : MonoBehaviour
             currentChargeTrick_GrowthRate=chargeTrick_GrowthRate;
             feverEffect.SetActive(true);
             float ratio = remainingFeverTime / feverTime;
-            player.FeverPoint=player.FeverPointMax*ratio;
+            player.FeverPoint = player.FeverPointMax * ratio;
         }
         //フィーバー状態じゃない時は　
         //攻撃力とチャージトリック量が通常

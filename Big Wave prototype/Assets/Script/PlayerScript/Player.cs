@@ -91,8 +91,6 @@ public class Player : MonoBehaviour
     {
         hp=Mathf.Clamp(hp,0f,hpMax);//体力が限界突破しないように
 
-        Debug.Log(feverPoint);
-
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
 

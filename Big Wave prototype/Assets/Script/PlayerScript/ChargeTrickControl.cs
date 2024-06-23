@@ -21,6 +21,7 @@ public class ChargeTrickControl : MonoBehaviour
     Player player;
     Wave wave;
     BuffOfPlayer buffOfPlayer;
+    ProcessFeverPoint processFeverPoint;
   
     public bool ChargeNow
     {
@@ -33,6 +34,7 @@ public class ChargeTrickControl : MonoBehaviour
         touchWave = gameObject.GetComponent<JudgeTouchWave>();
         player = gameObject.GetComponent<Player>();
         buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>();
+        processFeverPoint = gameObject.GetComponent<ProcessFeverPoint>();
         chargeSpark.SetActive(false);
     }
 
@@ -62,13 +64,18 @@ public class ChargeTrickControl : MonoBehaviour
         }
     }
 
+    float ChargeTrickAmount(float b)
+    {
+        return b * buffOfPlayer.ChargeTrick.CurrentGrowthRate * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount];
+    }
+
     //波に触れてトリックをチャージするときの内部の処理
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a)
     {
         if(player.MaxCount!=player.TrickGaugeNum)
         {
-            player.ChargeTrick(a * buffOfPlayer.ChargeTrick.CurrentGrowthRate * chargeRate[player.MaxCount]);//トリックをチャージ
+            player.ChargeTrick(ChargeTrickAmount(a));//トリックをチャージ
         }
         
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
