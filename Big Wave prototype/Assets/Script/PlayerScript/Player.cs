@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
 
     //フィーバーポイント関係
     [Header("最大フィーバーポイント")]
-    [SerializeField] float feverPointMax = 500;
-    private float feverPoint=0;//現在のフィーバーポイント
+    [SerializeField] float feverPointMax = 500f;//最大フィーバーポイント
+    private float feverPoint=0f;//現在のフィーバーポイント
 
     SceneControlManager sceneControlManager;
 
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         trick = new float[trickGaugeNum];
         for(int i=0;i<trick.Length ;i++)
         {
-            trick[i] = 0;
+            trick[i] = 0f;
         }
 
         sceneControlManager = GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
@@ -89,7 +89,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hp=Mathf.Clamp(hp,0,hpMax);//体力が限界突破しないように
+        hp=Mathf.Clamp(hp,0f,hpMax);//体力が限界突破しないように
+
+        Debug.Log(feverPoint);
 
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
