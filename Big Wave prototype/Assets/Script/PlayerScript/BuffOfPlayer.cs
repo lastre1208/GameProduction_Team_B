@@ -10,7 +10,8 @@ public class Buff//バフ
     [Header("バフのエフェクト")]
     [SerializeField] GameObject buffEffect;//バフのエフェクト
 
-    private float buffRemainingTime = 0f;//バフ効果の残り時間(秒)
+    private float buffRemainingTime = 0f;//バフの残り効果時間(秒)、これが0秒以下になったらバフの効果が切れるようにする
+    private bool activateNow = false;//バフ効果発動中か
 
     public float BuffTime
     {
@@ -25,7 +26,42 @@ public class Buff//バフ
     public float BuffRemainingTime
     {
         get { return buffRemainingTime; }
-        set { buffRemainingTime = value; }
+    }
+
+    public bool ActivateNow
+    {
+        get { return activateNow; }
+    }
+
+    public virtual void Buff_Start()//Startで呼ぶ処理
+    {
+        buffRemainingTime = 0f;
+        activateNow = false;
+    }
+    
+    //バフの残り効果時間の管理
+    public void EffectTime()
+    {
+        buffRemainingTime-=Time.deltaTime;
+
+        if(buffRemainingTime<=0f)//バフ効果切れ
+        {
+            activateNow = false;
+        }
+    }
+
+    //バフを発動させる(バフがかかった)時にこれを呼ぶ
+    public void Activate()
+    {
+        activateNow=true;//バフ効果発動中にする
+        buffRemainingTime = buffTime;
+    }
+
+    //バフを消す
+    public void Deactivate()
+    {
+        activateNow=false;
+        buffRemainingTime = 0f;
     }
 }
 
@@ -35,6 +71,12 @@ public class UpBuff : Buff//増加系のバフ
     [Header("増加率(倍率)")]
     [SerializeField] float growthRate = 1;//増加率(倍率)
     private float currentGrowthRate = 1f;//現在の増加率
+
+    public override void Buff_Start()
+    {
+        base.Buff_Start();
+        currentGrowthRate = 1f;
+    }
 
     public float GrowthRate
     {
@@ -69,46 +111,34 @@ public class BuffOfPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUp.BuffEffect.SetActive(false);
-        powerUp.CurrentGrowthRate = 1f;
-        powerUp.BuffRemainingTime = 0f;
-
-        chargeTrick.BuffEffect.SetActive(false);
-        chargeTrick.CurrentGrowthRate = 1f;
-        chargeTrick.BuffRemainingTime = 0f;
+        powerUp.Buff_Start();
+        chargeTrick.Buff_Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpBuffEffectTime(powerUp);//攻撃力アップバフの時間と効果を管理
+        //攻撃力アップバフ
+        powerUp.EffectTime();
+        UpBuffEffect(powerUp);
 
-        UpBuffEffectTime(chargeTrick);//チャージトリック量増加バフの時間と効果を管理
+        //チャージトリック量増加バフ
+        chargeTrick.EffectTime();
+        UpBuffEffect(chargeTrick);
     }
 
-    void UpBuffEffectTime(UpBuff upBuff)//増加系バフの時間と効果を管理
+    void UpBuffEffect(UpBuff upBuff)//アップ系のバフの発動中の効果
     {
-        upBuff.BuffRemainingTime -= Time.deltaTime;
-
-        if(upBuff.BuffRemainingTime>0)
+        if(upBuff.ActivateNow)//発動中
         {
-            upBuff.CurrentGrowthRate = upBuff.GrowthRate;
+            upBuff.CurrentGrowthRate=upBuff.GrowthRate;
             upBuff.BuffEffect.SetActive(true);
         }
-        else
+        else//発動していない時
         {
-            upBuff.CurrentGrowthRate = 1;
+            upBuff.CurrentGrowthRate = 1f;
             upBuff.BuffEffect.SetActive(false);
         }
     }
 
-    public void PowerUpBuff()//攻撃力アップのバフをかける時に呼び出す
-    {
-        powerUp.BuffRemainingTime = powerUp.BuffTime;
-    }
-
-    public void ChargeTrickBuff()//チャージトリック量増加のバフをかける時に呼び出す
-    {
-        chargeTrick.BuffRemainingTime= chargeTrick.BuffTime;
-    }
 }

@@ -104,8 +104,7 @@ public class TrickControl : MonoBehaviour
             switch (trick.TrickPattern)
             {
                 case TrickType.attack://敵にダメージを与える
-                    //トリックがたまっているときほどダメージが上昇するようになっている
-                    //enemy.Hp -= strength_Damage * (1 + trickPercentage * trick_DamageFactor);
+                    
                     enemy.Hp -= damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate;
                     break;
                 case TrickType.heal://プレイヤーの体力を回復する
@@ -114,11 +113,11 @@ public class TrickControl : MonoBehaviour
                 case TrickType.buff://プレイヤーにバフをかける
                     if (powerUpBuff)
                     {
-                        buffOfPlayer.PowerUpBuff();
+                        buffOfPlayer.PowerUp.Activate();
                     }
                     if (chargeTrickBuff)
                     {
-                        buffOfPlayer.ChargeTrickBuff();
+                        buffOfPlayer.ChargeTrick.Activate();
                     }
                     break;
             }
@@ -133,21 +132,20 @@ public class TrickControl : MonoBehaviour
         }
     }
 
-    //強攻撃(ジャンプ中にJキーかXボタンを入力)
-    //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
+    //バフのトリック(ジャンプ中にJキーかXボタンを入力)
     public void Trick_Buff()
     {
         Trick(buffTrick);
     }
 
-    //中攻撃(ジャンプ中にKキーかBボタンを入力)
+    //攻撃のトリック(ジャンプ中にKキーかBボタンを入力)
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
     public void Trick_attack()
     {
         Trick(attackTrick);
     }
 
-    //弱攻撃(ジャンプ中にLキーかAボタンを入力)
+    //回復のトリック(ジャンプ中にLキーかAボタンを入力)
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
     public void Trick_Heal()
     {
