@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeTrickControl : MonoBehaviour
+public class ChargeTrickFromWaveControl : MonoBehaviour
 {
     //☆塩が書いた
     //波の内側に波乗りしているときはoutSideChargeTrick、inSideChargeTrickの合計分トリックが増える
@@ -64,7 +64,7 @@ public class ChargeTrickControl : MonoBehaviour
         }
     }
 
-    float ChargeTrickAmount(float b)
+    float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
         return b * buffOfPlayer.ChargeTrick.CurrentGrowthRate * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount];
     }
@@ -75,7 +75,7 @@ public class ChargeTrickControl : MonoBehaviour
     {
         if(player.MaxCount!=player.TrickGaugeNum)
         {
-            player.ChargeTrick(ChargeTrickAmount(a));//トリックをチャージ
+            player.ChargeTrickPoint(ChargeTrickAmount(a));//トリックをチャージ
         }
         
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)

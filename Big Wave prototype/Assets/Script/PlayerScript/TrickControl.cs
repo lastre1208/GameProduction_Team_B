@@ -47,8 +47,8 @@ public class TrickControl : MonoBehaviour
     [SerializeField] Trick healTrick;//回復のトリック
     [Header("バフのトリック")]
     [SerializeField] Trick buffTrick;//バフのトリック
-    [Header("敵に与えるダメージ")]
-    [SerializeField] float damageAmount = 100;//敵に与えるダメージ
+    [Header("通常時の敵に与えるダメージ")]
+    [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
     [Header("HPの回復量")]
     [SerializeField] float healAmount = 50;//HPの回復量
     [Header("攻撃力増加のバフ")]
@@ -109,7 +109,7 @@ public class TrickControl : MonoBehaviour
     //攻撃
     void Trick(Trick trick)
     {
-        if (jumpcontrol.JumpNow == true && player.ConsumeCharge(trick.TrickCost) && enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
+        if (jumpcontrol.JumpNow == true && player.ConsumeTrickPoint(trick.TrickCost) && enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
         {
             switch (trick.TrickPattern)
             {

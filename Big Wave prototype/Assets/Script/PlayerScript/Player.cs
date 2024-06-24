@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] float hpMax = 100;//最大体力
     private float hp = 100;//現在の体力
 
-    //トリック関係
-    [Header("プレイヤーの1ゲージの最大トリック")]
-    [SerializeField] float trickGaugeMax = 50;//1ゲージに入る最大トリック(全ゲージ同じ容量)
+    //トリックポイント関係
+    [Header("プレイヤーの1ゲージに入る最大トリックポイントの量")]
+    [SerializeField] float trickPointMax = 50;//1ゲージに入る最大トリックポイント(全ゲージ同じ容量)
     [Header("プレイヤーのトリックゲージの数(本数)")]
     [SerializeField] int trickGaugeNum=6;//トリックゲージの本数
-    private float[] trick;//トリックゲージ(容量trickMaxのゲージがtrickGaugeNum個ある)
-    private int maxCount=0;//満タンのトリックゲージの量
+    private float[] trickPoint;//トリックポイント(容量trickGaugeMaxのゲージがtrickGaugeNum個ある)
+    private int maxCount=0;//満タンのトリックゲージの数
 
     //フィーバーポイント関係
     [Header("最大フィーバーポイント")]
@@ -38,23 +38,23 @@ public class Player : MonoBehaviour
        get { return hpMax; }
     }
 
-    //トリック関係
-    public float[] Trick
+    //トリックポイント関係
+    public float[] TrickPoint
     {
-        get { return trick; }
+        get { return trickPoint; }
     }
 
-    public float TrickMax
+    public float TrickPointMax//トリックゲージ1本に入るトリックの容量
     {
-        get { return trickGaugeMax; }
+        get { return trickPointMax; }
     }
 
-    public int TrickGaugeNum
+    public int TrickGaugeNum//トリックゲージの本数
     {
         get { return trickGaugeNum; }
     }
 
-    public int MaxCount
+    public int MaxCount//満タンのトリックゲージの本数
     {
         get { return maxCount; }
     }
@@ -77,11 +77,13 @@ public class Player : MonoBehaviour
         //Hpの初期化
         hp = hpMax;
         //トリックの初期化
-        trick = new float[trickGaugeNum];
-        for(int i=0;i<trick.Length ;i++)
+        trickPoint = new float[trickGaugeNum];
+        for(int i=0;i<trickPoint.Length ;i++)
         {
-            trick[i] = 0f;
+            trickPoint[i] = 0f;
         }
+        //フィーバーポイントの初期化
+        feverPoint = 0f;
 
         sceneControlManager = GameObject.FindWithTag("SceneManager").GetComponent<SceneControlManager>();
     }
@@ -91,24 +93,28 @@ public class Player : MonoBehaviour
     {
         hp=Mathf.Clamp(hp,0f,hpMax);//体力が限界突破しないように
 
+        feverPoint = Mathf.Clamp(feverPoint, 0f, feverPointMax);//フィーバーポイントが限界突破しないように
+
         Dead();//敵プレイヤー死亡時ゲームオーバーシーンに移行
     }
 
-    public void ChargeTrick(float charge)//トリックのチャージ
+    //トリックポイント関係のメソッド
+
+    public void ChargeTrickPoint(float charge)//トリックポイントのチャージ
     {
-        if(maxCount==trickGaugeNum)//どのゲージも満タンの時は処理しない
+        if(maxCount==trickGaugeNum)//全ゲージが満タンの時は処理しない
         {
             return;
         }
 
-        for(int i=maxCount; i<trick.Length;i++)
+        for(int i=maxCount; i<trickPoint.Length;i++)
         {
-            trick[i] += charge;
+            trickPoint[i] += charge;
 
-            if (trick[i]>=trickGaugeMax)//今チャージしているゲージが満タンになったら
+            if (trickPoint[i]>=trickPointMax)//今チャージしているゲージが満タンになったら
             {
-                charge = trick[i]-trickGaugeMax;//次のゲージにチャージする分
-                trick[i] = trickGaugeMax;//トリックが限界突破しないように
+                charge = trickPoint[i]-trickPointMax;//次のゲージにチャージする分
+                trickPoint[i] = trickPointMax;//トリックポイントが限界突破しないように
                 maxCount++;//満タンのトリックゲージの数を増やす
             }
             else//今チャージしているゲージが満タンにならなかったらチャージ処理を終える
@@ -118,7 +124,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool ConsumeCharge(int cost)//トリックの消費(使うゲージ量を引数に入れる、使用ゲージが足りないとfalseを返されるのでそれで処理の可・不可を判断)
+    public bool ConsumeTrickPoint(int cost)//トリックポイントの消費(使うゲージ量を引数に入れる、使用ゲージが足りないとfalseを返されるのでそれで処理の可・不可を判断)
     {
         if(maxCount<cost)//使うゲージ量が足りなければ
         {
@@ -130,7 +136,7 @@ public class Player : MonoBehaviour
             //使うゲージの中身を0にする
             for(int i=0; i<cost;i++)
             {
-                trick[maxCount - 1 - i] = 0;
+                trickPoint[maxCount - 1 - i] = 0;
             }
 
             //
@@ -140,8 +146,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                trick[maxCount - cost] = trick[maxCount];
-                trick[maxCount] = 0;
+                trickPoint[maxCount - cost] = trickPoint[maxCount];
+                trickPoint[maxCount] = 0;
             }
             
             //満タンのゲージの数を使った分減らす
@@ -151,6 +157,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //後で別のスクリプトに移すかも
     void Dead()//プレイヤー死亡時ゲームオーバーシーンに移行
     {
         if(hp <=0)

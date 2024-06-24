@@ -152,9 +152,9 @@ public class ManagementOfScore : MonoBehaviour
 
     void CalculateTrickGageScore()//トリックゲージ残量のスコア計算
     {
-        for (int i = 0; i < player.Trick.Length; i++)
+        for (int i = 0; i < player.TrickPoint.Length; i++)
         {
-            totalScore += (int)(player.Trick[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
+            totalScore += (int)(player.TrickPoint[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
         }
     }
 

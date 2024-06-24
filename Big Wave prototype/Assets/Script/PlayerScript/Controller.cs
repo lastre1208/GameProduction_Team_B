@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour
 
     MoveControl moveControl;
     JumpControl jumpControl;
-    ChargeTrickControl chargeTrickControl;
+    ChargeTrickFromWaveControl chargeTrickControl;
     TrickControl trickControl;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Controller : MonoBehaviour
     {
         moveControl = gameObject.GetComponent<MoveControl>();
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrickControl = gameObject.GetComponent<ChargeTrickControl>();
+        chargeTrickControl = gameObject.GetComponent<ChargeTrickFromWaveControl>();
         trickControl= gameObject.GetComponent<TrickControl>();
     }
 
