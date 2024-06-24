@@ -485,7 +485,7 @@ MonoBehaviour:
     - action: 6
       actionProbability: 3
       nextBeginActTime: 0.3
-    formHp: 4000
+    formHp: 15000
   - actionPatterns:
     - action: 4
       actionProbability: 82
@@ -502,7 +502,7 @@ MonoBehaviour:
     - action: 8
       actionProbability: 0.5
       nextBeginActTime: 0.6
-    formHp: 2000
+    formHp: 7500
 --- !u!114 &98503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3978,7 +3978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 100
-  trickGaugeMax: 150
+  trickPointMax: 150
   trickGaugeNum: 6
   feverPointMax: 400
 --- !u!65 &1244729526
@@ -4450,11 +4450,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUp:
     buffTime: 5
-    buffEffect: {fileID: 1503523459}
+    effect: {fileID: 1503523459}
+    effectShow: 1
     growthRate: 2
   chargeTrick:
     buffTime: 5
-    buffEffect: {fileID: 1720416255}
+    effect: {fileID: 1720416255}
+    effectShow: 1
     growthRate: 2
 --- !u!114 &1244729544
 MonoBehaviour:
@@ -11303,16 +11305,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d9d1173b809d548bba0cb4455b645a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOfHpGauge: {fileID: 1044993408}
-  outOfPlayerOfTrickGauge: {fileID: 1700744524}
-  playerOfTrickGauge: {fileID: 193812624958497627, guid: 24aaa73ea8b371544bdaca86cc247bb2, type: 3}
+  hpGaugeOfPlayer: {fileID: 1044993408}
+  outOfTrickGaugeOfPlayer: {fileID: 1700744524}
+  trickGaugeOfPlayer: {fileID: 193812624958497627, guid: 24aaa73ea8b371544bdaca86cc247bb2, type: 3}
   trickGaugeInterval: 4
   trickGaugeNormalColor: {r: 0, g: 0.08170819, b: 1, a: 1}
   trickGaugeMaxColor: {r: 0.9792651, g: 1, b: 0, a: 1}
-  playerOfFeverGauge: {fileID: 1248422115}
+  feverGaugeOfPlayer: {fileID: 1248422115}
   feverGaugeNormalColor: {r: 0.5733415, g: 0, b: 0.5924529, a: 1}
   feverGaugeFeverModeColor: {r: 1, g: 0.5566037, b: 0.9295539, a: 1}
-  enemyOfHpGauge: {fileID: 207016421}
+  hpGaugeOfEnemy: {fileID: 207016421}
 --- !u!114 &2119914098
 MonoBehaviour:
   m_ObjectHideFlags: 0
