@@ -66,7 +66,7 @@ public class TrickControl : MonoBehaviour
     BuffOfPlayer buffOfPlayer;
     Controller controller;
     ManagementOfScore managementOfScore;
-    ProcessFeverPoint processFeverPoint;
+    ProcessFeverMode processFeverPoint;
    
     
     public bool Tricked
@@ -82,6 +82,7 @@ public class TrickControl : MonoBehaviour
         buffTrick.TrickPattern = TrickType.buff;
         tricked = false;
         trickCount = 0;
+
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         player = gameObject.GetComponent<Player>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
@@ -91,7 +92,7 @@ public class TrickControl : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //
         managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
-        processFeverPoint= gameObject.GetComponent<ProcessFeverPoint>();
+        processFeverPoint= gameObject.GetComponent<ProcessFeverMode>();
     }
 
     // Update is called once per frame
@@ -106,7 +107,8 @@ public class TrickControl : MonoBehaviour
         return damageAmount * buffOfPlayer.PowerUp.CurrentGrowthRate * processFeverPoint.CurrentPowerUp_GrowthRate;
     }
 
-    //攻撃
+
+    //トリック
     void Trick(Trick trick)
     {
         if (jumpcontrol.JumpNow == true && player.ConsumeTrickPoint(trick.TrickCost) && enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能

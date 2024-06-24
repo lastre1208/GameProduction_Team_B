@@ -6,23 +6,26 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     //☆塩が書いた
-    [Header("トリックチャージ時のバイブの速さ")]
-    [SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックチャージ時のバイブの速さ
-    [SerializeField] float trick_VibrationSpeed = 0.35f;//トリックチャージ時のバイブの速さ
-    [SerializeField] float trickVibeTime = 0f;//トリックの振動の時間
+    [Header("トリックをチャージしている時のバイブの速さ")]
+    [SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックをチャージしている時のバイブの速さ
+    [Header("トリックを決めた時のバイブの速さ")]
+    [SerializeField] float trick_VibrationSpeed = 0.35f;//トリックを決めた時のバイブの速さ
+    [Header("トリックを決めた時の振動の時間")]
+    [SerializeField] float trickVibeTime = 0f;//トリックを決めた時の振動の時間
     private float remainingTrickVibeTime = 0f;//トリックの振動の残り時間(内部用)
 
     MoveControl moveControl;
     JumpControl jumpControl;
-    ChargeTrickFromWaveControl chargeTrickControl;
+    ChargeTrickFromWaveControl chargeTrickFromWaveControl;
     TrickControl trickControl;
     private Gamepad gamepad = Gamepad.current;
+
     // Start is called before the first frame update
     void Start()
     {
         moveControl = gameObject.GetComponent<MoveControl>();
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrickControl = gameObject.GetComponent<ChargeTrickFromWaveControl>();
+        chargeTrickFromWaveControl = gameObject.GetComponent<ChargeTrickFromWaveControl>();
         trickControl= gameObject.GetComponent<TrickControl>();
     }
 
@@ -33,7 +36,7 @@ public class Controller : MonoBehaviour
 
         Jump();//ジャンプ
 
-        Trick();//攻撃
+        Trick();//トリック
         
         VibrateController_Charge();//チャージしている間コントローラが振動
 
@@ -118,13 +121,13 @@ public class Controller : MonoBehaviour
         //スペースキーやボタンを押している間チャージ
         if (Input.GetKey(KeyCode.JoystickButton5)  ||Input.GetKey(KeyCode.JoystickButton4)||  Input.GetKey("space"))
         {
-            chargeTrickControl.ChargeTrickTouchingWave(wavePrefab);
+            chargeTrickFromWaveControl.ChargeTrickTouchingWave(wavePrefab);
         }
     }
 
     void VibrateController_Charge()//チャージしている間コントローラが振動
     {
-        if (chargeTrickControl.ChargeNow)
+        if (chargeTrickFromWaveControl.ChargeNow)
         {
             Vibration(chargeTrick_VibrationSpeed);//バイブさせる
         }
@@ -135,7 +138,10 @@ public class Controller : MonoBehaviour
     }
 
 
-    //バイブ関連
+    //バイブ関連(bool型でバイブさせるかバイブを止めるか判断、true->バイブ、false->バイブを止める)
+
+
+
     //バイブさせる
     //a(引数)にはバイブのスピードを入れる(0～1fまで)
     void Vibration(float a)

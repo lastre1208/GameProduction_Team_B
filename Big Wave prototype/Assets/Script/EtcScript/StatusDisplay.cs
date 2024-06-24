@@ -38,14 +38,14 @@ public class StatusDisplay : MonoBehaviour
 
     Enemy enemy;
     Player player;
-    ProcessFeverPoint processFeverPoint;
+    ProcessFeverMode processFeverPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        processFeverPoint= GameObject.FindWithTag("Player").GetComponent<ProcessFeverPoint>();
+        processFeverPoint= GameObject.FindWithTag("Player").GetComponent<ProcessFeverMode>();
         //トリックゲージの生成(ゲージ数個分)
         GenerateTrickGauge();
         //トリックゲージの位置調整

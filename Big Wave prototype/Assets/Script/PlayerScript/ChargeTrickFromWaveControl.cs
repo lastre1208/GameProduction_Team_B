@@ -21,7 +21,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
     Player player;
     Wave wave;
     BuffOfPlayer buffOfPlayer;
-    ProcessFeverPoint processFeverPoint;
+    ProcessFeverMode processFeverPoint;
   
     public bool ChargeNow
     {
@@ -34,7 +34,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
         touchWave = gameObject.GetComponent<JudgeTouchWave>();
         player = gameObject.GetComponent<Player>();
         buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>();
-        processFeverPoint = gameObject.GetComponent<ProcessFeverPoint>();
+        processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
         chargeSpark.SetActive(false);
     }
 

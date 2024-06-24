@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcessFeverPoint : MonoBehaviour
+public class ProcessFeverMode : MonoBehaviour
 {
     [Header("回数ごとの溜まるフィーバーポイントの値")]
     [Header("注意:トリックゲージの個数分配列を用意してください")]
