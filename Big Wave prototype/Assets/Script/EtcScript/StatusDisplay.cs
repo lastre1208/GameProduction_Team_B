@@ -9,34 +9,43 @@ public class StatusDisplay : MonoBehaviour
     //☆塩が書いた
     //プレイヤーのHP関連
     [Header("▼プレイヤーのHPゲージ")]
-    [SerializeField] GameObject playerOfHpGauge;//プレイヤーのHPゲージ
-    //プレイヤーのトリック関連
+    [SerializeField] GameObject hpGaugeOfPlayer;//プレイヤーのHPゲージ
+
+    //プレイヤーのトリックポイント関連
     [Header("▼プレイヤーのトリックゲージの黒い部分")]
-    [SerializeField] GameObject outOfPlayerOfTrickGauge;//プレイヤーのトリックゲージの黒い部分
+    [SerializeField] GameObject outOfTrickGaugeOfPlayer;//プレイヤーのトリックゲージの黒い部分
     [Header("▼プレイヤーのトリックゲージ")]
-    [SerializeField] GameObject playerOfTrickGauge;//プレイヤーのトリックゲージ
+    [SerializeField] GameObject trickGaugeOfPlayer;//プレイヤーのトリックゲージ
     [Header("▼分割されたトリックゲージをどれくらい離すか")]
     [SerializeField] float trickGaugeInterval;//分割されたトリックゲージをどれくらい離すか
     [Header("▼通常状態のトリックゲージの色")]
-    [SerializeField] Color trickGaugeNormalColor;
+    [SerializeField] Color trickGaugeNormalColor;//通常状態のトリックゲージの色
     [Header("▼満タン状態のトリックゲージの色")]
-    [SerializeField] Color trickGaugeMaxColor;
+    [SerializeField] Color trickGaugeMaxColor;//満タン状態のトリックゲージの色
     private GameObject[] trickGauges;//プレイヤーのトリックゲージ(内部処理用)
+
     //プレイヤーのフィーバーポイント関連
     [Header("▼プレイヤーのフィーバーゲージ")]
-    [SerializeField] GameObject playerOfFeverGauge;//プレイヤーのフィーバーゲージ
+    [SerializeField] GameObject feverGaugeOfPlayer;//プレイヤーのフィーバーゲージ
+    [Header("▼通常状態のフィーバーゲージの色")]
+    [SerializeField] Color feverGaugeNormalColor;//通常状態のフィーバーゲージの色
+    [Header("▼フィーバー状態のフィーバーゲージの色")]
+    [SerializeField] Color feverGaugeFeverModeColor;//フィーバー状態のフィーバーゲージの色
 
     //敵のHP関連
     [Header("▼敵のHPゲージ")]
-    [SerializeField] GameObject enemyOfHpGauge;//敵のHPゲージ
+    [SerializeField] GameObject hpGaugeOfEnemy;//敵のHPゲージ
 
     Enemy enemy;
     Player player;
+    ProcessFeverMode processFeverPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+        processFeverPoint= GameObject.FindWithTag("Player").GetComponent<ProcessFeverMode>();
         //トリックゲージの生成(ゲージ数個分)
         GenerateTrickGauge();
         //トリックゲージの位置調整
@@ -46,34 +55,39 @@ public class StatusDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerOfHPGauge();
+        HPGaugeOfPlayer();//プレイヤーのHPゲージの処理
 
-        PlayerOfTRICKGauge();
+        TRICKGaugeOfPlayer();//プレイヤーのトリックゲージの処理
 
-        PlayerOfFeverGauge();
+        FeverGaugeOfPlayer();//プレイヤーのフィーバーゲージの処理
 
-        EnemyOfHPGauge();
+        HPGaugeOfEnemy();//敵のHPゲージの処理
     }
 
-    void PlayerOfHPGauge()//プレイヤーのHPゲージの処理
+    //プレイヤーのHP関係のメソッド
+
+    void HPGaugeOfPlayer()//プレイヤーのHPゲージの処理
     {
         float hpRatio = player.Hp / player.HpMax;
-        playerOfHpGauge.GetComponent<Image>().fillAmount = hpRatio;
+        hpGaugeOfPlayer.GetComponent<Image>().fillAmount = hpRatio;
     }
 
-    void GenerateTrickGauge()
+
+    //プレイヤーのトリックポイント関係のメソッド
+
+    void GenerateTrickGauge()//トリックゲージの生成(ゲージ数個分)
     {
         trickGauges=new GameObject[player.TrickGaugeNum];
         for(int i=0; i<trickGauges.Length;i++)
         {
-            trickGauges[i] = Instantiate(playerOfTrickGauge,outOfPlayerOfTrickGauge.transform);
+            trickGauges[i] = Instantiate(trickGaugeOfPlayer,outOfTrickGaugeOfPlayer.transform);
         }
     }
 
     void PositioningTrickGauge()//トリックゲージの位置調整
     {
         //黒い部分のトリックゲージの(横の)大きさを取得
-        Vector2 sd_OutOfTrickGauge = outOfPlayerOfTrickGauge.GetComponent<RectTransform>().sizeDelta;
+        Vector2 sd_OutOfTrickGauge = outOfTrickGaugeOfPlayer.GetComponent<RectTransform>().sizeDelta;
         //分割されているトリックゲージの大きさを決める(全て同じ大きさ)
         Vector2 sd_TrickGauge = trickGauges[0].GetComponent<RectTransform>().sizeDelta;
         sd_TrickGauge.x = ( sd_OutOfTrickGauge.x-(trickGauges.Length-1)*trickGaugeInterval )/ trickGauges.Length;
@@ -105,11 +119,11 @@ public class StatusDisplay : MonoBehaviour
         }
     }
 
-    void PlayerOfTRICKGauge()//プレイヤーのトリックゲージの処理
+    void TRICKGaugeOfPlayer()//プレイヤーのトリックゲージの処理
     {
         for(int i=0; i<trickGauges.Length;i++)
         {
-            float trickRatio = player.Trick[i] / player.TrickMax;
+            float trickRatio = player.TrickPoint[i] / player.TrickPointMax;
             trickGauges[i].GetComponent<Image>().fillAmount = trickRatio;
 
             
@@ -125,18 +139,33 @@ public class StatusDisplay : MonoBehaviour
         }
     }
 
-    void PlayerOfFeverGauge()//プレイヤーのフィーバーゲージの処理
+
+    //プレイヤーのフィーバーポイント関係のメソッド
+
+    void FeverGaugeOfPlayer()//プレイヤーのフィーバーゲージの処理
     {
         float feverRatio = player.FeverPoint / player.FeverPointMax;
-        playerOfFeverGauge.GetComponent<Image>().fillAmount = feverRatio;
+        feverGaugeOfPlayer.GetComponent<Image>().fillAmount = feverRatio;
+        //ゲージの色の変更
+        if(processFeverPoint.FeverNow)//フィーバー状態の時
+        {
+            feverGaugeOfPlayer.GetComponent<Image>().color = feverGaugeFeverModeColor;
+        }
+        else//通常時
+        {
+            feverGaugeOfPlayer.GetComponent<Image>().color = feverGaugeNormalColor;
+        }
     }
 
-    void EnemyOfHPGauge()//敵のHPゲージの処理
+
+    //敵のHP関係のメソッド
+
+    void HPGaugeOfEnemy()//敵のHPゲージの処理
     {
         if (enemy != null)
         {
             float enemy_HpRatio = enemy.Hp / enemy.HpMax;
-            enemyOfHpGauge.GetComponent<Image>().fillAmount = enemy_HpRatio;
+            hpGaugeOfEnemy.GetComponent<Image>().fillAmount = enemy_HpRatio;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcessFeverPoint : MonoBehaviour
+public class ProcessFeverMode : MonoBehaviour
 {
     [Header("回数ごとの溜まるフィーバーポイントの値")]
     [Header("注意:トリックゲージの個数分配列を用意してください")]
@@ -32,6 +32,11 @@ public class ProcessFeverPoint : MonoBehaviour
         get { return currentChargeTrick_GrowthRate; }
     }
 
+    public bool FeverNow
+    {
+        get { return feverNow; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +51,11 @@ public class ProcessFeverPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Method1();
+        ChangeFeverMode();//フィーバー状態に移行
 
-        Method2();
+        ManageFeverTime();//フィーバー状態の残り時間を管理
 
-        Method3();
+        FeverModeEffect();//フィーバー状態の効果の処理
     }
 
     //フィーバー状態でない時フィーバーポイント加算(トリックするごとに加算するようにする)、countは1回のジャンプ中のトリック回数
@@ -63,7 +68,7 @@ public class ProcessFeverPoint : MonoBehaviour
     }
 
     //まだフィーバー状態になっていないかつフィーバーポイントが満タンになったらフィーバー状態に移行
-    void Method1()
+    void ChangeFeverMode()
     {
         if (feverNow == false && player.FeverPoint >= player.FeverPointMax)
         {
@@ -73,7 +78,7 @@ public class ProcessFeverPoint : MonoBehaviour
     }
 
     //フィーバー状態の残り時間を管理
-    void Method2()
+    void ManageFeverTime()
     {
         remainingFeverTime -= Time.deltaTime;
 
@@ -84,7 +89,8 @@ public class ProcessFeverPoint : MonoBehaviour
         }
     }
 
-    void Method3()
+    //フィーバー状態の効果の処理
+    void FeverModeEffect()
     {
         //フィーバー状態中は...
         //攻撃力とチャージトリック量がアップする

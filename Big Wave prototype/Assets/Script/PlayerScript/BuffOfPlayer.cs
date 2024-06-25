@@ -1,26 +1,28 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Buff//バフ
+public class Buff//バフ(基本的にこれを継承してバフを作る)
 {
     [Header("効果時間(秒)")]
     [SerializeField] float buffTime = 5f;//バフの効果時間(秒)
     [Header("バフのエフェクト")]
-    [SerializeField] GameObject buffEffect;//バフのエフェクト
-
+    [SerializeField] GameObject effect;//バフのエフェクト
+    [Header("バフのエフェクトを表示するか")]
+    [SerializeField] bool effectShow = true;
     private float buffRemainingTime = 0f;//バフの残り効果時間(秒)、これが0秒以下になったらバフの効果が切れるようにする
-    private bool activateNow = false;//バフ効果発動中か
+    protected bool activateNow = false;//バフ効果発動中か
 
     public float BuffTime
     {
         get { return buffTime; }
     }
 
-    public GameObject BuffEffect
+    public GameObject Effect
     {
-        get { return buffEffect; }
+        get { return effect; }
     }
 
     public float BuffRemainingTime
@@ -33,14 +35,21 @@ public class Buff//バフ
         get { return activateNow; }
     }
 
-    public virtual void Buff_Start()//Startで呼ぶ処理
+    public Buff()
     {
         buffRemainingTime = 0f;
         activateNow = false;
     }
-    
-    //バフの残り効果時間の管理
-    public void EffectTime()
+
+    //バフの残り効果時間の処理とバフ効果の処理
+    public void ProcessBuffEffect()
+    {
+        BuffEffectTime();
+        BuffEffect();
+    }
+
+    //バフの残り効果時間の処理
+    void BuffEffectTime()
     {
         buffRemainingTime-=Time.deltaTime;
 
@@ -49,6 +58,22 @@ public class Buff//バフ
             activateNow = false;
         }
     }
+
+    //バフ効果の処理
+    protected virtual void BuffEffect()
+    {
+        if (activateNow)//発動中
+        {
+            //upBuff.CurrentGrowthRate = upBuff.GrowthRate;
+            if(effectShow) effect.SetActive(true);
+        }
+        else//発動していない時
+        {
+            //upBuff.CurrentGrowthRate = 1f;
+            effect.SetActive(false);
+        }
+    }
+
 
     //バフを発動させる(バフがかかった)時にこれを呼ぶ
     public void Activate()
@@ -72,10 +97,23 @@ public class UpBuff : Buff//増加系のバフ
     [SerializeField] float growthRate = 1;//増加率(倍率)
     private float currentGrowthRate = 1f;//現在の増加率
 
-    public override void Buff_Start()
+    public UpBuff()
     {
-        base.Buff_Start();
         currentGrowthRate = 1f;
+    }
+
+    protected override void BuffEffect()
+    {
+        base.BuffEffect();
+
+        if (activateNow)//発動中
+        {
+            currentGrowthRate = growthRate;
+        }
+        else//発動していない時
+        {
+            currentGrowthRate = 1f;
+        }
     }
 
     public float GrowthRate
@@ -88,7 +126,6 @@ public class UpBuff : Buff//増加系のバフ
         get { return currentGrowthRate; }
         set { currentGrowthRate = value; }
     }
-
 }
 
 public class BuffOfPlayer : MonoBehaviour
@@ -111,34 +148,19 @@ public class BuffOfPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUp.Buff_Start();
-        chargeTrick.Buff_Start();
+        powerUp.Effect.SetActive(false);
+        chargeTrick.Effect.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         //攻撃力アップバフ
-        powerUp.EffectTime();
-        UpBuffEffect(powerUp);
+        powerUp.ProcessBuffEffect();
 
         //チャージトリック量増加バフ
-        chargeTrick.EffectTime();
-        UpBuffEffect(chargeTrick);
+        chargeTrick.ProcessBuffEffect();
     }
 
-    void UpBuffEffect(UpBuff upBuff)//アップ系のバフの発動中の効果
-    {
-        if(upBuff.ActivateNow)//発動中
-        {
-            upBuff.CurrentGrowthRate=upBuff.GrowthRate;
-            upBuff.BuffEffect.SetActive(true);
-        }
-        else//発動していない時
-        {
-            upBuff.CurrentGrowthRate = 1f;
-            upBuff.BuffEffect.SetActive(false);
-        }
-    }
-
+   
 }
