@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2234283f10fc27a49a8c477c86f7b6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 15000
+  hpMax: 5500
 --- !u!114 &98503824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
     - action: 6
       actionProbability: 3
       nextBeginActTime: 0.3
-    formHp: 15000
+    formHp: 5500
   - actionPatterns:
     - action: 4
       actionProbability: 82
@@ -504,7 +504,7 @@ MonoBehaviour:
     - action: 8
       actionProbability: 0.5
       nextBeginActTime: 0.6
-    formHp: 7500
+    formHp: 2000
 --- !u!114 &98503829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,16 +533,16 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98503817}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1244729530}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 3.8, z: 27}
   serializedVersion: 2
-  m_Spring: 10
+  m_Spring: 4
   m_Damper: 0.2
   m_MinDistance: 0
-  m_MaxDistance: 10
+  m_MaxDistance: 0
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -4816,6 +4816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 20
+  rb: {fileID: 0}
 --- !u!114 &1244729535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4841,6 +4842,8 @@ MonoBehaviour:
   healAmount: 50
   powerUpBuff: 1
   chargeTrickBuff: 1
+  hoverTime: 0.05
+  hoverJumpStrength: 12
 --- !u!108 &1244729536
 Light:
   m_ObjectHideFlags: 0

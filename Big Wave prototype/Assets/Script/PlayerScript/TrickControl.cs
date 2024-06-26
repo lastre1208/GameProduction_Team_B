@@ -56,9 +56,13 @@ public class TrickControl : MonoBehaviour
     [Header("チャージトリック量増加のバフ")]
     [SerializeField] bool chargeTrickBuff=false;//チャージトリック量増加のバフ
     //[SerializeField] float trick_DamageFactor = 0.5f;//トリックをためた時のダメージの上昇具合、1、２、3、nだとそれぞれトリック満タン時、トリック空っぽの時のダメージの2、3、4、(1+1*n)倍になる
+    [Header("トリック使用時の滞空時間")]
+    [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
+    [Header("滞空終了時に起こるジャンプの強さ")]
+    [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
     private bool tricked;//トリックしたかしていないかの判定
     private int trickCount=0;//一回のジャンプにしたトリックの回数
-
+    private Coroutine HoverCoroutine;
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     Enemy enemy;
     Player player;
@@ -113,6 +117,7 @@ public class TrickControl : MonoBehaviour
     {
         if (jumpcontrol.JumpNow == true && player.ConsumeTrickPoint(trick.TrickCost) && enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
         {
+
             switch (trick.TrickPattern)
             {
                 case TrickType.attack://敵にダメージを与える
@@ -143,6 +148,7 @@ public class TrickControl : MonoBehaviour
             managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
             trickCount++;//1回トリックした(1ジャンプ中に)
             processFeverPoint.ChargeFeverPoint(trickCount);
+            HoverCoroutine = StartCoroutine(HoverJump());
         }
     }
 
@@ -182,5 +188,15 @@ public class TrickControl : MonoBehaviour
         {
             tricked = false;//攻撃していない
         }
+    }
+    IEnumerator HoverJump()
+    {
+        jumpcontrol.rb.useGravity = false;
+        jumpcontrol.rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
+
+        yield return new WaitForSeconds(hoverTime);
+
+        jumpcontrol.rb.useGravity = true;
+        jumpcontrol.rb.velocity= new(0, hoverJumpStrength, 0);
     }
 }

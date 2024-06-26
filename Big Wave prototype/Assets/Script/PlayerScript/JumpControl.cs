@@ -9,7 +9,7 @@ public class JumpControl : MonoBehaviour
     [SerializeField] float jumpPower=9f;//ジャンプ力
     private bool jumpNow;//今ジャンプしているか
     //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
-    Rigidbody rb;
+    public Rigidbody rb; //TrickControl1で使うのでpublicにしました
     JudgeTouchWave touchWave;
     Player player;
 
