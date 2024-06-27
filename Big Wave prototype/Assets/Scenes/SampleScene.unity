@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -533,7 +533,7 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98503817}
-  m_ConnectedBody: {fileID: 1244729530}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
@@ -4625,6 +4625,7 @@ GameObject:
   - component: {fileID: 1244729541}
   - component: {fileID: 1244729543}
   - component: {fileID: 1244729544}
+  - component: {fileID: 1244729545}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4644,7 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6caf9150bfd14283d02dd47d6c15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 100
+  hpMax: 200
   trickPointMax: 150
   trickGaugeNum: 6
   feverPointMax: 400
@@ -4840,8 +4841,8 @@ MonoBehaviour:
     trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
   damageAmount: 100
   healAmount: 50
-  powerUpBuff: 1
-  chargeTrickBuff: 1
+  powerUpBuff: 0
+  chargeTrickBuff: 0
   hoverTime: 0.05
   hoverJumpStrength: 12
 --- !u!108 &1244729536
@@ -4851,7 +4852,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -4963,6 +4964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchBorderTime: 0.16
 --- !u!114 &1244729540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5151,6 +5153,22 @@ MonoBehaviour:
   feverTime: 20
   powerUp_GrowthRate: 2
   chargeTrick_GrowthRate: 2
+--- !u!114 &1244729545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d5e820d00212c4b9962579662f3a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRateMax: 3
+  byRateMaxTime: 15
+  chargeEffect: {fileID: 1722439556}
+  maxScale: 0.2
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
@@ -11781,7 +11799,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.07, y: 0.1, z: 0.12}
-  m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1244729529}

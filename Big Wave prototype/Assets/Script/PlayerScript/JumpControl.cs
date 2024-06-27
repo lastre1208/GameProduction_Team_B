@@ -8,7 +8,6 @@ public class JumpControl : MonoBehaviour
     //☆塩が書いた
     [SerializeField] float jumpPower=9f;//ジャンプ力
     private bool jumpNow;//今ジャンプしているか
-    //[SerializeField] float jumpPowerAdjustment = 60f;//ジャンプ力調整用、小さいほど最大トリック時のジャンプの高さが上がる
     public Rigidbody rb; //TrickControl1で使うのでpublicにしました
     JudgeTouchWave touchWave;
     Player player;
@@ -37,7 +36,6 @@ public class JumpControl : MonoBehaviour
         
         if (other.gameObject.CompareTag("Ground"))//床に触れた→ジャンプしていない
         {
-            //player.ConsumeTRICK();
             jumpNow = false;
         }
     }
@@ -46,8 +44,6 @@ public class JumpControl : MonoBehaviour
     {
         if (touchWave.TouchWaveNow&&JumpNow==false)//ジャンプしていない時かつ波に触れているときのみジャンプ可能
         {
-            //if (jumpNow == true) return;
-            //this.rb.AddForce(transform.up * jumpPower * (1 + player.trick / jumpPowerAdjustment), ForceMode.Impulse);//!!!!!(要調整)
             this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
 
             jumpNow = true;//ジャンプした

@@ -22,6 +22,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
     Wave wave;
     BuffOfPlayer buffOfPlayer;
     ProcessFeverMode processFeverPoint;
+    ChangeChargeTrickOnWave changeChargeTrickOnWave;
   
     public bool ChargeNow
     {
@@ -35,6 +36,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
         player = gameObject.GetComponent<Player>();
         buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>();
         processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
+        changeChargeTrickOnWave=gameObject.GetComponent<ChangeChargeTrickOnWave>();
         chargeSpark.SetActive(false);
     }
 
@@ -66,7 +68,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
 
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
-        return b * buffOfPlayer.ChargeTrick.CurrentGrowthRate * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount];
+        return b * buffOfPlayer.ChargeTrick.CurrentGrowthRate * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount]*changeChargeTrickOnWave.CurrentChargeRate;
     }
 
     //波に触れてトリックをチャージするときの内部の処理
@@ -82,8 +84,6 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
         sinceLastChargeTime = 0f;//今チャージしている判定にする
     }
 
-
-
     void JudgeChargeNow()//今チャージしているか判定
     {
         sinceLastChargeTime += Time.deltaTime;
@@ -97,8 +97,6 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
             chargeNow = false;
         }
     }
-
-
 
     void DisplayChargeSpark()//波に触っているかつトリックをチャージしている時のみチャージ用の雷エフェクトを表示
     {
