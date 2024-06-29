@@ -4615,7 +4615,6 @@ GameObject:
   - component: {fileID: 1244729532}
   - component: {fileID: 1244729533}
   - component: {fileID: 1244729534}
-  - component: {fileID: 1244729537}
   - component: {fileID: 1244729535}
   - component: {fileID: 1244729539}
   - component: {fileID: 1244729540}
@@ -4626,6 +4625,9 @@ GameObject:
   - component: {fileID: 1244729543}
   - component: {fileID: 1244729544}
   - component: {fileID: 1244729545}
+  - component: {fileID: 1244729546}
+  - component: {fileID: 1244729547}
+  - component: {fileID: 1244729548}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4791,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11.5
+  speed: 13
 --- !u!114 &1244729533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4907,28 +4909,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1244729537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced1e40561ced0e42a57021e4b7fe186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate:
-  - 1
-  - 1
-  - 0.6
-  - 0.6
-  - 0.3
-  - 0.3
-  outSideChargeTrick: 3
-  inSideChargeTrick: 6
-  chargeSpark: {fileID: 1722439556}
 --- !u!114 &1244729538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5167,8 +5147,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeRateMax: 3
   byRateMaxTime: 15
-  chargeEffect: {fileID: 1722439556}
-  maxScale: 0.2
+--- !u!114 &1244729546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef38f5e3adc026847a20925770bd05e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 1
+  - 0.6
+  - 0.6
+  - 0.3
+  - 0.3
+  outSideChargeTrick: 1
+  inSideChargeTrick: 2
+--- !u!114 &1244729547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0534ceb196db9b9469df572627616f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSpark: {fileID: 1722439556}
+--- !u!114 &1244729548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d6c3110c41e3046b9bcd6715da0c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedBorderTime: 0.1
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0

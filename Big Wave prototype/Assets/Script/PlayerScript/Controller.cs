@@ -16,8 +16,9 @@ public class Controller : MonoBehaviour
 
     MoveControl moveControl;
     JumpControl jumpControl;
-    ChargeTrickFromWaveControl chargeTrickFromWaveControl;
+    ChargeTrickControl chargeTrickControl;
     TrickControl trickControl;
+    JudgeChargeNow judgeChargeNow;
     private Gamepad gamepad = Gamepad.current;
 
     // Start is called before the first frame update
@@ -25,8 +26,9 @@ public class Controller : MonoBehaviour
     {
         moveControl = gameObject.GetComponent<MoveControl>();
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrickFromWaveControl = gameObject.GetComponent<ChargeTrickFromWaveControl>();
+        chargeTrickControl = gameObject.GetComponent<ChargeTrickControl>();
         trickControl= gameObject.GetComponent<TrickControl>();
+        judgeChargeNow= gameObject.GetComponent<JudgeChargeNow>();
     }
 
     // Update is called once per frame
@@ -121,13 +123,13 @@ public class Controller : MonoBehaviour
         //スペースキーやボタンを押している間チャージ
         if (Input.GetKey(KeyCode.JoystickButton5)  ||Input.GetKey(KeyCode.JoystickButton4)||  Input.GetKey("space"))
         {
-            chargeTrickFromWaveControl.ChargeTrickTouchingWave(wavePrefab);
+            chargeTrickControl.ChargeTrickTouchingWave(wavePrefab);
         }
     }
 
     void VibrateController_Charge()//チャージしている間コントローラが振動
     {
-        if (chargeTrickFromWaveControl.ChargeNow)
+        if (judgeChargeNow.ChargeNow())
         {
             Vibration(chargeTrick_VibrationSpeed);//バイブさせる
         }
