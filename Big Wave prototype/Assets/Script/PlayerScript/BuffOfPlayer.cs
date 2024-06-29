@@ -6,18 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class Buff//バフ(基本的にこれを継承してバフを作る)
 {
-    [Header("効果時間(秒)")]
-    [SerializeField] float buffTime = 5f;//バフの効果時間(秒)
+    //[Header("効果時間(秒)")]
+    //[SerializeField] float buffTime = 5f;//バフの効果時間(秒)
+    [Header("バフの最大ストック数")]
+    [SerializeField] int buffStockMax = 6;//バフの最大ストック数
     [Header("バフのエフェクト")]
     [SerializeField] GameObject effect;//バフのエフェクト
     [Header("バフのエフェクトを表示するか")]
     [SerializeField] bool effectShow = true;
-    private float buffRemainingTime = 0f;//バフの残り効果時間(秒)、これが0秒以下になったらバフの効果が切れるようにする
+    //private float buffRemainingTime = 0f;//バフの残り効果時間(秒)、これが0秒以下になったらバフの効果が切れるようにする
+    private int buffStockCount = 0;//バフの残りストック数
     protected bool activateNow = false;//バフ効果発動中か
 
-    public float BuffTime
+    /*public float BuffTime
     {
         get { return buffTime; }
+    }*/
+
+    public int BuffStockMax
+    {
+        get { return buffStockMax; }
     }
 
     public GameObject Effect
@@ -25,9 +33,14 @@ public class Buff//バフ(基本的にこれを継承してバフを作る)
         get { return effect; }
     }
 
-    public float BuffRemainingTime
+    /*public float BuffRemainingTime
     {
         get { return buffRemainingTime; }
+    }*/
+
+    public int BuffStockCount
+    {
+        get { return buffStockCount; }
     }
 
     public bool ActivateNow
@@ -37,23 +50,33 @@ public class Buff//バフ(基本的にこれを継承してバフを作る)
 
     public Buff()
     {
-        buffRemainingTime = 0f;
+        //buffRemainingTime = 0f;
+        buffStockCount = 0;
         activateNow = false;
     }
 
     //バフの残り効果時間の処理とバフ効果の処理
     public void ProcessBuffEffect()
     {
-        BuffEffectTime();
+        //BuffEffectTime();
+        BuffEffectCount();
         BuffEffect();
     }
 
     //バフの残り効果時間の処理
-    void BuffEffectTime()
+    /*void BuffEffectTime()
     {
         buffRemainingTime-=Time.deltaTime;
 
         if(buffRemainingTime<=0f)//バフ効果切れ
+        {
+            activateNow = false;
+        }
+    }*/
+
+    void BuffEffectCount()
+    {
+        if(buffStockCount <= 0)//ストックがないなら
         {
             activateNow = false;
         }
@@ -79,14 +102,40 @@ public class Buff//バフ(基本的にこれを継承してバフを作る)
     public void Activate()
     {
         activateNow=true;//バフ効果発動中にする
-        buffRemainingTime = buffTime;
+        //buffRemainingTime = buffTime;
     }
 
     //バフを消す
     public void Deactivate()
     {
         activateNow=false;
-        buffRemainingTime = 0f;
+        //buffRemainingTime = 0f;
+    }
+
+    public void IncreaseBuffStock()
+    {
+        if(buffStockCount < buffStockMax)//バフストック数が最大値未満なら
+        {
+            buffStockCount++;//バフストックを1増やす
+        }
+
+        else
+        {
+            return;
+        }
+    }
+
+    public void DecrementBuffStock()
+    {
+        if(buffStockCount > 0)//バフストックがあるなら
+        {
+            buffStockCount--;//バフストックを1減らす
+        }
+
+        else
+        {
+            return;
+        }
     }
 }
 
@@ -130,12 +179,14 @@ public class UpBuff : Buff//増加系のバフ
 
 public class BuffOfPlayer : MonoBehaviour
 {
-    [Header("攻撃力アップのバフ")]
+    /*[Header("攻撃力アップのバフ")]
     [SerializeField] UpBuff powerUp;//攻撃力アップのバフ
     [Header("チャージトリック増加のバフ")]
-    [SerializeField] UpBuff chargeTrick;//チャージトリック増加のバフ
+    [SerializeField] UpBuff chargeTrick;//チャージトリック増加のバフ*/
+    [Header("トリック強化のバフ")]
+    [SerializeField] UpBuff trickBoost;//トリック強化のバフ
 
-    public UpBuff PowerUp
+    /*public UpBuff PowerUp
     {
         get { return powerUp; }
     }
@@ -143,23 +194,31 @@ public class BuffOfPlayer : MonoBehaviour
     public UpBuff ChargeTrick
     {
         get { return chargeTrick; }
+    }*/
+
+    public UpBuff TrickBoost
+    {
+        get { return trickBoost; }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        powerUp.Effect.SetActive(false);
-        chargeTrick.Effect.SetActive(false);
+        //powerUp.Effect.SetActive(false);
+        //chargeTrick.Effect.SetActive(false);
+        trickBoost.Effect.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //攻撃力アップバフ
+        /*//攻撃力アップバフ
         powerUp.ProcessBuffEffect();
 
         //チャージトリック量増加バフ
-        chargeTrick.ProcessBuffEffect();
+        chargeTrick.ProcessBuffEffect();*/
+
+        trickBoost.ProcessBuffEffect();
     }
 
    

@@ -66,7 +66,7 @@ public class ChargeTrickFromWaveControl : MonoBehaviour
 
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
-        return b * buffOfPlayer.ChargeTrick.CurrentGrowthRate * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount];
+        return b * /*buffOfPlayer.ChargeTrick.CurrentGrowthRate **/ processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount];
     }
 
     //波に触れてトリックをチャージするときの内部の処理
