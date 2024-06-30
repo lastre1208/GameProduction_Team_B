@@ -28,21 +28,13 @@ public class ChangeChargeTrickEffect : MonoBehaviour
         
     }
 
-    public void ResetEffectScale() //エフェクトの大きさをもとの大きさに
-    {
-        //エフェクトの大きさをもとの大きさに
-        currentScale = normalScale;
-
-        ApplyCurrentScale();
-    }
-
     public void ChangeEffectScale()//エフェクトの大きさを変更
     {
         //エフェクトの大きさを変更
         float effectScale = normalScale.x + (maxScale - normalScale.x) *changeChargeTrick.RatioOfChargeRate();
         currentScale = new Vector3(effectScale, effectScale, effectScale);
 
-       ApplyCurrentScale();
+        ApplyCurrentScale();
     }
 
     void ApplyCurrentScale()//現在の大きさを適用
