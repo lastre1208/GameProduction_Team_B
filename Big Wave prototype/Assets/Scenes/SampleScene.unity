@@ -533,7 +533,7 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98503817}
-  m_ConnectedBody: {fileID: 1244729530}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
@@ -4791,7 +4791,6 @@ GameObject:
   - component: {fileID: 1244729532}
   - component: {fileID: 1244729533}
   - component: {fileID: 1244729534}
-  - component: {fileID: 1244729537}
   - component: {fileID: 1244729535}
   - component: {fileID: 1244729539}
   - component: {fileID: 1244729540}
@@ -4801,6 +4800,11 @@ GameObject:
   - component: {fileID: 1244729541}
   - component: {fileID: 1244729543}
   - component: {fileID: 1244729544}
+  - component: {fileID: 1244729545}
+  - component: {fileID: 1244729546}
+  - component: {fileID: 1244729547}
+  - component: {fileID: 1244729548}
+  - component: {fileID: 1244729549}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4820,7 +4824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6caf9150bfd14283d02dd47d6c15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 100
+  hpMax: 200
   trickPointMax: 150
   trickGaugeNum: 6
   feverPointMax: 400
@@ -4966,7 +4970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11.5
+  speed: 13
 --- !u!114 &1244729533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,7 +5030,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -5081,28 +5085,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1244729537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced1e40561ced0e42a57021e4b7fe186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate:
-  - 1
-  - 1
-  - 0.6
-  - 0.6
-  - 0.3
-  - 0.3
-  outSideChargeTrick: 3
-  inSideChargeTrick: 6
-  chargeSpark: {fileID: 1722439556}
 --- !u!114 &1244729538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5138,6 +5120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchBorderTime: 0.16
 --- !u!114 &1244729540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5321,6 +5304,81 @@ MonoBehaviour:
   feverTime: 20
   powerUp_GrowthRate: 2
   chargeTrick_GrowthRate: 2
+--- !u!114 &1244729545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d5e820d00212c4b9962579662f3a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRateMax: 3
+  byRateMaxTime: 15
+--- !u!114 &1244729546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef38f5e3adc026847a20925770bd05e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 1
+  - 0.6
+  - 0.6
+  - 0.3
+  - 0.3
+  outSideChargeTrick: 1
+  inSideChargeTrick: 2
+--- !u!114 &1244729547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0534ceb196db9b9469df572627616f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSpark: {fileID: 1722439556}
+--- !u!114 &1244729548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d6c3110c41e3046b9bcd6715da0c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedBorderTime: 0.1
+--- !u!114 &1244729549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb56e09b57bd0ea44a6a17210d4f8c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeEffect: {fileID: 1722439556}
+  maxScale: 0.2
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
@@ -11951,7 +12009,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.07, y: 0.1, z: 0.12}
-  m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1244729529}
