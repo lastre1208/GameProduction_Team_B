@@ -4945,7 +4945,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1244729531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,7 +5280,7 @@ MonoBehaviour:
     buffStockMax: 6
     effect: {fileID: 1503523459}
     effectShow: 1
-    growthRate: 20
+    growthRate: 2
 --- !u!114 &1244729544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5318,6 +5318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeRateMax: 3
   byRateMaxTime: 15
+  minusChargeRateSpeed: 2
 --- !u!114 &1244729546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5333,10 +5334,10 @@ MonoBehaviour:
   chargeRate:
   - 1
   - 1
+  - 0.8
+  - 0.8
   - 0.6
   - 0.6
-  - 0.3
-  - 0.3
   outSideChargeTrick: 1
   inSideChargeTrick: 2
 --- !u!114 &1244729547
