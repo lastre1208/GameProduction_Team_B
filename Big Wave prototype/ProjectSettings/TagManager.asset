@@ -13,6 +13,7 @@ TagManager:
   - InsideWave
   - SceneManager
   - ScoreManager
+  - AvoidNow
   layers:
   - Default
   - TransparentFX

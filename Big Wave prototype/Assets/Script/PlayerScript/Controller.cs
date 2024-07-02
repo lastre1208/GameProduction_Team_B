@@ -79,7 +79,8 @@ public class Controller : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時バフ
         {
-            trickControl.Trick_Buff();
+            // trickControl.Trick_Buff();
+            trickControl.OnAvoid();
         }
 
         if(Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時攻撃
