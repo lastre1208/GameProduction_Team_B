@@ -18,7 +18,7 @@ public class PauseControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) // Pキーが押されたら
+        if (Input.GetKeyDown(KeyCode.P)||Input.GetButtonDown("Pause")) // Pキーが押されたら
         {
             TogglePause(); // ポーズの切り替え
         }
