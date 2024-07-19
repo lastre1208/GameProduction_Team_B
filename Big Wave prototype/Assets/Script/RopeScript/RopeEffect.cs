@@ -45,8 +45,8 @@ public class RopeEffect : MonoBehaviour
     {
         Vector3 enemyPosition = enemy.transform.position;//敵の座標を取得
         Vector3 playerPosition = player.transform.position;//プレイヤーの座標を取得
-        enemyPosition.z -= enemy.transform.localScale.z / 2f;
-        playerPosition.z += player.transform.localScale.z / 2f;
+        //enemyPosition.z -= enemy.transform.localScale.z / 2f;
+        //playerPosition.z += player.transform.localScale.z / 2f;
 
         startPoint.transform.position = playerPosition;//ロープの視点の座標にプレイヤーの座標に移動
         endPoint.transform.position = enemyPosition;//ロープの終点の座標を敵の座標に移動

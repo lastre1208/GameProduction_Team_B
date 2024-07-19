@@ -13,7 +13,6 @@ public class ChargeTrickControl : MonoBehaviour
     [Header("波の内側(中央)に波乗りした時に溜まるトリックの値")]
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
     Player player;
-    BuffOfPlayer buffOfPlayer;
     ProcessFeverMode processFeverPoint;
     ChangeChargeTrick changeChargeTrickOnWave;
     JudgeChargeNow judgeChargeNow;
@@ -22,7 +21,6 @@ public class ChargeTrickControl : MonoBehaviour
     void Start()
     {
         player = gameObject.GetComponent<Player>();
-        buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>();
         processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
         changeChargeTrickOnWave=gameObject.GetComponent<ChangeChargeTrick>();
         judgeChargeNow=gameObject.GetComponent<JudgeChargeNow>();
@@ -54,7 +52,7 @@ public class ChargeTrickControl : MonoBehaviour
 
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
-        return b * /*buffOfPlayer.ChargeTrick.CurrentGrowthRate **/ processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount]*changeChargeTrickOnWave.CurrentChargeRate;
+        return b * processFeverPoint.CurrentChargeTrick_GrowthRate * chargeRate[player.MaxCount]*changeChargeTrickOnWave.CurrentChargeRate;
     }
 
     //波に触れてトリックをチャージするときの内部の処理
@@ -70,7 +68,6 @@ public class ChargeTrickControl : MonoBehaviour
         judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
     }
 }
-
 
 
 

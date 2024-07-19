@@ -40,7 +40,6 @@ public class ChangeChargeTrick : MonoBehaviour
     void Update()
     {
         ChangeChargeRate();
-        Debug.Log(currentChargeRate);
     }
 
     bool ChangeChargeRateNow()//”g‚ÉG‚ê‚Ä‚¢‚é‚©ƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚é‚É”{—¦‚ª•Ï‰»‚·‚é‚æ‚¤‚É‚·‚é

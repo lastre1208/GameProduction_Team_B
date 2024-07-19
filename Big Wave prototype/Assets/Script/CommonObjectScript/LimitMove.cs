@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class LimitMove : MonoBehaviour
 {
-    //☆塩が書いた
-    MoveManager movemanager;
-
+    [Header("移動可能範囲")]
+    [SerializeField] float range = 7f;//移動可能範囲
+    [Header("移動制限させるオブジェクト")]
+    [SerializeField] GameObject[] limitObjects;
     // Start is called before the first frame update
     void Start()
     {
-        movemanager = GameObject.FindWithTag("MoveManager").GetComponent<MoveManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveLimit();//キャラの動きの制限
+        for(int i=0; i<limitObjects.Length;i++)
+        {
+            Limit(limitObjects[i]);
+        }
     }
-
 
     //キャラの動きの制限
-    //Movemanagerのlimitrangeの値で動ける範囲が決まる
-    void MoveLimit() 
+    //移動可能範囲外に出ないようにする
+    void Limit(GameObject obj)
     {
-        Vector3 currentPlayerPos = transform.position;
-        currentPlayerPos.x = Mathf.Clamp(currentPlayerPos.x, -movemanager.LimitRange, movemanager.LimitRange);
-        transform.position = currentPlayerPos;
+        Vector3 currentPlayerPos = obj.transform.localPosition;
+        currentPlayerPos.x = Mathf.Clamp(currentPlayerPos.x, -range, range);//x軸で移動可能範囲を制限する
+        obj.transform.localPosition = currentPlayerPos;
     }
-
 }

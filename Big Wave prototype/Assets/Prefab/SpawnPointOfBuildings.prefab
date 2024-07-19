@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565996021393178738}
-  - component: {fileID: 5593096744837710287}
   - component: {fileID: 5758575303174960997}
   m_Layer: 0
   m_Name: SpawnPointOfBuildings
@@ -33,18 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5593096744837710287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2730295701398013115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b81c3ab8780284d4fb97ff8094d5c778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5758575303174960997
 MonoBehaviour:
   m_ObjectHideFlags: 0

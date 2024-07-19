@@ -6,14 +6,14 @@ public class InstantiateSeaTest : MonoBehaviour
 {
     //™ŒKŒ´ŒN‚ª‘‚¢‚½
     [SerializeField] GameObject seaTestPrefab;//ŠC‚ÌƒvƒŒƒnƒu
-    [SerializeField] float instantiateIntervalTime = 6.2f;//ŠC‚ÌoŒ»ŠÔŠu
+    [SerializeField] float instantiateIntervalTime = 1.5f;//ŠC‚ÌoŒ»ŠÔŠu
 
     private float instantiatePrefabTime = 0f;//ŠC‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        instantiatePrefabTime = instantiateIntervalTime;
     }
 
     // Update is called once per frame
