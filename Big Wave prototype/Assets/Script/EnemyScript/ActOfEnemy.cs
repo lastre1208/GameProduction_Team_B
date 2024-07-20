@@ -94,14 +94,17 @@ public class ActOfEnemy : MonoBehaviour
         //攻撃を撃ちだす位置を取得
         shotPos = shotPosObject.transform.position;
         //攻撃を撃ちだす
-        GameObject Bullet = Instantiate(bulletPrefab, shotPos, Quaternion.identity,gamePos.transform);
-        //攻撃の向きをプレイヤーのいる方向に変更
-        Bullet.transform.rotation = gameObject.transform.rotation;
+        GameObject Bullet = Instantiate(bulletPrefab, shotPos, transform.rotation,gamePos.transform);
 
         bulletRb = Bullet.GetComponent<Rigidbody>();
         if(homing)//ホーミングして撃つ
         {
+            //撃つ場所からプレイヤー方向のベクトルを算出&大きさを1に
             Vector3 toPlayer = (player.transform.position - shotPos).normalized;
+
+            //攻撃の向きをプレイヤーのいる方向に変更
+            Bullet.transform.rotation = Quaternion.LookRotation(toPlayer,Vector3.up);
+
             bulletRb.AddForce(toPlayer * shotHomingPower, ForceMode.Impulse);
         }
         else//直線に撃つ
