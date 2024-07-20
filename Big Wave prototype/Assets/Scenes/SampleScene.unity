@@ -512,7 +512,7 @@ SpringJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 3.8, z: 27}
+  m_ConnectedAnchor: {x: -20.64984, y: 3.8, z: 17.394947}
   serializedVersion: 2
   m_Spring: 8
   m_Damper: 0.2
@@ -1398,7 +1398,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.2, z: 5226}
-  m_LocalScale: {x: 500, y: 0.05, z: 1099.6185}
+  m_LocalScale: {x: 1000, y: 0.05, z: 1099.6185}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2599,7 +2599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565996021393178738, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 500
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 565996021393178738, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2814,7 +2814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1055092956111960930, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 82.39
+      value: 47.8
       objectReference: {fileID: 0}
     - target: {fileID: 1055092956111960930, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3140,7 +3140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810745853276082199, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 500
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 6810745853276082199, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3979,6 +3979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeaTestPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4655,7 +4659,7 @@ Transform:
   m_GameObject: {fileID: 1244729524}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4902,13 +4906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef38f5e3adc026847a20925770bd05e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeRate:
-  - 1
-  - 1
-  - 0.8
-  - 0.8
-  - 0.6
-  - 0.6
   outSideChargeTrick: 2.5
   inSideChargeTrick: 4
 --- !u!114 &1244729547
@@ -4981,10 +4978,10 @@ MonoBehaviour:
   chargeRate:
   - 1
   - 0.9
-  - 0.8
   - 0.7
   - 0.6
-  - 0.5
+  - 0.4
+  - 0.3
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
