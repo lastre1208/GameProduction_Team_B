@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeChargeTrick : MonoBehaviour
+//™ì¬Ò:™R
+//”g‚Éæ‚é‚Ù‚ÇƒgƒŠƒbƒN‚Ìƒ`ƒƒ[ƒW—Ê‚ª•Ï‰»‚·‚é
+public class ChangeChargeTrickTheSurfer : MonoBehaviour
 {
     [Header("Å‘å‚Ü‚Å‚½‚Ü‚è‚â‚·‚­‚È‚Á‚½‚Ì”{—¦(Å‘å”{—¦)")]
     [SerializeField] float chargeRateMax=1;//Å‘å”{—¦
@@ -16,7 +18,7 @@ public class ChangeChargeTrick : MonoBehaviour
 
     JumpControl jumpControl;
     JudgeTouchWave judgeTouchWave;
-    ChangeChargeTrickEffect changeChargeTrickEffect;
+    ChangeChargeTrickTheSurferEffect changeChargeTrickEffect;
 
     public float CurrentChargeRate
     {
@@ -33,14 +35,13 @@ public class ChangeChargeTrick : MonoBehaviour
     {
         jumpControl = GetComponent<JumpControl>();
         judgeTouchWave = GetComponent<JudgeTouchWave>();
-        changeChargeTrickEffect = GetComponent<ChangeChargeTrickEffect>();
+        changeChargeTrickEffect = GetComponent<ChangeChargeTrickTheSurferEffect>();
     }
 
     // Update is called once per frame
     void Update()
     {
         ChangeChargeRate();
-        Debug.Log(currentChargeRate);
     }
 
     bool ChangeChargeRateNow()//”g‚ÉG‚ê‚Ä‚¢‚é‚©ƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚é‚É”{—¦‚ª•Ï‰»‚·‚é‚æ‚¤‚É‚·‚é

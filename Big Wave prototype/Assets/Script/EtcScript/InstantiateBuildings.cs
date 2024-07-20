@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InstantiateBuildings : MonoBehaviour
 {
-    //☆桑原君が書いた
+    //☆作成者:桑原
+    //☆後に杉山が一部改良
     [SerializeField] GameObject buildingsPrefab;//ビルのプレハブ
-    [SerializeField] GameObject buildingsGroundPrefab;//ビルの地面部のプレハブ
-    [SerializeField] float buildingsPrefabPosX = -37f;//生成するビルのX軸の座標（調整用）
-    [SerializeField] float buildingsPrefabRotY = 90f;//生成するビルのY軸の角度（調整用）
-    [SerializeField] float buildingsGroundPrefabPosX = -48f;//生成するビルの地面部のX軸の位置（調整用）
+    //[SerializeField] GameObject buildingsGroundPrefab;//ビルの地面部のプレハブ
+    //[SerializeField] float buildingsPrefabPosX = -37f;//生成するビルのX軸の座標（調整用）
+    //[SerializeField] float buildingsPrefabRotY = 90f;//生成するビルのY軸の角度（調整用）
+    //[SerializeField] float buildingsGroundPrefabPosX = -48f;//生成するビルの地面部のX軸の位置（調整用）
     [SerializeField] float instantiateIntervalTime = 2.5f;//ビルの出現間隔
 
     private float instantiatePrefabTime = 0f;//ビルの出現間隔を管理する時間
@@ -36,25 +37,25 @@ public class InstantiateBuildings : MonoBehaviour
             randomNumber = Random.Range(0, 2);
             instantiatePrefabTime = 0f;//経過時間をリセット
 
-            Instantiate(buildingsGroundPrefab,
-                new Vector3(buildingsGroundPrefabPosX, transform.position.y, transform.position.z),
-                transform.rotation);//ビルの地面部の生成
+            //Instantiate(buildingsGroundPrefab,transform.position,transform.rotation);//ビルの地面部の生成
 
-            if (randomNumber == 0)//ランダムに取得した値が0だった場合
-            {
-                Instantiate(buildingsPrefab,
-                    new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-                    Quaternion.Euler(0f, buildingsPrefabRotY, 0f));
-                //buildingsPrefabRotYの値の分だけY軸に回転させて表示
-            }
+            Instantiate(buildingsPrefab, transform.position, transform.rotation);//ビルの生成
 
-            else//ランダムに取得した値が1だった場合
-            {
-                Instantiate(buildingsPrefab,
-                   new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-                   Quaternion.Euler(0f, -buildingsPrefabRotY, 0f));
-                //buildingsPrefabRotYの値の分だけY軸に逆回転させて表示
-            }
+            //if (randomNumber == 0)//ランダムに取得した値が0だった場合
+            //{
+            //    Instantiate(buildingsPrefab,
+            //        new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
+            //        Quaternion.Euler(0f, buildingsPrefabRotY, 0f));
+            //    //buildingsPrefabRotYの値の分だけY軸に回転させて表示
+            //}
+
+            //else//ランダムに取得した値が1だった場合
+            //{
+            //    Instantiate(buildingsPrefab,
+            //       new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
+            //       Quaternion.Euler(0f, -buildingsPrefabRotY, 0f));
+            //    //buildingsPrefabRotYの値の分だけY軸に逆回転させて表示
+            //}
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeChargeTrickEffect : MonoBehaviour
+public class ChangeChargeTrickTheSurferEffect : MonoBehaviour
 {
     [Header("チャージ時のエフェクト")]
     [SerializeField] GameObject chargeEffect;//チャージ時のエフェクト
@@ -12,12 +12,12 @@ public class ChangeChargeTrickEffect : MonoBehaviour
     private Vector3 currentScale;
 
     JudgeChargeNow judgeChargeNow;
-    ChangeChargeTrick changeChargeTrick;
+    ChangeChargeTrickTheSurfer changeChargeTrickTheSurfer;
     // Start is called before the first frame update
     void Start()
     {
         judgeChargeNow = GetComponent<JudgeChargeNow>();
-        changeChargeTrick =GetComponent<ChangeChargeTrick>();
+        changeChargeTrickTheSurfer =GetComponent<ChangeChargeTrickTheSurfer>();
         normalScale = chargeEffect.transform.localScale;
         currentScale = normalScale;
     }
@@ -31,7 +31,7 @@ public class ChangeChargeTrickEffect : MonoBehaviour
     public void ChangeEffectScale()//エフェクトの大きさを変更
     {
         //エフェクトの大きさを変更
-        float effectScale = normalScale.x + (maxScale - normalScale.x) *changeChargeTrick.RatioOfChargeRate();
+        float effectScale = normalScale.x + (maxScale - normalScale.x) *changeChargeTrickTheSurfer.RatioOfChargeRate();
         currentScale = new Vector3(effectScale, effectScale, effectScale);
 
         ApplyCurrentScale();

@@ -12,12 +12,11 @@ public class InstantiateWave : MonoBehaviour
     [SerializeField] float inSideWaveIntervalTime = 0.1f;//“à‘¤‚Ì”g‚ÌoŒ»ŠÔŠu
     private float outSideWaveTime = 0f;//ŠO‘¤‚Ì”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ
     private float inSideWaveTime = 0f;//“à‘¤(’†‰›)‚Ì”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ
-    //public float Add_y;//”g‚Ì¶¬ˆÊ’u(y²’²®)
     private Vector3 inSideWavePos;//“à‘¤‚Ì”g‚Ì¶¬ˆÊ’uAinstantiateWavePos‚æ‚è‚à­‚µ‚‚¢yÀ•W‚Å¶¬‚·‚é
     // Start is called before the first frame update
     void Start()
     {
-        //instantiateWavePos.transform.position = new(instantiateWavePos.transform.position.x, instantiateWavePos.transform.position.y + Add_y, instantiateWavePos.transform.position.z);
+
     }
 
     // Update is called once per frame

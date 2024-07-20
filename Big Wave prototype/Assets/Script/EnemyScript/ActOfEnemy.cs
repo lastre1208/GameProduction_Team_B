@@ -7,6 +7,9 @@ public class ActOfEnemy : MonoBehaviour
     //☆塩が書いた
     [Header("▼弾を撃ちだす位置")]
     [SerializeField] GameObject shotPosObject;//弾を撃ちだす位置
+    [Header("▼GamePos")]
+    [SerializeField] GameObject gamePos;
+
     [Header("▼直線撃ちに使う弾")]
     [SerializeField] GameObject normalBulletPrefab;//直線状撃ちに使う弾
     [Header("▼ホーミング撃ちに使う弾")]
@@ -91,11 +94,17 @@ public class ActOfEnemy : MonoBehaviour
         //攻撃を撃ちだす位置を取得
         shotPos = shotPosObject.transform.position;
         //攻撃を撃ちだす
-        GameObject Bullet = Instantiate(bulletPrefab, shotPos, Quaternion.identity);
+        GameObject Bullet = Instantiate(bulletPrefab, shotPos, transform.rotation,gamePos.transform);
+
         bulletRb = Bullet.GetComponent<Rigidbody>();
         if(homing)//ホーミングして撃つ
         {
+            //撃つ場所からプレイヤー方向のベクトルを算出&大きさを1に
             Vector3 toPlayer = (player.transform.position - shotPos).normalized;
+
+            //攻撃の向きをプレイヤーのいる方向に変更
+            Bullet.transform.rotation = Quaternion.LookRotation(toPlayer,Vector3.up);
+
             bulletRb.AddForce(toPlayer * shotHomingPower, ForceMode.Impulse);
         }
         else//直線に撃つ
