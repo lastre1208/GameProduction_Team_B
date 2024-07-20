@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeChargeTrick : MonoBehaviour
+//☆作成者:杉山
+//波に乗るほどトリックのチャージ量が変化する
+public class ChangeChargeTrickTheSurfer : MonoBehaviour
 {
     [Header("最大までたまりやすくなった時の倍率(最大倍率)")]
     [SerializeField] float chargeRateMax=1;//最大倍率
@@ -16,7 +18,7 @@ public class ChangeChargeTrick : MonoBehaviour
 
     JumpControl jumpControl;
     JudgeTouchWave judgeTouchWave;
-    ChangeChargeTrickEffect changeChargeTrickEffect;
+    ChangeChargeTrickTheSurferEffect changeChargeTrickEffect;
 
     public float CurrentChargeRate
     {
@@ -33,7 +35,7 @@ public class ChangeChargeTrick : MonoBehaviour
     {
         jumpControl = GetComponent<JumpControl>();
         judgeTouchWave = GetComponent<JudgeTouchWave>();
-        changeChargeTrickEffect = GetComponent<ChangeChargeTrickEffect>();
+        changeChargeTrickEffect = GetComponent<ChangeChargeTrickTheSurferEffect>();
     }
 
     // Update is called once per frame

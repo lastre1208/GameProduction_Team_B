@@ -16,7 +16,7 @@ public class Controller : MonoBehaviour
 
     MoveControl moveControl;
     JumpControl jumpControl;
-    ChargeTrickControl chargeTrickControl;
+    ChargeTrick chargeTrickControl;
     TrickControl trickControl;
     JudgeChargeNow judgeChargeNow;
     private Gamepad gamepad = Gamepad.current;
@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour
     {
         moveControl = gameObject.GetComponent<MoveControl>();
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrickControl = gameObject.GetComponent<ChargeTrickControl>();
+        chargeTrickControl = gameObject.GetComponent<ChargeTrick>();
         trickControl= gameObject.GetComponent<TrickControl>();
         judgeChargeNow= gameObject.GetComponent<JudgeChargeNow>();
     }
