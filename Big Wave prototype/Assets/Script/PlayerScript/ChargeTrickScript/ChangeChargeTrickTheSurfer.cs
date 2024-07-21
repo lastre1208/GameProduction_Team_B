@@ -75,9 +75,4 @@ public class ChangeChargeTrickTheSurfer : MonoBehaviour
 
         currentChargeRate = Mathf.Clamp(currentChargeRate, 1, chargeRateMax);
     }
-
-    public float RatioOfChargeRate()//
-    {
-        return (currentChargeRate-normalChargeRate) / (chargeRateMax-normalChargeRate);
-    }
 }
