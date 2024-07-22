@@ -52,10 +52,10 @@ public class ChargeTrick : MonoBehaviour
 
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
-        float ret=b;
+        float ret=b;//通常時のチャージされるトリック量
         ret *= processFeverPoint.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
         ret *= changeChargeTrickTheCharger.ChargeRate();//満タンのトリックゲージの数によるチャージ倍率
-        ret*= changeChargeTrickTheSurfer.CurrentChargeRate;//波に乗っている時間によるチャージ倍率
+        ret *= changeChargeTrickTheSurfer.CurrentChargeRate;//波に乗っている時間によるチャージ倍率
         return ret;
     }
 
