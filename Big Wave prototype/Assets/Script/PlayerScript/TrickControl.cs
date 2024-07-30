@@ -7,9 +7,13 @@ using UnityEngine.InputSystem;
 
 enum TrickType
 {
-    attack,//攻撃(敵にダメージを与える)
-    heal,//体力回復
+   // attack,//攻撃(敵にダメージを与える)
+    //heal,//体力回復
    // buff,//バフ
+   type_A,
+   type_B, 
+   type_X, 
+   type_Y
 }
 
 [System.Serializable]
@@ -42,16 +46,24 @@ class Trick
 public class TrickControl : MonoBehaviour
 {
     //☆塩が書いた
-    [Header("攻撃のトリック")]
-    [SerializeField] Trick attackTrick;//攻撃のトリック
-    [Header("回復のトリック")]
-    [SerializeField] Trick healTrick;//回復のトリック
+    //[Header("攻撃のトリック")]
+    //[SerializeField] Trick attackTrick;//攻撃のトリック
+    //[Header("回復のトリック")]
+    //[SerializeField] Trick healTrick;//回復のトリック
+    [Header("Aボタンのトリック")]
+    [SerializeField] Trick A_Trick;
+    [Header("Bボタンのトリック")]
+    [SerializeField] Trick B_Trick;
+    [Header("Xボタンのトリック")]
+    [SerializeField] Trick X_Trick;
+    [Header("Yボタンのトリック")]
+    [SerializeField] Trick Y_Trick;
     //[Header("バフのトリック")]
     //[SerializeField] Trick buffTrick;//バフのトリック
     [Header("通常時の敵に与えるダメージ")]
     [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
-    [Header("HPの回復量")]
-    [SerializeField] float healAmount = 50;//HPの回復量
+    //[Header("HPの回復量")]
+    //[SerializeField] float healAmount = 50;//HPの回復量
     ///*[Header("攻撃力増加のバフ")]
     //[SerializeField] bool powerUpBuff=false;//攻撃力増加のバフ
     //[Header("チャージトリック量増加のバフ")]
@@ -63,15 +75,16 @@ public class TrickControl : MonoBehaviour
     [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
     [Header("滞空終了時に起こるジャンプの強さ")]
     [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
-    [Header("回避の無敵時間")]
-    [SerializeField] float avoidTime = 10f;
+    //[Header("回避の無敵時間")]
+    //[SerializeField] float avoidTime = 10f;
     private bool tricked;//トリックしたかしていないかの判定
     private int trickCount=0;//一回のジャンプにしたトリックの回数
     private bool consumedTrickPoint;//トリックゲージを消費したかどうかの判定
-    private bool avoidNow;
-    private float avoidTimeCount;
+    //private bool avoidNow;
+    //private float avoidTimeCount;
+    
     private Coroutine HoverCoroutine;
-    Material Avoidmaterial;
+    //Material Avoidmaterial;
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     Enemy enemy;
     Player player;
@@ -90,11 +103,15 @@ public class TrickControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackTrick.TrickPattern = TrickType.attack;
-        healTrick.TrickPattern = TrickType.heal;
+        A_Trick.TrickPattern = TrickType.type_A;
+        B_Trick.TrickPattern= TrickType.type_B;
+        X_Trick.TrickPattern=TrickType.type_X;
+        Y_Trick.TrickPattern = TrickType.type_Y;
+        //attackTrick.TrickPattern = TrickType.attack;
+        //healTrick.TrickPattern = TrickType.heal;
        // buffTrick.TrickPattern = TrickType.buff;
         tricked = false;
-        avoidNow = false;
+        //avoidNow = false;
         trickCount = 0;
         JudgeChargeNow=gameObject.GetComponent<JudgeChargeNow>(); 
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
@@ -114,7 +131,7 @@ public class TrickControl : MonoBehaviour
     {
         ResetTrickCount();
         TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
-        AvoidUpdate();
+        //AvoidUpdate();
        
     }
 
@@ -124,44 +141,44 @@ public class TrickControl : MonoBehaviour
         return damageAmount* processFeverPoint.CurrentPowerUp_GrowthRate;
     }
 
-    float Heal()
-    {
-        return healAmount;
-    }
-    private void Avoid()
-    {
-        if (avoidNow)
-        {
-            player.tag = ("AvoidNow");
-            GetComponent<MeshRenderer>().material.color = Color.red;
-        }
+    //float Heal()
+    //{
+    //    return healAmount;
+    //}
+    //private void Avoid()
+    //{
+    //    if (avoidNow)
+    //    {
+    //        player.tag = ("AvoidNow");
+    //        GetComponent<MeshRenderer>().material.color = Color.red;
+    //    }
 
-    }
+    //}
    
-    public void OnAvoid()
-    {
-        if (!avoidNow && !jumpcontrol.JumpNow && !JudgeChargeNow.ChargeNow())
-        {
+    //public void OnAvoid()
+    //{
+    //    if (!avoidNow && !jumpcontrol.JumpNow && !JudgeChargeNow.ChargeNow())
+    //    {
             
-            avoidNow = true;
-            avoidTimeCount = avoidTime;
-            Avoid();
-        }
-    }
+    //        avoidNow = true;
+    //        avoidTimeCount = avoidTime;
+    //        Avoid();
+    //    }
+    //}
 
-    public void AvoidUpdate()
-    {
-        if (avoidNow)
-        {
-            avoidTimeCount--;
-            if (avoidTimeCount < 0)
-            {
-                avoidNow = false;
-                player.tag = ("Player");
-                GetComponent<MeshRenderer>().material.color = Color.white;
-            }
-        }
-    }
+    //public void AvoidUpdate()
+    //{
+    //    if (avoidNow)
+    //    {
+    //        avoidTimeCount--;
+    //        if (avoidTimeCount < 0)
+    //        {
+    //            avoidNow = false;
+    //            player.tag = ("Player");
+    //            GetComponent<MeshRenderer>().material.color = Color.white;
+    //        }
+    //    }
+    //}
     //トリック
     void Trick(Trick trick)
     {
@@ -182,33 +199,46 @@ public class TrickControl : MonoBehaviour
 
                 switch (trick.TrickPattern)
                 {
-                    case TrickType.attack://敵にダメージを与える
-                       // buffOfPlayer.TrickBoost.DecrementBuffStock();
+                    case TrickType.type_A:
+                        enemy.Hp -= Damage(); 
+                        break;
+                    case TrickType.type_B: 
                         enemy.Hp -= Damage();
                         break;
-                    case TrickType.heal://プレイヤーの体力を回復する
-                       // buffOfPlayer.TrickBoost.DecrementBuffStock();
-                        //player.Hp += healAmount;
-                        player.Hp += Heal();
+                    case TrickType.type_X:
+                        enemy.Hp -= Damage();
                         break;
-                   
+                    case TrickType.type_Y:
+                        enemy.Hp -= Damage();
+                        break;
 
-                    //case TrickType.buff://プレイヤーにバフをかける
-                    //    /*if (powerUpBuff)
-                    //    {
-                    //        buffOfPlayer.PowerUp.Activate();
-                    //    }
-                    //    if (chargeTrickBuff)
-                    //    {
-                    //        buffOfPlayer.ChargeTrick.Activate();
-                    //    }*/
+                        //case TrickType.attack://敵にダメージを与える
+                        //   // buffOfPlayer.TrickBoost.DecrementBuffStock();
+                        //    enemy.Hp -= Damage();
+                        //    break;
+                        //case TrickType.heal://プレイヤーの体力を回復する
+                        //   // buffOfPlayer.TrickBoost.DecrementBuffStock();
+                        //    //player.Hp += healAmount;
+                        //    player.Hp += Heal();
+                        //    break;
 
-                    //    if(trickBoostBuff)
-                    //    {
-                    //        buffOfPlayer.TrickBoost.IncreaseBuffStock();//バフストック数の増加
-                    //        buffOfPlayer.TrickBoost.Activate();
-                    //    }
-                    //    break;
+
+                        //case TrickType.buff://プレイヤーにバフをかける
+                        //    /*if (powerUpBuff)
+                        //    {
+                        //        buffOfPlayer.PowerUp.Activate();
+                        //    }
+                        //    if (chargeTrickBuff)
+                        //    {
+                        //        buffOfPlayer.ChargeTrick.Activate();
+                        //    }*/
+
+                        //    if(trickBoostBuff)
+                        //    {
+                        //        buffOfPlayer.TrickBoost.IncreaseBuffStock();//バフストック数の増加
+                        //        buffOfPlayer.TrickBoost.Activate();
+                        //    }
+                        //    break;
                 }
             }
 
@@ -236,18 +266,25 @@ public class TrickControl : MonoBehaviour
 
     //攻撃のトリック(ジャンプ中にKキーかBボタンを入力)
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
-    public void Trick_attack()
+    public void Trick_A()
     {
-        Trick(attackTrick);
+        Trick(A_Trick);
     }
 
     //回復のトリック(ジャンプ中にLキーかAボタンを入力)
     //消費トリックはプレイヤーの最大トリックのstrong_TrickCostPercent%分消費
-    public void Trick_Heal()
+    public void Trick_B()
     {
-        Trick(healTrick);
+        Trick(B_Trick);
     }
-
+    public void Trick_X()
+    {
+        Trick(X_Trick);
+    }
+    public void Trick_Y()
+    {
+        Trick(Y_Trick);
+    }
     void ResetTrickCount()
     {
         if (jumpcontrol.JumpNow == false)//着地したら1ジャンプ中のトリック回数をリセット

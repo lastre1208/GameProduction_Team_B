@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.02266467, g: 0.07356236, b: 1.0969982, a: 1}
+  m_IndirectSpecularColor: {r: 0.022647914, g: 0.07357863, b: 1.0964684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2259,7 +2259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &466348233
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2855,6 +2855,10 @@ PrefabInstance:
     - target: {fileID: 8314275602441310986, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: m_Name
       value: SpawnPointOfSeaTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314275602441310986, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3989,7 +3993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4744,17 +4748,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTrick:
+  A_Trick:
     trickCost: 1
     trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  healTrick:
+  B_Trick:
     trickCost: 1
     trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  damageAmount: 100
-  healAmount: 50
+  X_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  Y_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 200
   hoverTime: 0.05
   hoverJumpStrength: 6
-  avoidTime: 10
 --- !u!114 &1244729539
 MonoBehaviour:
   m_ObjectHideFlags: 0

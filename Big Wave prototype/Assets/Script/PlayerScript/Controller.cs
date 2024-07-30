@@ -80,17 +80,24 @@ public class Controller : MonoBehaviour
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時バフ
         {
             // trickControl.Trick_Buff();
-            trickControl.OnAvoid();
+            //trickControl.OnAvoid();
+            trickControl.Trick_X();
         }
 
         if(Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時攻撃
         {
-            trickControl.Trick_attack();
+            //trickControl.Trick_attack();
+            trickControl.Trick_Y();
         }
 
         if(Input.GetButtonDown("Fire3") || Input.GetKeyDown("l"))//LキーかAボタンを押した時回復
         {
-            trickControl.Trick_Heal();
+            //trickControl.Trick_Heal();
+            trickControl.Trick_B();
+        }
+        if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("h"))
+        {
+            trickControl.Trick_A();
         }
     }
 

@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
                 trickPoint[maxCount - 1 - i] = 0;
             }
 
-            //
+            
             if(maxCount==trickGaugeNum)
             {
 
