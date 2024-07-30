@@ -4950,7 +4950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeEffect: {fileID: 1722439556}
-  maxScale: 0.2
+  maxScaleRate: 4
 --- !u!114 &1244729550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4977,8 +4977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeRateMax: 3
-  byRateMaxTime: 10
-  minusChargeRateSpeed: 0
+  maxRateTime: 10
+  minusChargeRateSpeed: 2
 --- !u!114 &1244729552
 MonoBehaviour:
   m_ObjectHideFlags: 0
