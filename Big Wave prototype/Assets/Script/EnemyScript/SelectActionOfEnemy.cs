@@ -83,7 +83,7 @@ public class SelectActionOfEnemy : MonoBehaviour
     private float actTime = 0f;//敵の行動を管理する時間
     //[SerializeField] Quaternion []attackRotation=new Quaternion [4];//横に広い周波の角度
 
-    Enemy enemy;
+    HP enemy_Hp;
     ActOfEnemy actOfEnemy;
 
 　　public bool Stan
@@ -95,7 +95,7 @@ public class SelectActionOfEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = gameObject.GetComponent<Enemy>();
+        enemy_Hp = gameObject.GetComponent<HP>();
         actOfEnemy = gameObject.GetComponent<ActOfEnemy>();
         for (int i = 0; i < forms.Length; i++)
         {
@@ -104,7 +104,7 @@ public class SelectActionOfEnemy : MonoBehaviour
                 forms[i].ActionProbabilitySum += forms[i].ActionPatterns[j].ActionProbability;
             }
         }
-        forms[0].FormHp = enemy.HpMax;
+        forms[0].FormHp = enemy_Hp.HpMax;
         beginActTime = firstBeginActTime;
     }
 
@@ -124,7 +124,7 @@ public class SelectActionOfEnemy : MonoBehaviour
             {
                 for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
                 {
-                    if (enemy.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
+                    if (enemy_Hp.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
                     {
                         actTime = 0f;
                         SelectAction(i + 1);

@@ -86,8 +86,8 @@ public class TrickControl : MonoBehaviour
     private Coroutine HoverCoroutine;
     //Material Avoidmaterial;
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
-    Enemy enemy;
-    Player player;
+    HP enemy_Hp;
+    TRICKPoint player_TrickPoint;
     JumpControl jumpcontrol;
     //BuffOfPlayer buffOfPlayer;
     Controller controller;
@@ -114,8 +114,8 @@ public class TrickControl : MonoBehaviour
         //avoidNow = false;
         trickCount = 0;
         JudgeChargeNow=gameObject.GetComponent<JudgeChargeNow>(); 
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        player = gameObject.GetComponent<Player>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
         //buffOfPlayer = gameObject.GetComponent<BuffOfPlayer>(); 
         controller = gameObject.GetComponent<Controller>();
@@ -182,7 +182,7 @@ public class TrickControl : MonoBehaviour
     //トリック
     void Trick(Trick trick)
     {
-        if (jumpcontrol.JumpNow == true && /*player.ConsumeTrickPoint(trick.TrickCost) &&*/ enemy != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
+        if (jumpcontrol.JumpNow == true && /*player.ConsumeTrickPoint(trick.TrickCost) &&*/ enemy_Hp != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
         {
             consumedTrickPoint = false;
 
@@ -193,23 +193,23 @@ public class TrickControl : MonoBehaviour
             //    return;//トリックの処理を行わない
             //}
 
-            if (player.ConsumeTrickPoint(trick.TrickCost))
+            if (player_TrickPoint.Consume(trick.TrickCost))
             {
                 consumedTrickPoint = true;
 
                 switch (trick.TrickPattern)
                 {
                     case TrickType.type_A:
-                        enemy.Hp -= Damage(); 
+                        enemy_Hp.Hp -= Damage(); 
                         break;
                     case TrickType.type_B: 
-                        enemy.Hp -= Damage();
+                        enemy_Hp.Hp -= Damage();
                         break;
                     case TrickType.type_X:
-                        enemy.Hp -= Damage();
+                        enemy_Hp.Hp -= Damage();
                         break;
                     case TrickType.type_Y:
-                        enemy.Hp -= Damage();
+                        enemy_Hp.Hp -= Damage();
                         break;
 
                         //case TrickType.attack://敵にダメージを与える
