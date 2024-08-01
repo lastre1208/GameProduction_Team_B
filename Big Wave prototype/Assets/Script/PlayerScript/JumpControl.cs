@@ -10,7 +10,6 @@ public class JumpControl : MonoBehaviour
     private bool jumpNow;//¡ƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚é‚©
     public Rigidbody rb; //TrickControl1‚Åg‚¤‚Ì‚Åpublic‚É‚µ‚Ü‚µ‚½
     JudgeTouchWave touchWave;
-    Player player;
 
     public bool JumpNow
     {
@@ -22,7 +21,6 @@ public class JumpControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         touchWave = gameObject.GetComponent<JudgeTouchWave>();
-        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame

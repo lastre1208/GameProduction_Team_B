@@ -12,7 +12,7 @@ public class ChargeTrick : MonoBehaviour
     [Header("波の内側(中央)に波乗りした時に溜まるトリックの値")]
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
     JudgeChargeNow judgeChargeNow;
-    Player player;
+    TRICKPoint player_TrickPoint;
     ProcessFeverMode processFeverPoint;
     ChangeChargeTrickTheSurfer changeChargeTrickTheSurfer;
     ChangeChargeTrickTheCharger changeChargeTrickTheCharger;
@@ -20,7 +20,7 @@ public class ChargeTrick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.GetComponent<Player>();
+        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
         processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
         changeChargeTrickTheSurfer=gameObject.GetComponent<ChangeChargeTrickTheSurfer>();
         judgeChargeNow=gameObject.GetComponent<JudgeChargeNow>();
@@ -63,7 +63,7 @@ public class ChargeTrick : MonoBehaviour
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a,Wave wave)
     {
-        player.ChargeTrickPoint(ChargeTrickAmount(a));//トリックをチャージ
+        player_TrickPoint.Charge(ChargeTrickAmount(a));//トリックをチャージ
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
         judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
     }

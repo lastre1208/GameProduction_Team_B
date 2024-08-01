@@ -7,7 +7,6 @@ public class AttackOfBullet : MonoBehaviour
     //☆塩が書いた
     [SerializeField] float damage;//ダメージ量
     [SerializeField] bool ifHitDestroy=true;//プレイヤーに当たった時に弾を消すか
-    Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +23,13 @@ public class AttackOfBullet : MonoBehaviour
     {
         if(t.gameObject.CompareTag("Player"))
         {
-            player= t.GetComponent<Player>();
+            HP player_Hp;
+            player_Hp = t.GetComponent<HP>();
+            ManagementOfScore managementOfScore;
+            managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
 
-            
-            player.Hp -= damage;
+            player_Hp.Hp -= damage;//プレイヤーにダメージを与える
+            managementOfScore.AddDamageCount();//被弾回数を増やす
             
 
             if(ifHitDestroy)//trueかつ当たった時弾が消える
