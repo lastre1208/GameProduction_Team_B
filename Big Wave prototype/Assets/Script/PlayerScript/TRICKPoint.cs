@@ -72,7 +72,7 @@ public class TRICKPoint : MonoBehaviour
         }
     }
 
-    public bool Consume(int cost)//トリックポイントの消費(使うゲージ量を引数に入れる、使用ゲージが足りないとfalseを返されるのでそれで処理の可・不可を判断)
+    public bool Consume(int cost)//トリックポイントの消費(使うゲージ量を引数に入れる、使用ゲージが足りないとfalseを返されるのでそれでトリックポイントの足・不足を判断)
     {
         if (maxCount < cost)//使うゲージ量が足りなければ
         {
