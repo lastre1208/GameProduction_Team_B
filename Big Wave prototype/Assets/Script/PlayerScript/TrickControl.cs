@@ -67,7 +67,7 @@ public class TrickControl : MonoBehaviour
     JumpControl jumpcontrol;
     Controller controller;
     ManagementOfScore managementOfScore;
-    ProcessFeverMode processFeverPoint;
+    FeverMode feverMode;
     
     public bool Tricked
     {
@@ -91,7 +91,7 @@ public class TrickControl : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //
         managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
-        processFeverPoint= gameObject.GetComponent<ProcessFeverMode>();
+        feverMode= gameObject.GetComponent<FeverMode>();
     }
 
     // Update is called once per frame
@@ -103,7 +103,7 @@ public class TrickControl : MonoBehaviour
 
     float Damage()//敵に与えるダメージ合計
     {
-        return damageAmount* processFeverPoint.CurrentPowerUp_GrowthRate;
+        return damageAmount* feverMode.CurrentPowerUp_GrowthRate;
     }
 
     //トリック
@@ -134,7 +134,7 @@ public class TrickControl : MonoBehaviour
             audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
             managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
             trickCount++;//1回トリックした(1ジャンプ中に)
-            processFeverPoint.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
+            feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
             HoverCoroutine = StartCoroutine(HoverJump());
         }
     }

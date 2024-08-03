@@ -13,7 +13,7 @@ public class ChargeTrick : MonoBehaviour
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
     JudgeChargeNow judgeChargeNow;
     TRICKPoint player_TrickPoint;
-    ProcessFeverMode processFeverPoint;
+    FeverMode feverMode;
     ChangeChargeTrickTheSurfer changeChargeTrickTheSurfer;
     ChangeChargeTrickTheCharger changeChargeTrickTheCharger;
   
@@ -21,7 +21,7 @@ public class ChargeTrick : MonoBehaviour
     void Start()
     {
         player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
-        processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
+        feverMode = gameObject.GetComponent<FeverMode>();
         changeChargeTrickTheSurfer=gameObject.GetComponent<ChangeChargeTrickTheSurfer>();
         judgeChargeNow=gameObject.GetComponent<JudgeChargeNow>();
         changeChargeTrickTheCharger=gameObject.GetComponent<ChangeChargeTrickTheCharger>(); 
@@ -53,7 +53,7 @@ public class ChargeTrick : MonoBehaviour
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
         float ret=b;//通常時のチャージされるトリック量
-        ret *= processFeverPoint.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
+        ret *= feverMode.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
         ret *= changeChargeTrickTheCharger.ChargeRate();//満タンのトリックゲージの数によるチャージ倍率
         ret *= changeChargeTrickTheSurfer.CurrentChargeRate;//波に乗っている時間によるチャージ倍率
         return ret;

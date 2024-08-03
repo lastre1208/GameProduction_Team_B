@@ -14,12 +14,12 @@ public class FeverPointDisplay : MonoBehaviour
     [SerializeField] Color feverGaugeFeverModeColor;//フィーバー状態のフィーバーゲージの色
 
     FEVERPoint player_FeverPoint;
-    ProcessFeverMode processFeverPoint;
+    FeverMode processFeverPoint;
     // Start is called before the first frame update
     void Start()
     {
         player_FeverPoint = GameObject.FindWithTag("Player").GetComponent<FEVERPoint>();
-        processFeverPoint = GameObject.FindWithTag("Player").GetComponent<ProcessFeverMode>();
+        processFeverPoint = GameObject.FindWithTag("Player").GetComponent<FeverMode>();
     }
 
     // Update is called once per frame

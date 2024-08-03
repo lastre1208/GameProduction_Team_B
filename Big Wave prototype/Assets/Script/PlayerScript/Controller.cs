@@ -8,8 +8,6 @@ using UnityEngine.InputSystem.Controls;
 
 public class Controller : MonoBehaviour
 {
-    //[Header("トリックをチャージしている時のバイブの速さ")]
-    //[SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックをチャージしている時のバイブの速さ
     [SerializeField] ControllerOfJump controllerOfJump;//ジャンプ関係のコントローラーの処理、(注)[SerializeField]書かないとエラー起きちゃう
     [Header("トリック関係")]
     [SerializeField] ControllerOfTrick controllerOfTrick;//トリック関係のコントローラの処理
@@ -55,6 +53,10 @@ public class Controller : MonoBehaviour
     }
 }
 
+
+
+
+
 [System.Serializable]
 class ControllerOfJump//ジャンプ関係のコントローラーの処理
 {
@@ -74,6 +76,10 @@ class ControllerOfJump//ジャンプ関係のコントローラーの処理
         }
     }
 }
+
+
+
+
 
 [System.Serializable]
 class ControllerOfTrick//トリック関係のコントローラーの処理
@@ -145,6 +151,10 @@ class ControllerOfTrick//トリック関係のコントローラーの処理
         remainingVibeTime = vibeTime;
     }
 }
+
+
+
+
 
 [System.Serializable]
 class ControllerOfChargeTrick//トリックのチャージ関係の処理
