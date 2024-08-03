@@ -8,17 +8,16 @@ using UnityEngine.InputSystem.Controls;
 
 public class Controller : MonoBehaviour
 {
-    [Header("トリックをチャージしている時のバイブの速さ")]
-    [SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックをチャージしている時のバイブの速さ
-    [Header("トリックを決めた時のバイブの速さ")]
-    [SerializeField] float trick_VibrationSpeed = 0.35f;//トリックを決めた時のバイブの速さ
-    [Header("トリックを決めた時の振動の時間")]
-    [SerializeField] float trickVibeTime = 0f;//トリックを決めた時の振動の時間
-    private float remainingTrickVibeTime = 0f;//トリックの振動の残り時間(内部用)
+    //[Header("トリックをチャージしている時のバイブの速さ")]
+    //[SerializeField] float chargeTrick_VibrationSpeed=0.35f;//トリックをチャージしている時のバイブの速さ
     [SerializeField] ControllerOfJump controllerOfJump;//ジャンプ関係のコントローラーの処理、(注)[SerializeField]書かないとエラー起きちゃう
+    [Header("トリック関係")]
+    [SerializeField] ControllerOfTrick controllerOfTrick;//トリック関係のコントローラの処理
+    [Header("トリックのチャージ関係")]
+    [SerializeField] ControllerOfChargeTrick controllerOfChargeTrick;//トリックのチャージ関係のコントローラの処理
 
     JumpControl jumpControl;
-    ChargeTrick chargeTrickControl;
+    ChargeTrick chargeTrick;
     TrickControl trickControl;
     JudgeChargeNow judgeChargeNow;
 
@@ -28,125 +27,36 @@ public class Controller : MonoBehaviour
     void Start()
     {
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrickControl = gameObject.GetComponent<ChargeTrick>();
+        chargeTrick = gameObject.GetComponent<ChargeTrick>();
         trickControl= gameObject.GetComponent<TrickControl>();
         judgeChargeNow= gameObject.GetComponent<JudgeChargeNow>();
 
         controllerOfJump.Start(jumpControl);
+        controllerOfTrick.Start(trickControl, gamepad);
+        controllerOfChargeTrick.Start(judgeChargeNow, chargeTrick, gamepad);
     }
 
     // Update is called once per frame
     void Update()
     {
         controllerOfJump.Update();
+        controllerOfTrick.Update();
+        controllerOfChargeTrick.Update();
+    }
 
-        Trick();//トリック
-        
-        VibrateController_Charge();//チャージしている間コントローラが振動
-
-        VibrateController_Trick();//トリックした時にコントローラが振動
+    public void Vibe_Trick()//トリックのバイブ
+    {
+        controllerOfTrick.Vibe();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("InsideWave") || other.CompareTag("OutsideWave"))
-        {
-            ChargeTrick(other);//波に触れている間乗ってトリックをチャージ
-        }
+        controllerOfChargeTrick.OnTriggerEnter(other);
     }
-
-    //攻撃関連
-    void Trick()//攻撃
-    {
-        if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時バフ
-        {
-            trickControl.Trick_X();
-        }
-
-        if(Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時攻撃
-        {
-            trickControl.Trick_Y();
-        }
-
-        if(Input.GetButtonDown("Fire3") || Input.GetKeyDown("l"))//LキーかAボタンを押した時回復
-        {
-            trickControl.Trick_B();
-        }
-        if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("h"))
-        {
-            trickControl.Trick_A();
-        }
-    }
-
-    void VibrateController_Trick()//攻撃時コントローラーがバイブする
-    {
-        remainingTrickVibeTime -= Time.deltaTime;
-
-        if(remainingTrickVibeTime>0)
-        {
-            Vibration(trick_VibrationSpeed);//バイブさせる
-        }
-        else
-        {
-            StopVibration();//バイブを止める
-        }
-    }
-
-    public void Vibe_Trick()//トリック時にバイブしてほしいときこれを呼ぶ
-    {
-        remainingTrickVibeTime = trickVibeTime;
-    }
-
-    //トリックのチャージ関連
-    void ChargeTrick(Collider wavePrefab)//波に乗ってトリックをチャージ
-    {
-        //スペースキーやボタンを押している間チャージ
-        if (Input.GetKey(KeyCode.JoystickButton5)  ||Input.GetKey(KeyCode.JoystickButton4)||  Input.GetKey("space"))
-        {
-            chargeTrickControl.ChargeTrickTouchingWave(wavePrefab);
-        }
-    }
-
-    void VibrateController_Charge()//チャージしている間コントローラが振動
-    {
-        if (judgeChargeNow.ChargeNow())
-        {
-            Vibration(chargeTrick_VibrationSpeed);//バイブさせる
-        }
-        else
-        {
-            StopVibration();//バイブを止める
-        }
-    }
-
-
-    //バイブ関連(bool型でバイブさせるかバイブを止めるか判断、true->バイブ、false->バイブを止める)
-
-
-
-    //バイブさせる
-    //a(引数)にはバイブのスピードを入れる(0～1fまで)
-    void Vibration(float a)
-    {
-        if (gamepad != null)//ゲームパッドが接続されていれば振動を発生させる(二つの引数はそれぞれ左右のモーターの振動の強さ)
-        {
-            gamepad.SetMotorSpeeds(a, a);
-        }
-    }
-
-    //バイブを止める
-    public void StopVibration()
-    {
-        if (gamepad != null)
-        {
-            gamepad.SetMotorSpeeds(0f, 0f);
-        }
-    }
-
 }
 
 [System.Serializable]
-class ControllerOfJump
+class ControllerOfJump//ジャンプ関係のコントローラーの処理
 {
     JumpControl jumpControl;
 
@@ -166,13 +76,14 @@ class ControllerOfJump
 }
 
 [System.Serializable]
-class ControllerOfTrick
+class ControllerOfTrick//トリック関係のコントローラーの処理
 {
     [Header("トリックを決めた時のバイブの速さ")]
-    [SerializeField] float trick_VibrationSpeed = 0.35f;//トリックを決めた時のバイブの速さ
+    [Range(0, 1)]
+    [SerializeField] float vibrationSpeed = 1f;//トリックを決めた時のバイブの速さ
     [Header("トリックを決めた時の振動の時間")]
-    [SerializeField] float trickVibeTime = 0f;//トリックを決めた時の振動の時間
-    private float remainingTrickVibeTime = 0f;//トリックの振動の残り時間(内部用)
+    [SerializeField] float vibeTime = 0.2f;//トリックを決めた時の振動の時間
+    private float remainingVibeTime = 0f;//トリックの振動の残り時間(内部用)
 
     TrickControl trickControl;
     Gamepad gamepad;
@@ -187,7 +98,7 @@ class ControllerOfTrick
     {
         Trick();
 
-        VibrateController_Trick();
+        VibrateController();
     }
 
     void Trick()//トリック
@@ -212,15 +123,15 @@ class ControllerOfTrick
         }
     }
 
-    void VibrateController_Trick()//トリック時コントローラーがバイブする
+    void VibrateController()//トリック時コントローラーがバイブする
     {
-        remainingTrickVibeTime -= Time.deltaTime;
+        remainingVibeTime -= Time.deltaTime;
 
         if(gamepad!=null)
         {
-            if (remainingTrickVibeTime > 0)
+            if (remainingVibeTime > 0)
             {
-                gamepad.SetMotorSpeeds(trick_VibrationSpeed,trick_VibrationSpeed);//バイブさせる
+                gamepad.SetMotorSpeeds(vibrationSpeed,vibrationSpeed);//バイブさせる
             }
             else
             {
@@ -228,24 +139,60 @@ class ControllerOfTrick
             }
         }
     }
+
+    internal void Vibe()//トリック時にバイブしてほしいときこれを呼ぶ
+    {
+        remainingVibeTime = vibeTime;
+    }
 }
 
 [System.Serializable]
-class ControllerOfChargeTrick
+class ControllerOfChargeTrick//トリックのチャージ関係の処理
 {
     [Header("トリックをチャージしている時のバイブの速さ")]
-    [SerializeField] float chargeTrick_VibrationSpeed = 0.35f;//トリックをチャージしている時のバイブの速さ
+    [Range(0,1)]
+    [SerializeField] float vibrationSpeed = 1f;//トリックをチャージしている時のバイブの速さ
 
-    ChargeTrick chargeTrickControl;
+    JudgeChargeNow judgeChargeNow;
+    ChargeTrick chargeTrick;
     Gamepad gamepad;
 
-    internal void Start()
+    internal void Start(JudgeChargeNow j,ChargeTrick c,Gamepad g)
     {
-
+        judgeChargeNow = j;
+        chargeTrick = c;
+        gamepad = g;
     }
 
     internal void Update()
     {
+        VibrateController();
+    }
 
+    void VibrateController()//チャージしている間コントローラが振動
+    {
+        if (gamepad != null)
+        {
+            if (judgeChargeNow.ChargeNow())
+            {
+                gamepad.SetMotorSpeeds(vibrationSpeed, vibrationSpeed);//バイブさせる
+            }
+            else
+            {
+                gamepad.SetMotorSpeeds(0f, 0f);//バイブを止める
+            }
+        }
+    }
+
+    internal void OnTriggerEnter(Collider wave)
+    {
+        if (wave.CompareTag("InsideWave") || wave.CompareTag("OutsideWave"))//波に触れている間乗ってトリックをチャージ
+        {
+            //スペースキーやボタンを押している間チャージ
+            if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
+            {
+                chargeTrick.ChargeTrickTouchingWave(wave);
+            }
+        }
     }
 }

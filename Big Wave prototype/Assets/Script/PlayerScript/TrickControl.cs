@@ -109,7 +109,7 @@ public class TrickControl : MonoBehaviour
     //トリック
     void Trick(Trick trick)
     {
-        if (jumpcontrol.JumpNow == true && player_TrickPoint.Consume(trick.TrickCost) && enemy_Hp != null)//ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)＆敵がいる時のみ攻撃可能
+        if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trick.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
         {
             switch (trick.TrickPattern)
             {
@@ -130,12 +130,11 @@ public class TrickControl : MonoBehaviour
             //全てのトリックの共通処理
             tricked = true;//トリックした
             controller.Vibe_Trick();//バイブさせる
-                                    //☆福島君が書いた
+            //☆福島君が書いた
             audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
-                                                      //
             managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
             trickCount++;//1回トリックした(1ジャンプ中に)
-            processFeverPoint.ChargeFeverPoint(trickCount);
+            processFeverPoint.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
             HoverCoroutine = StartCoroutine(HoverJump());
         }
     }
