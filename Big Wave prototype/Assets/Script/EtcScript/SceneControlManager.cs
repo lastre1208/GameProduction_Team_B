@@ -23,9 +23,9 @@ public class SceneControlManager : MonoBehaviour
         SceneManager.LoadScene("MenuScene");
     }
 
-    public void ChangeGameScene()
+    public void ChangeGameScene()//一度ロード画面(ToMainLoadScene)を経由させる
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("ToMainLoadScene");
     }
 
     public void EndGame()//ゲームを終了する
