@@ -430,39 +430,50 @@ MonoBehaviour:
   firstBeginActTime: 1
   forms:
   - actionPatterns:
-    - action: 4
+    - action: 0
+      move: 1
       actionProbability: 70
       nextBeginActTime: 0.4
-    - action: 0
+    - action: 1
+      move: 1
       actionProbability: 10
       nextBeginActTime: 0.4
-    - action: 1
+    - action: 2
+      move: 1
       actionProbability: 5
       nextBeginActTime: 0.4
-    - action: 9
+    - action: 0
+      move: 0
       actionProbability: 4
       nextBeginActTime: 0.7
-    - action: 5
+    - action: 1
+      move: 0
       actionProbability: 3
       nextBeginActTime: 0.3
-    - action: 6
+    - action: 2
+      move: 0
       actionProbability: 3
       nextBeginActTime: 0.3
-    formHp: 5500
+    formHp: 5000
   - actionPatterns:
-    - action: 4
+    - action: 0
+      move: 1
       actionProbability: 82
       nextBeginActTime: 0.15
-    - action: 2
+    - action: 3
+      move: 1
       actionProbability: 9.5
       nextBeginActTime: 0.4
-    - action: 3
+    - action: 4
+      move: 1
       actionProbability: 1
       nextBeginActTime: 1
-    - action: 7
+    - action: 3
+      move: 0
       actionProbability: 7
       nextBeginActTime: 0.3
-    - action: 8
+    - action: 4
+      move: 0
       actionProbability: 0.5
       nextBeginActTime: 0.6
     formHp: 2000
@@ -4821,9 +4832,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0c677a565ddc64d9419e3073d224a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTrick_VibrationSpeed: 1
-  trick_VibrationSpeed: 1
-  trickVibeTime: 0.2
+  controllerOfTrick:
+    vibrationSpeed: 1
+    vibeTime: 0.2
+  controllerOfChargeTrick:
+    vibrationSpeed: 1
 --- !u!82 &1244729541
 AudioSource:
   m_ObjectHideFlags: 0
