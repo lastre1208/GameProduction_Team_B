@@ -2,27 +2,27 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-enum TrickType
+public enum Button
 {
-   type_A,
-   type_B, 
-   type_X, 
-   type_Y
+   A,
+   B, 
+   X, 
+   Y
 }
 
 [System.Serializable]
-class Trick
+public class TrickPattern
 {
     [Header("消費トリック(ゲージ本数)")]
     [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
-    //☆福島君が書いた
+    //☆作成者:福島
     [Header("トリックに用いる効果音")]
     [SerializeField] AudioClip trickSound;//トリックに用いる効果音
-    //
-    private TrickType trickPattern;//攻撃の種類
+    private Button buttonPattern;//ボタンの種類
 
     public int TrickCost
     {
@@ -33,10 +33,10 @@ class Trick
         get { return trickSound; }
     }
 
-    public TrickType TrickPattern
+    public Button ButtonPattern
     {
-        set { trickPattern = value; }
-        get { return trickPattern; }
+        set { buttonPattern = value; }
+        get { return buttonPattern; }
     }
 }
 
@@ -44,20 +44,20 @@ public class TrickControl : MonoBehaviour
 {
     //☆作成者:杉山
     [Header("Aボタンのトリック")]
-    [SerializeField] Trick A_Trick;
+    [SerializeField] TrickPattern A_Trick;
     [Header("Bボタンのトリック")]
-    [SerializeField] Trick B_Trick;
+    [SerializeField] TrickPattern B_Trick;
     [Header("Xボタンのトリック")]
-    [SerializeField] Trick X_Trick;
+    [SerializeField] TrickPattern X_Trick;
     [Header("Yボタンのトリック")]
-    [SerializeField] Trick Y_Trick;
+    [SerializeField] TrickPattern Y_Trick;
     [Header("通常時の敵に与えるダメージ")]
     [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
     [Header("トリック使用時の滞空時間")]
     [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
     [Header("滞空終了時に起こるジャンプの強さ")]
     [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
-    private bool tricked;//トリックしたかしていないかの判定
+    //private bool tricked;//トリックしたかしていないかの判定
     private int trickCount=0;//一回のジャンプにしたトリックの回数
     
     private Coroutine HoverCoroutine;
@@ -65,99 +65,86 @@ public class TrickControl : MonoBehaviour
     HP enemy_Hp;
     TRICKPoint player_TrickPoint;
     JumpControl jumpcontrol;
+    Rigidbody rb;
     Controller controller;
     ManagementOfScore managementOfScore;
     FeverMode feverMode;
+    Critical critical;
     
-    public bool Tricked
-    {
-        get { return tricked; }
-    }
+    //public bool Tricked
+    //{
+    //    get { return tricked; }
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
-        A_Trick.TrickPattern = TrickType.type_A;
-        B_Trick.TrickPattern= TrickType.type_B;
-        X_Trick.TrickPattern=TrickType.type_X;
-        Y_Trick.TrickPattern = TrickType.type_Y;
-        tricked = false;
+        A_Trick.ButtonPattern = Button.A;
+        B_Trick.ButtonPattern= Button.B;
+        X_Trick.ButtonPattern=Button.X;
+        Y_Trick.ButtonPattern = Button.Y;
+        //tricked = false;
         trickCount = 0;
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
         player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
+        rb = gameObject.GetComponent<Rigidbody>();
         controller = gameObject.GetComponent<Controller>();
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
         managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
         feverMode= gameObject.GetComponent<FeverMode>();
+        critical = gameObject.GetComponent<Critical>();
     }
 
     // Update is called once per frame
     void Update()
     {
         ResetTrickCount();
-        TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
+        //TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
     }
 
-    float Damage()//敵に与えるダメージ合計
+    float Damage(Button button)//敵に与えるダメージ合計
     {
-        return damageAmount* feverMode.CurrentPowerUp_GrowthRate;
+        return damageAmount* feverMode.CurrentPowerUp_GrowthRate*critical.Method1(button);
     }
 
     //トリック
-    void Trick(Trick trick)
+    public void Trick(Button button)
     {
-        if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trick.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
+        TrickPattern trickPattern = A_Trick;//未割り当てだとエラーが出るのでとりあえず最初に割り当てる
+        //ここで割り当て
+        switch (button)
         {
-            switch (trick.TrickPattern)
-            {
-                case TrickType.type_A:
-                    enemy_Hp.Hp -= Damage();
-                    break;
-                case TrickType.type_B:
-                    enemy_Hp.Hp -= Damage();
-                    break;
-                case TrickType.type_X:
-                    enemy_Hp.Hp -= Damage();
-                    break;
-                case TrickType.type_Y:
-                    enemy_Hp.Hp -= Damage();
-                    break;
-            }
+            case Button.A:
+                trickPattern = A_Trick;
+                break;
+            case Button.B:
+                trickPattern = B_Trick;
+                break;
+            case Button.X:
+                trickPattern = X_Trick;
+                break;
+            case Button.Y:
+                trickPattern = Y_Trick;
+                break;
+        }
 
+        if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
+        {
             //全てのトリックの共通処理
-            tricked = true;//トリックした
+            //tricked = true;//トリックした
+            enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
             //☆福島君が書いた
-            audioSource.PlayOneShot(trick.TrickSound);//効果音の再生
+            audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
             managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
             trickCount++;//1回トリックした(1ジャンプ中に)
             feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
             HoverCoroutine = StartCoroutine(HoverJump());
         }
     }
-
-
-    public void Trick_A()
-    {
-        Trick(A_Trick);
-    }
-
-    public void Trick_B()
-    {
-        Trick(B_Trick);
-    }
-    public void Trick_X()
-    {
-        Trick(X_Trick);
-    }
-    public void Trick_Y()
-    {
-        Trick(Y_Trick);
-    }
-
 
     void ResetTrickCount()
     {
@@ -169,21 +156,22 @@ public class TrickControl : MonoBehaviour
 
     //☆桑原君が書いた
     //ジャンプしていない時攻撃していない判定にする
-    void TrickedtoFalseNoJump()
-    {
-        if (jumpcontrol.JumpNow == false)//水面に接地しているなら
-        {
-            tricked = false;//攻撃していない
-        }
-    }
+    //void TrickedtoFalseNoJump()
+    //{
+    //    if (jumpcontrol.JumpNow == false)//水面に接地しているなら
+    //    {
+    //        tricked = false;//攻撃していない
+    //    }
+    //}
+
     IEnumerator HoverJump()
     {
-        jumpcontrol.rb.useGravity = false;
-        jumpcontrol.rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
 
         yield return new WaitForSeconds(hoverTime);
 
-        jumpcontrol.rb.useGravity = true;
-        jumpcontrol.rb.velocity= new(0, hoverJumpStrength, 0);
+        rb.useGravity = true;
+        rb.velocity= new(0, hoverJumpStrength, 0);
     }
 }
