@@ -2599,7 +2599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565996021393178738, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 565996021393178738, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2639,7 +2639,7 @@ PrefabInstance:
       objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: instantiateIntervalTime
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3136,7 +3136,7 @@ PrefabInstance:
       objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: instantiateIntervalTime
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6559662897025510711, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: m_Name
@@ -3152,7 +3152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810745853276082199, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 6810745853276082199, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4587,7 +4587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6caf9150bfd14283d02dd47d6c15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 100000
+  hpMax: 200
   trickPointMax: 150
   trickGaugeNum: 6
   feverPointMax: 1000
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeRateMax: 3
-  byMaxRateTime: 10
+  maxRateTime: 10
   minusChargeRateSpeed: 2
 --- !u!114 &1244729552
 MonoBehaviour:
@@ -11554,7 +11554,6 @@ GameObject:
   - component: {fileID: 1923540439}
   - component: {fileID: 1923540438}
   - component: {fileID: 1923540437}
-  - component: {fileID: 1923540440}
   m_Layer: 0
   m_Name: GamePos
   m_TagString: Untagged
@@ -11612,20 +11611,6 @@ Transform:
   - {fileID: 1258393162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1923540440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923540436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee0d3a1e9750184892d307d8e102123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _length: 30
-  speed: 10
 --- !u!1 &1932469633
 GameObject:
   m_ObjectHideFlags: 0
