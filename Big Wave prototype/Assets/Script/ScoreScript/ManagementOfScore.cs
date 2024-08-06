@@ -5,6 +5,8 @@ using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
+//作成者☆：桑原
+//一部杉山が改造
 [System.Serializable]
 class Borderline
 {
@@ -64,85 +66,71 @@ public class ManagementOfScore : MonoBehaviour
     private static int nowScore;//ゲーム進行中のスコア
     private static int damageCount;//ダメージを受けた回数
     private int remainingTime;//クリア時の残り時間(秒数）
-    private float oldPlayerHp;//ダメージを受ける前のプレイヤーのHP。ダメージを受けた後の比較用
-    private bool scoreCalculated;//最終スコアを計算したかどうかの判定
+    //private float oldPlayerHp;//ダメージを受ける前のプレイヤーのHP。ダメージを受けた後の比較用
 
-    Player player;
-    Enemy enemy;
-    TrickControl trickControl;
+    //HP player_Hp;
+    TRICKPoint player_TrickPoint;
+    //HP enemy_Hp;
 
     public static int TotalScore
     {
         get { return totalScore; }
         private set { totalScore = value; }
     }
-
-    public static int NowScore
-    {
-        get { return nowScore; }
-        private set { nowScore = value; }
-    }
-
-    public static int DamageCount
-    {
-        get { return damageCount; }
-        private set { damageCount = value; }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        trickControl = GameObject.FindWithTag("Player").GetComponent<TrickControl>();
+        //player_Hp = GameObject.FindWithTag("Player").GetComponent<HP>();
+        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();
+        //enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
 
         totalScore = 0;
         nowScore = 0;
         damageCount = 0;
         remainingTime = 0;
-        oldPlayerHp = player.Hp;
-        scoreCalculated = false;
+        //oldPlayerHp = player_Hp.Hp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!scoreCalculated && (player.Hp <= 0 || enemy.Hp <= 0))
-        //クリア時のスコア計算がされていない、かつプレイヤーか敵のHPが0以下になったら
-        {
-            CalculateTimeScore();
-            CalculateTrickGageScore();
-            CalculateDamageScore();
-
-            totalScore += nowScore;//合計スコアにプレイ中のスコアを加点
-            scoreCalculated = true;//クリア時のスコアが計算された
-        }
-
-        CheckDamage();
     }
 
-    void CheckDamage()//ダメージの処理
+    public void CalculateScore()//スコア算出(敵死亡時に呼び出す)
     {
-        if (player.Hp < oldPlayerHp)//プレイヤーのHPが減少したら
-        {
-            damageCount++;
-        }
+        CalculateTimeScore();
+        CalculateTrickGageScore();
+        CalculateDamageScore();
 
-        if (player.Hp != oldPlayerHp)//プレイヤーのHPが増減したら
-        {
-            oldPlayerHp = player.Hp;//現在のHPを記録
+        totalScore += nowScore;//合計スコアにプレイ中のスコアを加点
+    }
 
-            if (oldPlayerHp >= player.HpMax)
-            {
-                oldPlayerHp = player.HpMax;
-            }
-        }
+    public void AddDamageCount()//被弾時にダメージを受けた回数を増やす
+    {
+        damageCount++;
+        //if (player_Hp.Hp < oldPlayerHp)//プレイヤーのHPが減少したら
+        //{
+        //    damageCount++;
+        //}
+
+        //if (player_Hp.Hp != oldPlayerHp)//プレイヤーのHPが増減したら
+        //{
+        //    oldPlayerHp = player_Hp.Hp;//現在のHPを記録
+
+        //    if (oldPlayerHp >= player_Hp.HpMax)
+        //    {
+        //        oldPlayerHp = player_Hp.HpMax;
+        //    }
+        //}
     }
 
     public void AddTrickScore()//トリック成功時にスコアを加点
     {
         nowScore += trickScore;
     }
+
+
+    // スコア算出のメソッド
 
     void CalculateTimeScore()//残り時間のスコア計算
     {
@@ -152,9 +140,9 @@ public class ManagementOfScore : MonoBehaviour
 
     void CalculateTrickGageScore()//トリックゲージ残量のスコア計算
     {
-        for (int i = 0; i < player.TrickPoint.Length; i++)
+        for (int i = 0; i < player_TrickPoint.TrickPoint.Length; i++)
         {
-            totalScore += (int)(player.TrickPoint[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
+            totalScore += (int)(player_TrickPoint.TrickPoint[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
         }
     }
 

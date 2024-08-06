@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RopeEffect : MonoBehaviour
 {
-    //☆桑原君が書いた
-    Enemy enemy;
-    Player player;
+    //☆作成者:桑原
+    GameObject player;
+    HP player_Hp;
+    GameObject enemy;
+    HP enemy_Hp;
     LineRenderer lineRenderer; // LineRendererコンポーネント
 
     [SerializeField] GameObject startPoint;//ロープの始点
@@ -15,9 +17,11 @@ public class RopeEffect : MonoBehaviour
 
     void Start()
     {
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-
+        player = GameObject.FindWithTag("Player");
+        player_Hp = player.GetComponent<HP>();
+        enemy = GameObject.FindWithTag("Enemy");
+        enemy_Hp = enemy.GetComponent<HP>();
+        
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.positionCount = vertices.Length;
@@ -30,7 +34,7 @@ public class RopeEffect : MonoBehaviour
 
     void Update()
     {
-        if (enemy.Hp > 0 && player.Hp > 0)
+        if (enemy_Hp.Hp > 0 && player_Hp.Hp > 0)
         {
             DrawRope();
         }

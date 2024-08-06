@@ -6,16 +6,11 @@ using UnityEngine;
 
 enum ActionType//行動
 {
-    shotStraightMoving,//動きながら直線状に撃つ
-    shotHomingMoving,//動きながらホーミングしながら撃つ
-    shotHighSlashMoving,//動きながら高い斬撃を撃つ
-    shotWideWaveMoving,//動きながら横に広い周波を撃つ
-    move,//動く
-    shotStraightStoping,//止まりながら直線状に撃つ
-    shotHomingStoping,//止まりながらホーミングしながら撃つ
-    shotHighSlashStoping,//止まりながら高い斬撃を撃つ
-    shotWideWaveStoping,//止まりながら横に広い周波を撃つ
-    stop,//止まる
+    none,//何もしない
+    shotStraight,//止まりながら直線状に撃つ
+    shotHoming,//止まりながらホーミングしながら撃つ
+    shotHighSlash,//止まりながら高い斬撃を撃つ
+    shotWideWave,//止まりながら横に広い周波を撃つ
 }
 
 [System.Serializable]
@@ -51,6 +46,8 @@ class ActionPattern//行動とその行動確率とその行動の次に行動を始めるまでの時間
 {
     [Header("▼行動")]
     [SerializeField] ActionType action;//行動
+    [Header("▼動くか")]
+    [SerializeField] bool move;
     [Header("▼行動確率")]
     [SerializeField] float actionProbability;//行動確率
     [Header("▼次に別の行動を始めるまでの時間")]
@@ -59,6 +56,11 @@ class ActionPattern//行動とその行動確率とその行動の次に行動を始めるまでの時間
     public ActionType Action
     {
         get { return action; }
+    }
+
+    public bool Move
+    {
+        get { return move; }
     }
 
     public float ActionProbability
@@ -83,7 +85,7 @@ public class SelectActionOfEnemy : MonoBehaviour
     private float actTime = 0f;//敵の行動を管理する時間
     //[SerializeField] Quaternion []attackRotation=new Quaternion [4];//横に広い周波の角度
 
-    Enemy enemy;
+    HP enemy_Hp;
     ActOfEnemy actOfEnemy;
 
 　　public bool Stan
@@ -95,7 +97,7 @@ public class SelectActionOfEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = gameObject.GetComponent<Enemy>();
+        enemy_Hp = gameObject.GetComponent<HP>();
         actOfEnemy = gameObject.GetComponent<ActOfEnemy>();
         for (int i = 0; i < forms.Length; i++)
         {
@@ -104,7 +106,7 @@ public class SelectActionOfEnemy : MonoBehaviour
                 forms[i].ActionProbabilitySum += forms[i].ActionPatterns[j].ActionProbability;
             }
         }
-        forms[0].FormHp = enemy.HpMax;
+        forms[0].FormHp = enemy_Hp.HpMax;
         beginActTime = firstBeginActTime;
     }
 
@@ -124,7 +126,7 @@ public class SelectActionOfEnemy : MonoBehaviour
             {
                 for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
                 {
-                    if (enemy.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
+                    if (enemy_Hp.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
                     {
                         actTime = 0f;
                         SelectAction(i + 1);
@@ -165,16 +167,21 @@ public class SelectActionOfEnemy : MonoBehaviour
         //行動
         switch (forms[a - 1].ActionPatterns[action].Action)
         {
-            case ActionType.shotStraightMoving: actOfEnemy.ShotStraight(); actOfEnemy.Move(); break;//動きながら直線状に撃つ
-            case ActionType.shotHomingMoving: actOfEnemy.ShotHoming(); actOfEnemy.Move(); break;//動きながらホーミングしながら撃つ
-            case ActionType.shotHighSlashMoving: actOfEnemy.ShotHighSlash(); actOfEnemy.Move(); break;//動きながら高い斬撃を撃つ
-            case ActionType.shotWideWaveMoving: actOfEnemy.ShotWideWave(); actOfEnemy.Move();break;//動きながら横に広い周波を撃つ
-            case ActionType.move: actOfEnemy.Move(); break;//動く
-            case ActionType.shotStraightStoping: actOfEnemy.ShotStraight(); break;//止まりながら直線状に撃つ
-            case ActionType.shotHomingStoping: actOfEnemy.ShotHoming(); break;//止まりながらホーミングしながら撃つ
-            case ActionType.shotHighSlashStoping: actOfEnemy.ShotHighSlash(); break;//止まりながら高い斬撃を撃つ
-            case ActionType.shotWideWaveStoping: actOfEnemy.ShotWideWave(); break;//止まりながら横に広い周波を撃つ
-            case ActionType.stop: actOfEnemy.Stop(); break;//止まる
+            case ActionType.none: break;//何もしない
+            case ActionType.shotStraight: actOfEnemy.ShotStraight(); break;//直線状に撃つ
+            case ActionType.shotHoming: actOfEnemy.ShotHoming(); break;//ホーミングしながら撃つ
+            case ActionType.shotHighSlash: actOfEnemy.ShotHighSlash(); break;//高い斬撃を撃つ
+            case ActionType.shotWideWave: actOfEnemy.ShotWideWave(); break;//横に広い周波を撃つ
+        }
+
+        //動くか(trueなら動くようにする、falseなら止まるようにする)
+        if(forms[a - 1].ActionPatterns[action].Move)//動く
+        {
+            actOfEnemy.Move();
+        }
+        else//止まる
+        {
+            actOfEnemy.Stop();
         }
 
         //beginActTime(敵が次に行動を始める時間)を更新

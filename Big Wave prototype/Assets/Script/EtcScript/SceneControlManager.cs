@@ -18,24 +18,14 @@ public class SceneControlManager : MonoBehaviour
         
     }
 
-    public void ChangeGameoverScene()//ゲームオーバー画面に移行
-    {
-        SceneManager.LoadScene("GameoverScene");
-    }
-
-    public void ChangeClearScene()//クリア画面に移行
-    {
-        SceneManager.LoadScene("ClearScene");
-    }
-
     public void ChangeMenuScene()//メニュー画面に移行
     {
         SceneManager.LoadScene("MenuScene");
     }
 
-    public void ChangeGameScene()
+    public void ChangeGameScene()//一度ロード画面(ToMainLoadScene)を経由させる
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("ToMainLoadScene");
     }
 
     public void EndGame()//ゲームを終了する

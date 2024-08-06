@@ -12,16 +12,16 @@ public class ChargeTrick : MonoBehaviour
     [Header("波の内側(中央)に波乗りした時に溜まるトリックの値")]
     [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
     JudgeChargeNow judgeChargeNow;
-    Player player;
-    ProcessFeverMode processFeverPoint;
+    TRICKPoint player_TrickPoint;
+    FeverMode feverMode;
     ChangeChargeTrickTheSurfer changeChargeTrickTheSurfer;
     ChangeChargeTrickTheCharger changeChargeTrickTheCharger;
   
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.GetComponent<Player>();
-        processFeverPoint = gameObject.GetComponent<ProcessFeverMode>();
+        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
+        feverMode = gameObject.GetComponent<FeverMode>();
         changeChargeTrickTheSurfer=gameObject.GetComponent<ChangeChargeTrickTheSurfer>();
         judgeChargeNow=gameObject.GetComponent<JudgeChargeNow>();
         changeChargeTrickTheCharger=gameObject.GetComponent<ChangeChargeTrickTheCharger>(); 
@@ -53,7 +53,7 @@ public class ChargeTrick : MonoBehaviour
     float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
     {
         float ret=b;//通常時のチャージされるトリック量
-        ret *= processFeverPoint.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
+        ret *= feverMode.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
         ret *= changeChargeTrickTheCharger.ChargeRate();//満タンのトリックゲージの数によるチャージ倍率
         ret *= changeChargeTrickTheSurfer.CurrentChargeRate;//波に乗っている時間によるチャージ倍率
         return ret;
@@ -63,7 +63,7 @@ public class ChargeTrick : MonoBehaviour
     //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
     void ProcessingChargeTrick(float a,Wave wave)
     {
-        player.ChargeTrickPoint(ChargeTrickAmount(a));//トリックをチャージ
+        player_TrickPoint.Charge(ChargeTrickAmount(a));//トリックをチャージ
         wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
         judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
     }

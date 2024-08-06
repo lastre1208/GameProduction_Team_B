@@ -28,7 +28,7 @@ public class ChangeChargeTrickTheSurferEffect : MonoBehaviour
         ChangeEffectScale();//エフェクトの大きさを変更
     }
 
-    public void ChangeEffectScale()//エフェクトの大きさを変更
+    void ChangeEffectScale()//エフェクトの大きさを変更
     {
         if (chargeEffect.activeSelf)//チャージエフェクトがアクティブの時にエフェクトの大きさを変更
         {

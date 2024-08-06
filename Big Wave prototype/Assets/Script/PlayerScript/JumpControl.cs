@@ -8,9 +8,8 @@ public class JumpControl : MonoBehaviour
     //☆塩が書いた
     [SerializeField] float jumpPower=9f;//ジャンプ力
     private bool jumpNow;//今ジャンプしているか
-    public Rigidbody rb; //TrickControl1で使うのでpublicにしました
+    Rigidbody rb;
     JudgeTouchWave touchWave;
-    Player player;
 
     public bool JumpNow
     {
@@ -22,7 +21,6 @@ public class JumpControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         touchWave = gameObject.GetComponent<JudgeTouchWave>();
-        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame

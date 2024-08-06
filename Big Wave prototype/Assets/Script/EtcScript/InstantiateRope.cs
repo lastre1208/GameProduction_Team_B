@@ -5,8 +5,8 @@ using UnityEngine;
 public class InstantiateRope : MonoBehaviour
 {
     //☆桑原君が書いた
-    Enemy enemy;
-    Player player;
+    HP enemy_Hp;
+    HP player_Hp;
 
     [SerializeField] GameObject ropePrefab;//ロープのプレハブ
     private GameObject ropeInstance;
@@ -14,8 +14,8 @@ public class InstantiateRope : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        player_Hp = GameObject.FindWithTag("Player").GetComponent<HP>();
 
         ropeInstance = Instantiate(ropePrefab);//ロープ生成
     }
@@ -23,7 +23,7 @@ public class InstantiateRope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy.Hp <= 0 || player.Hp <= 0)//敵かプレイヤーのhpが0以下になったら
+        if (enemy_Hp.Hp <= 0 || player_Hp.Hp <= 0)//敵かプレイヤーのhpが0以下になったら
         {
             Destroy(ropeInstance);//ロープ消滅
         }

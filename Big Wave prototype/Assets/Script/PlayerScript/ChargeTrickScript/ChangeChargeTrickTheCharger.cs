@@ -6,11 +6,11 @@ public class ChangeChargeTrickTheCharger : MonoBehaviour
 {
     [Header("チャージ倍率(トリックゲージの個数分配列を用意してください)")]
     [SerializeField] float[] chargeRate;//チャージ倍率
-    Player player;
+    TRICKPoint player_TrickPoint;
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.GetComponent<Player>();
+        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,8 @@ public class ChangeChargeTrickTheCharger : MonoBehaviour
     //満タンのゲージの数に対応したチャージ倍率を返す
     public float ChargeRate()
     {
-        int maxCount = player.MaxCount;
-        maxCount = Mathf.Clamp(maxCount, 0, player.TrickGaugeNum - 1);
+        int maxCount = player_TrickPoint.MaxCount;
+        maxCount = Mathf.Clamp(maxCount, 0, player_TrickPoint.TrickGaugeNum - 1);
         return chargeRate[maxCount];
     }
 }
