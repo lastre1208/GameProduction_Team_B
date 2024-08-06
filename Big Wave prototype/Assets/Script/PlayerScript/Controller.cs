@@ -109,23 +109,39 @@ class ControllerOfTrick//トリック関係のコントローラーの処理
 
     void Trick()//トリック
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタンを押した時バフ
-        {
-            trickControl.Trick_X();
-        }
+        //if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("h"))//HキーかYボタン
+        //{
+        //    trickControl.Trick(Button.Y);
+        //}
+        //if (Input.GetButtonDown("Fire2") || Input.GetKeyDown("j"))//JキーかXボタン
+        //{
+        //    trickControl.Trick(Button.X);
+        //}
+        //if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("k"))//KキーかBボタン
+        //{
+        //    trickControl.Trick(Button.B);
+        //}
+        //if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("l"))//LキーかAボタン
+        //{
+        //    trickControl.Trick(Button.A);
+        //}
 
-        if (Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタンを押した時攻撃
+        //自分(杉山)のコントローラー用
+        if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("h"))//HキーかYボタン
         {
-            trickControl.Trick_Y();
+            trickControl.Trick(Button.Y);
         }
-
-        if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("l"))//LキーかAボタンを押した時回復
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタン
         {
-            trickControl.Trick_B();
+            trickControl.Trick(Button.X);
         }
-        if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("h"))
+        if (Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタン
         {
-            trickControl.Trick_A();
+            trickControl.Trick(Button.B);
+        }
+        if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("l"))//LキーかAボタン
+        {
+            trickControl.Trick(Button.A);
         }
     }
 
