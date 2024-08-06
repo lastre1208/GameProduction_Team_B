@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 86f952092a331034e914dc9249190823, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.07194475, g: 0.86488855, b: 9.793527, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13054,6 +13054,7 @@ GameObject:
   - component: {fileID: 1923540439}
   - component: {fileID: 1923540438}
   - component: {fileID: 1923540437}
+  - component: {fileID: 1923540440}
   m_Layer: 0
   m_Name: GamePos
   m_TagString: Untagged
@@ -13111,6 +13112,20 @@ Transform:
   - {fileID: 1258393162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923540440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923540436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de898e7024642c44e977575429ea160c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _length: 30
+  speed: 30
 --- !u!1 &1932469633
 GameObject:
   m_ObjectHideFlags: 0
