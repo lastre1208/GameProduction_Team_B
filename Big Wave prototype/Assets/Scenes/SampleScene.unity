@@ -2025,9 +2025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cff9b9003bc9a47b0c4f21d84a9be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScore_ratio: 25
+  timeScore_ratio: 30
   trickScore_ratio: 1
-  trickScore: 10
+  trickScore: 5
   bestRank:
     borderCount: 0
     addScore: 600
