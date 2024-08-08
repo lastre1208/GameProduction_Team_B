@@ -107,7 +107,7 @@ public class TrickControl : MonoBehaviour
 
     float Damage(Button button)//敵に与えるダメージ合計
     {
-        return damageAmount* feverMode.CurrentPowerUp_GrowthRate*critical.Method1(button);
+        return damageAmount* feverMode.CurrentPowerUp_GrowthRate*critical.CriticalDamageRate(button);
     }
 
     //トリック

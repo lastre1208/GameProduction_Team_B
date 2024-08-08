@@ -19,6 +19,7 @@ public class Critical : MonoBehaviour
     {
         get { return criticalButton; }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,7 @@ public class Critical : MonoBehaviour
         }
     }
 
-    public float Method1(Button button)
+    public float CriticalDamageRate(Button button)//指定されたボタンを入力することによってクリティカルが発生するようにする(ダメージがアップするようにする)
     {
         if (button == criticalButton[0])//入力したボタンが指定されたボタンだった時
         {

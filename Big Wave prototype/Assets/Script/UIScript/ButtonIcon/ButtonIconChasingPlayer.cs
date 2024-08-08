@@ -9,21 +9,23 @@ struct ButtonDisplays
     [Tooltip("現在指定されているボタンを表示したいなら0、二番目に指定されているボタンなら1...")]
     [SerializeField] internal int buttonNum;//表示したいボタンの要素番号
     [Header("表示されるボタン")]
-    [SerializeField] internal CriticalButtonDisplay criticalButtonDisplay;//表示されるボタン
+    [SerializeField] internal ButtonIconDisplay criticalButtonDisplay;//表示されるボタン
 }
 
-public class ChasePlayerButton : MonoBehaviour
+public class ButtonIconChasingPlayer : MonoBehaviour
 {
     [SerializeField] ButtonDisplays[] buttonDisplays;
     JumpControl jumpControl;
     TRICKPoint player_TrickPoint;
+    Critical critical;
+
     // Start is called before the first frame update
     void Start()
     {
 
         jumpControl = GameObject.FindWithTag("Player").GetComponent<JumpControl>();
         player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();
-        AssignButtonNum();
+        critical = GameObject.FindWithTag("Player").GetComponent<Critical>();
     }
 
     // Update is called once per frame
@@ -34,11 +36,13 @@ public class ChasePlayerButton : MonoBehaviour
 
     void DisplayAndHideButton()//ボタン表示と非表示
     {
-        if (jumpControl.JumpNow && player_TrickPoint.MaxCount > 0)//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき
+        bool display = (jumpControl.JumpNow && player_TrickPoint.MaxCount > 0);//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき表示
+
+        if (display)
         {
             for(int i=0; i<buttonDisplays.Length;i++)
             {
-                buttonDisplays[i].criticalButtonDisplay.DisplayButton();
+                buttonDisplays[i].criticalButtonDisplay.DisplayButton(critical.CriticalButton[buttonDisplays[i].buttonNum]);
             }
         }
         else
@@ -49,13 +53,5 @@ public class ChasePlayerButton : MonoBehaviour
             }
         }
             
-    }
-
-    void AssignButtonNum()//設定した全てのボタンに表示したいボタンの要素番号の割り当て
-    {
-        for (int i = 0; i < buttonDisplays.Length; i++)
-        {
-            buttonDisplays[i].criticalButtonDisplay.CriticalButtonNum = buttonDisplays[i].buttonNum;//表示したいボタンの要素番号の割り当て
-        }
     }
 }

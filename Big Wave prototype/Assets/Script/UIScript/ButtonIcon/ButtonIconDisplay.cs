@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CriticalButtonDisplay : MonoBehaviour
+public class ButtonIconDisplay : MonoBehaviour
 {
     [Header("Aボタンのアイコン")]
     [SerializeField] GameObject icon_AButton;//Aボタンのアイコン
@@ -13,20 +13,11 @@ public class CriticalButtonDisplay : MonoBehaviour
     [SerializeField] GameObject icon_XButton;//Xボタンのアイコン
     [Header("Yボタンのアイコン")]
     [SerializeField] GameObject icon_YButton;//Yボタンのアイコン
-    private int criticalButtonNum;//表示するボタンの要素番号、このクラスを使う時はまず最初にこれに値を代入する
-    Critical critical;
-    
-
-     public int CriticalButtonNum
-    {
-        get { return criticalButtonNum; }
-        set { criticalButtonNum = value; }
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        critical = GameObject.FindWithTag("Player").GetComponent<Critical>();
+       
     }
 
     // Update is called once per frame
@@ -35,14 +26,12 @@ public class CriticalButtonDisplay : MonoBehaviour
        
     }
 
-    public void DisplayButton()//ボタン表示
+    public void DisplayButton(Button buttonDisplayed)//ボタン表示、何の(色の)ボタンを表示するかを引数に入れる
     {
-        Button DisplayCriricalButton = critical.CriticalButton[criticalButtonNum];//表示するボタン
-
         //指定されているボタンを表示
         for (int i = 0; i < Enum.GetNames(typeof(Button)).Length; i++)
         {
-            if ((Button)i == DisplayCriricalButton)
+            if ((Button)i == buttonDisplayed)
             {
                 ButtonIcon((Button)i).SetActive(true);
             }
