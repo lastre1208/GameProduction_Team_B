@@ -11,19 +11,21 @@ public class Critical : MonoBehaviour
     [SerializeField] float criticalRate;//クリティカル時のダメージの増加倍率
     [Header("クリティカル時の効果音")]
     [SerializeField] AudioClip criticalSound;//クリティカル時の効果音
-    int showButtonNum=6;//ボタンの表示数
-    private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン)
+    private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
     AudioSource audioSource;
+    TRICKPoint player_TrickPoint;
 
     public Button[] CriticalButton
     {
         get { return criticalButton; }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        criticalButton = new Button[showButtonNum];
+        player_TrickPoint = GetComponent<TRICKPoint>();
+        criticalButton = new Button[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
         StartAllocateButton();
     }
 
@@ -41,7 +43,7 @@ public class Critical : MonoBehaviour
         }
     }
 
-    public float Method1(Button button)
+    public float CriticalDamageRate(Button button)//指定されたボタンを入力することによってクリティカルが発生するようにする(ダメージがアップするようにする)
     {
         if (button == criticalButton[0])//入力したボタンが指定されたボタンだった時
         {

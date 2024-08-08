@@ -9,6 +9,8 @@ using UnityEngine.InputSystem.Controls;
 public class Controller : MonoBehaviour
 {
     [SerializeField] ControllerOfJump controllerOfJump;//ジャンプ関係のコントローラーの処理、(注)[SerializeField]書かないとエラー起きちゃう
+    [Header("ポーズ関係")]
+    [SerializeField] ControllerOfPause controllerOfPause;//ポーズ関係のコントローラーの処理
     [Header("トリック関係")]
     [SerializeField] ControllerOfTrick controllerOfTrick;//トリック関係のコントローラの処理
     [Header("トリックのチャージ関係")]
@@ -38,6 +40,7 @@ public class Controller : MonoBehaviour
     void Update()
     {
         controllerOfJump.Update();
+        controllerOfPause.Update();
         controllerOfTrick.Update();
         controllerOfChargeTrick.Update();
     }
@@ -53,6 +56,24 @@ public class Controller : MonoBehaviour
     }
 }
 
+
+
+
+
+[System.Serializable]
+class ControllerOfPause//ポーズ関係のコントローラーの処理
+{
+    [Header("ポーズ画面")]
+    [SerializeField] PauseControl pauseControl;//ポーズ画面
+
+    internal void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause")) // Pキーが押されたら
+        {
+            pauseControl.TogglePause(); // ポーズの切り替え
+        }
+    }
+}
 
 
 
