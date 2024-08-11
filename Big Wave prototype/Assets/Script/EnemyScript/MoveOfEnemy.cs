@@ -25,8 +25,7 @@ public class MoveOfEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //MoveManager‚©‚çlimitrange‚ğæ“¾‚µAForwardMove‚Ìlimitrange‚É‘ã“ü
-        //movemanager = GameObject.FindWithTag("MoveManager").GetComponent<MoveManager>();
+       
     }
 
     // Update is called once per frame
