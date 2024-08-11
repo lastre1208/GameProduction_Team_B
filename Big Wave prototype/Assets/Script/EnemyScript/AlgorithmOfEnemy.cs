@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class AlgorithmOfEnemy : MonoBehaviour
 {
-    [Header("最初にやる行動パターン")]
-    [SerializeField] ActionPattern firstActionPattern;//最初にやる行動パターン
+    [Header("最初の行動パターン")]
+    [SerializeField] ActionPattern firstActionPattern;//最初の行動パターン
     private float currentActionTime = 0;//現在の行動時間
     private float actionTime;//行動時間、現在の行動時間(currentActionTime)がこれ以上になったら行動を変更する
     private ActionPattern currentActionPattern;//現在の行動パターン
-    SelectActionOfEnem selectAction;
+    SelectActionOfEnemy selectAction;
     // Start is called before the first frame update
     void Start()
     {
-        selectAction=GetComponent<SelectActionOfEnem>();
+        selectAction=GetComponent<SelectActionOfEnemy>();
 
         ChangeAction(firstActionPattern);//最初の行動を設定
     }
