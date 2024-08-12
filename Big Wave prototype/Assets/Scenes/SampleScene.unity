@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07203368, g: 0.8646467, b: 9.79774, a: 1}
+  m_IndirectSpecularColor: {r: 0.07194475, g: 0.86488855, b: 9.793527, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4292,7 +4292,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.11, z: -8.81}
+  m_LocalPosition: {x: 0, y: 3.5, z: -8.810001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13166,7 +13166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d10a2cc86980694d959186f034374d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 7
+  range: 10
   limitObjects:
   - {fileID: 1244729524}
   - {fileID: 98503817}
@@ -13185,10 +13185,10 @@ Transform:
   m_Children:
   - {fileID: 1244729529}
   - {fileID: 98503821}
-  - {fileID: 963194228}
   - {fileID: 452082127}
   - {fileID: 798102399}
   - {fileID: 1258393162}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923540440
@@ -13198,13 +13198,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923540436}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de898e7024642c44e977575429ea160c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _length: 30
-  speed: 30
+  speed: 10
 --- !u!1 &1931415812
 GameObject:
   m_ObjectHideFlags: 0

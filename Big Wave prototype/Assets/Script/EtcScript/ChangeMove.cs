@@ -8,7 +8,7 @@ public class ChangeMove : MonoBehaviour
     private void Update()
     {
         // ‰•œ‚µ‚½’l‚ğŠÔ‚©‚çŒvZ
-        var value = Mathf.PingPong(Time.time*speed, _length) - _length / 2; ;
+        var value = Mathf.PingPong(Time.time * speed, _length) - _length / 2; ;
 
         // yÀ•W‚ğ‰•œ‚³‚¹‚Äã‰º‰^“®‚³‚¹‚é
         transform.Translate(Vector3.right * value * Time.deltaTime);
