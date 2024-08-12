@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7435244416450707420}
   - component: {fileID: -4060439058681899844}
   - component: {fileID: -821361975915702940}
+  - component: {fileID: 7548293596235421466}
   m_Layer: 0
   m_Name: 'InsideWave Prefab '
   m_TagString: InsideWave
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594c4a11917a2ef4bbec601377a0413b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeTrickAmount: 3
 --- !u!108 &-4060439058681899844
 Light:
   m_ObjectHideFlags: 0
@@ -221,3 +223,16 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &7548293596235421466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794894681774472066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ac9c77239059c4c86cf8d18763e0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40

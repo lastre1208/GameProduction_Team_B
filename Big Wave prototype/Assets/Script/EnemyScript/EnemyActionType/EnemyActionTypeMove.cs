@@ -22,11 +22,6 @@ public class EnemyActionTypeMove : EnemyActionTypeBase
     private float changeTime;//進行方向変更時間
     private Vector3 move;
 
-    void Start()
-    {
-        ChangeMove();//動き方を変更する
-    }
-
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
         ChangeMove();//動き方を変更する
