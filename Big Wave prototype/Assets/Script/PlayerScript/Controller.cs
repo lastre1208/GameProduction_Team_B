@@ -49,11 +49,6 @@ public class Controller : MonoBehaviour
     {
         controllerOfTrick.Vibe();
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        controllerOfChargeTrick.OnTriggerEnter(other);
-    }
 }
 
 
@@ -213,7 +208,22 @@ class ControllerOfChargeTrick//トリックのチャージ関係の処理
 
     internal void Update()
     {
+        ChargeStandbyOn();
+
         VibrateController();
+    }
+
+    void ChargeStandbyOn()//波に触れてトリックがチャージできるようにする
+    {
+        //スペースキーやボタンを押している間は波に触れてチャージができるようになる
+        if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
+        {
+            chargeTrick.ChargeStandby = true;
+        }
+        else 
+        {
+            chargeTrick.ChargeStandby = false;
+        }
     }
 
     void VibrateController()//チャージしている間コントローラが振動
@@ -227,18 +237,6 @@ class ControllerOfChargeTrick//トリックのチャージ関係の処理
             else
             {
                 gamepad.SetMotorSpeeds(0f, 0f);//バイブを止める
-            }
-        }
-    }
-
-    internal void OnTriggerEnter(Collider wave)
-    {
-        if (wave.CompareTag("InsideWave") || wave.CompareTag("OutsideWave"))//波に触れている間乗ってトリックをチャージ
-        {
-            //スペースキーやボタンを押している間チャージ
-            if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
-            {
-                chargeTrick.ChargeTrickTouchingWave(wave);
             }
         }
     }

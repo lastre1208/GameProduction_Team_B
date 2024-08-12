@@ -5,13 +5,9 @@ using UnityEngine;
 public class Wave : MonoBehaviour
 {
     //☆塩が書いた
-    private bool isTouched;//プレイヤーに触れられたか
-
-    public bool IsTouched
-    {
-        get { return isTouched; }
-        set { isTouched = value; }
-    }
+    private bool isTouched=false;//プレイヤーに触れられたか
+    [Header("波乗りした時に溜まるトリック量")]
+    [SerializeField] float chargeTrickAmount = 1;//波乗りした時に溜まるトリック量
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +19,15 @@ public class Wave : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(!isTouched&&other.CompareTag("Player"))//まだ触れられてないかつ当たったのがプレイヤーなら
+        {
+            ChargeTrick chargeTrick = other.GetComponent<ChargeTrick>();//プレイヤーのトリックチャージのコンポーネントを取得
+            chargeTrick.ChargeTrickTouchingWave(chargeTrickAmount);//トリックをチャージ
+            isTouched = true;//触れられた
+        }
     }
 }

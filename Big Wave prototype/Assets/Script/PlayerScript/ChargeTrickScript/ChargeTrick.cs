@@ -7,15 +7,18 @@ using UnityEngine;
 public class ChargeTrick : MonoBehaviour
 {
     //波の内側に波乗りしているときはoutSideChargeTrick、inSideChargeTrickの合計分トリックが増える
-    [Header("波の外側に波乗りした時に溜まるトリックの値")]
-    [SerializeField] float outSideChargeTrick=1;//波の外側に波乗りした時に溜まるトリックの値
-    [Header("波の内側(中央)に波乗りした時に溜まるトリックの値")]
-    [SerializeField] float inSideChargeTrick=2;//波の内側(中央)に波乗りした時に溜まるトリックの値
+    private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
     JudgeChargeNow judgeChargeNow;
     TRICKPoint player_TrickPoint;
     FeverMode feverMode;
     ChangeChargeTrickTheSurfer changeChargeTrickTheSurfer;
     ChangeChargeTrickTheCharger changeChargeTrickTheCharger;
+
+    public bool ChargeStandby
+    {
+        get { return chargeStandby; }
+        set { chargeStandby = value; }
+    }
   
     // Start is called before the first frame update
     void Start()
@@ -33,39 +36,22 @@ public class ChargeTrick : MonoBehaviour
     }
 
     //波に触れてトリックをチャージ
-    public void ChargeTrickTouchingWave(Collider wavePrefab)
+    public void ChargeTrickTouchingWave(float chargeAmount)
     {
-        Wave wave = wavePrefab.GetComponent<Wave>();//Waveの情報(isTouched)を取得
-
-        //一度も触れていない内側の波からチャージする
-        if (wavePrefab.CompareTag("InsideWave") && wave.IsTouched == false)
+        if(chargeStandby)
         {
-            ProcessingChargeTrick(inSideChargeTrick,wave);
-        }
-
-        //一度触れていない外側の波からチャージする
-        else if (wavePrefab.CompareTag("OutsideWave") && wave.IsTouched == false)
-        {
-            ProcessingChargeTrick(outSideChargeTrick, wave);
+            player_TrickPoint.Charge(ChargeTrickAmount(chargeAmount));//トリックをチャージ
+            judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
         }
     }
 
-    float ChargeTrickAmount(float b)//チャージされるトリック量(bにはinSideChargeTrickかoutSideChargeTrickが入る)
+    float ChargeTrickAmount(float chargeAmount)//チャージされるトリック量(
     {
-        float ret=b;//通常時のチャージされるトリック量
+        float ret=chargeAmount;//通常時のチャージされるトリック量
         ret *= feverMode.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
         ret *= changeChargeTrickTheCharger.ChargeRate();//満タンのトリックゲージの数によるチャージ倍率
         ret *= changeChargeTrickTheSurfer.CurrentChargeRate;//波に乗っている時間によるチャージ倍率
         return ret;
-    }
-
-    //波に触れてトリックをチャージするときの内部の処理
-    //a(引数)にはinSideChargeTrickかoutSideChargeTrickを入れる(溜まるトリック量)
-    void ProcessingChargeTrick(float a,Wave wave)
-    {
-        player_TrickPoint.Charge(ChargeTrickAmount(a));//トリックをチャージ
-        wave.IsTouched = true;//一度触れた波からはチャージできないようにする(触った判定にする)
-        judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
     }
 }
 
