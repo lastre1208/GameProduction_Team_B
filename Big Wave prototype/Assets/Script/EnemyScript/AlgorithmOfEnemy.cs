@@ -44,8 +44,10 @@ public class AlgorithmOfEnemy : MonoBehaviour
     void ChangeAction(ActionPattern nextActionPattern)//行動変更
     {
         //現在の行動の行動終了時の処理
-        if(currentActionPattern!=null)
+
+        if(currentActionPattern!=null)//最初の行動の設定以降の時
         {
+            //前の行動の行動終了時の処理
             for (int i = 0; i < currentActionPattern.Action.Length; i++)
             {
                 currentActionPattern.Action[i].OnExit(nextActionPattern.Action);
@@ -57,7 +59,17 @@ public class AlgorithmOfEnemy : MonoBehaviour
                 nextActionPattern.Action[i].OnEnter(currentActionPattern.Action);
             }
         }
-      
+        else//最初の行動を設定する時
+        {
+            //次の行動の行動開始時の処理
+            for (int i = 0; i < nextActionPattern.Action.Length; i++)
+            {
+                nextActionPattern.Action[i].OnEnter(null);
+            }
+        }
+
+        
+
         //現在の行動を次の行動に変更
         currentActionPattern = nextActionPattern;
         //現在の行動時間をリセット
