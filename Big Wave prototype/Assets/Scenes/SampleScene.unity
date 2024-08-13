@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 98503818}
   - component: {fileID: 98503832}
   - component: {fileID: 98503826}
+  - component: {fileID: 98503835}
   - component: {fileID: 98503834}
   - component: {fileID: 98503833}
   - component: {fileID: 98503831}
@@ -380,6 +381,7 @@ Transform:
   m_Children:
   - {fileID: 1110614297}
   - {fileID: 1318383701}
+  - {fileID: 1658198235}
   - {fileID: 1565991088}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,10 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateWavePos: {fileID: 1318383700}
-  outSideWave: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
-  inSideWave: {fileID: 794894681774472066, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
-  outSideWaveIntervalTime: 0.1
-  inSideWaveIntervalTime: 0.03
+  wavePrefab: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
+  waveIntervalTime: 0.1
   gamePos: {fileID: 1923540436}
 --- !u!145 &98503830
 SpringJoint:
@@ -538,6 +538,22 @@ MonoBehaviour:
     - {fileID: 1507679698}
     actionProbability: 0
     actionTime: 5
+--- !u!114 &98503835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98503817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabc5d4fab6e94d49b48f7eecaf7a2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateWavePos: {fileID: 1658198234}
+  wavePrefab: {fileID: 794894681774472066, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
+  waveIntervalTime: 0.03
+  gamePos: {fileID: 1923540436}
 --- !u!1 &119033915
 GameObject:
   m_ObjectHideFlags: 0
@@ -6142,7 +6158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1318383701}
   m_Layer: 0
-  m_Name: InstantiateWavePos
+  m_Name: InstantiateOutSideWavePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7873,6 +7889,37 @@ Transform:
   - {fileID: 337460548}
   - {fileID: 1932469634}
   m_Father: {fileID: 777861523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1658198234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658198235}
+  m_Layer: 0
+  m_Name: InstantiateInSideWavePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1658198235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658198234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: -0.516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98503821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1692912288
 PrefabInstance:
