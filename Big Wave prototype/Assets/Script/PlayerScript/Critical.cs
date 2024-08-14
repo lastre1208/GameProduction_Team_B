@@ -58,6 +58,7 @@ public class Critical : MonoBehaviour
 
             return criticalRate;//クリティカル時の倍率を返す
         }
+
         return 1;//等倍を返す
     }
 

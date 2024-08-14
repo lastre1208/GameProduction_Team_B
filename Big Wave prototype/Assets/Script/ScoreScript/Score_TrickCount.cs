@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Score_TrickCount : MonoBehaviour
+public class Score_TrickCount : Score
 {
     [Header("トリック一回ごとのスコア量")]
     [SerializeField] float scorePerOneTrick;//トリック一回ごとのスコア量
-    private static float score;//トリック回数のスコア
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +16,10 @@ public class Score_TrickCount : MonoBehaviour
     public void AddScore()//スコア加算(1回トリックをするごとに呼ぶ)
     {
         score += scorePerOneTrick;
+    }
+
+    public void ReflectScore()//トリック回数のスコアを反映
+    {
+        Score_TrickCount=score;
     }
 }

@@ -57,6 +57,8 @@ public class TrickControl : MonoBehaviour
     [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
     [Header("滞空終了時に起こるジャンプの強さ")]
     [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
+    [Header("トリック回数のスコア")]
+    [SerializeField] Score_TrickCount score_TrickCount;
     //private bool tricked;//トリックしたかしていないかの判定
     private int trickCount=0;//一回のジャンプにしたトリックの回数
     
@@ -69,6 +71,7 @@ public class TrickControl : MonoBehaviour
     Controller controller;
     FeverMode feverMode;
     Critical critical;
+    
     
     //public bool Tricked
     //{
@@ -135,12 +138,13 @@ public class TrickControl : MonoBehaviour
             //tricked = true;//トリックした
             enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
-            //☆福島君が書いた
-            audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
-            //トリック成功によるスコアの加点
-            trickCount++;//1回トリックした(1ジャンプ中に)
+            trickCount++;//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
             feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
-            HoverCoroutine = StartCoroutine(HoverJump());
+            score_TrickCount.AddScore();//トリックによるスコアの加点
+            //☆作成者:福島
+            audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
+            //作成者:桑原
+            HoverCoroutine = StartCoroutine(HoverJump());//ホバーさせる
         }
     }
 
@@ -152,7 +156,7 @@ public class TrickControl : MonoBehaviour
         }
     }
 
-    //☆桑原君が書いた
+    ///////☆作成者桑原///////
     //ジャンプしていない時攻撃していない判定にする
     //void TrickedtoFalseNoJump()
     //{

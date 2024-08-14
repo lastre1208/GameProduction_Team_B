@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    //[Header("表示させるテキスト")]
-    //[SerializeField] TMP_Text Score_UI;//表示させるテキスト
-
+    [Header("表示させるテキスト")]
+    [SerializeField] TMP_Text Score_UI;//表示させるテキスト
+    [Header("表示したいスコア")]
+    [SerializeField] Score score;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,6 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Score_UI.text = "Score: " + ManagementOfScore.NowScore.ToString("");
+        Score_UI.text = score.Score_.ToString("0");
     }
 }
