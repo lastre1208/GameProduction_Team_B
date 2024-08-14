@@ -3,7 +3,7 @@ using TMPro;
 
 public class TimeDisplay : MonoBehaviour
 {
-    //☆福島君が書いた
+    //☆作成者:桑原
     [Header("▼表示させるテキスト")]
     [SerializeField] TMP_Text Time_UI;//表示させるテキスト
     //public static float seconds;//秒

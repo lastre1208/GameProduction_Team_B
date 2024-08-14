@@ -2015,7 +2015,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375463866}
-  - component: {fileID: 375463867}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: ScoreManager
@@ -2038,34 +2037,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487644780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &375463867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375463865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cff9b9003bc9a47b0c4f21d84a9be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeScore_ratio: 30
-  trickScore_ratio: 1
-  trickScore: 5
-  bestRank:
-    borderCount: 0
-    addScore: 600
-  goodRank:
-    borderCount: 3
-    addScore: 300
-  normalRank:
-    borderCount: 5
-    addScore: 200
-  badRank:
-    borderCount: 8
-    addScore: 100
-  lowestRank_AddScore: 0
 --- !u!1 &408454533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413596122}
-  - component: {fileID: 413596123}
+  - component: {fileID: 413596124}
   m_Layer: 0
   m_Name: TimeDisplay
   m_TagString: Untagged
@@ -2232,7 +2203,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2119914096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &413596123
+--- !u!114 &413596124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2241,12 +2212,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 413596121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68030df0a4859a046a1d209d119d2211, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d3c6c365a8a783419dc3940f29b496b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Time_UI: {fileID: 1513945115}
-  initialMinutes: 2
-  initialSeconds: 0
 --- !u!4 &429821892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1347459783694976035, guid: 7e0de7da87147a844a8ec2b0baeedc73, type: 3}
@@ -2803,6 +2772,7 @@ Transform:
   - {fileID: 2119914096}
   - {fileID: 375463866}
   - {fileID: 1511769282}
+  - {fileID: 1114562918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &498098853 stripped
@@ -3799,7 +3769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477d1cf916e4be34ab1119cdc5055b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteTime: 37
+  deleteTime: 20
 --- !u!1001 &791982657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5139,6 +5109,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 98503821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1114562917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114562918}
+  - component: {fileID: 1114562919}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114562918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114562917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 487644780}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114562919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114562917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a4b9d0cf824e944be68170f2317675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimit: 120
 --- !u!4 &1138292106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
@@ -7346,8 +7361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -175, y: -94}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -153, y: -94}
+  m_SizeDelta: {x: 266.83, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513945115
 MonoBehaviour:

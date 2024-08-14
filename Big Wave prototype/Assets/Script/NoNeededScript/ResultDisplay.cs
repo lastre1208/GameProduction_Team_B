@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class ResultDisplay : MonoBehaviour
 {
-    //™•Ÿ“‡ŒN‚ª‘‚¢‚½
+    //™ì¬Ò:•Ÿ“‡
     [SerializeField] TMP_Text ResultTime_UI;
     [SerializeField] TMP_Text ResultScore_UI;
    

@@ -8,7 +8,6 @@ public class JudgeGameSet : MonoBehaviour
 {
     HP player;
     HP enemy;
-    ManagementOfScore managementOfScore;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +15,6 @@ public class JudgeGameSet : MonoBehaviour
         player= GameObject.FindWithTag("Player").GetComponent<HP>();
 
         enemy = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-
-        managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
     }
 
     // Update is called once per frame
@@ -26,9 +23,11 @@ public class JudgeGameSet : MonoBehaviour
         DeadEnemy();
 
         DeadPlayer();
+
+        TimeUp();
     }
 
-    void DeadPlayer()
+    void DeadPlayer()//プレイヤー死亡時、ゲームオーバー
     {
         if(player.Hp<=0)//プレイヤーが死んだら
         {
@@ -41,7 +40,7 @@ public class JudgeGameSet : MonoBehaviour
         }
     }
 
-    void DeadEnemy()
+    void DeadEnemy()//プレイヤー死亡時、ゲームクリア
     {
         if(enemy.Hp<=0)//敵が死んだら
         {
@@ -50,8 +49,16 @@ public class JudgeGameSet : MonoBehaviour
             {
                 gamepad.SetMotorSpeeds(0f, 0f);
             }
-            managementOfScore.CalculateScore();//スコア算出
+            //スコア算出
             SceneManager.LoadScene("ClearScene");//クリアシーンに移行
+        }
+    }
+
+    void TimeUp()//時間切れ時、ゲームオーバー
+    {
+        if(TimeLimit.RemainingTime<=0)//時間切れになったら
+        {
+            SceneManager.LoadScene("GameoverScene");//ゲームオーバーシーンに移行
         }
     }
 }

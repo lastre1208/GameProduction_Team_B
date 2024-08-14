@@ -67,7 +67,6 @@ public class TrickControl : MonoBehaviour
     JumpControl jumpcontrol;
     Rigidbody rb;
     Controller controller;
-    ManagementOfScore managementOfScore;
     FeverMode feverMode;
     Critical critical;
     
@@ -93,7 +92,6 @@ public class TrickControl : MonoBehaviour
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
-        managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
         feverMode= gameObject.GetComponent<FeverMode>();
         critical = gameObject.GetComponent<Critical>();
     }
@@ -139,7 +137,7 @@ public class TrickControl : MonoBehaviour
             controller.Vibe_Trick();//バイブさせる
             //☆福島君が書いた
             audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
-            managementOfScore.AddTrickScore();//トリック成功によるスコアの加点
+            //トリック成功によるスコアの加点
             trickCount++;//1回トリックした(1ジャンプ中に)
             feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
             HoverCoroutine = StartCoroutine(HoverJump());
