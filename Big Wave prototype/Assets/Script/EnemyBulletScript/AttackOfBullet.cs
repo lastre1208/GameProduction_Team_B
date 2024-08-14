@@ -25,11 +25,10 @@ public class AttackOfBullet : MonoBehaviour
         {
             HP player_Hp;
             player_Hp = t.GetComponent<HP>();
-            ManagementOfScore managementOfScore;
-            managementOfScore = GameObject.FindWithTag("ScoreManager").GetComponent<ManagementOfScore>();
+            
 
             player_Hp.Hp -= damage;//プレイヤーにダメージを与える
-            managementOfScore.AddDamageCount();//被弾回数を増やす
+           
             
 
             if(ifHitDestroy)//trueかつ当たった時弾が消える
