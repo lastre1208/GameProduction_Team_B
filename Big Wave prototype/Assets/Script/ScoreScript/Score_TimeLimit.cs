@@ -5,7 +5,13 @@ using UnityEngine;
 public class Score_TimeLimit : Score
 {
     [Header("残り時間(1秒)ごとのスコア量")]
-    [SerializeField] float score_TimeLimit;//残り時間(1秒)ごとのスコア量
+    [SerializeField] float scorePerSecond;//残り時間(1秒)ごとのスコア量
+    private static float score_TimeLimit = 0;//残り時間のスコア
+
+    public static float _Score_TimeLimit
+    {
+        get { return score_TimeLimit; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +27,13 @@ public class Score_TimeLimit : Score
     {
         if (gameClear)//クリア時
         {
-            score = score_TimeLimit * TimeLimit.RemainingTime;
+            score = scorePerSecond * TimeLimit.RemainingTime;
         }
         else//ゲームオーバー時
         {
             score = 0;
         }
 
-        Score_TimeLimit = score;
+        score_TimeLimit = score;
     }
 }

@@ -5,7 +5,13 @@ using UnityEngine;
 public class Score_GameClear : Score
 {
     [Header("ゲームクリア時のスコア量")]
-    [SerializeField] float score_GameClear;//ゲームクリア時のスコア量
+    [SerializeField] float score_GameClearBonus;//ゲームクリア時のスコア量
+    private static float score_GameClear = 0;//ゲームクリアボーナスのスコア
+
+    public static float _Score_GameClear
+    {
+        get { return score_GameClear; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +28,13 @@ public class Score_GameClear : Score
     {
         if(gameClear)//クリア時
         {
-            score += score_GameClear;
+            score += score_GameClearBonus;
         }
         else//ゲームオーバー時
         {
             score = 0;
         }
 
-        Score_GameClear = score;
+        score_GameClear = score;
     }
 }
