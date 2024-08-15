@@ -38,6 +38,7 @@ public class AlgorithmOfEnemy : MonoBehaviour
         else//行動終了
         {
             ChangeAction(selectAction.SelectAction());//行動変更
+           
         }
     }
 
