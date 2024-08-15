@@ -6,7 +6,13 @@ public class Score_TrickCount : Score
 {
     [Header("トリック一回ごとのスコア量")]
     [SerializeField] float scorePerOneTrick;//トリック一回ごとのスコア量
-   
+    private static float score_TrickCount = 0;//トリック回数のスコア
+
+    public static float _Score_TrickCount
+    {
+        get { return score_TrickCount; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +26,6 @@ public class Score_TrickCount : Score
 
     public void ReflectScore()//トリック回数のスコアを反映
     {
-        Score_TrickCount=score;
+        score_TrickCount=score;
     }
 }

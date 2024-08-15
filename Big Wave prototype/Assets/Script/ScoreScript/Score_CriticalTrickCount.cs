@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Score_CriticalTrickCount : Score
 {
+    private static float score_CriticalTrickCount = 0;//クリティカル回数とクリティカル連続ボーナスのスコア
+
+    public static float _Score_CriticalTrickCount
+    {
+        get { return score_CriticalTrickCount; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +24,6 @@ public class Score_CriticalTrickCount : Score
 
     public void ReflectScore()//トリックボタン指定成功ボーナスのスコアを反映
     {
-        Score_CriticalTrickCount = score;
+        score_CriticalTrickCount = score;
     }
 }

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Score_TrickCombo : Score
 {
-    
+    private static float score_TrickCombo = 0;//トリックのコンボのスコア
+
+    public static float _Score_TrickCombo
+    {
+        get { return score_TrickCombo; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,6 @@ public class Score_TrickCombo : Score
     }
     public void ReflectScore()//トリックコンボボーナスのスコアを反映
     {
-        Score_TrickCombo = score;
+        score_TrickCombo = score;
     }
 }

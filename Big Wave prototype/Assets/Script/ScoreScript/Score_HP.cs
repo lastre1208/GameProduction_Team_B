@@ -5,8 +5,14 @@ using UnityEngine;
 public class Score_HP : Score
 {
     [Header("最大HPに対しての残りHPの1%ごとのスコア量")]
-    [SerializeField] float score_HP;//最大HPに対しての残りHPの1%ごとのスコア量
+    [SerializeField] float scorePerOnePercent;//最大HPに対しての残りHPの1%ごとのスコア量
+    private static float score_HP = 0;//残りHPのスコア
     HP player_HP;
+
+    public static float _Score_HP
+    {
+        get { return score_HP; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +31,13 @@ public class Score_HP : Score
         if(gameClear)//クリア時
         {
             float hpRatio = player_HP.Hp / player_HP.HpMax * 100;//最大HPに対しての残りHPの割りあい(単位は%)
-            score =score_HP*hpRatio;
+            score =scorePerOnePercent*hpRatio;
         }
         else//ゲームオーバー時
         {
             score = 0;
         }
 
-        Score_HP = score;
+        score_HP = score;
     }
 }

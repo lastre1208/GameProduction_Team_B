@@ -18,6 +18,6 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score_UI.text = score.Score_.ToString("0");
+        Score_UI.text = score._Score.ToString("0");
     }
 }
