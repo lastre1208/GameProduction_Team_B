@@ -88,6 +88,7 @@ class ControllerOfJump//ジャンプ関係のコントローラーの処理
         //スペースキーかLBボタンかRBボタンでジャンプ
         if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4) || Input.GetKeyUp("space"))
         {
+            
             jumpControl.Jump();
         }
     }
