@@ -10,26 +10,4 @@ public abstract class Score : MonoBehaviour
     {
         get { return score; }
     }
-
-    
-    
-    
-    
-    
-
-    
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-   
 }

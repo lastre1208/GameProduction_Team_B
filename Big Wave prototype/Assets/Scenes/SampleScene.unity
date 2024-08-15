@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc255fce87e7ec546a53552c6e107204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_TimeLimit: 15
+  scorePerSecond: 20
 --- !u!4 &91722888
 Transform:
   m_ObjectHideFlags: 0
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07824bc00c4e5a34cb9303adbe598da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_GameClear: 2000
+  score_GameClearBonus: 2000
 --- !u!4 &293782973
 Transform:
   m_ObjectHideFlags: 0
@@ -5874,7 +5874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce51aeaa41fdd94e952b8d4ae98df21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_HP: 10
+  scorePerOnePercent: 10
 --- !u!4 &1239453832
 Transform:
   m_ObjectHideFlags: 0
@@ -13960,10 +13960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d10a2cc86980694d959186f034374d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 7
-  limitObjects:
-  - {fileID: 1244729524}
-  - {fileID: 98503817}
+  limitMoveObjects:
+  - range: 7
+    limitObjects: {fileID: 1244729524}
+  - range: 7
+    limitObjects: {fileID: 98503817}
 --- !u!4 &1923540439
 Transform:
   m_ObjectHideFlags: 0
