@@ -4,29 +4,45 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+class ReflectScore
+{
+    [Header("ゲーム終了時に反映させたいスコア")]
+    [SerializeField] Score reflectScore;
+    [Header("クリア時のみスコアを反映させるか")]
+    [SerializeField] bool reflectWhenClear;
+
+    internal void Reflect(bool gameClear)
+    {
+        if(reflectWhenClear)//クリア時のみスコアを反映させる場合(ゲームオーバー時はスコアが0)
+        {
+            reflectScore.ReflectScore(gameClear);
+        }
+        else//ゲームオーバー時でもスコアを反映させる場合
+        {
+            reflectScore.ReflectScore();
+        }
+    }
+}
+
 public class JudgeGameSet : MonoBehaviour
 {
-    [Header("トリック回数のスコア")]
-    [SerializeField] Score_TrickCount score_TrickCount;
-    [Header("トリックボタン指定成功のスコア")]
-    [SerializeField] Score_CriticalTrickCount score_CriticalTrickCount;
-    [Header("トリックコンボのスコア")]
-    [SerializeField] Score_TrickCombo score_TrickCombo;
-    [Header("ゲームクリアのスコア")]
-    [SerializeField] Score_GameClear score_GameClear;
-    [Header("制限時間のスコア")]
-    [SerializeField] Score_TimeLimit score_TimeLimit;
-    [Header("残りHPのスコア")]
-    [SerializeField] Score_HP score_HP;
-    HP player;
-    HP enemy;
+    [Header("コンボ回数のスコア")]
+    [SerializeField] Score_TrickCombo score_TrickCombo;//コンボ回数のスコア
+    [Header("ゲーム終了時に反映させたいスコア")]
+    [SerializeField] ReflectScore[] reflectScores;
+    HP player_Hp;
+    HP enemy_Hp;
+    CountTrickCombo countTrickCombo;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
     {
-        player= GameObject.FindWithTag("Player").GetComponent<HP>();
+        player_Hp= GameObject.FindWithTag("Player").GetComponent<HP>();
 
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+
+        countTrickCombo= GameObject.FindWithTag("Player").GetComponent<CountTrickCombo>();
     }
 
     // Update is called once per frame
@@ -41,7 +57,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void DeadPlayer()//プレイヤー死亡時、ゲームオーバー
     {
-        if(player.Hp<=0)//プレイヤーが死んだら
+        if(player_Hp.Hp<=0)//プレイヤーが死んだら
         {
             GameOver();
         }
@@ -49,7 +65,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void DeadEnemy()//プレイヤー死亡時、ゲームクリア
     {
-        if(enemy.Hp<=0)//敵が死んだら
+        if(enemy_Hp.Hp<=0)//敵が死んだら
         {
             Clear();
         }
@@ -78,13 +94,13 @@ public class JudgeGameSet : MonoBehaviour
     void GameSetProcess(bool gameClear)//ゲーム終了時の処理
     {
         StopControllerVibe();//コントローラの振動を止める
+        //ゲーム終了直前のコンボ回数をスコアに加算
+        score_TrickCombo.AddScore(countTrickCombo.ComboCount);
         //スコア反映
-        score_TrickCount.ReflectScore();
-        score_CriticalTrickCount.ReflectScore();
-        score_TrickCombo.ReflectScore();
-        score_GameClear.ReflectScore(gameClear);
-        score_TimeLimit.ReflectScore(gameClear);
-        score_HP.ReflectScore(gameClear);
+        for(int i = 0; i<reflectScores.Length; i++)
+        {
+            reflectScores[i].Reflect(gameClear);
+        }
     }
 
     void StopControllerVibe()//ゲーム終了時コントローラーの振動を止める応急処置

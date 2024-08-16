@@ -9,7 +9,7 @@ public class Score_HP : Score
     private static float score_HP = 0;//残りHPのスコア
     HP player_HP;
 
-    public static float _Score_HP
+    public static float ScoreHP
     {
         get { return score_HP; }
     }
@@ -26,7 +26,7 @@ public class Score_HP : Score
     {
         
     }
-    public void ReflectScore(bool gameClear)//残りHPボーナスのスコアを反映
+    public override  void ReflectScore(bool gameClear)//残りHPボーナスのスコアを反映
     {
         if(gameClear)//クリア時
         {
