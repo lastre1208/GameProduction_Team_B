@@ -767,6 +767,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePerOneCritical: 30
+  plusContinueBonus: 10
+  scorePerOneCriticalMax: 100
 --- !u!4 &119824062
 Transform:
   m_ObjectHideFlags: 0

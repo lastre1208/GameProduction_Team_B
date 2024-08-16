@@ -51,7 +51,7 @@ public class Critical : MonoBehaviour
         {
             audioSource.PlayOneShot(criticalSound);//効果音の再生
 
-            criticalTrickCount.AddScore();//クリティカルのスコアの加算
+            criticalTrickCount.AddScoreWhenCritical(true);//クリティカルだったためスコアの加算
 
             for(int i=1; i<criticalButton.Length ;i++)//[0](現在指定されている)ボタン以外の全てのボタンを1つ前([0]方向)にずらす
             {
@@ -62,6 +62,10 @@ public class Critical : MonoBehaviour
 
             return criticalRate;//クリティカル時の倍率を返す
         }
+
+
+        //入力したボタンが指定されたボタンではなかった時(クリティカルではなかった時)
+        criticalTrickCount.AddScoreWhenCritical(false);//クリティカルではなかったためスコアの加算はされない
 
         return 1;//等倍を返す
     }
