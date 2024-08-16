@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Score_CriticalTrickCount : Score
 {
+    [Header("1回のクリティカルごとのスコア量")]
+    [SerializeField] float scorePerOneCritical;//1回のクリティカルごとのスコア量
     private static float score_CriticalTrickCount = 0;//クリティカル回数とクリティカル連続ボーナスのスコア
 
     public static float _Score_CriticalTrickCount
@@ -20,6 +22,11 @@ public class Score_CriticalTrickCount : Score
     void Update()
     {
         
+    }
+
+    public void AddScore()//クリティカル時のスコアの加算
+    {
+        score += scorePerOneCritical;
     }
 
     public void ReflectScore()//トリックボタン指定成功ボーナスのスコアを反映
