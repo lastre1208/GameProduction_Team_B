@@ -18,15 +18,18 @@ public class JudgeGameSet : MonoBehaviour
     [SerializeField] Score_TimeLimit score_TimeLimit;
     [Header("残りHPのスコア")]
     [SerializeField] Score_HP score_HP;
-    HP player;
-    HP enemy;
+    HP player_Hp;
+    HP enemy_Hp;
+    CountTrickCombo countTrickCombo;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
     {
-        player= GameObject.FindWithTag("Player").GetComponent<HP>();
+        player_Hp= GameObject.FindWithTag("Player").GetComponent<HP>();
 
-        enemy = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+
+        countTrickCombo= GameObject.FindWithTag("Player").GetComponent<CountTrickCombo>();
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void DeadPlayer()//プレイヤー死亡時、ゲームオーバー
     {
-        if(player.Hp<=0)//プレイヤーが死んだら
+        if(player_Hp.Hp<=0)//プレイヤーが死んだら
         {
             GameOver();
         }
@@ -49,7 +52,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void DeadEnemy()//プレイヤー死亡時、ゲームクリア
     {
-        if(enemy.Hp<=0)//敵が死んだら
+        if(enemy_Hp.Hp<=0)//敵が死んだら
         {
             Clear();
         }
@@ -78,6 +81,8 @@ public class JudgeGameSet : MonoBehaviour
     void GameSetProcess(bool gameClear)//ゲーム終了時の処理
     {
         StopControllerVibe();//コントローラの振動を止める
+        //ゲーム終了直前のコンボ回数をスコアに加算
+        score_TrickCombo.AddScore(countTrickCombo.ComboCount);
         //スコア反映
         score_TrickCount.ReflectScore();
         score_CriticalTrickCount.ReflectScore();

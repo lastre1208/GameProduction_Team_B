@@ -71,6 +71,7 @@ public class TrickControl : MonoBehaviour
     Controller controller;
     FeverMode feverMode;
     Critical critical;
+    CountTrickCombo countTrickCombo;
     
     
     //public bool Tricked
@@ -97,6 +98,7 @@ public class TrickControl : MonoBehaviour
         //
         feverMode= gameObject.GetComponent<FeverMode>();
         critical = gameObject.GetComponent<Critical>();
+        countTrickCombo = gameObject.GetComponent<CountTrickCombo>();
     }
 
     // Update is called once per frame
@@ -134,13 +136,13 @@ public class TrickControl : MonoBehaviour
 
         if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
         {
-            //全てのトリックの共通処理
             //tricked = true;//トリックした
             enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
             trickCount++;//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
             feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
             score_TrickCount.AddScore();//トリックによるスコアの加点
+            countTrickCombo.AddCombo();//コンボ回数加算
             //☆作成者:福島
             audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
             //作成者:桑原
