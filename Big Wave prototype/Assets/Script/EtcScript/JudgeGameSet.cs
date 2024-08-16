@@ -4,20 +4,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+class ReflectScore
+{
+    [Header("ゲーム終了時に反映させたいスコア")]
+    [SerializeField] Score reflectScore;
+    [Header("クリア時のみスコアを反映させるか")]
+    [SerializeField] bool reflectWhenClear;
+
+    internal void Reflect(bool gameClear)
+    {
+        if(reflectWhenClear)//クリア時のみスコアを反映させる場合(ゲームオーバー時はスコアが0)
+        {
+            reflectScore.ReflectScore(gameClear);
+        }
+        else//ゲームオーバー時でもスコアを反映させる場合
+        {
+            reflectScore.ReflectScore();
+        }
+    }
+}
+
 public class JudgeGameSet : MonoBehaviour
 {
-    [Header("トリック回数のスコア")]
-    [SerializeField] Score_TrickCount score_TrickCount;
-    [Header("トリックボタン指定成功のスコア")]
-    [SerializeField] Score_CriticalTrickCount score_CriticalTrickCount;
-    [Header("トリックコンボのスコア")]
-    [SerializeField] Score_TrickCombo score_TrickCombo;
-    [Header("ゲームクリアのスコア")]
-    [SerializeField] Score_GameClear score_GameClear;
-    [Header("制限時間のスコア")]
-    [SerializeField] Score_TimeLimit score_TimeLimit;
-    [Header("残りHPのスコア")]
-    [SerializeField] Score_HP score_HP;
+    [Header("コンボ回数のスコア")]
+    [SerializeField] Score_TrickCombo score_TrickCombo;//コンボ回数のスコア
+    [Header("ゲーム終了時に反映させたいスコア")]
+    [SerializeField] ReflectScore[] reflectScores;
     HP player_Hp;
     HP enemy_Hp;
     CountTrickCombo countTrickCombo;
@@ -84,12 +97,10 @@ public class JudgeGameSet : MonoBehaviour
         //ゲーム終了直前のコンボ回数をスコアに加算
         score_TrickCombo.AddScore(countTrickCombo.ComboCount);
         //スコア反映
-        score_TrickCount.ReflectScore();
-        score_CriticalTrickCount.ReflectScore();
-        score_TrickCombo.ReflectScore();
-        score_GameClear.ReflectScore(gameClear);
-        score_TimeLimit.ReflectScore(gameClear);
-        score_HP.ReflectScore(gameClear);
+        for(int i = 0; i<reflectScores.Length; i++)
+        {
+            reflectScores[i].Reflect(gameClear);
+        }
     }
 
     void StopControllerVibe()//ゲーム終了時コントローラーの振動を止める応急処置

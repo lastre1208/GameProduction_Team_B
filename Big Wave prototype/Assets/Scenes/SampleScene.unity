@@ -5278,7 +5278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406d57c158bb85942a0f7589789f0369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score_UI: {fileID: 1196631264}
+  score_UI: {fileID: 1196631264}
   score: {fileID: 1045309819}
 --- !u!114 &971410456
 MonoBehaviour:
@@ -5292,7 +5292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406d57c158bb85942a0f7589789f0369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score_UI: {fileID: 598907256}
+  score_UI: {fileID: 598907256}
   score: {fileID: 1250788300}
 --- !u!114 &971410457
 MonoBehaviour:
@@ -5306,7 +5306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406d57c158bb85942a0f7589789f0369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score_UI: {fileID: 2145685998}
+  score_UI: {fileID: 2145685998}
   score: {fileID: 119824061}
 --- !u!1 &979258278
 GameObject:
@@ -8898,12 +8898,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cde6294cc1e1b419103447e43bcdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_TrickCount: {fileID: 1045309819}
-  score_CriticalTrickCount: {fileID: 119824061}
   score_TrickCombo: {fileID: 1250788300}
-  score_GameClear: {fileID: 293782972}
-  score_TimeLimit: {fileID: 91722887}
-  score_HP: {fileID: 1239453831}
+  reflectScores:
+  - reflectScore: {fileID: 1045309819}
+    reflectWhenClear: 0
+  - reflectScore: {fileID: 119824061}
+    reflectWhenClear: 0
+  - reflectScore: {fileID: 1250788300}
+    reflectWhenClear: 0
+  - reflectScore: {fileID: 293782972}
+    reflectWhenClear: 1
+  - reflectScore: {fileID: 91722887}
+    reflectWhenClear: 1
+  - reflectScore: {fileID: 1239453831}
+    reflectWhenClear: 1
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0

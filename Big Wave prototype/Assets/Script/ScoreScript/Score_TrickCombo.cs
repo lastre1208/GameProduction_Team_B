@@ -8,7 +8,7 @@ public class Score_TrickCombo : Score
     [SerializeField] float scorePerOneCombo;//コンボ一回ごとのスコア
     private static float score_TrickCombo = 0;//トリックのコンボのスコア
 
-    public static float _Score_TrickCombo
+    public static float ScoreTrickCombo
     {
         get { return score_TrickCombo; }
     }
@@ -29,7 +29,7 @@ public class Score_TrickCombo : Score
         score += scorePerOneCombo * comboCount;
     }
 
-    public void ReflectScore()//(ゲーム終了時に)トリックコンボボーナスのスコアを反映
+    public override void ReflectScore()//(ゲーム終了時に)トリックコンボボーナスのスコアを反映
     {
         score_TrickCombo = score;
     }

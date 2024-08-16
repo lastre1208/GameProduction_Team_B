@@ -8,7 +8,7 @@ public class Score_CriticalTrickCount : Score
     [SerializeField] float scorePerOneCritical;//1回のクリティカルごとのスコア量
     private static float score_CriticalTrickCount = 0;//クリティカル回数とクリティカル連続ボーナスのスコア
 
-    public static float _Score_CriticalTrickCount
+    public static float ScoreCriticalTrickCount
     {
         get { return score_CriticalTrickCount; }
     }
@@ -29,7 +29,7 @@ public class Score_CriticalTrickCount : Score
         score += scorePerOneCritical;
     }
 
-    public void ReflectScore()//トリックボタン指定成功ボーナスのスコアを反映
+    public override void ReflectScore()//トリックボタン指定成功ボーナスのスコアを反映
     {
         score_CriticalTrickCount = score;
     }

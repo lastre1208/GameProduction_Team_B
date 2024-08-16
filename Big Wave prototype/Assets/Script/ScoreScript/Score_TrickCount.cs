@@ -8,7 +8,7 @@ public class Score_TrickCount : Score
     [SerializeField] float scorePerOneTrick;//トリック一回ごとのスコア量
     private static float score_TrickCount = 0;//トリック回数のスコア
 
-    public static float _Score_TrickCount
+    public static float ScoreTrickCount
     {
         get { return score_TrickCount; }
     }
@@ -24,7 +24,7 @@ public class Score_TrickCount : Score
         score += scorePerOneTrick;
     }
 
-    public void ReflectScore()//トリック回数のスコアを反映
+    public override void ReflectScore()//トリック回数のスコアを反映
     {
         score_TrickCount=score;
     }

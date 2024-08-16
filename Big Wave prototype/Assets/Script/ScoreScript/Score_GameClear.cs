@@ -8,7 +8,7 @@ public class Score_GameClear : Score
     [SerializeField] float score_GameClearBonus;//ゲームクリア時のスコア量
     private static float score_GameClear = 0;//ゲームクリアボーナスのスコア
 
-    public static float _Score_GameClear
+    public static float ScoreGameClear
     {
         get { return score_GameClear; }
     }
@@ -24,7 +24,7 @@ public class Score_GameClear : Score
         
     }
 
-    public void ReflectScore(bool gameClear)//クリア時にゲームクリアボーナスのスコアを反映
+    public override void ReflectScore(bool gameClear)//クリア時にゲームクリアボーナスのスコアを反映
     {
         if(gameClear)//クリア時
         {

@@ -8,7 +8,7 @@ public class Score_TimeLimit : Score
     [SerializeField] float scorePerSecond;//残り時間(1秒)ごとのスコア量
     private static float score_TimeLimit = 0;//残り時間のスコア
 
-    public static float _Score_TimeLimit
+    public static float ScoreTimeLimit
     {
         get { return score_TimeLimit; }
     }
@@ -23,7 +23,7 @@ public class Score_TimeLimit : Score
     {
         
     }
-    public void ReflectScore(bool gameClear)//制限時間ボーナスのスコアを反映
+    public override void ReflectScore(bool gameClear)//制限時間ボーナスのスコアを反映
     {
         if (gameClear)//クリア時
         {
