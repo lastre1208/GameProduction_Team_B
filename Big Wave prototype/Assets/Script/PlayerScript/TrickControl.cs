@@ -53,25 +53,20 @@ public class TrickControl : MonoBehaviour
     [SerializeField] TrickPattern Y_Trick;
     [Header("通常時の敵に与えるダメージ")]
     [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
-    [Header("トリック使用時の滞空時間")]
-    [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
-    [Header("滞空終了時に起こるジャンプの強さ")]
-    [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
     [Header("トリック回数のスコア")]
     [SerializeField] Score_TrickCount score_TrickCount;
     //private bool tricked;//トリックしたかしていないかの判定
     private int trickCount=0;//一回のジャンプにしたトリックの回数
     
-    private Coroutine HoverCoroutine;
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     HP enemy_Hp;
     TRICKPoint player_TrickPoint;
     JumpControl jumpcontrol;
-    Rigidbody rb;
     Controller controller;
     FeverMode feverMode;
     Critical critical;
     CountTrickCombo countTrickCombo;
+    HoverJump hoverJump;
     
     
     //public bool Tricked
@@ -91,7 +86,6 @@ public class TrickControl : MonoBehaviour
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
         player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
-        rb = gameObject.GetComponent<Rigidbody>();
         controller = gameObject.GetComponent<Controller>();
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
@@ -99,6 +93,7 @@ public class TrickControl : MonoBehaviour
         feverMode= gameObject.GetComponent<FeverMode>();
         critical = gameObject.GetComponent<Critical>();
         countTrickCombo = gameObject.GetComponent<CountTrickCombo>();
+        hoverJump = gameObject.GetComponent<HoverJump>();
     }
 
     // Update is called once per frame
@@ -146,7 +141,7 @@ public class TrickControl : MonoBehaviour
             //☆作成者:福島
             audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
             //作成者:桑原
-            HoverCoroutine = StartCoroutine(HoverJump());//ホバーさせる
+            hoverJump.HoverDelayJump();//ホバーさせる
         }
     }
 
@@ -168,14 +163,5 @@ public class TrickControl : MonoBehaviour
     //    }
     //}
 
-    IEnumerator HoverJump()
-    {
-        rb.useGravity = false;
-        rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
-
-        yield return new WaitForSeconds(hoverTime);
-
-        rb.useGravity = true;
-        rb.velocity= new(0, hoverJumpStrength, 0);
-    }
+    
 }
