@@ -6,39 +6,6 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Button
-{
-   A,
-   B, 
-   X, 
-   Y
-}
-
-[System.Serializable]
-public class TrickPattern
-{
-    [Header("消費トリック(ゲージ本数)")]
-    [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
-    //☆作成者:福島
-    [Header("トリックに用いる効果音")]
-    [SerializeField] AudioClip trickSound;//トリックに用いる効果音
-    private Button buttonPattern;//ボタンの種類
-
-    public int TrickCost
-    {
-        get { return trickCost; }
-    }
-    public AudioClip TrickSound
-    {
-        get { return trickSound; }
-    }
-
-    public Button ButtonPattern
-    {
-        set { buttonPattern = value; }
-        get { return buttonPattern; }
-    }
-}
 
 public partial class TrickControl : MonoBehaviour
 {
@@ -163,4 +130,70 @@ public partial class TrickControl : MonoBehaviour
             trickCount++;
         }
     }
+
+
+
+
+    //作成者:桑原
+
+    //private bool tricked;//トリックしたかしていないかの判定
+
+    //public bool Tricked
+    //{
+    //    get { return tricked; }
+    //}
+
+    //void Start()
+    //{
+    //tricked = false;
+    //}
+
+    //void Update()
+    //{
+    //TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
+    //}
+
+    //ジャンプしていない時攻撃していない判定にする
+    //void TrickedtoFalseNoJump()
+    //{
+    //    if (jumpcontrol.JumpNow == false)//水面に接地しているなら
+    //    {
+    //        tricked = false;//攻撃していない
+    //    }
+    //}
 }
+
+public enum Button
+{
+    A,
+    B,
+    X,
+    Y
+}
+
+[System.Serializable]
+public class TrickPattern
+{
+    [Header("消費トリック(ゲージ本数)")]
+    [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
+    //☆作成者:福島
+    [Header("トリックに用いる効果音")]
+    [SerializeField] AudioClip trickSound;//トリックに用いる効果音
+    private Button buttonPattern;//ボタンの種類
+
+    public int TrickCost
+    {
+        get { return trickCost; }
+    }
+    public AudioClip TrickSound
+    {
+        get { return trickSound; }
+    }
+
+    public Button ButtonPattern
+    {
+        set { buttonPattern = value; }
+        get { return buttonPattern; }
+    }
+}
+

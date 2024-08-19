@@ -6833,7 +6833,6 @@ GameObject:
   - component: {fileID: 1244729554}
   - component: {fileID: 1244729532}
   - component: {fileID: 1244729534}
-  - component: {fileID: 1244729535}
   - component: {fileID: 1244729559}
   - component: {fileID: 1244729539}
   - component: {fileID: 1244729540}
@@ -6842,6 +6841,7 @@ GameObject:
   - component: {fileID: 1244729556}
   - component: {fileID: 1244729557}
   - component: {fileID: 1244729558}
+  - component: {fileID: 1244729560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6993,32 +6993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 20
---- !u!114 &1244729535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  A_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  B_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  X_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  Y_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  damageAmount: 100
-  score_TrickCount: {fileID: 1045309819}
 --- !u!114 &1244729539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7284,6 +7258,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverTime: 0.2
   hoverJumpStrength: 5
+--- !u!114 &1244729560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  A_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  B_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  X_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  Y_Trick:
+    trickCost: 1
+    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 100
+  score_TrickCount: {fileID: 1045309819}
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
