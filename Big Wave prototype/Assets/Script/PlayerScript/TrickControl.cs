@@ -40,7 +40,7 @@ public class TrickPattern
     }
 }
 
-public class TrickControl : MonoBehaviour
+public partial class TrickControl : MonoBehaviour
 {
     //☆作成者:杉山
     [Header("Aボタンのトリック")]
@@ -55,9 +55,8 @@ public class TrickControl : MonoBehaviour
     [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
     [Header("トリック回数のスコア")]
     [SerializeField] Score_TrickCount score_TrickCount;
-    //private bool tricked;//トリックしたかしていないかの判定
-    private int trickCount=0;//一回のジャンプにしたトリックの回数
-    
+    [SerializeField] CountTrickWhileJump countTrickWhileJump;//1ジャンプ中のトリック回数を数える機能
+
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     HP enemy_Hp;
     TRICKPoint player_TrickPoint;
@@ -68,12 +67,6 @@ public class TrickControl : MonoBehaviour
     CountTrickCombo countTrickCombo;
     HoverJump hoverJump;
     
-    
-    //public bool Tricked
-    //{
-    //    get { return tricked; }
-    //}
-
     // Start is called before the first frame update
     void Start()
     {
@@ -81,8 +74,6 @@ public class TrickControl : MonoBehaviour
         B_Trick.ButtonPattern= Button.B;
         X_Trick.ButtonPattern=Button.X;
         Y_Trick.ButtonPattern = Button.Y;
-        //tricked = false;
-        trickCount = 0;
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
         player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
@@ -99,8 +90,7 @@ public class TrickControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ResetTrickCount();
-        //TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
+        countTrickWhileJump.ResetTrickCount(jumpcontrol.JumpNow);
     }
 
     float Damage(Button button)//敵に与えるダメージ合計
@@ -134,8 +124,8 @@ public class TrickControl : MonoBehaviour
             //tricked = true;//トリックした
             enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
-            trickCount++;//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
-            feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
+            countTrickWhileJump.AddTrickCount();//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
+            feverMode.ChargeFeverPoint(countTrickWhileJump.TrickCount);//フィーバーゲージのチャージ
             score_TrickCount.AddScore();//トリックによるスコアの加点
             countTrickCombo.AddCombo();//コンボ回数加算
             //☆作成者:福島
@@ -145,23 +135,32 @@ public class TrickControl : MonoBehaviour
         }
     }
 
-    void ResetTrickCount()
+
+
+    /////内部クラス/////
+
+    //1ジャンプ中のトリック回数を数える
+    [System.Serializable]
+    private class CountTrickWhileJump
     {
-        if (jumpcontrol.JumpNow == false)//着地したら1ジャンプ中のトリック回数をリセット
+        private int trickCount = 0;//一回のジャンプにしたトリックの回数
+
+        public int TrickCount
         {
-            trickCount = 0;
+            get { return trickCount; }
+        }
+
+        public void ResetTrickCount(bool jumpNow)//トリック回数をリセット(update)
+        {
+            if (!jumpNow)//着地したら
+            {
+                trickCount = 0;//1ジャンプ中のトリック回数をリセット
+            }
+        }
+
+        public void AddTrickCount()
+        {
+            trickCount++;
         }
     }
-
-    ///////☆作成者桑原///////
-    //ジャンプしていない時攻撃していない判定にする
-    //void TrickedtoFalseNoJump()
-    //{
-    //    if (jumpcontrol.JumpNow == false)//水面に接地しているなら
-    //    {
-    //        tricked = false;//攻撃していない
-    //    }
-    //}
-
-    
 }
