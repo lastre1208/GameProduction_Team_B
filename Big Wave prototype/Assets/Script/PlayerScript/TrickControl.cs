@@ -6,41 +6,8 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Button
-{
-   A,
-   B, 
-   X, 
-   Y
-}
 
-[System.Serializable]
-public class TrickPattern
-{
-    [Header("消費トリック(ゲージ本数)")]
-    [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
-    //☆作成者:福島
-    [Header("トリックに用いる効果音")]
-    [SerializeField] AudioClip trickSound;//トリックに用いる効果音
-    private Button buttonPattern;//ボタンの種類
-
-    public int TrickCost
-    {
-        get { return trickCost; }
-    }
-    public AudioClip TrickSound
-    {
-        get { return trickSound; }
-    }
-
-    public Button ButtonPattern
-    {
-        set { buttonPattern = value; }
-        get { return buttonPattern; }
-    }
-}
-
-public class TrickControl : MonoBehaviour
+public partial class TrickControl : MonoBehaviour
 {
     //☆作成者:杉山
     [Header("Aボタンのトリック")]
@@ -53,32 +20,21 @@ public class TrickControl : MonoBehaviour
     [SerializeField] TrickPattern Y_Trick;
     [Header("通常時の敵に与えるダメージ")]
     [SerializeField] float damageAmount = 100;//通常時の敵に与えるダメージ
-    [Header("トリック使用時の滞空時間")]
-    [SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
-    [Header("滞空終了時に起こるジャンプの強さ")]
-    [SerializeField] float hoverJumpStrength = 2f;//滞空終了時に起こるジャンプの強さ
     [Header("トリック回数のスコア")]
     [SerializeField] Score_TrickCount score_TrickCount;
-    //private bool tricked;//トリックしたかしていないかの判定
-    private int trickCount=0;//一回のジャンプにしたトリックの回数
-    
-    private Coroutine HoverCoroutine;
+    [SerializeField] CountTrickWhileJump countTrickWhileJump;//1ジャンプ中のトリック回数を数える機能
+
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     HP enemy_Hp;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
     JumpControl jumpcontrol;
-    Rigidbody rb;
     Controller controller;
     FeverMode feverMode;
+    ChargeFever chargeFever;
     Critical critical;
     CountTrickCombo countTrickCombo;
+    HoverJump hoverJump;
     
-    
-    //public bool Tricked
-    //{
-    //    get { return tricked; }
-    //}
-
     // Start is called before the first frame update
     void Start()
     {
@@ -86,26 +42,24 @@ public class TrickControl : MonoBehaviour
         B_Trick.ButtonPattern= Button.B;
         X_Trick.ButtonPattern=Button.X;
         Y_Trick.ButtonPattern = Button.Y;
-        //tricked = false;
-        trickCount = 0;
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
+        player_TrickPoint = gameObject.GetComponent<TrickPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
-        rb = gameObject.GetComponent<Rigidbody>();
         controller = gameObject.GetComponent<Controller>();
         //☆福島君が書いた
         audioSource = GetComponent<AudioSource>();
         //
         feverMode= gameObject.GetComponent<FeverMode>();
+        chargeFever=GetComponent<ChargeFever>();
         critical = gameObject.GetComponent<Critical>();
         countTrickCombo = gameObject.GetComponent<CountTrickCombo>();
+        hoverJump = gameObject.GetComponent<HoverJump>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ResetTrickCount();
-        //TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
+        countTrickWhileJump.ResetTrickCount(jumpcontrol.JumpNow());
     }
 
     float Damage(Button button)//敵に与えるダメージ合計
@@ -134,31 +88,73 @@ public class TrickControl : MonoBehaviour
                 break;
         }
 
-        if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
+        if (jumpcontrol.JumpNow() == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
         {
             //tricked = true;//トリックした
             enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
-            trickCount++;//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
-            feverMode.ChargeFeverPoint(trickCount);//フィーバーゲージのチャージ
+            countTrickWhileJump.AddTrickCount();//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
+            chargeFever.Charge(countTrickWhileJump.TrickCount);//フィーバーゲージのチャージ
             score_TrickCount.AddScore();//トリックによるスコアの加点
             countTrickCombo.AddCombo();//コンボ回数加算
             //☆作成者:福島
             audioSource.PlayOneShot(trickPattern.TrickSound);//効果音の再生
             //作成者:桑原
-            HoverCoroutine = StartCoroutine(HoverJump());//ホバーさせる
+            hoverJump.HoverDelayJump();//ホバーさせる
         }
     }
 
-    void ResetTrickCount()
+
+
+    /////内部クラス/////
+
+    //1ジャンプ中のトリック回数を数える
+    [System.Serializable]
+    private class CountTrickWhileJump
     {
-        if (jumpcontrol.JumpNow == false)//着地したら1ジャンプ中のトリック回数をリセット
+        private int trickCount = 0;//一回のジャンプにしたトリックの回数
+
+        public int TrickCount
         {
-            trickCount = 0;
+            get { return trickCount; }
+        }
+
+        public void ResetTrickCount(bool jumpNow)//トリック回数をリセット(update)
+        {
+            if (!jumpNow)//着地したら
+            {
+                trickCount = 0;//1ジャンプ中のトリック回数をリセット
+            }
+        }
+
+        public void AddTrickCount()
+        {
+            trickCount++;
         }
     }
 
-    ///////☆作成者桑原///////
+
+
+
+    //作成者:桑原
+
+    //private bool tricked;//トリックしたかしていないかの判定
+
+    //public bool Tricked
+    //{
+    //    get { return tricked; }
+    //}
+
+    //void Start()
+    //{
+    //tricked = false;
+    //}
+
+    //void Update()
+    //{
+    //TrickedtoFalseNoJump();//ジャンプしていない時攻撃していない判定にする
+    //}
+
     //ジャンプしていない時攻撃していない判定にする
     //void TrickedtoFalseNoJump()
     //{
@@ -167,15 +163,39 @@ public class TrickControl : MonoBehaviour
     //        tricked = false;//攻撃していない
     //    }
     //}
+}
 
-    IEnumerator HoverJump()
+public enum Button
+{
+    A,
+    B,
+    X,
+    Y
+}
+
+[System.Serializable]
+public class TrickPattern
+{
+    [Header("消費トリック(ゲージ本数)")]
+    [SerializeField] int trickCost;//消費トリック(プレイヤーの最大トリックのtrickCostPercent%分消費)
+    //☆作成者:福島
+    [Header("トリックに用いる効果音")]
+    [SerializeField] AudioClip trickSound;//トリックに用いる効果音
+    private Button buttonPattern;//ボタンの種類
+
+    public int TrickCost
     {
-        rb.useGravity = false;
-        rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
+        get { return trickCost; }
+    }
+    public AudioClip TrickSound
+    {
+        get { return trickSound; }
+    }
 
-        yield return new WaitForSeconds(hoverTime);
-
-        rb.useGravity = true;
-        rb.velocity= new(0, hoverJumpStrength, 0);
+    public Button ButtonPattern
+    {
+        set { buttonPattern = value; }
+        get { return buttonPattern; }
     }
 }
+

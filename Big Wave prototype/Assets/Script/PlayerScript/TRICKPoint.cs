@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRICKPoint : MonoBehaviour
+public class TrickPoint : MonoBehaviour
 {
     [Header("1ゲージに入る最大トリックポイントの量")]
     [SerializeField] float trickPointMax = 50;//1ゲージに入る最大トリックポイント(全ゲージ同じ容量)
@@ -11,7 +11,7 @@ public class TRICKPoint : MonoBehaviour
     private float[] trickPoint;//トリックポイント(容量trickGaugeMaxのゲージがtrickGaugeNum個ある)
     private int maxCount = 0;//満タンのトリックゲージの数
 
-    public float[] TrickPoint
+    public float[] TrickPoint_
     {
         get { return trickPoint; }
     }

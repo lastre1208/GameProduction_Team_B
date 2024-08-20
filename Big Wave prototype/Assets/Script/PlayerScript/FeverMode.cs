@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class FeverMode : MonoBehaviour
 {
-    [Header("回数ごとの溜まるフィーバーポイントの値")]
-    [Header("注意:トリックゲージの個数分配列を用意してください")]
-    [SerializeField] float[] chargeFeverPoint;//回数ごとの溜まるフィーバーポイントの値
     [Header("フィーバー状態のエフェクト")]
     [SerializeField] GameObject feverEffect;//フィーバー状態のエフェクト
     [Header("フィーバー状態の効果時間")]
@@ -20,7 +17,7 @@ public class FeverMode : MonoBehaviour
     private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
     private bool feverNow=false;//今フィーバー状態か
 
-    FEVERPoint player_FeverPoint;
+    FeverPoint player_FeverPoint;
 
     public float CurrentPowerUp_GrowthRate
     {
@@ -45,7 +42,7 @@ public class FeverMode : MonoBehaviour
         currentPowerUp_GrowthRate = 1f;
         currentChargeTrick_GrowthRate = 1f;
         feverNow = false;
-        player_FeverPoint = gameObject.GetComponent<FEVERPoint>();
+        player_FeverPoint = gameObject.GetComponent<FeverPoint>();
     }
 
     // Update is called once per frame
@@ -58,19 +55,10 @@ public class FeverMode : MonoBehaviour
         FeverModeEffect();//フィーバー状態の効果の処理
     }
 
-    //フィーバー状態でない時フィーバーポイント加算(トリックするごとに加算するようにする)、countは1回のジャンプ中のトリック回数
-    public void ChargeFeverPoint(int count)
-    {
-        if (feverNow == false)
-        {
-            player_FeverPoint.FeverPoint += chargeFeverPoint[count-1];
-        }
-    }
-
     //まだフィーバー状態になっていないかつフィーバーポイントが満タンになったらフィーバー状態に移行
     void ChangeFeverMode()
     {
-        if (feverNow == false && player_FeverPoint.FeverPoint >= player_FeverPoint.FeverPointMax)
+        if (feverNow == false && player_FeverPoint.FeverPoint_ >= player_FeverPoint.FeverPointMax)
         {
             feverNow = true;
             remainingFeverTime = feverTime;
@@ -102,7 +90,7 @@ public class FeverMode : MonoBehaviour
             currentChargeTrick_GrowthRate=chargeTrick_GrowthRate;
             feverEffect.SetActive(true);
             float ratio = remainingFeverTime / feverTime;
-            player_FeverPoint.FeverPoint = player_FeverPoint.FeverPointMax * ratio;
+            player_FeverPoint.FeverPoint_ = player_FeverPoint.FeverPointMax * ratio;
         }
         //フィーバー状態じゃない時は　
         //攻撃力とチャージトリック量が通常

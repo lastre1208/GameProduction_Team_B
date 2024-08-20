@@ -18,12 +18,12 @@ public class TrickPointDisplay : MonoBehaviour
     [SerializeField] Color trickGaugeMaxColor;//満タン状態のトリックゲージの色
     private GameObject[] trickGauges;//プレイヤーのトリックゲージ(内部処理用)
 
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();
+        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
         //トリックゲージの生成(ゲージ数個分)
         GenerateTrickGauge();
         //トリックゲージの位置調整
@@ -84,7 +84,7 @@ public class TrickPointDisplay : MonoBehaviour
     {
         for (int i = 0; i < trickGauges.Length; i++)
         {
-            float trickRatio = player_TrickPoint.TrickPoint[i] / player_TrickPoint.TrickPointMax;
+            float trickRatio = player_TrickPoint.TrickPoint_[i] / player_TrickPoint.TrickPointMax;
             trickGauges[i].GetComponent<Image>().fillAmount = trickRatio;
 
 

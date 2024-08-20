@@ -16,7 +16,7 @@ public class ButtonIconChasingPlayer : MonoBehaviour
 {
     [SerializeField] ButtonDisplays[] buttonDisplays;
     JumpControl jumpControl;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
     Critical critical;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class ButtonIconChasingPlayer : MonoBehaviour
     {
 
         jumpControl = GameObject.FindWithTag("Player").GetComponent<JumpControl>();
-        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();
+        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
         critical = GameObject.FindWithTag("Player").GetComponent<Critical>();
     }
 
@@ -36,7 +36,7 @@ public class ButtonIconChasingPlayer : MonoBehaviour
 
     void DisplayAndHideButton()//ボタン表示と非表示
     {
-        bool display = (jumpControl.JumpNow && player_TrickPoint.MaxCount > 0);//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき表示
+        bool display = (jumpControl.JumpNow() && player_TrickPoint.MaxCount > 0);//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき表示
 
         if (display)
         {
