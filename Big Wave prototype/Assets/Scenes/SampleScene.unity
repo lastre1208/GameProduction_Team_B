@@ -6838,6 +6838,7 @@ GameObject:
   - component: {fileID: 1244729540}
   - component: {fileID: 1244729541}
   - component: {fileID: 1244729544}
+  - component: {fileID: 1244729561}
   - component: {fileID: 1244729556}
   - component: {fileID: 1244729557}
   - component: {fileID: 1244729558}
@@ -7133,13 +7134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeFeverPoint:
-  - 10
-  - 20
-  - 30
-  - 40
-  - 50
-  - 60
   feverEffect: {fileID: 1450010173}
   feverTime: 20
   powerUp_GrowthRate: 2
@@ -7284,6 +7278,25 @@ MonoBehaviour:
     trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
   damageAmount: 100
   score_TrickCount: {fileID: 1045309819}
+--- !u!114 &1244729561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeFeverPoint:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0

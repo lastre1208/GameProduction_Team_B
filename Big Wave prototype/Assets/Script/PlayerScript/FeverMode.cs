@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class FeverMode : MonoBehaviour
 {
-    [Header("回数ごとの溜まるフィーバーポイントの値")]
-    [Header("注意:トリックゲージの個数分配列を用意してください")]
-    [SerializeField] float[] chargeFeverPoint;//回数ごとの溜まるフィーバーポイントの値
     [Header("フィーバー状態のエフェクト")]
     [SerializeField] GameObject feverEffect;//フィーバー状態のエフェクト
     [Header("フィーバー状態の効果時間")]
@@ -56,15 +53,6 @@ public class FeverMode : MonoBehaviour
         ManageFeverTime();//フィーバー状態の残り時間を管理
 
         FeverModeEffect();//フィーバー状態の効果の処理
-    }
-
-    //フィーバー状態でない時フィーバーポイント加算(トリックするごとに加算するようにする)、countは1回のジャンプ中のトリック回数
-    public void ChargeFeverPoint(int count)
-    {
-        if (feverNow == false)
-        {
-            player_FeverPoint.FeverPoint += chargeFeverPoint[count-1];
-        }
     }
 
     //まだフィーバー状態になっていないかつフィーバーポイントが満タンになったらフィーバー状態に移行

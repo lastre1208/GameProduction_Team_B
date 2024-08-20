@@ -30,6 +30,7 @@ public partial class TrickControl : MonoBehaviour
     JumpControl jumpcontrol;
     Controller controller;
     FeverMode feverMode;
+    ChargeFever chargeFever;
     Critical critical;
     CountTrickCombo countTrickCombo;
     HoverJump hoverJump;
@@ -49,6 +50,7 @@ public partial class TrickControl : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //
         feverMode= gameObject.GetComponent<FeverMode>();
+        chargeFever=GetComponent<ChargeFever>();
         critical = gameObject.GetComponent<Critical>();
         countTrickCombo = gameObject.GetComponent<CountTrickCombo>();
         hoverJump = gameObject.GetComponent<HoverJump>();
@@ -92,7 +94,7 @@ public partial class TrickControl : MonoBehaviour
             enemy_Hp.Hp -= Damage(button);
             controller.Vibe_Trick();//バイブさせる
             countTrickWhileJump.AddTrickCount();//1ジャンプ中のトリック回数を増やす(注:フィーバーゲージのチャージ前にこの処理を入れる)
-            feverMode.ChargeFeverPoint(countTrickWhileJump.TrickCount);//フィーバーゲージのチャージ
+            chargeFever.Charge(countTrickWhileJump.TrickCount);//フィーバーゲージのチャージ
             score_TrickCount.AddScore();//トリックによるスコアの加点
             countTrickCombo.AddCombo();//コンボ回数加算
             //☆作成者:福島
