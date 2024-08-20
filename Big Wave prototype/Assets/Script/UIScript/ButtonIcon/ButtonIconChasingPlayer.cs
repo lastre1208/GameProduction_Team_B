@@ -36,7 +36,7 @@ public class ButtonIconChasingPlayer : MonoBehaviour
 
     void DisplayAndHideButton()//ボタン表示と非表示
     {
-        bool display = (jumpControl.JumpNow && player_TrickPoint.MaxCount > 0);//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき表示
+        bool display = (jumpControl.JumpNow() && player_TrickPoint.MaxCount > 0);//ジャンプしている時かつ満タンのトリックゲージの数が1本以上あるとき表示
 
         if (display)
         {

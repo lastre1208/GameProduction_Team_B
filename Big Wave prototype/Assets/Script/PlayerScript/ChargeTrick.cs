@@ -48,7 +48,7 @@ public class ChargeTrick : MonoBehaviour
         //内部クラスの各機能の毎フレーム処理
         judgeChargeNow.UpdateSinceLastChargedTime();
         changeChargeRateTheSurfer.ChangeChargeRate();
-        changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(jumpControl.JumpNow,judgeTouchWave.TouchWaveNow);
+        changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(jumpControl.JumpNow(),judgeTouchWave.TouchWaveNow);
         displayChargeTrickEffect.Display(judgeChargeNow.ChargeNow());
         changeChargeTrickEffectTheSurfer.ChangeEffectScale(changeChargeRateTheSurfer.ChargeRate());
     }

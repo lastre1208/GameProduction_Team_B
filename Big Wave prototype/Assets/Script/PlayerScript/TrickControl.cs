@@ -57,7 +57,7 @@ public partial class TrickControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countTrickWhileJump.ResetTrickCount(jumpcontrol.JumpNow);
+        countTrickWhileJump.ResetTrickCount(jumpcontrol.JumpNow());
     }
 
     float Damage(Button button)//敵に与えるダメージ合計
@@ -86,7 +86,7 @@ public partial class TrickControl : MonoBehaviour
                 break;
         }
 
-        if (jumpcontrol.JumpNow == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
+        if (jumpcontrol.JumpNow() == true && enemy_Hp != null && player_TrickPoint.Consume(trickPattern.TrickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
         {
             //tricked = true;//トリックした
             enemy_Hp.Hp -= Damage(button);
