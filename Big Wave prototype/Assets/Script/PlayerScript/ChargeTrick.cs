@@ -20,7 +20,7 @@ public class ChargeTrick : MonoBehaviour
     [SerializeField] ChangeChargeTrickEffectTheSurfer changeChargeTrickEffectTheSurfer;//波に乗るほどチャージ時のエフェクトの大きさが変化する
 
     FeverMode feverMode;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
     JumpControl jumpControl;
     JudgeTouchWave judgeTouchWave;
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
@@ -30,7 +30,7 @@ public class ChargeTrick : MonoBehaviour
     {
         //別クラスの情報取得
         feverMode = GetComponent<FeverMode>();
-        player_TrickPoint=GetComponent<TRICKPoint>();
+        player_TrickPoint=GetComponent<TrickPoint>();
         jumpControl=GetComponent<JumpControl>();
         judgeTouchWave=GetComponent<JudgeTouchWave>();
 

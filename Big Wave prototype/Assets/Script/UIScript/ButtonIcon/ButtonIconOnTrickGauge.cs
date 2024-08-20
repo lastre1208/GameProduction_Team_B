@@ -7,12 +7,12 @@ public class ButtonIconOnTrickGauge : MonoBehaviour
     [Header("ボタンのアイコン")]
     [Tooltip("最初に溜まるゲージの上にあるアイコンを[0]に設定、二番目に溜まるゲージの上にあるアイコンを[1]に設定...してください")]
     [SerializeField] ButtonIconDisplay[] buttonIcon;//ボタンのアイコン
-    TRICKPoint trickPoint;
+    TrickPoint trickPoint;
     Critical critical;
     // Start is called before the first frame update
     void Start()
     {
-        trickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();    
+        trickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();    
         critical=GameObject.FindWithTag("Player").GetComponent<Critical>(); 
     }
 

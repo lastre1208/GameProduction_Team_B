@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FEVERPoint : MonoBehaviour
+public class FeverPoint : MonoBehaviour
 {
     [Header("最大フィーバーポイント")]
     [SerializeField] float feverPointMax = 500f;//最大フィーバーポイント
     private float feverPoint = 0f;//現在のフィーバーポイント
 
-    public float FeverPoint
+    public float FeverPoint_
     {
         get { return feverPoint; }
         set { feverPoint = value; }

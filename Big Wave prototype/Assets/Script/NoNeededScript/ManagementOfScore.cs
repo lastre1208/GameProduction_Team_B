@@ -69,7 +69,7 @@ public class ManagementOfScore : MonoBehaviour
     //private float oldPlayerHp;//ダメージを受ける前のプレイヤーのHP。ダメージを受けた後の比較用
 
     //HP player_Hp;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
     //HP enemy_Hp;
 
     public static int TotalScore
@@ -81,7 +81,7 @@ public class ManagementOfScore : MonoBehaviour
     void Start()
     {
         //player_Hp = GameObject.FindWithTag("Player").GetComponent<HP>();
-        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TRICKPoint>();
+        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
         //enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
 
         totalScore = 0;
@@ -140,9 +140,9 @@ public class ManagementOfScore : MonoBehaviour
 
     void CalculateTrickGageScore()//トリックゲージ残量のスコア計算
     {
-        for (int i = 0; i < player_TrickPoint.TrickPoint.Length; i++)
+        for (int i = 0; i < player_TrickPoint.TrickPoint_.Length; i++)
         {
-            totalScore += (int)(player_TrickPoint.TrickPoint[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
+            totalScore += (int)(player_TrickPoint.TrickPoint_[i] * trickScore_ratio);//トリックゲージの残量に応じたスコアを加点
         }
     }
 

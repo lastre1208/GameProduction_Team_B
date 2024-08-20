@@ -13,12 +13,12 @@ public class FeverPointDisplay : MonoBehaviour
     [Header("▼フィーバー状態のフィーバーゲージの色")]
     [SerializeField] Color feverGaugeFeverModeColor;//フィーバー状態のフィーバーゲージの色
 
-    FEVERPoint player_FeverPoint;
+    FeverPoint player_FeverPoint;
     FeverMode processFeverPoint;
     // Start is called before the first frame update
     void Start()
     {
-        player_FeverPoint = GameObject.FindWithTag("Player").GetComponent<FEVERPoint>();
+        player_FeverPoint = GameObject.FindWithTag("Player").GetComponent<FeverPoint>();
         processFeverPoint = GameObject.FindWithTag("Player").GetComponent<FeverMode>();
     }
 
@@ -30,7 +30,7 @@ public class FeverPointDisplay : MonoBehaviour
 
     void FeverGaugeOfPlayer()//プレイヤーのフィーバーゲージの処理
     {
-        float feverRatio = player_FeverPoint.FeverPoint / player_FeverPoint.FeverPointMax;
+        float feverRatio = player_FeverPoint.FeverPoint_ / player_FeverPoint.FeverPointMax;
         feverGaugeOfPlayer.GetComponent<Image>().fillAmount = feverRatio;
         //ゲージの色の変更
         if (processFeverPoint.FeverNow)//フィーバー状態の時

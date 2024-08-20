@@ -26,7 +26,7 @@ public partial class TrickControl : MonoBehaviour
 
     AudioSource audioSource;//プレイヤーから音を出す為の処置。
     HP enemy_Hp;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
     JumpControl jumpcontrol;
     Controller controller;
     FeverMode feverMode;
@@ -43,7 +43,7 @@ public partial class TrickControl : MonoBehaviour
         X_Trick.ButtonPattern=Button.X;
         Y_Trick.ButtonPattern = Button.Y;
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-        player_TrickPoint = gameObject.GetComponent<TRICKPoint>();
+        player_TrickPoint = gameObject.GetComponent<TrickPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
         controller = gameObject.GetComponent<Controller>();
         //☆福島君が書いた

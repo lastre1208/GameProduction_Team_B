@@ -15,7 +15,7 @@ public class Critical : MonoBehaviour
     [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
     private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
     AudioSource audioSource;
-    TRICKPoint player_TrickPoint;
+    TrickPoint player_TrickPoint;
 
     public Button[] CriticalButton
     {
@@ -26,7 +26,7 @@ public class Critical : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        player_TrickPoint = GetComponent<TRICKPoint>();
+        player_TrickPoint = GetComponent<TrickPoint>();
         criticalButton = new Button[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
         StartAllocateButton();
     }

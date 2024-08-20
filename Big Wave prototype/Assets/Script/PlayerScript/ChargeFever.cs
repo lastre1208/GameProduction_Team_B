@@ -8,12 +8,12 @@ public class ChargeFever : MonoBehaviour
     [Header("注意:トリックゲージの個数分配列を用意してください")]
     [SerializeField] float[] chargeFeverPoint;//回数ごとの溜まるフィーバーポイントの値
 
-    FEVERPoint player_FeverPoint;
+    FeverPoint player_FeverPoint;
     FeverMode feverMode;
     // Start is called before the first frame update
     void Start()
     {
-        player_FeverPoint = GetComponent<FEVERPoint>();
+        player_FeverPoint = GetComponent<FeverPoint>();
         feverMode=GetComponent<FeverMode>();
     }
 
@@ -22,7 +22,7 @@ public class ChargeFever : MonoBehaviour
     {
         if (!feverMode.FeverNow)//フィーバー状態でない時
         {
-            player_FeverPoint.FeverPoint += chargeFeverPoint[count - 1];//フィーバーポイント加算(トリックするごとに加算するようにする)
+            player_FeverPoint.FeverPoint_ += chargeFeverPoint[count - 1];//フィーバーポイント加算(トリックするごとに加算するようにする)
         }
     }
 }
