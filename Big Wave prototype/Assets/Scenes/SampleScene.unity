@@ -1539,6 +1539,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272053292}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &274497788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274497789}
+  - component: {fileID: 274497790}
+  m_Layer: 0
+  m_Name: A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274497789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274497788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390091950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274497790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274497788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b0536858a91846a3756bf9d643af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 0
+  trickCost: 1
+  soundEffect: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 100
 --- !u!1 &290154908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2393,41 @@ Transform:
   - {fileID: 91722888}
   - {fileID: 1239453832}
   m_Father: {fileID: 487644780}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &390091949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390091950}
+  m_Layer: 0
+  m_Name: TrickPattern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390091950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390091949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 274497789}
+  - {fileID: 533307688}
+  - {fileID: 579773585}
+  - {fileID: 1018656153}
+  m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408454533
 GameObject:
@@ -3233,6 +3316,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+--- !u!1 &533307687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 533307688}
+  - component: {fileID: 533307689}
+  m_Layer: 0
+  m_Name: B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &533307688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533307687}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390091950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533307689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533307687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b0536858a91846a3756bf9d643af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 1
+  trickCost: 1
+  soundEffect: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 100
 --- !u!1 &544838414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,6 +3649,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1704c1b3015484a8f9f213c6d552cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &579773584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579773585}
+  - component: {fileID: 579773586}
+  m_Layer: 0
+  m_Name: X
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579773585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579773584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390091950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579773586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579773584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b0536858a91846a3756bf9d643af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 2
+  trickCost: 1
+  soundEffect: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 100
 --- !u!1 &598907254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,37 +3946,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &611367150
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 611367151}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &611367151
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611367150}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 458.59998, y: 216.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615097178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,6 +5890,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+--- !u!1 &1018656151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018656153}
+  - component: {fileID: 1018656152}
+  m_Layer: 0
+  m_Name: Y
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1018656152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018656151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b0536858a91846a3756bf9d643af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 3
+  trickCost: 1
+  soundEffect: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
+  damageAmount: 100
+--- !u!4 &1018656153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018656151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390091950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041760308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,11 +7034,15 @@ GameObject:
   - component: {fileID: 1244729540}
   - component: {fileID: 1244729541}
   - component: {fileID: 1244729544}
-  - component: {fileID: 1244729561}
   - component: {fileID: 1244729556}
   - component: {fileID: 1244729557}
-  - component: {fileID: 1244729558}
   - component: {fileID: 1244729560}
+  - component: {fileID: 1244729568}
+  - component: {fileID: 1244729567}
+  - component: {fileID: 1244729566}
+  - component: {fileID: 1244729565}
+  - component: {fileID: 1244729570}
+  - component: {fileID: 1244729569}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6939,6 +7139,7 @@ Transform:
   - {fileID: 1503523462}
   - {fileID: 1720416258}
   - {fileID: 1450010176}
+  - {fileID: 390091950}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1244729530
@@ -7006,7 +7207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchBorderTime: 0.16
+  touchBorderTime: 0.2
 --- !u!114 &1244729540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7167,37 +7368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetTime: 12
   score_TrickCombo: {fileID: 1250788300}
---- !u!114 &1244729558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd4cdf40a297fd4fa4718b8830c3ed0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judgeChargeNow:
-    chargedBorderTime: 0.1
-  changeChargeRateTheCharger:
-    chargeRate:
-    - 1
-    - 0.9
-    - 0.7
-    - 0.6
-    - 0.4
-    - 0.3
-  changeChargeRateTheSurfer:
-    chargeRateMax: 3
-    byMaxRateTime: 10
-    minusChargeRateSpeed: 2
-  displayChargeTrickEffect:
-    chargeEffect: {fileID: 1722439556}
-  changeChargeTrickEffectTheSurfer:
-    chargeEffect: {fileID: 1722439556}
-    maxScaleRate: 4
 --- !u!114 &1244729559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7224,39 +7394,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  B_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  X_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  Y_Trick:
-    trickCost: 1
-    trickSound: {fileID: 8300000, guid: c79ceaca2c1ed324bbcefe4432715176, type: 3}
-  damageAmount: 100
-  score_TrickCount: {fileID: 1045309819}
---- !u!114 &1244729561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeFeverPoint:
-  - 10
-  - 20
-  - 30
-  - 40
-  - 50
-  - 60
+  eventsWhenTrick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1244729566}
+        m_TargetAssemblyTypeName: TrickSound, Assembly-CSharp
+        m_MethodName: SoundEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729567}
+        m_TargetAssemblyTypeName: TrickDamage, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729540}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: Vibe_Trick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729565}
+        m_TargetAssemblyTypeName: CountTrickWhileJump, Assembly-CSharp
+        m_MethodName: AddTrickCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729569}
+        m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
+        m_MethodName: Charge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1045309819}
+        m_TargetAssemblyTypeName: Score_TrickCount, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729557}
+        m_TargetAssemblyTypeName: CountTrickCombo, Assembly-CSharp
+        m_MethodName: AddCombo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729559}
+        m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
+        m_MethodName: HoverDelayJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1244729562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,6 +7533,109 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trickPointMax: 100
   trickGaugeNum: 6
+--- !u!114 &1244729565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244729566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62f71684a1aaa44b9ba1226ac8db034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244729567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ee4be70c890f74bb724f0ec18e8186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244729568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264a183277c09574097a37950b8b67cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickPatterns:
+  - {fileID: 274497790}
+  - {fileID: 533307689}
+  - {fileID: 579773586}
+  - {fileID: 1018656152}
+--- !u!114 &1244729569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeFeverPoint:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
+--- !u!114 &1244729570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc0a6e38ada1b8489274504f3f4674a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgeChargeNow:
+    chargedBorderTime: 0.1
+  changeChargeRateTheCharger:
+    chargeRate:
+    - 1
+    - 0.9
+    - 0.7
+    - 0.6
+    - 0.4
+    - 0.3
+  changeChargeRateTheSurfer:
+    chargeRateMax: 3
+    byMaxRateTime: 10
+    minusChargeRateSpeed: 2
+  displayChargeTrickEffect:
+    chargeEffect: {fileID: 1722439556}
+  changeChargeTrickEffectTheSurfer:
+    chargeEffect: {fileID: 1722439556}
+    maxScaleRate: 4
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
@@ -16338,4 +16677,3 @@ SceneRoots:
   - {fileID: 995849273}
   - {fileID: 1923540439}
   - {fileID: 473982371}
-  - {fileID: 611367151}

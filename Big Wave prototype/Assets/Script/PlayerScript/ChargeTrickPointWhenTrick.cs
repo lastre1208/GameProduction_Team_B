@@ -5,7 +5,7 @@ using UnityEngine;
 
 //作成者:杉山
 //トリックのチャージ
-public class ChargeTrick : MonoBehaviour
+public class ChargeTrickPointWhenTrick : MonoBehaviour
 {
     /////フィールド/////
     [Header("現在トリックをチャージしているかの判定")]
