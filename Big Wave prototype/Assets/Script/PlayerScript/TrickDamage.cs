@@ -17,7 +17,7 @@ public class TrickDamage : MonoBehaviour
         critical=GetComponent<Critical>();
     }
 
-    public void Damage()
+    public void Damage()//“G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚é
     {
         enemy_Hp.Hp -= DamageAmount();
     }

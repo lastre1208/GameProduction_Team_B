@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour
     [SerializeField] ControllerOfChargeTrick controllerOfChargeTrick;//トリックのチャージ関係のコントローラの処理
 
     JumpControl jumpControl;
-    ChargeTrickPointWhenTrick chargeTrick;
+    ChargeTrickPoint chargeTrick;
     TrickControl trickControl;
     PushedButton_TrickPattern pushedButton_TrickPattern;
     private Gamepad gamepad = Gamepad.current;
@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour
     void Start()
     {
         jumpControl = gameObject.GetComponent<JumpControl>();
-        chargeTrick = gameObject.GetComponent<ChargeTrickPointWhenTrick>();
+        chargeTrick = gameObject.GetComponent<ChargeTrickPoint>();
         trickControl= gameObject.GetComponent<TrickControl>();
         pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_TrickPattern>();
 
@@ -206,10 +206,10 @@ public class Controller : MonoBehaviour
         [Range(0, 1)]
         [SerializeField] float vibrationSpeed = 1f;//トリックをチャージしている時のバイブの速さ
 
-        ChargeTrickPointWhenTrick chargeTrick;
+        ChargeTrickPoint chargeTrick;
         Gamepad gamepad;
 
-        public void Start(ChargeTrickPointWhenTrick c, Gamepad g)
+        public void Start(ChargeTrickPoint c, Gamepad g)
         {
             chargeTrick = c;
             gamepad = g;
