@@ -9,24 +9,30 @@ public class FeverMode : MonoBehaviour
     [Header("フィーバー状態の効果時間")]
     [SerializeField] float feverTime=20f;//フィーバー状態の効果時間
     private float remainingFeverTime = 0f;//フィーバー状態の残り効果時間
-    [Header("フィーバー状態の攻撃力アップの増加率")]
-    [SerializeField] float powerUp_GrowthRate = 1f;//フィーバー状態の攻撃力アップの増加率
-    private float currentPowerUp_GrowthRate = 1f;//現在のフィーバー状態の攻撃力アップの増加率
-    [Header("フィーバー状態のチャージトリック量アップの増加率")]
-    [SerializeField] float chargeTrick_GrowthRate = 1f;//フィーバー状態のチャージトリック量アップの増加率
-    private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
+
+    [Header("攻撃力アップのバフ")]
+    [SerializeField] PowerUpBuff powerUpBuff;//攻撃力アップのバフ
+    [Header("チャージトリック量アップのバフ")]
+    [SerializeField] ChargeTrickBuff chargeTrickBuff;//攻撃力アップのバフ
+
+    //[Header("フィーバー状態の攻撃力アップの増加率")]
+    //[SerializeField] float powerUp_GrowthRate = 1f;//フィーバー状態の攻撃力アップの増加率
+    //private float currentPowerUp_GrowthRate = 1f;//現在のフィーバー状態の攻撃力アップの増加率
+    //[Header("フィーバー状態のチャージトリック量アップの増加率")]
+    //[SerializeField] float chargeTrick_GrowthRate = 1f;//フィーバー状態のチャージトリック量アップの増加率
+    //private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
     private bool feverNow=false;//今フィーバー状態か
 
     FeverPoint player_FeverPoint;
 
     public float CurrentPowerUp_GrowthRate
     {
-        get { return currentPowerUp_GrowthRate; }
+        get { return powerUpBuff.CurrentPowerUp_GrowthRate; }
     }
 
     public float CurrentChargeTrick_GrowthRate
     {
-        get { return currentChargeTrick_GrowthRate; }
+        get { return chargeTrickBuff.CurrentChargeTrick_GrowthRate; }
     }
 
     public bool FeverNow
@@ -39,8 +45,6 @@ public class FeverMode : MonoBehaviour
     {
         feverEffect.SetActive(false);
         remainingFeverTime = 0f;
-        currentPowerUp_GrowthRate = 1f;
-        currentChargeTrick_GrowthRate = 1f;
         feverNow = false;
         player_FeverPoint = gameObject.GetComponent<FeverPoint>();
     }
@@ -50,7 +54,7 @@ public class FeverMode : MonoBehaviour
     {
         ChangeFeverMode();//フィーバー状態に移行
 
-        ManageFeverTime();//フィーバー状態の残り時間を管理
+        UpdateFeverTime();//フィーバー状態の残り時間を管理
 
         FeverModeEffect();//フィーバー状態の効果の処理
     }
@@ -65,8 +69,8 @@ public class FeverMode : MonoBehaviour
         }
     }
 
-    //フィーバー状態の残り時間を管理
-    void ManageFeverTime()
+    //フィーバー状態の残り時間を更新
+    void UpdateFeverTime()
     {
         remainingFeverTime -= Time.deltaTime;
 
@@ -86,20 +90,66 @@ public class FeverMode : MonoBehaviour
         //フィーバーポイントが時間ごとに減っていく(フィーバー状態の残り時間を表している)
         if (feverNow)
         {
-            currentPowerUp_GrowthRate = powerUp_GrowthRate;
-            currentChargeTrick_GrowthRate=chargeTrick_GrowthRate;
-            feverEffect.SetActive(true);
             float ratio = remainingFeverTime / feverTime;
             player_FeverPoint.FeverPoint_ = player_FeverPoint.FeverPointMax * ratio;
         }
-        //フィーバー状態じゃない時は　
-        //攻撃力とチャージトリック量が通常
-        //エフェクトが非表示
-        else
+
+        powerUpBuff.ChangePowerUpGrowthRate(feverNow);//フィーバー時攻撃力が上がる
+        chargeTrickBuff.ChangeChargeTrickGrowthRate(feverNow);//フィーバー時チャージトリック量が上がる
+        feverEffect.SetActive(feverNow);//フィーバー時エフェクトを表示
+    }
+
+
+
+    /////内部クラス/////
+
+    [System.Serializable]
+    class PowerUpBuff
+    {
+        [Header("フィーバー状態の攻撃力アップの増加率")]
+        [SerializeField] float powerUp_GrowthRate = 1f;//フィーバー状態の攻撃力アップの増加率
+        private float currentPowerUp_GrowthRate = 1f;//現在のフィーバー状態の攻撃力アップの増加率
+
+        public float CurrentPowerUp_GrowthRate
         {
-            currentPowerUp_GrowthRate = 1f;
-            currentChargeTrick_GrowthRate = 1f;
-            feverEffect.SetActive(false);
-        }    
+            get { return currentPowerUp_GrowthRate; }
+        }
+
+        public void ChangePowerUpGrowthRate(bool feverNow)//攻撃力アップの増加率を変化させる
+        {
+            if(feverNow)//フィーバー中
+            {
+                currentPowerUp_GrowthRate = powerUp_GrowthRate;
+            }
+            else
+            {
+                currentPowerUp_GrowthRate = 1f;
+            }
+        }
+    }
+
+    [System.Serializable]
+    class ChargeTrickBuff
+    {
+        [Header("フィーバー状態のチャージトリック量アップの増加率")]
+        [SerializeField] float chargeTrick_GrowthRate = 1f;//フィーバー状態のチャージトリック量アップの増加率
+        private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
+
+        public float CurrentChargeTrick_GrowthRate
+        {
+            get { return currentChargeTrick_GrowthRate; }
+        }
+
+        public void ChangeChargeTrickGrowthRate(bool feverNow)//チャージトリック量アップの増加率を変化させる
+        {
+            if (feverNow)//フィーバー中
+            {
+                currentChargeTrick_GrowthRate = chargeTrick_GrowthRate;
+            }
+            else
+            {
+                currentChargeTrick_GrowthRate = 1f;
+            }
+        }
     }
 }

@@ -7337,8 +7337,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feverEffect: {fileID: 1450010173}
   feverTime: 20
-  powerUp_GrowthRate: 2
-  chargeTrick_GrowthRate: 2
+  powerUpBuff:
+    powerUp_GrowthRate: 2
+  chargeTrickBuff:
+    chargeTrick_GrowthRate: 2
 --- !u!114 &1244729556
 MonoBehaviour:
   m_ObjectHideFlags: 0

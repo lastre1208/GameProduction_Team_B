@@ -128,48 +128,45 @@ public class Controller : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("h"))//HキーかYボタン
             {
-                pushedButton_TrickPattern.SetTrickPattern(Button.Y);
-                trickControl.Trick();
+                Trick_Process(Button.Y);
             }
             else if (Input.GetButtonDown("Fire2") || Input.GetKeyDown("j"))//JキーかXボタン
             {
-                pushedButton_TrickPattern.SetTrickPattern(Button.X);
-                trickControl.Trick();
+                Trick_Process(Button.X);
             }
             else if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("k"))//KキーかBボタン
             {
-                pushedButton_TrickPattern.SetTrickPattern(Button.B);
-                trickControl.Trick();
+                Trick_Process(Button.B);
             }
             else if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("l"))//LキーかAボタン
             {
-                pushedButton_TrickPattern.SetTrickPattern(Button.A);
-                trickControl.Trick();
+                Trick_Process(Button.A);
             }
 
             //自分(杉山)のコントローラー用
             //if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("h"))//HキーかYボタン
             //{
-            //    pushedButton_TrickPattern.SetTrickPattern(Button.Y);
-            //    trickControl.Trick();
+            //    Trick_Process(Button.Y);
             //}
             //else if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("j"))//JキーかXボタン
             //{
-            //    pushedButton_TrickPattern.SetTrickPattern(Button.X);
-            //    trickControl.Trick();
+            //    Trick_Process(Button.X);
             //}
             //else if (Input.GetButtonDown("Fire2") || Input.GetKeyDown("k"))//KキーかBボタン
             //{
-            //    pushedButton_TrickPattern.SetTrickPattern(Button.B);
-            //    trickControl.Trick();
+            //    Trick_Process(Button.B);
             //}
             //else if (Input.GetButtonDown("Fire4") || Input.GetKeyDown("l"))//LキーかAボタン
             //{
-            //    pushedButton_TrickPattern.SetTrickPattern(Button.A);
-            //    trickControl.Trick();
+            //     Trick_Process(Button.A);
             //}
         }
 
+        void Trick_Process(Button button)
+        {
+            pushedButton_TrickPattern.SetTrickPattern(button);//押されたボタンの種類を設定
+            trickControl.Trick();//トリック
+        }
 
 
         void VibrateController()//トリック時コントローラーがバイブする
