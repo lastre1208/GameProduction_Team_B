@@ -5,7 +5,7 @@ using UnityEngine;
 
 //作成者:杉山
 //トリックのチャージ
-public class ChargeTrick : MonoBehaviour
+public class ChargeTrickPoint : MonoBehaviour
 {
     /////フィールド/////
     [Header("現在トリックをチャージしているかの判定")]
@@ -21,7 +21,7 @@ public class ChargeTrick : MonoBehaviour
 
     FeverMode feverMode;
     TrickPoint player_TrickPoint;
-    JumpControl jumpControl;
+    Jump jumpControl;
     JudgeTouchWave judgeTouchWave;
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
 
@@ -31,7 +31,7 @@ public class ChargeTrick : MonoBehaviour
         //別クラスの情報取得
         feverMode = GetComponent<FeverMode>();
         player_TrickPoint=GetComponent<TrickPoint>();
-        jumpControl=GetComponent<JumpControl>();
+        jumpControl=GetComponent<Jump>();
         judgeTouchWave=GetComponent<JudgeTouchWave>();
 
         //内部クラスの各機能の最初のフレームの処理

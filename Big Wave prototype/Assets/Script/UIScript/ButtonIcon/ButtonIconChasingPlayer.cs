@@ -15,7 +15,7 @@ struct ButtonDisplays
 public class ButtonIconChasingPlayer : MonoBehaviour
 {
     [SerializeField] ButtonDisplays[] buttonDisplays;
-    JumpControl jumpControl;
+    Jump jumpControl;
     TrickPoint player_TrickPoint;
     Critical critical;
 
@@ -23,7 +23,7 @@ public class ButtonIconChasingPlayer : MonoBehaviour
     void Start()
     {
 
-        jumpControl = GameObject.FindWithTag("Player").GetComponent<JumpControl>();
+        jumpControl = GameObject.FindWithTag("Player").GetComponent<Jump>();
         player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
         critical = GameObject.FindWithTag("Player").GetComponent<Critical>();
     }
