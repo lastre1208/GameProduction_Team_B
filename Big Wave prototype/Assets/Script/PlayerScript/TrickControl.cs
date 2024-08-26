@@ -13,7 +13,7 @@ public partial class TrickControl : MonoBehaviour
     //☆作成者:杉山
     [Header("トリック時の処理(メソッド)")]
     [SerializeField] UnityEvent eventsWhenTrick;//トリック時の処理(メソッド)
-    PushedButton_TrickPattern pushedButton_TrickPattern;
+    PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     HP enemy_Hp;
     JumpControl jumpcontrol;
     TrickPoint player_TrickPoint;
@@ -21,7 +21,7 @@ public partial class TrickControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_TrickPattern>();
+        pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_CurrentTrickPattern>();
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
         player_TrickPoint = gameObject.GetComponent<TrickPoint>();
         jumpcontrol = gameObject.GetComponent<JumpControl>();
@@ -30,7 +30,7 @@ public partial class TrickControl : MonoBehaviour
     //トリック
     public void Trick()
     {
-        int trickCost = pushedButton_TrickPattern.CurrentTrickPattern.TrickCost;//トリック消費量、押されたボタンに対応したトリックパターンのトリック消費量
+        int trickCost = pushedButton_TrickPattern.TrickCost;//トリック消費量、押されたボタンに対応したトリックパターンのトリック消費量
 
         if (jumpcontrol.JumpNow() == true && enemy_Hp != null && player_TrickPoint.Consume(trickCost))//ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
         {

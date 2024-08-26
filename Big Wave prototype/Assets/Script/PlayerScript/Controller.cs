@@ -19,7 +19,7 @@ public class Controller : MonoBehaviour
     JumpControl jumpControl;
     ChargeTrickPoint chargeTrick;
     TrickControl trickControl;
-    PushedButton_TrickPattern pushedButton_TrickPattern;
+    PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     private Gamepad gamepad = Gamepad.current;
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
         jumpControl = gameObject.GetComponent<JumpControl>();
         chargeTrick = gameObject.GetComponent<ChargeTrickPoint>();
         trickControl= gameObject.GetComponent<TrickControl>();
-        pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_TrickPattern>();
+        pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_CurrentTrickPattern>();
 
         controllerOfJump.Start(jumpControl);
         controllerOfTrick.Start(trickControl, pushedButton_TrickPattern ,gamepad);
@@ -107,10 +107,10 @@ public class Controller : MonoBehaviour
         private float remainingVibeTime = 0f;//トリックの振動の残り時間(内部用)
 
         TrickControl trickControl;
-        PushedButton_TrickPattern pushedButton_TrickPattern;
+        PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
         Gamepad gamepad;
 
-        public void Start(TrickControl t, PushedButton_TrickPattern p ,Gamepad g)
+        public void Start(TrickControl t, PushedButton_CurrentTrickPattern p ,Gamepad g)
         {
             trickControl = t;
             pushedButton_TrickPattern = p;

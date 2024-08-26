@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveControl : MonoBehaviour
+public class MoveLeftAndRight : MonoBehaviour
 {
     //☆作成者:杉山
     [SerializeField] float speed = 11.5f;//移動スピード
