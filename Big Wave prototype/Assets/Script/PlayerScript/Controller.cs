@@ -16,18 +16,18 @@ public class Controller : MonoBehaviour
     [Header("トリックのチャージ関係")]
     [SerializeField] ControllerOfChargeTrick controllerOfChargeTrick;//トリックのチャージ関係のコントローラの処理
 
-    JumpControl jumpControl;
+    Jump jumpControl;
     ChargeTrickPoint chargeTrick;
-    TrickControl trickControl;
+    Trick trickControl;
     PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     private Gamepad gamepad = Gamepad.current;
 
     // Start is called before the first frame update
     void Start()
     {
-        jumpControl = gameObject.GetComponent<JumpControl>();
+        jumpControl = gameObject.GetComponent<Jump>();
         chargeTrick = gameObject.GetComponent<ChargeTrickPoint>();
-        trickControl= gameObject.GetComponent<TrickControl>();
+        trickControl= gameObject.GetComponent<Trick>();
         pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_CurrentTrickPattern>();
 
         controllerOfJump.Start(jumpControl);
@@ -74,9 +74,9 @@ public class Controller : MonoBehaviour
     [System.Serializable]
     private class ControllerOfJump//ジャンプ関係のコントローラーの処理
     {
-        JumpControl jumpControl;
+        Jump jumpControl;
 
-        public void Start(JumpControl j)
+        public void Start(Jump j)
         {
             jumpControl = j;
         }
@@ -87,7 +87,7 @@ public class Controller : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKeyUp(KeyCode.JoystickButton4) || Input.GetKeyUp("space"))
             {
 
-                jumpControl.Jump();
+                jumpControl.JumpTrigger();
             }
         }
     }
@@ -106,11 +106,11 @@ public class Controller : MonoBehaviour
         [SerializeField] float vibeTime = 0.2f;//トリックを決めた時の振動の時間
         private float remainingVibeTime = 0f;//トリックの振動の残り時間(内部用)
 
-        TrickControl trickControl;
+        Trick trickControl;
         PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
         Gamepad gamepad;
 
-        public void Start(TrickControl t, PushedButton_CurrentTrickPattern p ,Gamepad g)
+        public void Start(Trick t, PushedButton_CurrentTrickPattern p ,Gamepad g)
         {
             trickControl = t;
             pushedButton_TrickPattern = p;
@@ -165,7 +165,7 @@ public class Controller : MonoBehaviour
         void Trick_Process(Button button)
         {
             pushedButton_TrickPattern.SetTrickPattern(button);//押されたボタンの種類を設定
-            trickControl.Trick();//トリック
+            trickControl.TrickTrigger();//トリック
         }
 
 

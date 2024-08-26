@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class JumpControl : MonoBehaviour
+//ジャンプの処理とジャンプ判定を返す
+public class Jump : MonoBehaviour
 {
     //☆塩が書いた
     [SerializeField] float jumpPower=20f;//ジャンプ力
@@ -11,7 +12,7 @@ public class JumpControl : MonoBehaviour
     Rigidbody rb;
     JudgeTouchWave touchWave;
 
-    public bool JumpNow()
+    public bool JumpNow()//現在ジャンプしているかを返す
     {
         return judgeJumpNow.JumpNow();
     }
@@ -39,7 +40,7 @@ public class JumpControl : MonoBehaviour
         judgeJumpNow.ChangeJumpNowStatus(collision, true);//ジャンプした
     }
 
-    public void Jump()//ジャンプ
+    public void JumpTrigger()//ジャンプ発動
     {
         if (touchWave.TouchWaveNow&&!judgeJumpNow.JumpNow())//波に触れている時かつジャンプしていない時のみジャンプ可能
         {

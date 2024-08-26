@@ -24,12 +24,12 @@ public class CommandTrick : MonoBehaviour
     [SerializeField] float bufferDuration = 1.0f; 
     [SerializeField] List<CommandPatterns> commandPatterns; // インスペクターで設定するパターンのリスト
     private float countTimer = 0;
-    private JumpControl jumpControl;
+    private Jump jumpControl;
     // Update is called once per frame
 
     private void Start()
     {
-        jumpControl = GetComponent<JumpControl>();
+        jumpControl = GetComponent<Jump>();
     }
     void Update()
     {
