@@ -5,8 +5,7 @@ using UnityEngine;
 public class CountTrickWhileJump : MonoBehaviour
 {
     private int trickCount = 0;//一回のジャンプにしたトリックの回数
-    Jump jumpcontrol;
-
+    JudgeJumpNow judgeJumpNow;
 
     public int TrickCount
     {
@@ -15,7 +14,7 @@ public class CountTrickWhileJump : MonoBehaviour
 
     void Start()
     {
-        jumpcontrol = gameObject.GetComponent<Jump>();
+        judgeJumpNow=GetComponent<JudgeJumpNow>();
     }
 
     void Update()
@@ -25,7 +24,7 @@ public class CountTrickWhileJump : MonoBehaviour
 
     void ResetTrickCount()//トリック回数をリセット(update)
     {
-        if (!jumpcontrol.JumpNow())//着地したら(ジャンプしていないなら)
+        if (!judgeJumpNow.JumpNow())//着地したら(ジャンプしていないなら)
         {
             trickCount = 0;//1ジャンプ中のトリック回数をリセット
         }

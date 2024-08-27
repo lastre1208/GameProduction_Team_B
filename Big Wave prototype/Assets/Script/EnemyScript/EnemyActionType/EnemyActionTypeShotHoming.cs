@@ -20,11 +20,14 @@ public class EnemyActionTypeShotHoming : EnemyActionTypeBase
     [SerializeField] protected GameObject gamePos;//GamePos
     [Header("プレイヤー")]
     [SerializeField] GameObject player;//プレイヤー
+    [Header("行動時のエフェクト")]
+    [SerializeField] ActionEffect actionEffect;
 
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
         currentDelayTime = 0;
         shoted = false;
+        actionEffect.Generate();//エフェクト生成
     }
 
     public override void OnUpdate()

@@ -16,13 +16,16 @@ public class EnemyActionTypeShotStraight : EnemyActionTypeBase
     private float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
     private bool shoted;
     [Header("▼GamePos")]
-    [SerializeField] protected GameObject gamePos;//GamePos
+    [SerializeField] protected GameObject gamePos;//GamePos、弾をこれの子オブジェクトとして配置する
+    [Header("行動時のエフェクト")]
+    [SerializeField] ActionEffect actionEffect;
     
 
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
         currentDelayTime = 0;
         shoted = false;
+        actionEffect.Generate();//エフェクト生成
     }
 
     public override void OnUpdate()
