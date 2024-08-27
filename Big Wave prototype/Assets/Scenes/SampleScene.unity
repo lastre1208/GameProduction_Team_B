@@ -3212,6 +3212,7 @@ Transform:
   - {fileID: 375463866}
   - {fileID: 1511769282}
   - {fileID: 1114562918}
+  - {fileID: 1034766455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &498098853 stripped
@@ -5938,6 +5939,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 390091950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1034766454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034766455}
+  - component: {fileID: 1034766458}
+  - component: {fileID: 1034766460}
+  - component: {fileID: 1034766457}
+  - component: {fileID: 1034766456}
+  - component: {fileID: 1034766459}
+  - component: {fileID: 1034766461}
+  m_Layer: 0
+  m_Name: ControllerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034766455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 487644780}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034766456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c6a7db1b49f5247bf1ab0ccd02a5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseControl: {fileID: 1242186784}
+--- !u!114 &1034766457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed62528663100be43aa32be5d0c71a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034766458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d511dcc321162f140b5a6956eaacfd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034766459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500868b94141e6c458dbb15465fb43bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034766460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbf8bdda48ac3249a7f36f01b745bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationSpeed: 1
+--- !u!114 &1034766461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b7d11f9e4af5b43b6d0177a8d70d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationSpeed: 1
+  vibeTime: 0.2
 --- !u!1 &1041760308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,7 +7146,6 @@ GameObject:
   - component: {fileID: 1244729571}
   - component: {fileID: 1244729559}
   - component: {fileID: 1244729539}
-  - component: {fileID: 1244729540}
   - component: {fileID: 1244729541}
   - component: {fileID: 1244729544}
   - component: {fileID: 1244729556}
@@ -7210,25 +7323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchBorderTime: 0.2
---- !u!114 &1244729540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed0c677a565ddc64d9419e3073d224a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerOfPause:
-    pauseControl: {fileID: 1242186784}
-  controllerOfTrick:
-    vibrationSpeed: 1
-    vibeTime: 0.2
-  controllerOfChargeTrick:
-    vibrationSpeed: 1
 --- !u!82 &1244729541
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7425,9 +7519,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729540}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
-        m_MethodName: Vibe_Trick
+      - m_Target: {fileID: 1034766461}
+        m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
+        m_MethodName: Vibe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
