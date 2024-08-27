@@ -21,7 +21,7 @@ public class ChargeTrickPoint : MonoBehaviour
 
     FeverMode feverMode;
     TrickPoint player_TrickPoint;
-    Jump jumpControl;
+    JudgeJumpNow judgeJumpNow;
     JudgeTouchWave judgeTouchWave;
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
 
@@ -31,7 +31,7 @@ public class ChargeTrickPoint : MonoBehaviour
         //別クラスの情報取得
         feverMode = GetComponent<FeverMode>();
         player_TrickPoint=GetComponent<TrickPoint>();
-        jumpControl=GetComponent<Jump>();
+        judgeJumpNow = GetComponent<JudgeJumpNow>();
         judgeTouchWave=GetComponent<JudgeTouchWave>();
 
         //内部クラスの各機能の最初のフレームの処理
@@ -48,7 +48,7 @@ public class ChargeTrickPoint : MonoBehaviour
         //内部クラスの各機能の毎フレーム処理
         judgeChargeNow.UpdateSinceLastChargedTime();
         changeChargeRateTheSurfer.ChangeChargeRate();
-        changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(jumpControl.JumpNow(),judgeTouchWave.TouchWaveNow);
+        changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(judgeJumpNow.JumpNow(),judgeTouchWave.TouchWaveNow);
         displayChargeTrickEffect.Display(judgeChargeNow.ChargeNow());
         changeChargeTrickEffectTheSurfer.ChangeEffectScale(changeChargeRateTheSurfer.ChargeRate());
     }
