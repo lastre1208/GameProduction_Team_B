@@ -269,6 +269,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+--- !u!1 &72910806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72910807}
+  m_Layer: 0
+  m_Name: EffectPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72910807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72910806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.235, z: -0.564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98503821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &91722886
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +459,7 @@ Transform:
   - {fileID: 1318383701}
   - {fileID: 1658198235}
   - {fileID: 1565991088}
+  - {fileID: 72910807}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &98503826
@@ -6256,6 +6288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1084221211}
   - component: {fileID: 1084221212}
+  - component: {fileID: 1084221213}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -6295,6 +6328,26 @@ MonoBehaviour:
   shotPosObject: {fileID: 1110614297}
   delayTime: 0.5
   gamePos: {fileID: 1923540436}
+  actionEffect:
+    generate: 1
+    generateEffect: {fileID: 1084221213}
+    delayTime: 0
+--- !u!114 &1084221213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084221210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374bb71fd8b6eb649b5557619282be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2787677570423539606, guid: 0014d1df6e438cf449bc6d69530c6872, type: 3}
+  instantiatePos: {fileID: 72910807}
+  instantiateInOtherObject: 1
+  parent: {fileID: 98503817}
 --- !u!114 &1098362692 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1299993265973752346, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
@@ -7923,6 +7976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1343859079}
   - component: {fileID: 1343859080}
+  - component: {fileID: 1343859081}
   m_Layer: 0
   m_Name: ShotNormal
   m_TagString: Untagged
@@ -7962,6 +8016,26 @@ MonoBehaviour:
   shotPosObject: {fileID: 1110614297}
   delayTime: 1
   gamePos: {fileID: 1923540436}
+  actionEffect:
+    generate: 1
+    generateEffect: {fileID: 1343859081}
+    delayTime: 0
+--- !u!114 &1343859081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343859078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374bb71fd8b6eb649b5557619282be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2787677570423539606, guid: 0014d1df6e438cf449bc6d69530c6872, type: 3}
+  instantiatePos: {fileID: 72910807}
+  instantiateInOtherObject: 1
+  parent: {fileID: 98503817}
 --- !u!1 &1348075424
 GameObject:
   m_ObjectHideFlags: 0
@@ -8459,6 +8533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415608675}
   - component: {fileID: 1415608676}
+  - component: {fileID: 1415608677}
   m_Layer: 0
   m_Name: ShotHoming
   m_TagString: Untagged
@@ -8499,6 +8574,26 @@ MonoBehaviour:
   delayTime: 1
   gamePos: {fileID: 1923540436}
   player: {fileID: 1244729524}
+  actionEffect:
+    generate: 1
+    generateEffect: {fileID: 1415608677}
+    delayTime: 0
+--- !u!114 &1415608677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415608674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374bb71fd8b6eb649b5557619282be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 8347497826155398544, guid: 1f7ff4602c13b514fb385024e50424a6, type: 3}
+  instantiatePos: {fileID: 72910807}
+  instantiateInOtherObject: 1
+  parent: {fileID: 98503817}
 --- !u!1 &1446564273
 GameObject:
   m_ObjectHideFlags: 0
@@ -9660,6 +9755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562493068}
   - component: {fileID: 1562493067}
+  - component: {fileID: 1562493069}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -9684,6 +9780,10 @@ MonoBehaviour:
   shotPosObject: {fileID: 1110614297}
   delayTime: 1
   gamePos: {fileID: 1923540436}
+  actionEffect:
+    generate: 1
+    generateEffect: {fileID: 1562493069}
+    delayTime: 0
 --- !u!4 &1562493068
 Transform:
   m_ObjectHideFlags: 0
@@ -9699,6 +9799,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 654229758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1562493069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562493066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374bb71fd8b6eb649b5557619282be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 8347497826155398544, guid: 1f7ff4602c13b514fb385024e50424a6, type: 3}
+  instantiatePos: {fileID: 72910807}
+  instantiateInOtherObject: 1
+  parent: {fileID: 98503817}
 --- !u!1 &1565991087
 GameObject:
   m_ObjectHideFlags: 0

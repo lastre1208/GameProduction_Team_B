@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstantiateSeaTest : MonoBehaviour
 {
-    //™ŒKŒ´ŒN‚ª‘‚¢‚½
+    //™ì¬Ò:ŒKŒ´
     [SerializeField] GameObject seaTestPrefab;//ŠC‚ÌƒvƒŒƒnƒu
     [SerializeField] float instantiateIntervalTime = 1.5f;//ŠC‚ÌoŒ»ŠÔŠu
 
