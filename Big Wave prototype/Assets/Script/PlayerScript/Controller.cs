@@ -18,6 +18,7 @@ public class Controller : MonoBehaviour
 
     Jump jumpControl;
     ChargeTrickPoint chargeTrick;
+    JudgeChargeTrickPointNow judgeChargeTrickPointNow;
     Trick trickControl;
     PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     private Gamepad gamepad = Gamepad.current;
@@ -27,12 +28,13 @@ public class Controller : MonoBehaviour
     {
         jumpControl = gameObject.GetComponent<Jump>();
         chargeTrick = gameObject.GetComponent<ChargeTrickPoint>();
+        judgeChargeTrickPointNow=GetComponent<JudgeChargeTrickPointNow>();
         trickControl= gameObject.GetComponent<Trick>();
         pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_CurrentTrickPattern>();
 
         controllerOfJump.Start(jumpControl);
         controllerOfTrick.Start(trickControl, pushedButton_TrickPattern ,gamepad);
-        controllerOfChargeTrick.Start(chargeTrick, gamepad);
+        controllerOfChargeTrick.Start(chargeTrick,judgeChargeTrickPointNow ,gamepad);
     }
 
     // Update is called once per frame
@@ -204,11 +206,13 @@ public class Controller : MonoBehaviour
         [SerializeField] float vibrationSpeed = 1f;//トリックをチャージしている時のバイブの速さ
 
         ChargeTrickPoint chargeTrick;
+        JudgeChargeTrickPointNow judgeChargeTrickPointNow;
         Gamepad gamepad;
 
-        public void Start(ChargeTrickPoint c, Gamepad g)
+        public void Start(ChargeTrickPoint c,JudgeChargeTrickPointNow j, Gamepad g)
         {
             chargeTrick = c;
+            judgeChargeTrickPointNow = j;
             gamepad = g;
         }
 
@@ -236,7 +240,7 @@ public class Controller : MonoBehaviour
         {
             if (gamepad != null)
             {
-                if (chargeTrick.ChargeNow())
+                if (judgeChargeTrickPointNow.ChargeNow())//チャージ時
                 {
                     gamepad.SetMotorSpeeds(vibrationSpeed, vibrationSpeed);//バイブさせる
                 }

@@ -8,8 +8,6 @@ using UnityEngine;
 public class ChargeTrickPoint : MonoBehaviour
 {
     /////フィールド/////
-    [Header("現在トリックをチャージしているかの判定")]
-    [SerializeField] JudgeChargeNow judgeChargeNow;//現在トリックをチャージしているかの判定
     [Header("現在のトリック量によりチャージ倍率を変化させる機能")]
     [SerializeField] ChangeChargeRateTheCharger changeChargeRateTheCharger;//現在のトリック量によりチャージ倍率を変化させる
     [Header("波に乗るほどチャージ倍率を変化させる機能")]
@@ -22,6 +20,7 @@ public class ChargeTrickPoint : MonoBehaviour
     FeverMode feverMode;
     TrickPoint player_TrickPoint;
     JudgeJumpNow judgeJumpNow;
+    JudgeChargeTrickPointNow judgeChargeTrickPointNow;
     JudgeTouchWave judgeTouchWave;
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
 
@@ -32,10 +31,10 @@ public class ChargeTrickPoint : MonoBehaviour
         feverMode = GetComponent<FeverMode>();
         player_TrickPoint=GetComponent<TrickPoint>();
         judgeJumpNow = GetComponent<JudgeJumpNow>();
+        judgeChargeTrickPointNow=GetComponent<JudgeChargeTrickPointNow>();
         judgeTouchWave=GetComponent<JudgeTouchWave>();
 
         //内部クラスの各機能の最初のフレームの処理
-        judgeChargeNow.StartSinceLastChargedTime();
         changeChargeRateTheSurfer.StartChangeRatePerSecond();
         displayChargeTrickEffect.StartChargeEffect();
         changeChargeTrickEffectTheSurfer.StartScale();
@@ -46,10 +45,9 @@ public class ChargeTrickPoint : MonoBehaviour
     void Update()
     {
         //内部クラスの各機能の毎フレーム処理
-        judgeChargeNow.UpdateSinceLastChargedTime();
         changeChargeRateTheSurfer.ChangeChargeRate();
         changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(judgeJumpNow.JumpNow(),judgeTouchWave.TouchWaveNow);
-        displayChargeTrickEffect.Display(judgeChargeNow.ChargeNow());
+        displayChargeTrickEffect.Display(judgeChargeTrickPointNow.ChargeNow());
         changeChargeTrickEffectTheSurfer.ChangeEffectScale(changeChargeRateTheSurfer.ChargeRate());
     }
 
@@ -80,14 +78,11 @@ public class ChargeTrickPoint : MonoBehaviour
         if (chargeStandby)
         {
             player_TrickPoint.Charge(ChargeTrickAmount(chargeAmount));//トリックをチャージ
-            judgeChargeNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
+            judgeChargeTrickPointNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
         }
     }
 
-    public bool ChargeNow()//今チャージしているかの判定
-    {
-        return judgeChargeNow.ChargeNow();
-    }
+    
 
 
 
@@ -96,42 +91,6 @@ public class ChargeTrickPoint : MonoBehaviour
 
 
     /////内部クラス/////
-
-    //現在トリックをチャージしているかの判定
-    [System.Serializable]
-    private class JudgeChargeNow
-    {
-        [Header("チャージしていない・しているの境界の時間")]
-        [SerializeField] float chargedBorderTime = 0.1f;//チャージしていない・しているの境界の時間
-        private float sinceLastChargedTime = 0.1f;//最後にチャージされてからの時間
-
-        public void StartSinceLastChargedTime()//最後にチャージされてからの時間の初期化(start)
-        {
-            sinceLastChargedTime = chargedBorderTime;
-        }
-
-        public void UpdateSinceLastChargedTime()//最後にチャージされてからの時間の更新(start)
-        {
-            sinceLastChargedTime += Time.deltaTime;
-        }
-
-        public bool ChargeNow()//今チャージしているか
-        {
-            if (sinceLastChargedTime < chargedBorderTime)//最後にチャージしてからchargeBorderTime(秒)未満なら今チャージしてる判定
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public void ResetSinceLastChargedTime()//最後にチャージされてからの時間をリセット
-        {
-            sinceLastChargedTime = 0;
-        }
-    }
-
-
 
     //現在のトリック量によりチャージ倍率を変化させる
     [System.Serializable]

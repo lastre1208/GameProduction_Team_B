@@ -7029,6 +7029,7 @@ GameObject:
   - component: {fileID: 1244729563}
   - component: {fileID: 1244729532}
   - component: {fileID: 1244729534}
+  - component: {fileID: 1244729571}
   - component: {fileID: 1244729559}
   - component: {fileID: 1244729539}
   - component: {fileID: 1244729540}
@@ -7042,8 +7043,8 @@ GameObject:
   - component: {fileID: 1244729566}
   - component: {fileID: 1244729565}
   - component: {fileID: 1244729570}
+  - component: {fileID: 1244729572}
   - component: {fileID: 1244729569}
-  - component: {fileID: 1244729571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7620,8 +7621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgeChargeNow:
-    chargedBorderTime: 0.1
   changeChargeRateTheCharger:
     chargeRate:
     - 1
@@ -7651,6 +7650,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1244729572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedBorderTime: 0.1
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
