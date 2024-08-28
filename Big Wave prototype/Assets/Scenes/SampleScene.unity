@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 98503835}
   - component: {fileID: 98503834}
   - component: {fileID: 98503833}
+  - component: {fileID: 98503837}
   - component: {fileID: 98503831}
   - component: {fileID: 98503830}
   m_Layer: 0
@@ -568,7 +569,6 @@ MonoBehaviour:
       - {fileID: 1415608676}
       actionProbability: 15
       actionTime: 1.5
-    formHp: 12000
   - actionPatterns:
     - action:
       - {fileID: 1931415814}
@@ -584,7 +584,7 @@ MonoBehaviour:
       - {fileID: 1562493067}
       actionProbability: 25
       actionTime: 2
-    formHp: 7000
+  formOfEnemy: {fileID: 98503837}
 --- !u!114 &98503834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +631,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 12000
+--- !u!114 &98503837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98503817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a35326c25ce34a4da1b58f7fcae802e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_Hp: {fileID: 98503836}
+  formHp:
+  - 12000
+  - 6000
 --- !u!1 &119033915
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,7 +7825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargedBorderTime: 0.1
+  chargedBorderTime: 0.2
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//行動パターンを選んで返す
+
 [System.Serializable]
 class Form//形態
 {
     [Header("▼この形態の行動パターン")]
     [SerializeField] ActionPattern[] actionPatterns;//行動とその行動確率とその行動の次に行動を始めるまでの時間
-    [Header("▼この形態の突入条件HP")]
-    [SerializeField] float formHp;//指定形態突入条件体力(この体力以下の時その形態突入)
     private float actionProbabilitySum = 0;//行動確率(attackProbability)の合計、行動をランダムに決める時に使う
 
     public ActionPattern[] ActionPatterns
@@ -18,14 +19,15 @@ class Form//形態
 
     public float ActionProbabilitySum
     {
-        set { actionProbabilitySum = value; }
         get { return actionProbabilitySum; }
     }
 
-    public float FormHp
+    public void CalculateActionProbabilitySum()//行動確率の合計を求める
     {
-        set { formHp = value; }
-        get { return formHp; }
+        for (int i = 0; i < actionPatterns.Length; i++)
+        {
+            actionProbabilitySum += actionPatterns[i].ActionProbability;//この形態の全ての行動の行動確率を足す
+        }
     }
 }
 
@@ -60,64 +62,46 @@ public class SelectActionOfEnemy : MonoBehaviour
 {
     [Header("▼敵の形態ごとの行動")]
     [SerializeField] Form[] forms;//形態ごとの行動パターン
-    HP enemy_Hp;
+    [Header("▼現在の形態を返すコンポーネント")]
+    [SerializeField] FormOfEnemyTypeBase formOfEnemy;//現在の形態を返すコンポーネント
+
     // Start is called before the first frame update
     void Start()
     {
-        enemy_Hp = gameObject.GetComponent<HP>();
-        //行動確率の合計を算出
+        //全ての形態の行動確率の合計を算出
         for (int i = 0; i < forms.Length; i++)
         {
-            for (int j = 0; j < forms[i].ActionPatterns.Length; j++)
-            {
-                forms[i].ActionProbabilitySum += forms[i].ActionPatterns[j].ActionProbability;
-            }
+            forms[i].CalculateActionProbabilitySum();
         }
-        //第一形態突入条件HPを最大HPに設定(最初から第一形態なので)
-        forms[0].FormHp = enemy_Hp.HpMax;
     }
 
     public ActionPattern SelectAction()//行動変更
     {
-        int formNum = CurrentForm();//現在第何形態か、formsの要素番号値なのでに入れる要素例えば第二形態なら1が入る
+        int formNum = formOfEnemy.CurrentForm();//現在第何形態か、formsの要素番号値なのでに入れる要素例えば第二形態なら1が入る
 
         //行動をランダムで決定
         float actionPatternNumber = Random.Range(0, forms[formNum].ActionProbabilitySum);
 
         //どの行動パターンをするかの決定に使用
-        int action = 0;
-        float actionProbabilitySum = 0f;
+        int actionNum = 0;
+        float actionNumProbabilitySum = 0f;
 
         //どの行動をするか決定するための処理
         for (int i = 0; i < forms[formNum].ActionPatterns.Length; i++)
         {
             //その攻撃パターンの確率を足す
-            actionProbabilitySum += forms[formNum].ActionPatterns[i].ActionProbability;
+            actionNumProbabilitySum += forms[formNum].ActionPatterns[i].ActionProbability;
 
             //ランダムで出した値がactionProbabilitySum未満であれば攻撃決定
-            if (actionPatternNumber < actionProbabilitySum)
+            if (actionPatternNumber < actionNumProbabilitySum)
             {
                 break;
             }
 
             //決まらなければ次の攻撃の判定へ
-            action++;
+            actionNum++;
         }
 
-        return forms[formNum].ActionPatterns[action];
-    }
-
-    int CurrentForm()//現在が第何形態か(formsの要素番号として入れられるように返すので例えば今が第二形態なら1を返す)を返す
-    {
-        for (int i = forms.Length - 1; 0 <= i; i--)//指定体力以下でその形態の行動をする(最終形態の条件から順に見ていく)
-        {
-            if (enemy_Hp.Hp <= forms[i].FormHp)//i+1形態目の条件を確認
-            {
-                return i;
-            }
-        }
-
-
-        return 0;
+        return forms[formNum].ActionPatterns[actionNum];
     }
 }
