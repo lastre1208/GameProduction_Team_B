@@ -8551,7 +8551,7 @@ GameObject:
   - component: {fileID: 1415608676}
   - component: {fileID: 1415608677}
   m_Layer: 0
-  m_Name: ShotHoming
+  m_Name: ShotToTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

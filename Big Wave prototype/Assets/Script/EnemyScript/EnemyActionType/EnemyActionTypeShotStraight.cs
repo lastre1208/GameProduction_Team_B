@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ì¬Ò:™R
+//“G‚Ì’e(UŒ‚)‚Ì’¼üŒ‚‚¿
 public class EnemyActionTypeShotStraight : EnemyActionTypeBase
 {
     [Header("¥’e")]

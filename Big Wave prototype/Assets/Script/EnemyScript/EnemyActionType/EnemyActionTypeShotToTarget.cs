@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EnemyActionTypeShotHoming : EnemyActionTypeBase
+//ì¬Ò:™R
+//“G‚Ì’e(UŒ‚)‚Ì•W“I(ƒvƒŒƒCƒ„[)‚ÉŒü‚©‚Á‚Ä‚Ì’¼üŒ‚‚¿
+public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
 {
     [Header("¥’e")]
     [SerializeField] protected GameObject bulletPrefab;//Œ‚‚¿‚¾‚·’e
