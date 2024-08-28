@@ -17,7 +17,7 @@ public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
     [Header("注:行動時間未満にしないと撃たれずに行動が終わってしまう")]
     [SerializeField] float delayTime;//行動開始から撃つまでの遅延時間、行動時間未満にしないと撃たれずに行動が終わってしまう
     private float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
-    private bool shoted;
+    private bool shoted;//弾を撃ったか
     [Header("▼GamePos")]
     [SerializeField] protected GameObject gamePos;//GamePos
     [Header("プレイヤー")]
@@ -52,14 +52,15 @@ public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
     {
         //攻撃を撃ちだす位置を取得
         Vector3 shotPos = shotPosObject.transform.position;
+        Quaternion shotRot = shotPosObject.transform.rotation;//角度
         //攻撃を配置する
-        GameObject Bullet = Instantiate(bulletPrefab, shotPos, transform.rotation, gamePos.transform);
+        GameObject bullet = Instantiate(bulletPrefab, shotPos, shotRot, gamePos.transform);
         //弾のRigidbodyを取得
-        Rigidbody bulletRb = Bullet.GetComponent<Rigidbody>();
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         //撃つ場所からプレイヤー方向のベクトルを算出&大きさを1に
         Vector3 toPlayer = (player.transform.position - shotPos).normalized;
         //攻撃の向きをプレイヤーのいる方向に変更
-        Bullet.transform.rotation = Quaternion.LookRotation(toPlayer, Vector3.up);
+        bullet.transform.rotation = Quaternion.LookRotation(toPlayer, Vector3.up);
         //弾を撃ちだす
         bulletRb.AddForce(toPlayer * shotPower, ForceMode.Impulse);
 
