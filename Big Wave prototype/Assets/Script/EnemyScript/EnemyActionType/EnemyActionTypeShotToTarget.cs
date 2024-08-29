@@ -8,18 +8,18 @@ using UnityEngine.InputSystem;
 public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
 {
     [Header("▼弾")]
-    [SerializeField] protected GameObject bulletPrefab;//撃ちだす弾
+    [SerializeField] GameObject bulletPrefab;//撃ちだす弾
     [Header("▼撃つ力")]
-    [SerializeField] protected float shotPower;//撃つ力
+    [SerializeField] float shotPower;//撃つ力
     [Header("▼弾を撃ちだす位置")]
-    [SerializeField] protected Transform shotPosObject;//弾を撃ちだす位置
+    [SerializeField] Transform shotPosObject;//弾を撃ちだす位置
     [Header("▼行動開始から撃つまでの遅延時間")]
     [Header("注:行動時間未満にしないと撃たれずに行動が終わってしまう")]
     [SerializeField] float delayTime;//行動開始から撃つまでの遅延時間、行動時間未満にしないと撃たれずに行動が終わってしまう
     private float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
     private bool shoted;//弾を撃ったか
     [Header("▼GamePos")]
-    [SerializeField] protected GameObject gamePos;//GamePos
+    [SerializeField] GameObject gamePos;//GamePos
     [Header("プレイヤー")]
     [SerializeField] GameObject player;//プレイヤー
     [Header("行動時のエフェクト")]

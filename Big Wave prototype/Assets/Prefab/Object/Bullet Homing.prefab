@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477d1cf916e4be34ab1119cdc5055b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteTime: 3
+  deleteTime: 4
 --- !u!114 &-644923674235814764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a260f14e78e7e02438606d5aad7173fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 20
   ifHitDestroy: 1
 --- !u!114 &2786028341355095735
 MonoBehaviour:
@@ -176,9 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dbef386c265d64a931cc4fa9562051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHomingTime: 0
-  homingTime: 1.5
-  homingSpeed: 80
 --- !u!114 &8780595793158528992
 MonoBehaviour:
   m_ObjectHideFlags: 0
