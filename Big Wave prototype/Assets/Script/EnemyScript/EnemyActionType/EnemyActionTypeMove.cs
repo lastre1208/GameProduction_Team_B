@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ì¬Ò:™R
+//“G‚Ì‰¡ˆÚ“®
 public class EnemyActionTypeMove : EnemyActionTypeBase
 {
     //™‰–‚ª‘‚¢‚½

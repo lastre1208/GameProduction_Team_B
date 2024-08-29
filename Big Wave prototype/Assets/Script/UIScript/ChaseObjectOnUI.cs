@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ChaseObjectOnUI : MonoBehaviour
 {
-    [SerializeField]
-    private Transform targetTfm;
-
+    [Header("UI‚ª’Ç‚¢‚©‚¯‚é‘ÎÛ")]
+    [SerializeField] Transform targetTfm;//UI‚ª’Ç‚¢‚©‚¯‚é‘ÎÛ
     private RectTransform myRectTfm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,6 @@ public class ChaseObjectOnUI : MonoBehaviour
 
     void Update()
     {
-        myRectTfm.position
-            = RectTransformUtility.WorldToScreenPoint(Camera.main, targetTfm.position);
+        myRectTfm.position = RectTransformUtility.WorldToScreenPoint(Camera.main, targetTfm.position);
     }
 }

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
+//作成者:杉山
+//(現在の)行動パターンを設定して、その行動パターンの処理をする
 public class AlgorithmOfEnemy : MonoBehaviour
 {
     [Header("最初の行動パターン")]
@@ -38,7 +38,6 @@ public class AlgorithmOfEnemy : MonoBehaviour
         else//行動終了
         {
             ChangeAction(selectAction.SelectAction());//行動変更
-           
         }
     }
 
