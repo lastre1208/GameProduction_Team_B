@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//押されたボタンから現在のトリックパターンを割り当てる、現在のトリックパターンの情報(効果音や消費トリックなど)と押されたボタンを返す
+//作成者:杉山
+//押されたボタンから現在のトリックパターンを割り当てる、現在のトリックパターンの情報(消費トリックやトリックの効果など)と押されたボタンを返す
 public class PushedButton_CurrentTrickPattern : MonoBehaviour
 {
     [Header("設定したいトリックパターン")]
     [Tooltip("設定したいトリックパターンはボタンの種類の数の分だけ設定してください")]
-    [SerializeField] TrickPattern[] trickPatterns;//設定したいトリックパターン
-    TrickPattern currentTrickPattern;//現在のトリックパターン
+    [SerializeField] TrickPatternTypeBase[] trickPatterns;//設定したいトリックパターン
+    TrickPatternTypeBase currentTrickPattern;//現在のトリックパターン
 
     public Button PushedButton//押されたボタンを返す
     {
@@ -21,14 +22,9 @@ public class PushedButton_CurrentTrickPattern : MonoBehaviour
         get { return currentTrickPattern.TrickCost; }
     }
 
-    public AudioClip SoundEffect//押したボタンに対応するトリックパターンの効果音を返す
+    public void TrickEffect()//トリックの効果
     {
-        get { return currentTrickPattern.SoundEffect; }
-    }
-
-    public float DamageAmount//押したボタンに対応するトリックパターンのダメージ量を返す
-    {
-        get { return currentTrickPattern.DamageAmount; }
+        currentTrickPattern.TrickEffect();//現在のトリックの効果
     }
 
 

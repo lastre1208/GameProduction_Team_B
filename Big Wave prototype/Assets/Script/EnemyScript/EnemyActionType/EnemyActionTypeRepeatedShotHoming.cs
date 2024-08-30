@@ -14,6 +14,8 @@ class BulletTypeShotHoming
     [Header("標的に向く速度")]
     [Tooltip("1秒間にhomingSpeed度の速度で向きます")]
     [SerializeField] float homingSpeed;//標的に向く速度
+    [Header("弾の移動速度")]
+    [SerializeField] float speed;//弾の移動速度
     [Header("▼弾を撃ちだす位置と角度")]
     [SerializeField] Transform shotPos;//弾を撃ちだす位置
     [Header("▼行動開始から撃つまでの遅延時間")]
@@ -48,10 +50,7 @@ class BulletTypeShotHoming
 
     public void SettingHomingBullet(HomingBullet bullet)//配置したホーミング弾の設定
     {
-        bullet.StartHomingTime = startHomingTime;
-        bullet.HomingTime = homingTime;
-        bullet.HomingSpeed = homingSpeed;
-
+        bullet.SetHomingBullet(startHomingTime, homingTime, homingSpeed, speed);
         shoted = true;
     }
 }
@@ -82,7 +81,10 @@ public class EnemyActionTypeRepeatedShotHoming : EnemyActionTypeBase
 
         for(int i=0;i<bullets.Length ;i++)
         {
-            if (bullets[i].JudgeShot(currentDelayTime)) Shot(bullets[i]);
+            if (bullets[i].JudgeShot(currentDelayTime))
+            {
+                Shot(bullets[i]);
+            }
         }
     }
 

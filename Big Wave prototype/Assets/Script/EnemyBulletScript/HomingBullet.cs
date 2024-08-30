@@ -6,54 +6,57 @@ using UnityEngine;
 //一定時間弾がホーミングしながら動く
 public class HomingBullet : MonoBehaviour
 {
-    float startHomingTime;//発射されて何秒後からホーミングし始めるか                      
-    float homingTime;//何秒間ホーミングするか
-    float homingSpeed;//標的に向く速度
+    float m_startHomingTime;//発射されて何秒後からホーミングし始めるか                      
+    float m_homingTime;//何秒間ホーミングするか
+    float m_homingSpeed;//標的に向く速度
+    float m_speed;//弾の移動速度
 
     private float currentHomingTime = 0;//現在のホーミング時間
     private float finishHomingTime;//発射されて何秒後にホーミングをやめるか
     Transform target;//ホーミング時の標的(プレイヤー)
 
-    public float StartHomingTime//発射されて何秒後からホーミングし始めるか
+    //引数のstartHomingTimeは発射されて何秒後からホーミングし始めるか、
+    //homingTimeは何秒間ホーミングするか
+    //homingSpeedは標的に向く速度
+    //speedは前方移動速度
+    public void SetHomingBullet(float startHomingTime,float homingTime,float homingSpeed,float speed)//ホーミング弾のステータス(標的に向く速度など)を設定
     {
-        set { currentHomingTime = value; }
-        get { return currentHomingTime; }
-    }
-
-    public float HomingTime//何秒間ホーミングするか
-    {
-        set { homingTime = value; }
-        get { return homingTime; }
-    }
-
-    public float HomingSpeed//標的に向く速度
-    {
-        set { homingSpeed = value; }
-        get { return homingSpeed;}
+        m_startHomingTime=startHomingTime;
+        m_homingTime=homingTime;
+        m_homingSpeed=homingSpeed;
+        m_speed=speed;
     }
 
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
-        finishHomingTime = startHomingTime + homingTime;//ホーミング終了時間を設定
+        finishHomingTime = m_startHomingTime + m_homingTime;//ホーミング終了時間を設定
     }
 
     void Update()
     {
         currentHomingTime += Time.deltaTime;
 
-        bool homingNow = (startHomingTime <= currentHomingTime && currentHomingTime <= finishHomingTime);
+        bool homingNow = (m_startHomingTime <= currentHomingTime && currentHomingTime <= finishHomingTime);
 
         if(homingNow)//時間になるまで標的の方向を見続ける
         {
-            Homing();
+            Homing();//標的を見続ける
         }
+
+        MoveForward();//前(見てる方向)に進み続ける
     }
 
     void Homing()//標的を見続ける
     {
         Vector3 targetPos = target.transform.position - transform.position;//自分の位置から標的の位置までのベクトルの取得
         Quaternion targetRotation = Quaternion.LookRotation(targetPos);//先ほどのベクトルから回転する角度を設定
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, homingSpeed*Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, m_homingSpeed*Time.deltaTime);
+    }
+
+    void MoveForward()//前(見てる方向)に進み続ける
+    {
+        Vector3 move = Vector3.forward;
+        transform.Translate(move * Time.deltaTime * m_speed);
     }
 }
