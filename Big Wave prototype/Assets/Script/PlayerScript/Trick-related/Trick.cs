@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+//作成者:杉山
 //トリックの発動と(登録された)トリック時の処理を呼ぶ
 public partial class Trick : MonoBehaviour
 {
