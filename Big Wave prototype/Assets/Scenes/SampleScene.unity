@@ -593,6 +593,11 @@ MonoBehaviour:
       - {fileID: 996687312}
       actionProbability: 3
       actionTime: 5
+    - action:
+      - {fileID: 1931415814}
+      - {fileID: 143768134}
+      actionProbability: 3
+      actionTime: 6
   formOfEnemy: {fileID: 98503837}
 --- !u!114 &98503834
 MonoBehaviour:
@@ -965,6 +970,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 37
+--- !u!1 &143768131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143768132}
+  - component: {fileID: 143768134}
+  - component: {fileID: 143768133}
+  m_Layer: 0
+  m_Name: ShotWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143768132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143768131}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654229758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143768133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143768131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374bb71fd8b6eb649b5557619282be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2787677570423539606, guid: 33b17c6704b264641911afb286a3e0b0, type: 3}
+  instantiatePos: {fileID: 72910807}
+  instantiateInOtherObject: 1
+  parent: {fileID: 1923540436}
+--- !u!114 &143768134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143768131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164b3d5072aaf0f4db2397bff0541aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
+  wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
+  wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
+  ground: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
+  width: 4
+  height: 4
+  generationProbability: 0.5
+  previewDisplayDuration: 5
+  transparencyCycleDuration: 0.5
+  previewDistanceFromPlayer: 2
+  matchCameraSize: 1
+  shotPower: 30
+  shotPosObject: {fileID: 1110614297}
+  delayTime: 1
+  shotTime: 2
+  gamePos: {fileID: 1923540436}
 --- !u!1001 &152158962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4452,6 +4534,7 @@ Transform:
   - {fileID: 1084221211}
   - {fileID: 1562493068}
   - {fileID: 996687314}
+  - {fileID: 143768132}
   m_Father: {fileID: 1565991088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654474178
