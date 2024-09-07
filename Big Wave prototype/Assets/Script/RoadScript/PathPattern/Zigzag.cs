@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class ZigzagRoad : RoadBase
+public class Zigzag : PathBase
 {
     // âùïúÇ∑ÇÈí∑Ç≥
     
     [SerializeField] private float length = 50;
     [SerializeField]  GameObject target;
     public float speed = 10;
-    public override void OnEnter(RoadBase roadBases_Entry)
+    public override void OnEnter(PathBase roadBases_Entry)
     {
         
     }
@@ -19,7 +19,7 @@ public class ZigzagRoad : RoadBase
         target.transform.Translate(Vector3.right * value * Time.deltaTime);
         
     }
-    public override void OnExit(RoadBase roadBases_Exit)
+    public override void OnExit(PathBase roadBases_Exit)
     {
       
     }

@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadAlgorithm : MonoBehaviour
+public class PathAlgorithm : MonoBehaviour
 {
-    [SerializeField] RoadPattern firstRoadPattern;
+    [SerializeField] PathPattern firstPathPattern;
     private float currentTime=0;
-    private float roadTime;
-    private RoadPattern currentroadPattern;
-    private SelectOfRoad selectRoad;
+    private float pathTime;
+    private PathPattern currentpathPattern;
+    private SelectOfPath selectPath;
     private bool waitNow = true;
     [SerializeField] float waitTime;
     private float countTime;
     // Start is called before the first frame update
     void Start()
     {
-        selectRoad = GetComponent<SelectOfRoad>();
-        ChangeRoad(firstRoadPattern);
+        selectPath = GetComponent<SelectOfPath>();
+        ChangePath(firstPathPattern);
     }
 
     // Update is called once per frame
@@ -26,16 +26,16 @@ public class RoadAlgorithm : MonoBehaviour
         if (!waitNow)
         {
             currentTime += Time.deltaTime;
-            bool roadNow = (currentTime < roadTime);
+            bool roadNow = (currentTime < pathTime);
 
             if (roadNow)
             {
-                currentroadPattern.Roadbase.OnUpdate();
+                currentpathPattern.Pathbase.OnUpdate();
             }
             else
             {
 
-                ChangeRoad(selectRoad.SelectRoad());
+                ChangePath(selectPath.SelectPath());
 
             }
         }
@@ -49,16 +49,16 @@ public class RoadAlgorithm : MonoBehaviour
             }
         }
     }
-    void ChangeRoad(RoadPattern nextroadPattern)
+    void ChangePath(PathPattern nextpathPattern)
     {
-        if(currentroadPattern != null)
+        if(currentpathPattern != null)
         {
-            currentroadPattern.Roadbase.OnExit(nextroadPattern.Roadbase);
+            currentpathPattern.Pathbase.OnExit(nextpathPattern.Pathbase);
 
-            nextroadPattern.Roadbase.OnEnter(currentroadPattern.Roadbase);
+            nextpathPattern.Pathbase.OnEnter(currentpathPattern.Pathbase);
         }
-        currentroadPattern = nextroadPattern;
+        currentpathPattern = nextpathPattern;
         currentTime = 0;
-        roadTime = nextroadPattern.RoadTime;
+        pathTime = nextpathPattern.pathTime;
     }
 }

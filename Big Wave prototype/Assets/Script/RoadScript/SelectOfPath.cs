@@ -2,40 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class RoadPattern
+public class PathPattern
 {
-    [SerializeField] RoadBase roadbase;
+    [SerializeField] PathBase pathbase;
 
-    [SerializeField] float Roadprobability;
-    [SerializeField] float roadTime;
+    [SerializeField] float Pathprobability;
+    [SerializeField] float PathTime;
 
 
-    public RoadBase Roadbase
+    public PathBase Pathbase
     {
         get
         {
-            return roadbase;
+            return pathbase;
         }
     }
-    public float RoadProbability
+    public float PathProbability
     {
         get
         {
-            return Roadprobability;
+            return Pathprobability;
         }
     }
-    public float RoadTime
+    public float pathTime
     {
         get
         {
-            return roadTime;
+            return PathTime;
         }
     }
 }
 
-public class SelectOfRoad : MonoBehaviour
+public class SelectOfPath : MonoBehaviour
 {
-    [SerializeField] RoadPattern[] roadPatterns;
+    [SerializeField] PathPattern[] pathPatterns;
     private float totalProbabilitySum;
 
     void Start()
@@ -43,15 +43,15 @@ public class SelectOfRoad : MonoBehaviour
         totalProbabilitySum = 0f;
 
         // 各パターンの確率の合計を計算
-        foreach (var pattern in roadPatterns)
+        foreach (var pattern in pathPatterns)
         {
-            totalProbabilitySum += pattern.RoadProbability;
+            totalProbabilitySum += pattern.PathProbability;
         }
     }
 
-    public RoadPattern SelectRoad()
+    public PathPattern SelectPath()
     {
-        if (roadPatterns == null || roadPatterns.Length == 0)
+        if (pathPatterns == null || pathPatterns.Length == 0)
         {
             Debug.LogError("No road patterns available.");
             return null;
@@ -60,9 +60,9 @@ public class SelectOfRoad : MonoBehaviour
         float randomValue = Random.Range(0f, totalProbabilitySum);
         float cumulativeProbability = 0f;
 
-        foreach (var pattern in roadPatterns)
+        foreach (var pattern in pathPatterns)
         {
-            cumulativeProbability += pattern.RoadProbability;
+            cumulativeProbability += pattern.PathProbability;
             if (randomValue <= cumulativeProbability)
             {
                 
@@ -73,6 +73,6 @@ public class SelectOfRoad : MonoBehaviour
 
         // Fallback (should not happen if probabilities are correctly set)
         Debug.LogWarning("Fallback to last pattern. Probabilities might not be correctly set.");
-        return roadPatterns[roadPatterns.Length - 1];
+        return pathPatterns[pathPatterns.Length - 1];
     }
 }
