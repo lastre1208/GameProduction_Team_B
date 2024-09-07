@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class SideRoad : RoadBase
+public class Side : PathBase
 {
     
     [SerializeField] private float sideNumber;
@@ -41,7 +41,7 @@ public class SideRoad : RoadBase
        
     }
 
-    public override void OnExit(RoadBase roadBases_Exit)
+    public override void OnExit(PathBase roadBases_Exit)
     {
         canMove = true;
        

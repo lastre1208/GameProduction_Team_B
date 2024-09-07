@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StraightRoad : RoadBase
+public class Straight : PathBase
 {
     [Header("前方移動速度")]
     [SerializeField] float speed = 40f;//前方移動速度

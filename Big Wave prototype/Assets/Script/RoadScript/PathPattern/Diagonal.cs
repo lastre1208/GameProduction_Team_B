@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DiagonalRoad : RoadBase
+public class Diagonal : PathBase
 {
     
     [SerializeField] private float diagonalNumber;
@@ -29,7 +29,7 @@ public class DiagonalRoad : RoadBase
         }
     }
 
-    public override void OnExit(RoadBase roadBases_Exit)
+    public override void OnExit(PathBase roadBases_Exit)
     {
         canDiagonal = true;
     }
