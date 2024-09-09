@@ -14,10 +14,11 @@ public class InstantiateWave : MonoBehaviour
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
     private float waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ
+    JudgeGameStart judgeGameStart;
     // Start is called before the first frame update
     void Start()
     {
-
+        judgeGameStart=GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,8 @@ public class InstantiateWave : MonoBehaviour
     //”g‚Ì¶¬AwaveIntervalTime‚ÌŠÔ‚²‚Æ‚É”g‚ğ¶¬‚·‚é
     void InstantiateWavePrefab()
     {
+        if (!judgeGameStart.IsStarted) return;//‚Ü‚¾ƒQ[ƒ€ŠJn‚³‚ê‚Ä‚È‚©‚Á‚½‚ç”g‚ğ¶¬‚µ‚È‚¢
+
         waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
 
         if (waveTime>waveIntervalTime)

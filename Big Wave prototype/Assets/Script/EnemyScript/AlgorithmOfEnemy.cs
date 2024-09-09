@@ -12,10 +12,12 @@ public class AlgorithmOfEnemy : MonoBehaviour
     private float actionTime;//行動時間、現在の行動時間(currentActionTime)がこれ以上になったら行動を変更する
     private ActionPattern currentActionPattern;//現在の行動パターン
     SelectActionOfEnemy selectAction;
+    JudgeGameStart judgeGameStart;
     // Start is called before the first frame update
     void Start()
     {
         selectAction=GetComponent<SelectActionOfEnemy>();
+        judgeGameStart = GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
 
         ChangeAction(firstActionPattern);//最初の行動を設定
     }
@@ -23,6 +25,13 @@ public class AlgorithmOfEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Algorithm();
+    }
+
+    void Algorithm()//行動アルゴリズムの処理
+    {
+        if (!judgeGameStart.IsStarted) return;//まだゲーム開始されてなかったら波を生成しない
+
         currentActionTime += Time.deltaTime;
 
         bool actionNow = (currentActionTime < actionTime);//現在行動しているか
