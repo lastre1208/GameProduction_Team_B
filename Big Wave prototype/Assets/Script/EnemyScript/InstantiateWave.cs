@@ -37,7 +37,7 @@ public class InstantiateWave : MonoBehaviour
         if (waveTime>waveIntervalTime)
         {
             waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
-            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬
+            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation/*, gamePos.transform*/);//”g‚ğ¶¬
             wave.transform.rotation = Quaternion.Euler(0, 180, 0);//”g‚ğŒã‚ëŒü‚«(ƒvƒŒƒCƒ„[•ûŒü)‚É‚·‚é
         }
     }
