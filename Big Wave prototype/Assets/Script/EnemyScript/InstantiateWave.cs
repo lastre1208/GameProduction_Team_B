@@ -9,15 +9,21 @@ public class InstantiateWave : MonoBehaviour
     [SerializeField] GameObject instantiateWavePos;//”g‚Ì¶¬ˆÊ’u
     [Header("”g‚ÌƒvƒŒƒnƒu")]
     [SerializeField] GameObject wavePrefab;//”g‚ÌƒvƒŒƒnƒu
-    [Header("”g‚ÌoŒ»ŠÔŠu")]
-    [SerializeField] float waveIntervalTime = 0.1f;//”g‚ÌoŒ»ŠÔŠu
+    [Header("‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu")]
+    [SerializeField] float waveInterval;//‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu
+    [Header("‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu")]
+    [Tooltip("ƒQ[ƒ€ŠJn‚©‚ç1ŒÂ–Ú‚Ì”g‚ğoŒ»‚³‚¹‚é‚Ü‚Å‚ÌŠÔB1ŒÂ–Ú‚Ì”g‚ğ¶¬‚µ‚½‚ç‚»‚êˆÈ~‚Íã‚Ì‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚Ä”g‚ğ¶¬‚·‚é")]
+    [SerializeField] float firstWaveInterval;//‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
-    private float waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ
+    private float m_waveTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
+    JudgeGameStart judgeGameStart;
     // Start is called before the first frame update
     void Start()
     {
-
+        judgeGameStart=GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
+        //‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚é‚½‚ß‚É”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğ‚»‚Ì•ª‚¸‚ç‚·
+        m_waveTime = 0 - (firstWaveInterval - waveInterval);
     }
 
     // Update is called once per frame
@@ -29,12 +35,14 @@ public class InstantiateWave : MonoBehaviour
     //”g‚Ì¶¬AwaveIntervalTime‚ÌŠÔ‚²‚Æ‚É”g‚ğ¶¬‚·‚é
     void InstantiateWavePrefab()
     {
-        waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
+        if (!judgeGameStart.IsStarted) return;//‚Ü‚¾ƒQ[ƒ€ŠJn‚³‚ê‚Ä‚È‚©‚Á‚½‚ç”g‚ğ¶¬‚µ‚È‚¢
 
-        if (waveTime>waveIntervalTime)
+        m_waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
+
+        if (m_waveTime>waveInterval)
         {
-            waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
-            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬
+            m_waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
+            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation/*, gamePos.transform*/);//”g‚ğ¶¬
             wave.transform.rotation = Quaternion.Euler(0, 180, 0);//”g‚ğŒã‚ëŒü‚«(ƒvƒŒƒCƒ„[•ûŒü)‚É‚·‚é
         }
     }
