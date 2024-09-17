@@ -131,7 +131,7 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
         enemy = GameObject.FindWithTag("Enemy");
-
+        Debug.Log("Wall");
         currentDelayTime = 0;
         elapsedTime = 0f;
         shoted = false;
