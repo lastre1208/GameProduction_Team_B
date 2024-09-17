@@ -11,18 +11,24 @@ public class HoverJump : MonoBehaviour
     [SerializeField] float hoverJumpStrength = 5f;//滞空終了時に起こるジャンプの強さ
     //private Coroutine coroutine;
     Rigidbody rb;
+    JudgeOnceReachedHighestPoint_Jumping judgeOnceReachedHighestPoint_Jumping;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        judgeOnceReachedHighestPoint_Jumping=GetComponent<JudgeOnceReachedHighestPoint_Jumping>();
     }
 
     public void HoverDelayJump()//hoverTime秒ホバーした後ジャンプする
     {
-        StartCoroutine(HoverJumpCoroutine());
+        bool hoverJump=judgeOnceReachedHighestPoint_Jumping.Reached;//ホバージャンプするか
+
+        Debug.Log(hoverJump);
+
+        if(hoverJump) StartCoroutine(HoverJumpCoroutine());//落ちている時のみホバージャンプ発動
     }
 
-    IEnumerator HoverJumpCoroutine()
+    IEnumerator HoverJumpCoroutine()//遅れてホバージャンプする
     {
         rb.useGravity = false;
         rb.velocity = Vector3.zero;//重力とジャンプの運動を一時的に止める
