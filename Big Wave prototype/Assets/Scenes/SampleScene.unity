@@ -2070,8 +2070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8887cb0e29220204087812f948cf6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diagonalNumber: 2
-  diagonalLimit: 35
+  diagonalNumber: 3.5
+  diagonalLimit: 90
   target: {fileID: 473982369}
 --- !u!1 &341573097
 GameObject:
@@ -3009,6 +3009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RopePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7854742912543304298, guid: 7e0de7da87147a844a8ec2b0baeedc73, type: 3}
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 1654557928}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3250,36 +3254,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473982369}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3395e28cb7ed1a24e8056961b18e9e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pathPatterns:
   - pathbase: {fileID: 323812096}
-    Pathprobability: 12
-    PathTime: 8
+    Pathprobability: 10
+    pathTime: 0
   - pathbase: {fileID: 453525860}
     Pathprobability: 0
-    PathTime: 0
+    pathTime: 0
   - pathbase: {fileID: 330532215}
-    Pathprobability: 12
-    PathTime: 8
+    Pathprobability: 10
+    pathTime: 0
   - pathbase: {fileID: 2062112556}
     Pathprobability: 8
-    PathTime: 8
+    pathTime: 0
   - pathbase: {fileID: 1348075426}
     Pathprobability: 8
-    PathTime: 8
+    pathTime: 0
   - pathbase: {fileID: 615097179}
     Pathprobability: 20
-    PathTime: 5
+    pathTime: 0
   - pathbase: {fileID: 1481323989}
     Pathprobability: 20
-    PathTime: 5
+    pathTime: 0
   - pathbase: {fileID: 1474075250}
     Pathprobability: 10
-    PathTime: 8
+    pathTime: 0
 --- !u!114 &473982373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3287,16 +3291,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473982369}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6efc3782df1714b8b95c78c2c84c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstPathPattern:
     pathbase: {fileID: 1481323989}
-    Pathprobability: 0
-    PathTime: 10
-  waitTime: 5
+    Pathprobability: 1
+    pathTime: 10
+  waitTime: 1
 --- !u!1 &474729211
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,6 +6108,10 @@ PrefabInstance:
     - target: {fileID: 1370720890797905826, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089350562911493022, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
+      propertyPath: deleteTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_Name
@@ -9712,7 +9720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bef9cd8e26c10e4d98dc86623913e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 0
   target: {fileID: 473982369}
 --- !u!1 &1503523459
 GameObject:
@@ -10553,6 +10561,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580649284}
   m_CullTransparentMesh: 1
+--- !u!1 &1654557928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4522856975581268854, guid: 7e0de7da87147a844a8ec2b0baeedc73, type: 3}
+  m_PrefabInstance: {fileID: 457547945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1656330841
 GameObject:
   m_ObjectHideFlags: 0
@@ -16420,9 +16433,10 @@ GameObject:
   - component: {fileID: 1923540442}
   - component: {fileID: 1923540441}
   - component: {fileID: 1923540443}
+  - component: {fileID: 1923540444}
   m_Layer: 0
   m_Name: GamePos
-  m_TagString: Untagged
+  m_TagString: AvoidNow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16440,7 +16454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limitMoveObjects:
-  - range: 7
+  - range: 14
     limitObjects: {fileID: 1244729524}
   - range: 7
     limitObjects: {fileID: 98503817}
@@ -16459,8 +16473,8 @@ Transform:
   m_Children:
   - {fileID: 1244729529}
   - {fileID: 98503821}
-  - {fileID: 963194228}
   - {fileID: 1747679736}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923540440
@@ -16504,7 +16518,7 @@ MonoBehaviour:
   firstPathPattern:
     pathbase: {fileID: 0}
     Pathprobability: 0
-    PathTime: 0
+    pathTime: 0
   waitTime: 5
 --- !u!114 &1923540443
 MonoBehaviour:
@@ -16519,6 +16533,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadingObject: {fileID: 473982371}
+  waitTime: 3
+--- !u!114 &1923540444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923540436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4380f9b42b05610449997306043d3a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leadingObject: {fileID: 473982371}
+  waitTime: 3.3
 --- !u!1 &1931415812
 GameObject:
   m_ObjectHideFlags: 0

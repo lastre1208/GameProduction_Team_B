@@ -7,7 +7,7 @@ public class PathPattern
     [SerializeField] PathBase pathbase;
 
     [SerializeField] float Pathprobability;
-    [SerializeField] float PathTime;
+    [SerializeField] float pathTime;
 
 
     public PathBase Pathbase
@@ -24,11 +24,11 @@ public class PathPattern
             return Pathprobability;
         }
     }
-    public float pathTime
+    public float PathTime
     {
         get
         {
-            return PathTime;
+            return pathTime;
         }
     }
 }

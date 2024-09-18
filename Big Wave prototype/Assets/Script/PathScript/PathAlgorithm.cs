@@ -59,6 +59,6 @@ public class PathAlgorithm : MonoBehaviour
         }
         currentpathPattern = nextpathPattern;
         currentTime = 0;
-        pathTime = nextpathPattern.pathTime;
+        pathTime = nextpathPattern.PathTime;
     }
 }
