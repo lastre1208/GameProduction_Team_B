@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,11 +8,11 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ
-    [Header("壁の生成範囲")]
+    [Header("▼壁の生成範囲")]
     [SerializeField] GameObject wallAreaPrefab;//壁を生成する範囲のプレハブ
-    [Header("攻撃範囲の予告表示")]
+    [Header("▼攻撃範囲の予告表示")]
     [SerializeField] GameObject wallPreviewPrefab;//壁の範囲予告用のプレハブ
-    [Header("壁の生成範囲の底辺")]
+    [Header("▼壁の生成範囲の底辺")]
     [SerializeField] GameObject ground;//壁の生成範囲の底辺のプレハブ
 
     [Header("▼生成する壁の横の分割数")]
@@ -28,8 +29,8 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
     [Header("▼透明度が変化するサイクルの時間")]
     [SerializeField] float transparencyCycleDuration = 0.5f;//透明度が変化するサイクルの時間
 
-    [Header("▼攻撃予告表示のプレイヤーからの距離")]
-    [SerializeField] float previewDistanceFromPlayer = 2.0f;//プレイヤーからの距離
+    [Header("▼攻撃予告表示を生成する位置")]
+    [SerializeField] protected Transform spawnPosOfWallPreview;//攻撃予告表示を生成する位置
 
     [Header("▼生成範囲をゲーム画面に合わせるかどうか")]
     [SerializeField] bool matchCameraSize = true;//カメラの大きさに合わせるかどうか
@@ -39,17 +40,15 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
     [Header("▼弾を撃ちだす位置")]
     [SerializeField] protected Transform shotPosObject;//弾を撃ちだす位置
 
-    [Header("▼行動開始から撃つまでの遅延時間")]
+    [Header("▼壁を生成してから撃つまでの遅延時間")]
     [Header("注:行動時間未満にしないと撃たれずに行動が終わってしまう")]
-    [SerializeField] float delayTime;//行動開始から撃つまでの遅延時間、行動時間未満にしないと撃たれずに行動が終わってしまう
-
-    [Header("▼壁を生成してから力を加えるまでの時間")]
-    [SerializeField] float shotTime = 2.0f;//壁を生成してから力を加えるまでの時間
+    [SerializeField] float delayTime = 2.0f;//行動開始から撃つまでの遅延時間、行動時間未満にしないと撃たれずに行動が終わってしまう
 
     [Header("▼GamePos")]
     [SerializeField] protected GameObject gamePos;//GamePos
 
-    GameObject enemy;
+    [Header("行動時のエフェクト")]
+    [SerializeField] ActionEffect actionEffect;
 
     GameObject wallAreaInstance;
 
@@ -57,11 +56,7 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
 
     private float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
 
-    private float elapsedTime;//経過時間の計測用
-
-    private bool shoted;
-
-    bool nowCenter;//画面の中央にいるかどうか
+    bool shoted;//弾を撃ったか
 
     public GameObject WallPrefab
     {
@@ -111,11 +106,6 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
         get { return transparencyCycleDuration; }
     }
 
-    public float PreviewDistanceFromPlayer
-    {
-        get { return previewDistanceFromPlayer; }
-    }
-
     public bool MatchCameraSize
     {
         get { return matchCameraSize; }
@@ -127,61 +117,49 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
         set { wallAreaInstance = value; }
     }
 
+    public Transform SpawnPosOfWallPreview
+    {
+        get { return spawnPosOfWallPreview; }
+    }
+
+    public Transform ShotPosObject
+    {
+        get { return shotPosObject; }
+    }
+
+    public GameObject GamePos
+    {
+        get { return gamePos; }
+    }
 
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
-        enemy = GameObject.FindWithTag("Enemy");
         Debug.Log("Wall");
+
         currentDelayTime = 0;
-        elapsedTime = 0f;
-        shoted = false;
-        nowCenter = false;
+
+        actionEffect.Generate();//エフェクト生成
     }
 
     public override void OnUpdate()
     {
-        currentDelayTime += Time.deltaTime;
-
-        Camera mainCamera = Camera.main;
-        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, mainCamera.nearClipPlane);
-        Vector3 worldCenter = mainCamera.ScreenToWorldPoint(screenCenter);
-
-        // 敵オブジェクトが壁を生成していないかつ、画面の中央にいるなら
-        if (nowCenter)
+        if (!shoted)
         {
-            enemy.GetComponent<Rigidbody>().isKinematic = true;
-            enemy.transform.position = new Vector3(worldCenter.x, enemy.transform.position.y, enemy.transform.position.z);
-        }
-
-        if (IsEnemyInCenter(worldCenter.x))
-        {
-            nowCenter = true;
-
-            if (currentDelayTime >= delayTime && !shoted)//指定の遅延時間に達したかつまだ弾を撃っていない時
+            if (wallAreaInstance == null)
             {
-                if (wallAreaInstance == null)
-                {
-                    GenerateWallArea();
-                }
+                GenerateWallArea();
+            }
 
-                else
-                {
-                    Shot();
-                }
+            else
+            {
+                Shot();
             }
         }
     }
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)
     {
-        enemy.GetComponent<Rigidbody>().isKinematic = false;
-    }
-
-    bool IsEnemyInCenter(float worldCenterX)
-    {
-        float threshold = 0.5f;
-
-        return Mathf.Abs(enemy.transform.position.x - worldCenterX) <= threshold;
+        shoted = false;
     }
 
     void GenerateWallArea()
@@ -201,43 +179,19 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
 
             //弾のRigidbodyを取得
             bulletRb = wallAreaInstance.GetComponent<Rigidbody>();
-
-            elapsedTime = 0f;
         }
     }
 
     void Shot() //弾を撃つ
     {
-        /*if (wallAreaInstance == null)
+        currentDelayTime += Time.deltaTime;
+
+        if (currentDelayTime > delayTime)
         {
-            //攻撃を撃ちだす位置を取得
-            Vector3 shotPos = shotPosObject.transform.position;
-            Quaternion shotRot = shotPosObject.transform.rotation;
+            //弾を撃ちだす
+            bulletRb.AddForce(-transform.forward * shotPower, ForceMode.Impulse);
 
-            wallAreaInstance = Instantiate(wallAreaPrefab, shotPos, shotRot, gamePos.transform);
-
-            WallBullet wallBulletScript = wallAreaInstance.AddComponent<WallBullet>();
-
-            //ToggleColliderOfWallBulletにwallBulletの参照を設定
-            wallBulletScript.SetWallBullet(this);
-
-            //弾のRigidbodyを取得
-            bulletRb = wallAreaInstance.GetComponent<Rigidbody>();
-
-            elapsedTime = 0f;
-        }*/
-
-        //else
-        //{
-            elapsedTime += Time.deltaTime;
-
-            if (elapsedTime > shotTime)
-            {
-                //弾を撃ちだす
-                bulletRb.AddForce(-transform.forward * shotPower, ForceMode.Impulse);
-
-                shoted = true;
-            }
-        //}
+            shoted = true;
+        }
     }
 }

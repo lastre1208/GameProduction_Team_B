@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
-//配列ごとに生成する確率を設定できるようにする
 
 public class WallBullet : MonoBehaviour
 {
@@ -14,11 +13,9 @@ public class WallBullet : MonoBehaviour
 
     Camera mainCamera;
 
-    GameObject player;
-
     EnemyActionTypeShotWall enemyActionTypeShotWall;
 
-    private float elapsedTime;//経過時間の計測用
+    private float currentDelayTime;//経過時間の計測用
 
     private float groundY;//地面のY座標
 
@@ -43,9 +40,8 @@ public class WallBullet : MonoBehaviour
         if (enemyActionTypeShotWall.WallAreaInstance != null)
         {
             wallAreaRigidbody = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Rigidbody>();
-            groundY = enemyActionTypeShotWall.Ground.GetComponent<Renderer>().bounds.min.y;//地面の最低Y座標を取得
 
-            player = GameObject.FindWithTag("Player");
+            groundY = enemyActionTypeShotWall.Ground.GetComponent<Renderer>().bounds.min.y;//地面の最低Y座標を取得
 
             mainCamera = Camera.main;
 
@@ -59,24 +55,24 @@ public class WallBullet : MonoBehaviour
 
             generated = true;
 
-            elapsedTime = 0f;
+            currentDelayTime = 0f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        elapsedTime += Time.deltaTime;
+        currentDelayTime += Time.deltaTime;
 
-        if (elapsedTime < enemyActionTypeShotWall.PreviewDisplayDuration)
+        if (currentDelayTime < enemyActionTypeShotWall.PreviewDisplayDuration)
         {
-            float alpha = Mathf.PingPong(elapsedTime / enemyActionTypeShotWall.TransparencyCycleDuration * 255f, 255f);
+            float alpha = Mathf.PingPong(currentDelayTime / enemyActionTypeShotWall.TransparencyCycleDuration * 255f, 255f);
             SetPreviewTransparency(alpha / 255f);//攻撃範囲予告の透明度を設定する
         }
 
         else//一定時間経過が経過したら
         {
-            DisableWallPreview();//攻撃範囲の予告の無効化処理
+            DisableWallsPreview();//攻撃範囲の予告の無効化処理
         }
 
         AddForceToWalls();//壁に力を加える
@@ -99,11 +95,11 @@ public class WallBullet : MonoBehaviour
 
         float wallAreaHeight = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Renderer>().bounds.size.y;//壁の生成範囲プレハブの高さを取得
 
-        Vector3 wallAreaPosition = enemyActionTypeShotWall.WallAreaInstance.transform.position;//壁の生成範囲プレハブの現在位置を取得
+        Vector3 wallAreaPos = enemyActionTypeShotWall.WallAreaInstance.transform.position;//壁の生成範囲プレハブの現在位置を取得
 
-        wallAreaPosition.y = groundY + wallAreaHeight / 2;//壁の生成範囲プレハブのY座標を地面の高さに合わせる        
+        wallAreaPos.y = groundY + wallAreaHeight / 2;//壁の生成範囲プレハブのY座標を地面の高さに合わせる        
 
-        enemyActionTypeShotWall.WallAreaInstance.transform.position = wallAreaPosition;//壁の生成範囲プレハブの位置を設定
+        enemyActionTypeShotWall.WallAreaInstance.transform.position = wallAreaPos;//壁の生成範囲プレハブの位置を設定
     }
 
     void GenerateWalls()
@@ -117,7 +113,7 @@ public class WallBullet : MonoBehaviour
             for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
             {
                 //壁のプレハブを生成し、壁の生成範囲プレハブの子オブジェクトに設定
-                GameObject wallInstance = Instantiate(enemyActionTypeShotWall.WallPrefab, this.transform);
+                GameObject wallInstance = Instantiate(enemyActionTypeShotWall.WallPrefab, enemyActionTypeShotWall.WallAreaInstance.transform);
 
                 if (wallInstance != null)
                 {
@@ -148,17 +144,13 @@ public class WallBullet : MonoBehaviour
     void PositioningWalls()
     {
         Vector3 size_WallArea = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Renderer>().bounds.size;//壁の生成範囲プレハブの大きさを取得
-        Vector3 size_Wall = walls[0, 0].GetComponent<Renderer>().bounds.size;//生成された壁プレハブの大きさを取得        
-
-        Vector3 wallAreaPosition = enemyActionTypeShotWall.WallAreaInstance.transform.position;//壁の生成範囲プレハブの位置を取得
-        Vector3 wallAreaMin = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Renderer>().bounds.min;//壁の生成範囲プレハブの最小座標を取得
+        Vector3 size_Wall = walls[0, 0].GetComponent<Renderer>().bounds.size;//生成された壁プレハブの大きさを取得
 
         //壁プレハブのスケール計算
         Vector3 scaleFactor = new Vector3(
-             size_WallArea.x / (enemyActionTypeShotWall.Width * size_Wall.x),//X軸の大きさ調整用
-             size_WallArea.y / (enemyActionTypeShotWall.Height * size_Wall.y),//Y軸の大きさ調節用
-             size_WallArea.z / size_Wall.z);//Z軸の大きさ調節用
-
+        size_WallArea.x / (enemyActionTypeShotWall.Width * size_Wall.x),//X軸の大きさを調整
+        size_WallArea.y / (enemyActionTypeShotWall.Height * size_Wall.y),//Y軸の大きさを調整
+        size_WallArea.z);
 
         for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
         {
@@ -167,12 +159,13 @@ public class WallBullet : MonoBehaviour
                 walls[i, j].transform.localScale = scaleFactor;//それぞれの壁プレハブの大きさを設定
 
                 //壁プレハブを配置する位置の計算
-                Vector3 pos_Wall = new Vector3(
-                    wallAreaMin.x + size_Wall.x * scaleFactor.x * j + size_Wall.x * scaleFactor.x / 2,//X座標の計算
-                    groundY + size_Wall.y * scaleFactor.y / 2 + i * size_Wall.y * scaleFactor.y,//Y座標の計算
-                    wallAreaPosition.z);//Z座標の設定
+                Vector3 localPos_Wall = new Vector3(
+                (j - (enemyActionTypeShotWall.Width / 2f) + 0.5f) * scaleFactor.x,//x軸の位置調整
+                (i - (enemyActionTypeShotWall.Height / 2f) + 0.5f) * scaleFactor.y,//y軸の位置調整
+                0);
 
-                walls[i, j].transform.position = pos_Wall;//それぞれの壁プレハブの位置を設定                
+                //ローカル座標系での位置設定
+                walls[i, j].transform.localPosition = localPos_Wall;//それぞれの壁プレハブの位置を設定
             }
         }
     }
@@ -187,9 +180,7 @@ public class WallBullet : MonoBehaviour
             {
                 if (walls[i, j].activeSelf)//壁プレハブが有効なら
                 {
-                    //攻撃範囲の予告プレハブを生成し、壁プレハブの位置とスケールを取得して設定
-                    wallsPreview[i, j] = Instantiate(enemyActionTypeShotWall.WallPreviewPrefab, walls[i, j].transform.position, walls[i, j].transform.rotation, this.transform);
-                    wallsPreview[i, j].transform.localScale = walls[i, j].transform.localScale;
+                    wallsPreview[i, j] = Instantiate(enemyActionTypeShotWall.WallPreviewPrefab, enemyActionTypeShotWall.WallAreaInstance.transform);
                     wallsPreview[i, j].SetActive(true);//攻撃範囲予告プレハブを有効化
                 }
             }
@@ -198,8 +189,11 @@ public class WallBullet : MonoBehaviour
 
     void PositioningWallsPreview()//攻撃範囲の予告プレハブの位置を調整
     {
-        //プレイヤーからの距離を考慮した位置を計算
-        Vector3 previewBasePosition = player.transform.position + player.transform.forward * enemyActionTypeShotWall.PreviewDistanceFromPlayer;
+        //SpawnPosOfWallPreviewのワールド座標を取得
+        Vector3 spawnPosWorld = enemyActionTypeShotWall.SpawnPosOfWallPreview.transform.position;
+
+        //wallAreaInstanceのローカル座標系に変換
+        Vector3 spawnPosLocal = enemyActionTypeShotWall.WallAreaInstance.transform.InverseTransformPoint(spawnPosWorld);
 
         for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
         {
@@ -207,18 +201,21 @@ public class WallBullet : MonoBehaviour
             {
                 if (wallsPreview[i, j] != null)//攻撃範囲の予告プレハブが存在するなら
                 {
-                    Vector3 wallsPosition = walls[i, j].transform.position;//壁プレハブの位置を取得
+                    wallsPreview[i, j].transform.localScale = walls[i, j].transform.localScale;
 
-                    //攻撃範囲の予告プレハブの位置を設定、Z座標をプレイヤーオブジェクトの前面に合わせる
-                    wallsPreview[i, j].transform.position = new Vector3(
-                        wallsPosition.x, wallsPosition.y, previewBasePosition.z
-                        );
+                    Vector3 wallsPreviewPos = walls[i, j].transform.localPosition;
+
+                    //攻撃範囲の予告プレハブの位置を設定
+                    wallsPreview[i, j].transform.localPosition = new Vector3(
+                    wallsPreviewPos.x,//x座標を調整
+                    wallsPreviewPos.y,//y座標を調整
+                    spawnPosLocal.z);//z座標をSpawnPosOfWallPreviewのz座標に合わせる
                 }
             }
         }
     }
 
-    void DisableWallPreview()//攻撃範囲の予告の無効化処理
+    void DisableWallsPreview()//攻撃範囲の予告の無効化処理
     {
         for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
         {
@@ -226,13 +223,13 @@ public class WallBullet : MonoBehaviour
             {
                 if (wallsPreview[i, j] != null)
                 {
-                    wallsPreview[i, j].SetActive(false);  // 攻撃範囲の予告プレハブを無効化
+                    wallsPreview[i, j].SetActive(false);//攻撃範囲の予告プレハブを無効化
                 }
             }
         }
     }
 
-    void SetPreviewTransparency(float alpha)//攻撃範囲の予告プレハブの透明度を設定
+    void SetPreviewTransparency(float alpha)//攻撃範囲の予告の透明度を設定
     {
         for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
         {
@@ -262,7 +259,7 @@ public class WallBullet : MonoBehaviour
 
             for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
             {
-                for (int j = 0; j < enemyActionTypeShotWall.Height; j++)
+                for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
                 {
                     if (walls[i, j] != null)
                     {
