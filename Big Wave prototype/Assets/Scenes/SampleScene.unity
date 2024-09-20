@@ -970,13 +970,16 @@ MonoBehaviour:
   generationProbability: 0.5
   previewDisplayDuration: 5
   transparencyCycleDuration: 0.5
-  previewDistanceFromPlayer: 2
+  spawnPosOfWallPreview: {fileID: 0}
   matchCameraSize: 1
   shotPower: 30
   shotPosObject: {fileID: 1110614297}
   delayTime: 1
-  shotTime: 2
   gamePos: {fileID: 1923540436}
+  actionEffect:
+    generate: 1
+    generateEffect: {fileID: 0}
+    delayTime: 0
 --- !u!1001 &152158962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3238,7 +3241,7 @@ Transform:
   m_GameObject: {fileID: 473982369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 140}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3262,28 +3265,28 @@ MonoBehaviour:
   pathPatterns:
   - pathbase: {fileID: 323812096}
     Pathprobability: 10
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 453525860}
-    Pathprobability: 0
-    pathTime: 0
+    Pathprobability: 10
+    pathTime: 8
   - pathbase: {fileID: 330532215}
     Pathprobability: 10
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 2062112556}
     Pathprobability: 8
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 1348075426}
     Pathprobability: 8
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 615097179}
     Pathprobability: 20
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 1481323989}
     Pathprobability: 20
-    pathTime: 0
+    pathTime: 8
   - pathbase: {fileID: 1474075250}
     Pathprobability: 10
-    pathTime: 0
+    pathTime: 8
 --- !u!114 &473982373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3298,9 +3301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPathPattern:
     pathbase: {fileID: 1481323989}
-    Pathprobability: 1
+    Pathprobability: 0
     pathTime: 10
-  waitTime: 1
+  waitTime: 5
 --- !u!1 &474729211
 GameObject:
   m_ObjectHideFlags: 0
@@ -16430,13 +16433,13 @@ GameObject:
   - component: {fileID: 1923540439}
   - component: {fileID: 1923540438}
   - component: {fileID: 1923540440}
+  - component: {fileID: 1923540444}
   - component: {fileID: 1923540442}
   - component: {fileID: 1923540441}
   - component: {fileID: 1923540443}
-  - component: {fileID: 1923540444}
   m_Layer: 0
   m_Name: GamePos
-  m_TagString: AvoidNow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16547,7 +16550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadingObject: {fileID: 473982371}
-  waitTime: 3.3
+  waitTime: 1
+  lerpSpeed: 1
 --- !u!1 &1931415812
 GameObject:
   m_ObjectHideFlags: 0
