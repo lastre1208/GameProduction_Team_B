@@ -12,8 +12,6 @@ public class ChargeTrickPoint : MonoBehaviour
     [SerializeField] ChangeChargeRateTheCharger changeChargeRateTheCharger;//現在のトリック量によりチャージ倍率を変化させる
     [Header("波に乗るほどチャージ倍率を変化させる機能")]
     [SerializeField] ChangeChargeRateTheSurfer changeChargeRateTheSurfer;//波に乗るほどチャージ倍率を変化させる
-    [Header("チャージ時のみエフェクトを表示する機能")]
-    [SerializeField] DisplayChargeTrickEffect displayChargeTrickEffect;//チャージ時のみエフェクトを表示する
     [Header("波に乗るほどチャージ時のエフェクトの大きさが変化する機能")]
     [SerializeField] ChangeChargeTrickEffectTheSurfer changeChargeTrickEffectTheSurfer;//波に乗るほどチャージ時のエフェクトの大きさが変化する
 
@@ -36,7 +34,6 @@ public class ChargeTrickPoint : MonoBehaviour
 
         //内部クラスの各機能の最初のフレームの処理
         changeChargeRateTheSurfer.StartChangeRatePerSecond();
-        displayChargeTrickEffect.StartChargeEffect();
         changeChargeTrickEffectTheSurfer.StartScale();
         changeChargeTrickEffectTheSurfer.StartChargeRate(changeChargeRateTheSurfer.NormalChargeRate,changeChargeRateTheSurfer.ChargeRateMax);
     }
@@ -47,7 +44,6 @@ public class ChargeTrickPoint : MonoBehaviour
         //内部クラスの各機能の毎フレーム処理
         changeChargeRateTheSurfer.ChangeChargeRate();
         changeChargeRateTheSurfer.CheckJumpNow_TouchWaveNow(judgeJumpNow.JumpNow(),judgeTouchWave.TouchWaveNow);
-        displayChargeTrickEffect.Display(judgeChargeTrickPointNow.ChargeNow());
         changeChargeTrickEffectTheSurfer.ChangeEffectScale(changeChargeRateTheSurfer.ChargeRate());
     }
 
@@ -177,28 +173,6 @@ public class ChargeTrickPoint : MonoBehaviour
             return chargeRateNow;
         }
        
-    }
-
-
-
-    //チャージ時のみエフェクトを表示する
-    [System.Serializable]
-    private class DisplayChargeTrickEffect
-    {
-        [Header("チャージ時のエフェクト")]
-        [SerializeField] GameObject chargeEffect;//チャージ時のエフェクト
-
-        //チャージ時のエフェクトの初期化(start)
-        public void StartChargeEffect()
-        {
-            chargeEffect.SetActive(false);//ゲーム開始時チャージ時のエフェクトを非表示
-        }
-
-        //トリックをチャージしている時のみチャージ時のエフェクトを表示(update)
-        public void Display(bool chargeNow)
-        {
-            chargeEffect.SetActive(chargeNow);
-        }
     }
 
 
