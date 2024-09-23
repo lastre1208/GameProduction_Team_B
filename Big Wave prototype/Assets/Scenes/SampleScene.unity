@@ -7775,6 +7775,8 @@ GameObject:
   - component: {fileID: 1244729568}
   - component: {fileID: 1244729565}
   - component: {fileID: 1244729570}
+  - component: {fileID: 1244729574}
+  - component: {fileID: 1244729575}
   - component: {fileID: 1244729572}
   - component: {fileID: 1244729569}
   - component: {fileID: 1244729573}
@@ -8300,21 +8302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeChargeRateTheCharger:
-    chargeRate:
-    - 1
-    - 0.9
-    - 0.7
-    - 0.6
-    - 0.4
-    - 0.3
-  changeChargeRateTheSurfer:
-    chargeRateMax: 3
-    byMaxRateTime: 10
-    minusChargeRateSpeed: 2
-  changeChargeTrickEffectTheSurfer:
-    chargeEffect: {fileID: 1722439556}
-    maxScaleRate: 4
 --- !u!114 &1244729571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8384,6 +8371,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1244729574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df421f08466e984cabb0c095878978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRateMax: 3
+  byMaxRateTime: 10
+  minusChargeRateSpeed: 2
+--- !u!114 &1244729575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5e96ce97f369d48a578ada73e657f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 0.9
+  - 0.7
+  - 0.6
+  - 0.4
+  - 0.3
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0
@@ -11148,6 +11169,7 @@ GameObject:
   - component: {fileID: 1722439559}
   - component: {fileID: 1722439558}
   - component: {fileID: 1722439557}
+  - component: {fileID: 1722439560}
   m_Layer: 0
   m_Name: Charge Particle
   m_TagString: Untagged
@@ -15968,6 +15990,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1722439560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722439556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d5060ebe118154ba1e99f9aee0af9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScaleRate: 4
 --- !u!114 &1728219623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1299993265973752346, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
