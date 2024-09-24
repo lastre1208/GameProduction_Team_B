@@ -8499,8 +8499,8 @@ MonoBehaviour:
   - {fileID: 227379693}
   - {fileID: 218077324}
   - {fileID: 778241750}
-  passEffect: {fileID: 4290943957260505236, guid: 55d42c01b3865f347831b56f10628e22, type: 3}
-  landEffect: {fileID: 4290943957260505236, guid: c84ff9c7d1ae52a4097524e5a22c246b, type: 3}
+  passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
+  landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
   transitNextPosTime: 0.1
 --- !u!1 &1248422115
 GameObject:
