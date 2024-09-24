@@ -50,7 +50,7 @@ public class AlgorithmOfEnemy : MonoBehaviour
         }
     }
 
-    void ChangeAction(ActionPattern nextActionPattern)//行動変更
+    public void ChangeAction(ActionPattern nextActionPattern)//行動変更
     {
         //現在の行動の行動終了時の処理
 
