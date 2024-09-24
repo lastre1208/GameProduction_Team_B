@@ -23,8 +23,6 @@ public class HoverJump : MonoBehaviour
     {
         bool hoverJump=judgeOnceReachedHighestPoint_Jumping.Reached;//ホバージャンプするか
 
-        Debug.Log(hoverJump);
-
         if(hoverJump) StartCoroutine(HoverJumpCoroutine());//落ちている時のみホバージャンプ発動
     }
 
