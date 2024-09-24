@@ -5,6 +5,7 @@ using TMPro;
 public class DebugScript : MonoBehaviour
 {
     [SerializeField] HP player;
+    [SerializeField] HP enemy;
     [SerializeField]  TMP_Text debug;
     [SerializeField]ActionPattern actionPattern_a;
     [SerializeField] ActionPattern actionPattern_b;
@@ -22,10 +23,11 @@ public class DebugScript : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             player.HpMax=99999;
             player.Hp = 99999;
+           
             debug.enabled = true;
         
         }
@@ -40,6 +42,11 @@ public class DebugScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.V))
         {
             algorithm.ChangeAction(actionPattern_c);
-        }    
+        }
+        else if(Input.GetKeyDown(KeyCode.W)) {
+
+            enemy.HpMax = 10;
+            enemy.Hp = 1;
+        }
     }
 }
