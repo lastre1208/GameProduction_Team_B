@@ -23,6 +23,7 @@ public class HP : MonoBehaviour
     public float HpMax
     {
         get { return hpMax; }
+        set { hpMax = value; }
     }
 
     // Start is called before the first frame update
