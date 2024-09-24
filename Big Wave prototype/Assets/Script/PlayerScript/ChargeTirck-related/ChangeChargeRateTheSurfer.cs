@@ -45,7 +45,6 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
     void Update()
     {
         ChangeChargeRate();
-        Debug.Log(currentChargeRate);
     }
 
     //ƒ`ƒƒ[ƒW”{—¦‚ğ•Ï‰»‚³‚¹‚é
