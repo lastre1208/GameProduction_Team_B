@@ -483,7 +483,7 @@ MonoBehaviour:
     - action:
       - {fileID: 1507679698}
       - {fileID: 1343859080}
-      actionProbability: 1000
+      actionProbability: 10
       actionTime: 3
     - action:
       - {fileID: 1507679698}
@@ -8785,7 +8785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 350000
+  hpMax: 350
 --- !u!114 &1244729563
 MonoBehaviour:
   m_ObjectHideFlags: 0
