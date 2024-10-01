@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyActionTypeShotHoming : EnemyActionTypeBase
 {
+    [SerializeField] Animator anim;
+
+
     [Header("▼ホーミングする弾")]
     [SerializeField] HomingBullet bulletPrefab;//ホーミング弾
     [Header("発射されて何秒後からホーミングし始めるか")]
@@ -33,6 +36,7 @@ public class EnemyActionTypeShotHoming : EnemyActionTypeBase
         currentDelayTime = 0;
         shoted = false;
         actionEffect.Generate();//エフェクト生成
+        anim.SetTrigger("Attack");
     }
 
     public override void OnUpdate()

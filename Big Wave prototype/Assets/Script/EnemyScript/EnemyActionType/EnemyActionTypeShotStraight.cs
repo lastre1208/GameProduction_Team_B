@@ -6,6 +6,9 @@ using UnityEngine;
 //“G‚Ì’e(UŒ‚)‚Ì’¼üŒ‚‚¿
 public class EnemyActionTypeShotStraight : EnemyActionTypeBase
 {
+    [SerializeField] Animator anim;
+
+
     [Header("¥’e")]
     [SerializeField] GameObject bulletPrefab;//Œ‚‚¿‚¾‚·’e
     [Header("¥Œ‚‚Â—Í")]
@@ -28,6 +31,7 @@ public class EnemyActionTypeShotStraight : EnemyActionTypeBase
         currentDelayTime = 0;
         shoted = false;
         actionEffect.Generate();//ƒGƒtƒFƒNƒg¶¬
+        anim.SetTrigger("Attack");
     }
 
     public override void OnUpdate()
@@ -42,7 +46,7 @@ public class EnemyActionTypeShotStraight : EnemyActionTypeBase
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)
     {
-
+    
     }
 
 
