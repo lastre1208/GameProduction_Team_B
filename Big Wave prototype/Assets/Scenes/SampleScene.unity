@@ -2551,7 +2551,7 @@ GameObject:
   - component: {fileID: 356120019}
   - component: {fileID: 356120020}
   m_Layer: 5
-  m_Name: CriticalButton
+  m_Name: GuideButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3742,7 +3742,39 @@ Transform:
   - {fileID: 1114562918}
   - {fileID: 1034766455}
   - {fileID: 1320317331}
+  - {fileID: 493700425}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &493700424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493700425}
+  m_Layer: 0
+  m_Name: PauseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493700425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493700424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 487644780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &498098853 stripped
 Transform:
@@ -8660,8 +8692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6a0e95143eb90418d21cc14f40461a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverTime: 0.2
-  hoverJumpStrength: 8
+  jumpStrength: 8
 --- !u!114 &1244729560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8751,7 +8782,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244729559}
         m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
-        m_MethodName: HoverDelayJump
+        m_MethodName: HoverJumpTrigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

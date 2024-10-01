@@ -28,7 +28,7 @@ public class Jump : MonoBehaviour
         {
             judgeJumpNow.StartJump();
             judgeOnceReachedHighestPoint_Jumping.StartJump();
-            this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
+            rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
         }
     }
 }
