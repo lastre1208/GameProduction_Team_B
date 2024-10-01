@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
+    [SerializeField] Animator anim;
+
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ
     [Header("▼壁の生成範囲")]
@@ -139,6 +141,8 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
         currentDelayTime = 0;
 
         actionEffect.Generate();//エフェクト生成
+
+        anim.SetTrigger("Attack");
     }
 
     public override void OnUpdate()
