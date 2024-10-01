@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+//作成者:杉山
 //ジャンプの処理
 public class Jump : MonoBehaviour
 {
-    //☆塩が書いた
     [SerializeField] float jumpPower=20f;//ジャンプ力
     Rigidbody rb;
     JudgeTouchWave touchWave;
@@ -26,6 +26,7 @@ public class Jump : MonoBehaviour
     {
         if (touchWave.TouchWaveNow&&!judgeJumpNow.JumpNow())//波に触れている時かつジャンプしていない時のみジャンプ可能
         {
+            judgeJumpNow.StartJump();
             judgeOnceReachedHighestPoint_Jumping.StartJump();
             this.rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
         }
