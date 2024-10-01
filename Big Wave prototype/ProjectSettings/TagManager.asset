@@ -15,6 +15,7 @@ TagManager:
   - ScoreManager
   - AvoidNow
   - GameStartManager
+  - PauseManager
   layers:
   - Default
   - TransparentFX
