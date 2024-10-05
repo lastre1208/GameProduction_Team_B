@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class JudgePauseNow : MonoBehaviour
 {
-    [SerializeField] UnityEvent switchPauseEvents;
+    [SerializeField] UnityEvent pauseEvents;
+    [SerializeField] UnityEvent resumeEvents;
     bool pauseNow = false;
 
     public bool PauseNow
@@ -16,18 +17,14 @@ public class JudgePauseNow : MonoBehaviour
     public void SwitchPause()//ポーズ状態を反転
     {
         pauseNow=!pauseNow;
-        switchPauseEvents.Invoke();
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(pauseNow)//ポーズ時
+        {
+            pauseEvents.Invoke();
+        }
+        else//再会時
+        {
+            resumeEvents.Invoke();
+        }
     }
 }

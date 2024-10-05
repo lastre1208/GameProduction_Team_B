@@ -6,14 +6,18 @@ using UnityEngine;
 //ポーズ(画面)の操作
 public class ControllerOfPause : MonoBehaviour
 {
-    [Header("ポーズ画面")]
-    [SerializeField] PauseControl pauseControl;//ポーズ画面
+    JudgePauseNow judgePauseNow;
+
+    private void Start()
+    {
+        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause")) // Pキーが押されたら
         {
-            pauseControl.TogglePause(); // ポーズの切り替え
+            judgePauseNow.SwitchPause();// ポーズの切り替え
         }
     }
 }
