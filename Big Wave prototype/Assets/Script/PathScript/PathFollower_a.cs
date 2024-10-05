@@ -13,14 +13,18 @@ public class PathFollower_a : MonoBehaviour
     [SerializeField] int waitTime;
     [Header("補間速度")]
     [SerializeField] float lerpSpeed = 5f;  // Lerpの速度
+    JudgePauseNow judgePauseNow;
 
     void Awake()
     {
         startPoint = leadingObject.position.z;
+        judgePauseNow=GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 
     void Update()
     {
+        if (judgePauseNow.PauseNow) return;
+
         if (waitCount >= waitTime)
         {
             pathPoints_P.Enqueue(leadingObject.position);  // 先行するオブジェクトの位置と回転を保持

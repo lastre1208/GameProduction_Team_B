@@ -13,12 +13,13 @@ public class ControllerVibeOfTrick : MonoBehaviour
     [Header("トリックを決めた時の振動の時間")]
     [SerializeField] float vibeTime = 0.2f;//トリックを決めた時の振動の時間
     private float remainingVibeTime = 0f;//トリックの振動の残り時間(内部用)
+    JudgePauseNow judgePauseNow;
     private Gamepad gamepad = Gamepad.current;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class ControllerVibeOfTrick : MonoBehaviour
 
         if (gamepad != null)
         {
-            if (remainingVibeTime > 0)
+            if (remainingVibeTime > 0&&!judgePauseNow.PauseNow)
             {
                 gamepad.SetMotorSpeeds(vibrationSpeed, vibrationSpeed);//バイブさせる
             }

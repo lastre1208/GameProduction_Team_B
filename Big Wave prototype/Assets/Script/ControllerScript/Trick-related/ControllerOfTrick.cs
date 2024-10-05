@@ -9,11 +9,13 @@ public class ControllerOfTrick : MonoBehaviour
 {
     Trick trick;
     PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
+    JudgePauseNow judgePauseNow;
 
     void Start()
     {
         trick = GameObject.FindWithTag("Player").GetComponent<Trick>();
         pushedButton_TrickPattern = GameObject.FindWithTag("Player").GetComponent<PushedButton_CurrentTrickPattern>();
+        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 
     void Update()
@@ -23,6 +25,8 @@ public class ControllerOfTrick : MonoBehaviour
 
     void Trick()//トリック
     {
+        if (judgePauseNow.PauseNow) return;
+
         if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("h"))//HキーかYボタン
         {
             Trick_Process(Button.Y);
