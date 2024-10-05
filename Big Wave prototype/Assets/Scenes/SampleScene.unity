@@ -17472,9 +17472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limitMoveObjects:
-  - range: 14
+  - range: 9
     limitObjects: {fileID: 1244729524}
-  - range: 7
+  - range: 5
     limitObjects: {fileID: 98503817}
 --- !u!4 &1923540439
 Transform:
