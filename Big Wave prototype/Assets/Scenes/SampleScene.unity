@@ -2888,6 +2888,77 @@ Transform:
   - {fileID: 1018656153}
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &390451004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390451006}
+  - component: {fileID: 390451005}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &390451005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390451004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e2b8895f99e204da152b42c5155efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulles:
+  - bulletType: 1
+    shotPos: {fileID: 0}
+    delayTime: 0
+    normal:
+      shotType: 0
+      bulletPrefab: {fileID: 0}
+      shotPower: 0
+    homing:
+      bulletPrefab: {fileID: 0}
+      startHomingTime: 0
+      homingTime: 0
+      homingSpeed: 0
+      speed: 0
+  - bulletType: 0
+    shotPos: {fileID: 0}
+    delayTime: 0
+    normal:
+      shotType: 0
+      bulletPrefab: {fileID: 0}
+      shotPower: 0
+    homing:
+      bulletPrefab: {fileID: 0}
+      startHomingTime: 0
+      homingTime: 0
+      homingSpeed: 0
+      speed: 0
+--- !u!4 &390451006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390451004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.268043, y: -160.08118, z: 212.41377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408454533
 GameObject:
   m_ObjectHideFlags: 0
@@ -18542,3 +18613,4 @@ SceneRoots:
   - {fileID: 1923540439}
   - {fileID: 473982371}
   - {fileID: 380398976}
+  - {fileID: 390451006}

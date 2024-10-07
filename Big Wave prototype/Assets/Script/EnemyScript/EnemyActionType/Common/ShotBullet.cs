@@ -2,6 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+class Bullet_Straight
+{
+     [Header("▼弾")]
+    [SerializeField] GameObject bulletPrefab;//撃ちだす弾
+    [Header("▼撃つ力")]
+    [SerializeField] float shotPower;//撃つ力
+    [Header("▼弾を撃ちだす位置と角度")]
+    [SerializeField] Transform shotPos;//弾を撃ちだす位置
+    [Header("▼行動開始から撃つまでの遅延時間")]
+    [Header("注:行動時間未満にしないと撃たれずに行動が終わってしまう")]
+    [SerializeField] float delayTime;//行動開始から撃つまでの遅延時間、行動時間未満にしないと撃たれずに行動が終わってしまう
+    private bool shoted;//弾を撃ったか
+}
+
 public class ShotBullet:MonoBehaviour
 {
     [Header("▼弾")]
@@ -49,6 +64,7 @@ public class ShotBullet:MonoBehaviour
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
         //弾を発射方向に向かせる
+        bullet.transform.rotation = Quaternion.LookRotation(shotVec, Vector3.up);
 
         //弾を撃ちだす
         bulletRb.AddForce(shotVec * shotPower, ForceMode.Impulse);
