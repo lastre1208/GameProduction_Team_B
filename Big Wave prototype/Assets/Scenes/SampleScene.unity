@@ -11364,7 +11364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 98503838}
-  animName: Attack2
+  animName: Attack_2
   bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
   shotPower: 30
   shotPosObject: {fileID: 1110614297}
