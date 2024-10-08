@@ -31,22 +31,26 @@ public class DebugScript : MonoBehaviour
             debug.enabled = true;
         
         }
-        else if (Input.GetKeyDown(KeyCode.Y))
+        if (debug.enabled)
         {
-            algorithm.ChangeAction(actionPattern_a);
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            algorithm.ChangeAction(actionPattern_b);
-        }
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            algorithm.ChangeAction(actionPattern_c);
-        }
-        else if(Input.GetKeyDown(KeyCode.W)) {
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                algorithm.ChangeAction(actionPattern_a);
+            }
+            else if (Input.GetKeyDown(KeyCode.U))
+            {
+                algorithm.ChangeAction(actionPattern_b);
+            }
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                algorithm.ChangeAction(actionPattern_c);
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
 
-            enemy.HpMax = 10;
-            enemy.Hp = 1;
+                enemy.HpMax = 10;
+                enemy.Hp = 1;
+            }
         }
     }
 }
