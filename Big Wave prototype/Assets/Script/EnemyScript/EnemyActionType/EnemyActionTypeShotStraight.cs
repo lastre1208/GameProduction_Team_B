@@ -6,7 +6,8 @@ using UnityEngine;
 //“G‚Ì’e(UŒ‚)‚Ì’¼üŒ‚‚¿
 public class EnemyActionTypeShotStraight : EnemyActionTypeBase
 {
-    [SerializeField] Animator anim;
+    [SerializeField] AnimatorController_Enemy animController;
+    [SerializeField] string animName;
 
 
     [Header("¥’e")]
@@ -31,7 +32,7 @@ public class EnemyActionTypeShotStraight : EnemyActionTypeBase
         currentDelayTime = 0;
         shoted = false;
         actionEffect.Generate();//ƒGƒtƒFƒNƒg¶¬
-        anim.SetTrigger("Attack");
+        animController.AnimControl_Trigger(animName);
     }
 
     public override void OnUpdate()

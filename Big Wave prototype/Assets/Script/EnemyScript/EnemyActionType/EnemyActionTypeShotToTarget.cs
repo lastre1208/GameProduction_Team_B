@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 //敵の弾(攻撃)の標的(プレイヤー)に向かっての直線撃ち
 public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
 {
-    [SerializeField] Animator anim;
-
+    [SerializeField] AnimatorController_Enemy animController;
+    [SerializeField] string animName;
 
     [Header("▼弾")]
     [SerializeField] GameObject bulletPrefab;//撃ちだす弾
@@ -33,7 +33,7 @@ public class EnemyActionTypeShotToTarget : EnemyActionTypeBase
         currentDelayTime = 0;
         shoted = false;
         actionEffect.Generate();//エフェクト生成
-        anim.SetTrigger("Attack");
+        animController.AnimControl_Trigger(animName);
     }
 
     public override void OnUpdate()
