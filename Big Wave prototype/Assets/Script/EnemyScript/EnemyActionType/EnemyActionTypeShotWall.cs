@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
-    [SerializeField] Animator anim;
+    [SerializeField] AnimatorController_Enemy animController;
+    [SerializeField] string animName;
 
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ
@@ -142,7 +143,7 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
 
         actionEffect.Generate();//エフェクト生成
 
-        anim.SetTrigger("Attack");
+        animController.AnimControl_Trigger(animName);
     }
 
     public override void OnUpdate()

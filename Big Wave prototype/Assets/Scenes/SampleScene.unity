@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 98503837}
   - component: {fileID: 98503831}
   - component: {fileID: 98503830}
+  - component: {fileID: 98503838}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -591,6 +592,19 @@ MonoBehaviour:
   formHp:
   - 12000
   - 6000
+--- !u!114 &98503838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98503817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a7f36b39e336845be1ee1532645c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 878981235}
 --- !u!1 &119033915
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164b3d5072aaf0f4db2397bff0541aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
   wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
@@ -3244,7 +3259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe23dc4a57a674b8ffcfa82545aab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   bulletPrefab: {fileID: 6784625731830303129, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
   startHomingTime: 0.1
   homingTime: 1.1
@@ -6777,7 +6793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f5766dab37fb54d942d8f23b5e3c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   bullets:
   - bulletPrefab: {fileID: 6784625731830303129, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     startHomingTime: 0.1
@@ -7402,7 +7419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908d99bcf65b4bf4faff4f00619d2df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack_2
   bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
   shotPower: 30
   shotPosObject: {fileID: 1110614297}
@@ -9604,7 +9622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908d99bcf65b4bf4faff4f00619d2df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   bulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
   shotPower: 30
   shotPosObject: {fileID: 1110614297}
@@ -10162,7 +10181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f860e1fedce87e2498982984543c4c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   bulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
   shotPower: 30
   shotPosObject: {fileID: 1110614297}
@@ -11327,7 +11347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908d99bcf65b4bf4faff4f00619d2df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 878981235}
+  animController: {fileID: 98503838}
+  animName: Attack
   bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
   shotPower: 30
   shotPosObject: {fileID: 1110614297}

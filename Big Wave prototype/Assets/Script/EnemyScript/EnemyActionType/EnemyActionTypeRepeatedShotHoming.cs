@@ -57,8 +57,8 @@ class BulletTypeShotHoming
 
 public class EnemyActionTypeRepeatedShotHoming : EnemyActionTypeBase
 {
-    [SerializeField] Animator anim;
-
+    [SerializeField] AnimatorController_Enemy animController;
+    [SerializeField] string animName;
 
     [Header("íeÇÃê›íË")]
     [SerializeField] BulletTypeShotHoming[] bullets;//íeÇÃê›íË
@@ -76,7 +76,7 @@ public class EnemyActionTypeRepeatedShotHoming : EnemyActionTypeBase
         {
             bullets[i].OnEnter();
         }
-        anim.SetTrigger("Attack");
+        animController.AnimControl_Trigger(animName);
     }
 
     public override void OnUpdate()
