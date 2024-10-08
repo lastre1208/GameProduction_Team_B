@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class BulletSettingTypeHoming : BulletSettingTypeBase
 {
     [Header("発射されて何秒後からホーミングし始めるか")]

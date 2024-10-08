@@ -8,6 +8,7 @@ public enum ShotType_E
     toPlayer
 }
 
+[System.Serializable]
 public class BulletSettingTypeNormal : BulletSettingTypeBase
 {
     [Header("ŽËŒ‚‚ÌŽí—Þ")]

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShotTypeNormalBullet : ShotTypeBase
 {
+    [Header("注:弾には必ずRigidbodyをつけたオブジェクトを入れること")]
     [SerializeField] BulletSettingTypeNormal[] bullets;//弾の設定
     [Header("プレイヤー")]
     [SerializeField] Transform player;//プレイヤー
