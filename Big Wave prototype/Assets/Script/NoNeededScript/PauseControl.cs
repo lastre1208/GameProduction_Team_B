@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+//作成者:桑原
 public class PauseControl : MonoBehaviour
 {
     [Header("ポーズメニューのUI")]

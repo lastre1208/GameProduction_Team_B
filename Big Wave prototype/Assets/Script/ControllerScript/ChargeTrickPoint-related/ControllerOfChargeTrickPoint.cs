@@ -8,10 +8,12 @@ using UnityEngine.InputSystem;
 public class ControllerOfChargeTrickPoint : MonoBehaviour
 {
     ChargeTrickPoint chargeTrickPoint;
+    JudgePauseNow judgePauseNow;
 
     void Start()
     {
         chargeTrickPoint = GameObject.FindWithTag("Player").GetComponent<ChargeTrickPoint>();
+        judgePauseNow=GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 
     void Update()
@@ -21,6 +23,8 @@ public class ControllerOfChargeTrickPoint : MonoBehaviour
 
     void ChargeStandbyOn()//波に触れてトリックがチャージできるようにする
     {
+        if (judgePauseNow.PauseNow) return;//ポーズ中はチャージできない
+
         //スペースキーやボタンを押している間は波に触れてチャージができるようになる
         if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
         {
