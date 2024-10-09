@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShotType_E
+public enum ShotType
 {
     forward,
     toPlayer
@@ -12,10 +12,10 @@ public enum ShotType_E
 public class BulletSettingTypeNormal : BulletSettingTypeBase
 {
     [Header("ËŒ‚‚Ìí—Ş")]
-    [SerializeField] ShotType_E shotType;
+    [SerializeField] ShotType shotType;
     [Header("¥Œ‚‚Â—Í")]
     [SerializeField] float shotPower;//Œ‚‚Â—Í
 
-    public ShotType_E ShotType { get { return shotType; } }
+    public ShotType ShotType { get { return shotType; } }
     public float ShotPower { get { return shotPower; } }
 }

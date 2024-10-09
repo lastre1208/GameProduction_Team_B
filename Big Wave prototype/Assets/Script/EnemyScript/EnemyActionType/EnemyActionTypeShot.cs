@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyActionTypeShotHoming : EnemyActionTypeBase
+public class EnemyActionTypeShot : EnemyActionTypeBase
 {
     [SerializeField] AnimatorController_Enemy animController;
     [SerializeField] string animName;
 
-    [Header("ホーミング弾の射撃設定")]
-    [SerializeField] ShotTypeHomingBullet shotTypeHoming;
-    [Header("▼GamePos")]
-    [SerializeField] GameObject gamePos;//GamePos、弾をこれの子オブジェクトとして配置する
+    [Header("射撃設定")]
+    [SerializeField] ShotTypeBase shotTypeHoming;
     [Header("行動時のエフェクト")]
     [SerializeField] ActionEffect actionEffect;
 
@@ -24,11 +22,11 @@ public class EnemyActionTypeShotHoming : EnemyActionTypeBase
 
     public override void OnUpdate()
     {
-       shotTypeHoming.UpdateShotTiming();
+        shotTypeHoming.UpdateShotTiming();
     }
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)
     {
-        
+
     }
 }

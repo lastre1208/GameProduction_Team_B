@@ -7,6 +7,7 @@ public class ShotTypeNormalBullet : ShotTypeBase
     [Header("注:弾には必ずRigidbodyをつけたオブジェクトを入れること")]
     [SerializeField] BulletSettingTypeNormal[] bullets;//弾の設定
     [Header("プレイヤー")]
+    [Tooltip("プレイヤーに向かって撃つ弾が無ければ設定しなくてもよい")]
     [SerializeField] Transform player;//プレイヤー
     public override void InitShotTiming()
     {
@@ -39,16 +40,16 @@ public class ShotTypeNormalBullet : ShotTypeBase
         bulletObjectRb.AddForce(shotVec * bulletSetting.ShotPower, ForceMode.Impulse);
     }
 
-    Vector3 ShotVec(ShotType_E shotType_E,Transform shotPos)
+    Vector3 ShotVec(ShotType shotType,Transform shotPos)
     {
-        switch(shotType_E)
+        switch(shotType)
         {
-            case ShotType_E.toPlayer:
+            case ShotType.toPlayer:
                 return (player.transform.position - shotPos.position).normalized;
-            case ShotType_E.forward:
+            case ShotType.forward:
                 return shotPos.forward;
+            default:
+                return Vector3.zero;
         }
-
-        return Vector3.zero;
     }
 }
