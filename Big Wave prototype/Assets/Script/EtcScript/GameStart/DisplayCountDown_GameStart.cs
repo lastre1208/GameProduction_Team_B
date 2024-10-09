@@ -13,13 +13,12 @@ public class DisplayCountDown_GameStart : MonoBehaviour
     [SerializeField] AudioClip countDownSoundEffect;//残り秒数が変わるごとに出す効果音
     private int remainingGameStartTimeBeforeFrame_Display;//前フレームのゲーム開始までの残り時間(整数のみ)
     JudgeGameStart judgeGameStart;
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         judgeGameStart = GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -14,8 +14,8 @@ public class Critical : MonoBehaviour
     [Header("クリティカルのスコア")]
     [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
     private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
-    AudioSource audioSource;
-    TrickPoint player_TrickPoint;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] TrickPoint player_TrickPoint;
 
     public Button[] CriticalButton
     {
@@ -25,8 +25,6 @@ public class Critical : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        player_TrickPoint = GetComponent<TrickPoint>();
         criticalButton = new Button[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
         StartAllocateButton();
     }

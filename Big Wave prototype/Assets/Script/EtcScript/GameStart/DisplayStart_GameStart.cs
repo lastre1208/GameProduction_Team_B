@@ -17,13 +17,12 @@ public class DisplayStart_GameStart : MonoBehaviour
     [SerializeField] AudioClip gameStartSoundEffect;//ゲーム開始した瞬間に出す効果音
     private float remainingdisplayTime_GameStart;//ゲーム開始の文字を出す残り時間
     JudgeGameStart judgeGameStart;
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         judgeGameStart = GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
-        audioSource = GetComponent<AudioSource>();
         remainingdisplayTime_GameStart = displayTime_GameStart;//ゲーム開始の文字を出す残り時間を設定
     }
 
