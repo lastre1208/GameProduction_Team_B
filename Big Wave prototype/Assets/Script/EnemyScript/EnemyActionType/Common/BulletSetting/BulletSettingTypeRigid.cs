@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShotType
-{
-    forward,
-    toPlayer
-}
+
 
 [System.Serializable]
-public class BulletSettingTypeNormal : BulletSettingTypeBase
+public class BulletSettingTypeRigid : BulletSettingTypeBase
 {
     [Header("ŽËŒ‚‚ÌŽí—Þ")]
     [SerializeField] ShotType shotType;

@@ -19,7 +19,7 @@ public class HomingBullet : MonoBehaviour
     //homingTimeは何秒間ホーミングするか
     //homingSpeedは標的に向く速度
     //speedは前方移動速度
-    public void SetHomingBullet(float startHomingTime,float homingTime,float homingSpeed,float speed)//ホーミング弾のステータス(標的に向く速度など)を設定
+    public void SetBullet(float startHomingTime,float homingTime,float homingSpeed,float speed)//ホーミング弾のステータス(標的に向く速度など)を設定
     {
         m_startHomingTime=startHomingTime;
         m_homingTime=homingTime;
@@ -50,7 +50,7 @@ public class HomingBullet : MonoBehaviour
     void Homing()//標的を見続ける
     {
         Vector3 targetPos = target.transform.position - transform.position;//自分の位置から標的の位置までのベクトルの取得
-        Quaternion targetRotation = Quaternion.LookRotation(targetPos);//先ほどのベクトルから回転する角度を設定
+        Quaternion targetRotation = Quaternion.LookRotation(targetPos);//現在のベクトルから回転する角度を設定
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, m_homingSpeed*Time.deltaTime);
     }
 

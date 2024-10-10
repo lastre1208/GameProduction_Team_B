@@ -29,6 +29,6 @@ public class ShotTypeHomingBullet : ShotTypeBase
         GameObject bulletObject = GenerateBullet(bulletSetting);
         HomingBullet homingBulletObject=bulletObject.GetComponent<HomingBullet>();
         //配置したホーミング弾の設定
-        homingBulletObject.SetHomingBullet(bulletSetting.StartHomingTime, bulletSetting.HomingTime, bulletSetting.HomingSpeed, bulletSetting.Speed);
+        homingBulletObject.SetBullet(bulletSetting.StartHomingTime, bulletSetting.HomingTime, bulletSetting.HomingSpeed, bulletSetting.Speed);
     }
 }

@@ -8,21 +8,21 @@ public class EnemyActionTypeShot : EnemyActionTypeBase
     [SerializeField] string animName;
 
     [Header("射撃設定")]
-    [SerializeField] ShotTypeBase shotTypeHoming;
+    [SerializeField] ShotTypeBase shotType;
     [Header("行動時のエフェクト")]
     [SerializeField] ActionEffect actionEffect;
 
 
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
-        shotTypeHoming.InitShotTiming();
+        shotType.InitShotTiming();
         actionEffect.Generate();//エフェクト生成
         animController.AnimControl_Trigger(animName);
     }
 
     public override void OnUpdate()
     {
-        shotTypeHoming.UpdateShotTiming();
+        shotType.UpdateShotTiming();
     }
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)

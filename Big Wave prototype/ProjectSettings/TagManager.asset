@@ -16,6 +16,7 @@ TagManager:
   - AvoidNow
   - GameStartManager
   - PauseManager
+  - VectorOfShot
   layers:
   - Default
   - TransparentFX

@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotTypeNormalBullet : ShotTypeBase
+//非推奨
+public class ShotTypeRigidBullet : ShotTypeBase
 {
     [Header("注:弾には必ずRigidbodyをつけたオブジェクトを入れること")]
-    [SerializeField] BulletSettingTypeNormal[] bullets;//弾の設定
-    [Header("プレイヤー")]
-    [Tooltip("プレイヤーに向かって撃つ弾が無ければ設定しなくてもよい")]
-    [SerializeField] Transform player;//プレイヤー
+    [SerializeField] BulletSettingTypeRigid[] bullets;//弾の設定
+    VectorOfShotType vectorOfShotType;
+
+    void Start()
+    {
+        vectorOfShotType=GameObject.FindWithTag("VectorOfShot").GetComponent<VectorOfShotType>();
+    }
+
     public override void InitShotTiming()
     {
         base.InitShotTiming();
@@ -27,29 +32,18 @@ public class ShotTypeNormalBullet : ShotTypeBase
         }
     }
 
-    void Shot(BulletSettingTypeNormal bulletSetting)
+    void Shot(BulletSettingTypeRigid bulletSetting)
     {
         GameObject bulletObject = GenerateBullet(bulletSetting);
         //弾のRigidbodyを取得
         Rigidbody bulletObjectRb = bulletObject.GetComponent<Rigidbody>();
         //撃つ向きを決める
-        Vector3 shotVec=ShotVec(bulletSetting.ShotType,bulletSetting.ShotPos);
-        //攻撃の向きをプレイヤーのいる方向に変更
+        Vector3 shotVec=vectorOfShotType.ShotVec(bulletSetting.ShotType,bulletSetting.ShotPos);
+        //攻撃の向きを撃つ方向に変更
         bulletObject.transform.rotation = Quaternion.LookRotation(shotVec, Vector3.up);
         //弾を撃ちだす
         bulletObjectRb.AddForce(shotVec * bulletSetting.ShotPower, ForceMode.Impulse);
     }
 
-    Vector3 ShotVec(ShotType shotType,Transform shotPos)
-    {
-        switch(shotType)
-        {
-            case ShotType.toPlayer:
-                return (player.transform.position - shotPos.position).normalized;
-            case ShotType.forward:
-                return shotPos.forward;
-            default:
-                return Vector3.zero;
-        }
-    }
+    
 }
