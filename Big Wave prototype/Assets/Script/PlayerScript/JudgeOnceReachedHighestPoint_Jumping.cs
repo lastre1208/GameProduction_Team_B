@@ -6,12 +6,12 @@ using UnityEngine;
 //ジャンプ後一度最高点に到達したかを返す
 public class JudgeOnceReachedHighestPoint_Jumping : MonoBehaviour
 {
+    [Header("必要なコンポーネント")]
+    [SerializeField] Rigidbody rb;
     bool reached=false;//ジャンプ後1回は最高点に到達したか
-    Rigidbody rb;
-
-    void Start()
+    public bool Reached
     {
-        rb = GetComponent<Rigidbody>();
+        get { return reached; }
     }
 
     void Update()
@@ -34,10 +34,7 @@ public class JudgeOnceReachedHighestPoint_Jumping : MonoBehaviour
         reached=false;//ジャンプ後1回も最高点に到達してないということにする
     }
 
-    public bool Reached
-    {
-        get { return reached; }
-    }
+    
 
     
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//フィーバー状態の効果
 public class FeverMode : MonoBehaviour
 {
     [Header("フィーバー状態のエフェクト")]
@@ -15,15 +17,10 @@ public class FeverMode : MonoBehaviour
     [Header("チャージトリック量アップのバフ")]
     [SerializeField] ChargeTrickBuff chargeTrickBuff;//攻撃力アップのバフ
 
-    //[Header("フィーバー状態の攻撃力アップの増加率")]
-    //[SerializeField] float powerUp_GrowthRate = 1f;//フィーバー状態の攻撃力アップの増加率
-    //private float currentPowerUp_GrowthRate = 1f;//現在のフィーバー状態の攻撃力アップの増加率
-    //[Header("フィーバー状態のチャージトリック量アップの増加率")]
-    //[SerializeField] float chargeTrick_GrowthRate = 1f;//フィーバー状態のチャージトリック量アップの増加率
-    //private float currentChargeTrick_GrowthRate = 1f;//現在のフィーバー状態のチャージトリック量アップの増加率
-    private bool feverNow=false;//今フィーバー状態か
+    [Header("必要なコンポーネント")]
+    [SerializeField] FeverPoint player_FeverPoint;
 
-    FeverPoint player_FeverPoint;
+    private bool feverNow=false;//今フィーバー状態か
 
     public float CurrentPowerUp_GrowthRate
     {
@@ -46,7 +43,6 @@ public class FeverMode : MonoBehaviour
         feverEffect.SetActive(false);
         remainingFeverTime = 0f;
         feverNow = false;
-        player_FeverPoint = gameObject.GetComponent<FeverPoint>();
     }
 
     // Update is called once per frame

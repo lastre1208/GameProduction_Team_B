@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//トリックのコンボ回数を数える
 public class CountTrickCombo : MonoBehaviour
 {
     [Header("何秒経ったらコンボ回数をリセットするか")]
     [SerializeField] float resetTime;//何秒経ったらコンボ回数をリセットするか
-    [Header("トリックのコンボ回数のスコア")]
+    [Header("必要なコンポーネント")]
     [SerializeField] Score_TrickCombo score_TrickCombo;//トリックのコンボ回数のスコア
     private float currentResetTime=0;//最後にトリックをしてから経った時間、ResetTimeになったらコンボ回数をリセット
     private int comboCount = 0;//コンボ回数
@@ -15,12 +17,6 @@ public class CountTrickCombo : MonoBehaviour
     public int ComboCount
     {
         get { return comboCount; }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

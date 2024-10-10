@@ -7,20 +7,13 @@ using UnityEngine;
 //ジャンプの処理
 public class Jump : MonoBehaviour
 {
+    [Header("ジャンプ力")]
     [SerializeField] float jumpPower=20f;//ジャンプ力
-    Rigidbody rb;
-    JudgeTouchWave touchWave;
-    JudgeJumpNow judgeJumpNow;
-    JudgeOnceReachedHighestPoint_Jumping judgeOnceReachedHighestPoint_Jumping;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        touchWave = gameObject.GetComponent<JudgeTouchWave>();
-        judgeJumpNow= gameObject.GetComponent<JudgeJumpNow>();
-        judgeOnceReachedHighestPoint_Jumping=GetComponent<JudgeOnceReachedHighestPoint_Jumping>();
-    }
+    [Header("必要なコンポーネント")]
+    [SerializeField] Rigidbody rb;
+    [SerializeField] JudgeTouchWave touchWave;
+    [SerializeField] JudgeJumpNow judgeJumpNow;
+    [SerializeField] JudgeOnceReachedHighestPoint_Jumping judgeOnceReachedHighestPoint_Jumping;
 
     public void JumpTrigger()//ジャンプ発動
     {

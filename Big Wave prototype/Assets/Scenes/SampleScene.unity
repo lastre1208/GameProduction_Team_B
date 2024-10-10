@@ -8735,6 +8735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 20
+  rb: {fileID: 1244729530}
+  touchWave: {fileID: 1244729539}
+  judgeJumpNow: {fileID: 1244729571}
+  judgeOnceReachedHighestPoint_Jumping: {fileID: 1244729573}
 --- !u!114 &1244729539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8766,6 +8770,7 @@ MonoBehaviour:
     powerUp_GrowthRate: 2
   chargeTrickBuff:
     chargeTrick_GrowthRate: 2
+  player_FeverPoint: {fileID: 1244729563}
 --- !u!114 &1244729556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8810,6 +8815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpStrength: 13
+  rb: {fileID: 1244729530}
 --- !u!114 &1244729560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8921,6 +8927,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pushedButton_TrickPattern: {fileID: 1244729568}
+  judgeJumpNow: {fileID: 1244729571}
+  player_TrickPoint: {fileID: 1244729564}
 --- !u!114 &1244729562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8973,6 +8982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  judgeJumpNow: {fileID: 1244729571}
 --- !u!114 &1244729568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9009,6 +9019,9 @@ MonoBehaviour:
   - 40
   - 50
   - 60
+  player_FeverPoint: {fileID: 1244729563}
+  feverMode: {fileID: 1244729544}
+  countTrickWhileJump: {fileID: 1244729565}
 --- !u!114 &1244729570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9021,6 +9034,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeChargeRateTheChargers: {fileID: 1244729575}
+  feverMode: {fileID: 1244729544}
+  player_TrickPoint: {fileID: 1244729564}
+  judgeChargeTrickPointNow: {fileID: 1244729572}
+  changeChargeRateTheSurfer: {fileID: 1244729574}
 --- !u!114 &1244729571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9090,6 +9108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1244729530}
 --- !u!114 &1244729574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9105,6 +9124,8 @@ MonoBehaviour:
   chargeRateMax: 3
   byMaxRateTime: 10
   minusChargeRateSpeed: 2
+  judgeJumpNow: {fileID: 1244729571}
+  judgeTouchWave: {fileID: 1244729539}
 --- !u!114 &1244729575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9219,9 +9240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20dd4912db2e77e4ba8f96a6a991fe26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoveryAmount: 10
   hp_Player: {fileID: 1244729562}
   judgeChargeTrickPointNow: {fileID: 1244729572}
-  recoveryAmount: 10
 --- !u!114 &1244729579
 MonoBehaviour:
   m_ObjectHideFlags: 0

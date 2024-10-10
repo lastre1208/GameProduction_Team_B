@@ -7,22 +7,15 @@ using UnityEngine;
 //トリックのチャージ
 public class ChargeTrickPoint : MonoBehaviour
 {
-    ChangeChargeRateTheChargers changeChargeRateTheChargers;
-    FeverMode feverMode;
-    TrickPoint player_TrickPoint;
-    JudgeChargeTrickPointNow judgeChargeTrickPointNow;
-    ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
+    [Header("必要なコンポーネント")]
+    [SerializeField] ChangeChargeRateTheChargers changeChargeRateTheChargers;
+    [SerializeField] FeverMode feverMode;
+    [SerializeField] TrickPoint player_TrickPoint;
+    [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
+    [SerializeField] ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
 
     /////private(別クラスは使用不可)のメソッド/////
-    void Start()
-    {
-        changeChargeRateTheChargers=GetComponent<ChangeChargeRateTheChargers>();
-        feverMode = GetComponent<FeverMode>();
-        player_TrickPoint=GetComponent<TrickPoint>();
-        judgeChargeTrickPointNow=GetComponent<JudgeChargeTrickPointNow>();
-        changeChargeRateTheSurfer=GetComponent<ChangeChargeRateTheSurfer>();
-    }
 
     float ChargeTrickAmount(float chargeAmount)//チャージされるトリック量
     {

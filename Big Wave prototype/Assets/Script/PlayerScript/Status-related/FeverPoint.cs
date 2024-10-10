@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//フィーバーポイント
 public class FeverPoint : MonoBehaviour
 {
     [Header("最大フィーバーポイント")]

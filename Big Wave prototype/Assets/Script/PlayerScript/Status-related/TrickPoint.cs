@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//トリックポイント
 public class TrickPoint : MonoBehaviour
 {
     [Header("1ゲージに入る最大トリックポイントの量")]
@@ -40,12 +42,6 @@ public class TrickPoint : MonoBehaviour
         {
             trickPoint[i] = 0f;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Charge(float charge)//トリックポイントのチャージ

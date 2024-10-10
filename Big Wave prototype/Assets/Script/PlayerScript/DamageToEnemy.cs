@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//敵にダメージを与える
 public class DamageToEnemy : MonoBehaviour
 {
     HP enemy_Hp;
+    [Header("必要なコンポーネント")]
     [SerializeField] FeverMode feverMode;
     [SerializeField] Critical critical;
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;

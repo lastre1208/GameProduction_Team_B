@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//チャージ中HPを回復させる
 public class RecoverHPWhileCharging : MonoBehaviour
 {
-    [SerializeField] HP hp_Player;
-    [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
     [Header("1秒ごとの体力回復量")]
     [SerializeField] float recoveryAmount;
+    [Header("必要なコンポーネント")]
+    [SerializeField] HP hp_Player;
+    [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         RecoverHP(judgeChargeTrickPointNow.ChargeNow());

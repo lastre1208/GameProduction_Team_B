@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//ì¬Ò:™R
+//HP
 public class HP : MonoBehaviour
 {
     [Header("Å‘å‘Ì—Í")]
@@ -26,15 +28,9 @@ public class HP : MonoBehaviour
         set { hpMax = value; }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //Hp‚Ì‰Šú‰»
         hp = hpMax;   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

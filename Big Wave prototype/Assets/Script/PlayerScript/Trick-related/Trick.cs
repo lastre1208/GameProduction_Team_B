@@ -14,18 +14,18 @@ public partial class Trick : MonoBehaviour
     //☆作成者:杉山
     [Header("トリック時の処理(メソッド)")]
     [SerializeField] UnityEvent eventsWhenTrick;//トリック時の処理(メソッド)
-    PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
+    [Header("必要なコンポーネント")]
+    [SerializeField] PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
+    [SerializeField] JudgeJumpNow judgeJumpNow;
+    [SerializeField] TrickPoint player_TrickPoint;
     HP enemy_Hp;
-    JudgeJumpNow judgeJumpNow;
-    TrickPoint player_TrickPoint;
+    
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        pushedButton_TrickPattern=gameObject.GetComponent<PushedButton_CurrentTrickPattern>();
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-        judgeJumpNow=GetComponent<JudgeJumpNow>();
-        player_TrickPoint = gameObject.GetComponent<TrickPoint>();
     }
 
     //トリック発動

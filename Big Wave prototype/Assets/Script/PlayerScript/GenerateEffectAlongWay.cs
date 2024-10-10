@@ -19,13 +19,6 @@ public class GenerateEffectAlongWay : MonoBehaviour
     [SerializeField] UnityEvent landEvents;//着弾時に呼び出したいイベント
     private List<GenerateEffectPos_AlongWay> generatePosList=new List<GenerateEffectPos_AlongWay>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         GenerateEffectAtGeneratePos();

@@ -4,19 +4,16 @@ using UnityEngine;
 
 //作成者:桑原(コルーチン部分)
 //一部杉山が改造
+//トリック時のホバージャンプ
 public class HoverJump : MonoBehaviour
 {
-    Rigidbody rb;
     //[Header("トリック使用時の滞空時間")]
     //[SerializeField] float hoverTime = 0.2f;//トリック使用時の滞空時間
     [Header("ジャンプの強さ")]
     [SerializeField] float jumpStrength = 5f;//ジャンプの強さ
-                                                  //private Coroutine coroutine;
-
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody>();
-    }
+    [Header("必要なコンポーネント")]
+    [SerializeField] Rigidbody rb;
+    //private Coroutine coroutine;
 
     public void HoverJumpTrigger()//ホバージャンプの発動
     {
