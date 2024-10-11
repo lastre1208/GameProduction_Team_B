@@ -12,11 +12,14 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
     [SerializeField] float byMaxRateTime = 10;//Å‘å”{—¦‚É‚È‚é‚Ü‚Å‚É‚©‚©‚éŠÔ
     [Header("”{—¦‚ªŒ¸‚é‘¬“x(”{—¦‚ª‘‚¦‚é‚Ì‘¬“x‚ğ1‚Æ‚µ‚Ä)")]
     [SerializeField] float minusChargeRateSpeed;//”g‚ÉG‚ê‚Ä‚È‚¢‚©‚ÂƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚È‚¢‚É”{—¦‚ªŒ¸‚é‘¬“x
+    [Header("•K—v‚ÈƒRƒ“ƒ|[ƒlƒ“ƒg")]
+    [SerializeField] JudgeJumpNow judgeJumpNow;
+    [SerializeField] JudgeTouchWave judgeTouchWave;
+
     private const float normalChargeRate = 1;//“™”{
     private float currentChargeRate = normalChargeRate;//Œ»İ‚Ì”{—¦
     private float changeRatePerSecond;//1•b‚²‚Æ‚É‘‚¦‚é”{—¦—Ê
-    JudgeJumpNow judgeJumpNow;
-    JudgeTouchWave judgeTouchWave;
+    
 
     public float ChargeRateMax//Å‘åƒ`ƒƒ[ƒW”{—¦
     {
@@ -36,8 +39,6 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        judgeJumpNow = GetComponent<JudgeJumpNow>();
-        judgeTouchWave = GetComponent<JudgeTouchWave>();
         changeRatePerSecond = (chargeRateMax - normalChargeRate) / byMaxRateTime;//1•b‚²‚Æ‚É‘‚¦‚é”{—¦—Ê‚ğİ’è
     }
 

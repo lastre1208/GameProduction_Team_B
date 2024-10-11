@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//ジャンプ中のトリック回数を数える
 public class CountTrickWhileJump : MonoBehaviour
 {
     private int trickCount = 0;//一回のジャンプにしたトリックの回数
-    JudgeJumpNow judgeJumpNow;
+    [Header("必要なコンポーネント")]
+    [SerializeField] JudgeJumpNow judgeJumpNow;
 
     public int TrickCount
     {
         get { return trickCount; }
-    }
-
-    void Start()
-    {
-        judgeJumpNow=GetComponent<JudgeJumpNow>();
     }
 
     void Update()

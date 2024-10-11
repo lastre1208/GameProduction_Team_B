@@ -5,36 +5,30 @@ using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//作成者:杉山
+//受け取ったボタンの種類に応じてダメージ増加倍率を返す
 public class Critical : MonoBehaviour
 {
     [Header("ダメージの増加倍率")]
     [SerializeField] float criticalRate;//クリティカル時のダメージの増加倍率
     [Header("クリティカル時の効果音")]
     [SerializeField] AudioClip criticalSound;//クリティカル時の効果音
-    [Header("クリティカルのスコア")]
+    [Header("必要なコンポーネント")]
     [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
+　　[SerializeField] AudioSource audioSource;
+    [SerializeField] TrickPoint player_TrickPoint;
     private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
-    AudioSource audioSource;
-    TrickPoint player_TrickPoint;
+    
 
     public Button[] CriticalButton
     {
         get { return criticalButton; }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        player_TrickPoint = GetComponent<TrickPoint>();
         criticalButton = new Button[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
         StartAllocateButton();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void StartAllocateButton()//最初に全てのcriticalButtonにボタンを割り当てる

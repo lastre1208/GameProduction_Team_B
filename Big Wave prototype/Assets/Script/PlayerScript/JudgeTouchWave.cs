@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ì¬Ò:™R
+//”g‚ÉG‚Á‚Ä‚¢‚é‚©”»’f
 public class JudgeTouchWave : MonoBehaviour
 {
-    //™‰–‚ª‘‚¢‚½
     [SerializeField] float touchBorderTime = 0.1f;//G‚Á‚½EG‚Á‚Ä‚È‚¢‚Ì‹«ŠE‚ÌŠÔ
     private bool touchWaveNow=false;//¡”g‚ÉG‚Á‚Ä‚¢‚é‚©
     private float sinceLastTouchWaveTime = 0.1f;//ÅŒã‚É”g‚ÉG‚Á‚Ä‚©‚ç‚ÌŠÔ
