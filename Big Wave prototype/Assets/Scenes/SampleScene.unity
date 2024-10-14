@@ -2721,18 +2721,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 901799024}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 357618611}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &357618614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6088,7 +6076,6 @@ GameObject:
   - component: {fileID: 901799025}
   - component: {fileID: 901799024}
   - component: {fileID: 901799026}
-  - component: {fileID: 901799027}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6153,22 +6140,9 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: -7465797178104165786, guid: 6b91f600ef0742a4e82d5eefcac48034, type: 3}
   m_TrackedDevicePositionAction: {fileID: 202660488651312375, guid: 6b91f600ef0742a4e82d5eefcac48034, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 4132463656101502436, guid: 6b91f600ef0742a4e82d5eefcac48034, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &901799027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901799022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6115a2e41da9cd948840ef6f0c8e7fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 357618613}
 --- !u!4 &943717860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5534817772259604566, guid: 7e0de7da87147a844a8ec2b0baeedc73, type: 3}
@@ -7308,19 +7282,7 @@ MonoBehaviour:
     m_ActionId: e91d596e-a9b2-4e3f-a642-287f7ed9f58a
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1034766456}
-        m_TargetAssemblyTypeName: ControllerOfPause, Assembly-CSharp
-        m_MethodName: SwitchPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 4cfc9750-12d2-4fbe-8d42-b333a50226a9
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
@@ -7479,6 +7441,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 90c3c5d1-01f3-46b2-9966-8b1c865894f1
     m_ActionName: Player/DebugModeOn[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034766456}
+        m_TargetAssemblyTypeName: ControllerOfPause, Assembly-CSharp
+        m_MethodName: SwitchPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e5172592-9842-46d7-b5e5-c85eef6759cb
+    m_ActionName: UI/ResumeGame[/Keyboard/p,/Keyboard/escape,/SwitchProControllerHID/buttonSouth,/SwitchProControllerHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -9492,7 +9470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244729524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f45c23bf51d44ec4c9d27381e6679bd9, type: 3}
   m_Name: 
