@@ -18,24 +18,36 @@ public class ControllerOfChargeTrickPoint : MonoBehaviour
 
     void Update()
     {
-        ChargeStandbyOn();
+        //ChargeStandbyOn();
     }
 
-    void ChargeStandbyOn()//波に触れてトリックがチャージできるようにする
+    //void ChargeStandbyOn()//波に触れてトリックがチャージできるようにする
+    //{
+    //    if (judgePauseNow.PauseNow) return;//ポーズ中はチャージできない
+
+    //    //スペースキーやボタンを押している間は波に触れてチャージができるようになる
+    //    if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
+    //    {
+    //        chargeTrickPoint.ChargeStandby = true;
+    //    }
+    //    //押していない間は波に触れてもチャージされない
+    //    else
+    //    {
+    //        chargeTrickPoint.ChargeStandby = false;
+    //    }
+    //}
+
+    public void ChargeStandby_On(InputAction.CallbackContext context)
     {
-        if (judgePauseNow.PauseNow) return;//ポーズ中はチャージできない
+        if (!context.performed) return;
 
-        //スペースキーやボタンを押している間は波に触れてチャージができるようになる
-        if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey("space"))
-        {
-            chargeTrickPoint.ChargeStandby = true;
-        }
-        //押していない間は波に触れてもチャージされない
-        else
-        {
-            chargeTrickPoint.ChargeStandby = false;
-        }
+        chargeTrickPoint.ChargeStandby = true;
     }
 
-    
+    public void ChargeStandby_Off(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        chargeTrickPoint.ChargeStandby = false;
+    }
 }

@@ -26,18 +26,18 @@ public class ButtonIconDisplay : MonoBehaviour
        
     }
 
-    public void DisplayButton(Button buttonDisplayed)//ボタン表示、何の(色の)ボタンを表示するかを引数に入れる
+    public void DisplayButton(TrickButton buttonDisplayed)//ボタン表示、何の(色の)ボタンを表示するかを引数に入れる
     {
         //指定されているボタンを表示
-        for (int i = 0; i < Enum.GetNames(typeof(Button)).Length; i++)
+        for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            if ((Button)i == buttonDisplayed)
+            if ((TrickButton)i == buttonDisplayed)
             {
-                ButtonIcon((Button)i).SetActive(true);
+                ButtonIcon((TrickButton)i).SetActive(true);
             }
             else
             {
-                ButtonIcon((Button)i).SetActive(false);
+                ButtonIcon((TrickButton)i).SetActive(false);
             }
         }
     }
@@ -45,21 +45,21 @@ public class ButtonIconDisplay : MonoBehaviour
     public void HideButton()//ボタンを全て隠す
     {
         //全てのボタンを非表示
-        for (int i = 0; i < Enum.GetNames(typeof(Button)).Length; i++)
+        for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            ButtonIcon((Button)i).SetActive(false);
+            ButtonIcon((TrickButton)i).SetActive(false);
         }
     }
 
 
-    GameObject ButtonIcon(Button button)
+    GameObject ButtonIcon(TrickButton button)
     {
         switch (button)
         {
-            case Button.A: return icon_AButton;
-            case Button.B: return icon_BButton;
-            case Button.Y: return icon_YButton;
-            case Button.X: return icon_XButton;
+            case TrickButton.A: return icon_AButton;
+            case TrickButton.B: return icon_BButton;
+            case TrickButton.Y: return icon_YButton;
+            case TrickButton.X: return icon_XButton;
         }
         return null;
     }
