@@ -7134,6 +7134,7 @@ GameObject:
   - component: {fileID: 1034766456}
   - component: {fileID: 1034766459}
   - component: {fileID: 1034766461}
+  - component: {fileID: 1034766463}
   - component: {fileID: 1034766462}
   m_Layer: 0
   m_Name: ControllerManager
@@ -7259,9 +7260,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244729532}
-        m_TargetAssemblyTypeName: MoveLeftAndRight, Assembly-CSharp
-        m_MethodName: GetMoveVector
+      - m_Target: {fileID: 1034766463}
+        m_TargetAssemblyTypeName: ControllerOfMove, Assembly-CSharp
+        m_MethodName: GettInputVector
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7462,6 +7463,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1034766463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761772120de969943a1888a0671d0cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1041760308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8847,7 +8860,6 @@ GameObject:
   - component: {fileID: 1244729577}
   - component: {fileID: 1244729578}
   - component: {fileID: 1244729579}
-  - component: {fileID: 1244729580}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9524,18 +9536,6 @@ MonoBehaviour:
   feverMode: {fileID: 1244729544}
   critical: {fileID: 1244729556}
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
---- !u!114 &1244729580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbed04df4c419d49b506bdd8ef8a06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1248422115
 GameObject:
   m_ObjectHideFlags: 0

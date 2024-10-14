@@ -13,15 +13,14 @@ public class MoveLeftAndRight : MonoBehaviour
         Move();
     }
 
-    void Move()//プレイヤーの動き
+    void Move()//プレイヤーの移動
     {
-        transform.Translate(move * Time.deltaTime * speed);//トリックがたまっているほど移動スピードがはやくなる
+        transform.Translate(move * Time.deltaTime * speed);//プレイヤーの移動
     }
 
-    public void GetMoveVector(InputAction.CallbackContext context)//動く方向を受け取る
+    public void GetMoveVector(Vector2 getVec)//動く方向を受け取る
     {
         //x方向の入力だけ受け取る
-        Vector2 getVec= context.ReadValue<Vector2>();
         move = new Vector3(getVec.x,0f,0f);
     }
 }

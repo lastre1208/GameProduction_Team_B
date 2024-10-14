@@ -14,14 +14,6 @@ public class ControllerOfPause : MonoBehaviour
         judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause")) // Pキーが押されたら
-        //{
-        //    judgePauseNow.SwitchPause();// ポーズの切り替え
-        //}
-    }
-
     public void SwitchPause(InputAction.CallbackContext context)//ポーズ状態にする
     {
         if (!context.performed) return;
