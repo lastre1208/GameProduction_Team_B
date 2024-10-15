@@ -2326,8 +2326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8887cb0e29220204087812f948cf6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diagonalNumber: 2
-  diagonalLimit: -35
+  diagonalNumber: 5
+  diagonalLimit: -120
   target: {fileID: 473982369}
 --- !u!1 &330532213
 GameObject:
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diagonalNumber: 3.5
-  diagonalLimit: 90
+  diagonalLimit: 120
   target: {fileID: 473982369}
 --- !u!1 &341573097
 GameObject:
@@ -3239,8 +3239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8887cb0e29220204087812f948cf6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diagonalNumber: 1
-  diagonalLimit: -35
+  diagonalNumber: 2
+  diagonalLimit: -60
   target: {fileID: 473982369}
 --- !u!1 &456875089
 GameObject:
@@ -4863,8 +4863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0649567cdf8d12943884b6dc9e19446e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideNumber: 3
-  sideLimit: 30
+  sideNumber: 6
+  sideLimit: 100
   target: {fileID: 473982369}
 --- !u!4 &615097180
 Transform:
@@ -10722,7 +10722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideNumber: 3
-  sideLimit: -30
+  sideLimit: -100
   target: {fileID: 473982369}
 --- !u!1 &1364235123
 GameObject:
@@ -11706,7 +11706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 30
   target: {fileID: 473982369}
-  speed: 10
+  speed: 20
 --- !u!224 &1479642911 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
@@ -11756,7 +11756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bef9cd8e26c10e4d98dc86623913e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 100
   target: {fileID: 473982369}
 --- !u!1 &1503523459
 GameObject:
@@ -12423,7 +12423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 98503838}
-  animName: Attack
+  animName: Attack_2
   shotType: {fileID: 1562493072}
   actionEffect:
     generate: 1
@@ -19366,8 +19366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8887cb0e29220204087812f948cf6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diagonalNumber: 1
-  diagonalLimit: 35
+  diagonalNumber: 3
+  diagonalLimit: 90
   target: {fileID: 473982369}
 --- !u!1 &2063366177
 GameObject:
