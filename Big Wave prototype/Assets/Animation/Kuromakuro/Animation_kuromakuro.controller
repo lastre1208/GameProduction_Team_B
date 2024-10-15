@@ -92,7 +92,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Attack_2
+  - m_Name: Attack_Slash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -145,7 +145,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack_2
+    m_ConditionEvent: Attack_Slash
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2745049344259797912}
@@ -190,7 +190,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_2
+  m_Name: Attack_Slash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -204,7 +204,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 0693ff4cbfc90eb4c95525750fc340e5, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: e588398797578dc429ff5b8191c215ee, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -7945,7 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 98503838}
-  animName: Attack_2
+  animName: Attack_Slash
   shotType: {fileID: 1084221216}
   actionEffect:
     generate: 1
