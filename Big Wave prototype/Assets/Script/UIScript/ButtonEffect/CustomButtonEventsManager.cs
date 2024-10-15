@@ -58,7 +58,7 @@ public class CustomButtonEventsManager : MonoBehaviour
     {
         if (currentClickedButton == startGameButton.GetComponent<RectTransform>())//ゲームを開始するボタンが押されたら
         {
-            if (menuEffectController.EffectColorChanged && menuEffectController.FadeCompleted)//ボタンの色の変化と画面の暗転が終了していたら
+            if (menuEffectController.EffectColorChange_FadeOutWasCompleted)//ボタンの色の変化と画面の暗転が終了していたら
             {
                 sceneControlManager.ChangeGameScene();//ロード画面への移行処理を呼び出す
             }

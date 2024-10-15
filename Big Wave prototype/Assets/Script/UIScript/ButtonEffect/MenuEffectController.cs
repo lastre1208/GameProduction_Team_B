@@ -7,18 +7,22 @@ public class MenuEffectController : MonoBehaviour
 {
     [Header("▼座標計算のもとにするオブジェクト")]
     [SerializeField] RectTransform menuPanel;
-    [Header("▼フェードアウトに使う画像")]
-    [SerializeField] Image fadeImage;
     [Header("▼ボタン選択時に生成されるエフェクト")]
     [SerializeField] GameObject selectedEffectPrefab;
     [Header("▼ボタン決定時に生成されるエフェクト")]
     [SerializeField] GameObject clickedEffectPrefab;
+    [Header("フェードアウトの設定")]
+    [SerializeField] FadeOut fadeOut;
+
+    //[Header("▼フェードアウトに使う画像")]
+    //[SerializeField] Image fadeImage;
     /*[Header("▼ゲームを開始するボタン")]
     [SerializeField] GameObject startGameButton;
     [Header("▼ゲームを終了するボタン")]
-    [SerializeField] GameObject endGameButton;*/
-    [Header("▼完全に画面がフェードアウトするまでにかかる時間")]
-    [SerializeField] float fadeDuration = 1.0f;
+    //[SerializeField] GameObject endGameButton;*/
+    //[Header("▼完全に画面がフェードアウトするまでにかかる時間")]
+    //[SerializeField] float fadeDuration = 1.0f;
+
 
     private TriangleWaveLine triangleWaveLine;
 
@@ -30,26 +34,31 @@ public class MenuEffectController : MonoBehaviour
     private Image currentButtonImage;
 
     private float setPositionOffset = 2.5f;//座標計算の補正用
-    private float fadeTimer = 0f;//フェードアウト時間の管理用
-    private bool fadeCompleted;
+    //private float fadeTimer = 0f;//フェードアウト時間の管理用
+    //private bool fadeCompleted;
     private bool clickedEffectGenerated = false;//決定されたかどうか
     private bool effectColorChanged = false;
 
-    public bool FadeCompleted
-    {
-        get { return fadeCompleted; }
-    }
+    //public bool FadeCompleted
+    //{
+    //    get { return fadeCompleted; }
+    //}
 
     public bool EffectColorChanged
     {
         get { return effectColorChanged; }
     }
 
+    public bool EffectColorChange_FadeOutWasCompleted
+    {
+        get { return effectColorChanged && fadeOut.FadeCompleted; }
+    }
+
     private void Start()
     {
-        fadeImage.color = new Color(0, 0, 0, 0);//フェードアウト用の画像を透明に設定
+        //fadeImage.color = new Color(0, 0, 0, 0);//フェードアウト用の画像を透明に設定
 
-        fadeCompleted = false;
+        //fadeCompleted = false;
 
         clickedEffectGenerated = false;
     }
@@ -74,7 +83,7 @@ public class MenuEffectController : MonoBehaviour
 
                 if (effectColorChanged)
                 {
-                    FadeOutDisplay();//画面の暗転処理
+                    fadeOut.FadeOutTrigger();//画面の暗転処理を開始
                 }
             }
         }
@@ -148,17 +157,17 @@ public class MenuEffectController : MonoBehaviour
         }      
     }
 
-    //画面の暗転
-    private void FadeOutDisplay()
-    {
-        fadeTimer += Time.deltaTime;
-        float normalizedTime = fadeTimer / fadeDuration;
-        float newAlpha = Mathf.Clamp01(normalizedTime);//経過時間をもとに透明度を計算
-        fadeImage.color = new Color(0, 0, 0, newAlpha);//フェードアウト用の画像の透明度を更新
+    ////画面の暗転
+    //private void FadeOutDisplay()
+    //{
+    //    fadeTimer += Time.deltaTime;
+    //    float normalizedTime = fadeTimer / fadeDuration;
+    //    float newAlpha = Mathf.Clamp01(normalizedTime);//経過時間をもとに透明度を計算
+    //    fadeImage.color = new Color(0, 0, 0, newAlpha);//フェードアウト用の画像の透明度を更新
 
-        if (fadeTimer >= fadeDuration)
-        {
-            fadeCompleted = true;//完全に画面が暗転した
-        }
-    }
+    //    if (fadeTimer >= fadeDuration)
+    //    {
+    //        fadeCompleted = true;//完全に画面が暗転した
+    //    }
+    //}
 }

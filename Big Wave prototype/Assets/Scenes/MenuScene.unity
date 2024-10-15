@@ -626,8 +626,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1289409831}
         m_TargetAssemblyTypeName: NavigationEventsManager, Assembly-CSharp
-        m_MethodName: DisableNavigationEvents
-        m_Mode: 1
+        m_MethodName: ChangeNavigationEvent
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1071,8 +1071,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1289409831}
         m_TargetAssemblyTypeName: NavigationEventsManager, Assembly-CSharp
-        m_MethodName: DisableNavigationEvents
-        m_Mode: 1
+        m_MethodName: ChangeNavigationEvent
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1209,6 +1209,7 @@ GameObject:
   - component: {fileID: 2013484150}
   - component: {fileID: 2013484149}
   - component: {fileID: 2013484153}
+  - component: {fileID: 2013484154}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1315,10 +1316,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1840747372}
-  fadeImage: {fileID: 614956422}
   selectedEffectPrefab: {fileID: 2288280720221174192, guid: 80afabc050ff04443b07374c159ac376, type: 3}
   clickedEffectPrefab: {fileID: 2288280720221174192, guid: df4aec1eea7f9304388fd029b1b9ad1e, type: 3}
+  fadeOut: {fileID: 2013484154}
+--- !u!114 &2013484154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013484148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0818c63a7cae3684c97c31b4aae55c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   fadeDuration: 1
+  fadeImage: {fileID: 614956422}
 --- !u!1 &2104282413
 GameObject:
   m_ObjectHideFlags: 0
