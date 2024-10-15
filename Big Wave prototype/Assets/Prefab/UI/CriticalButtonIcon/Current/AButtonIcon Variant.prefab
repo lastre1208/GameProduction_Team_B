@@ -88,21 +88,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1686230067169133822, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2592983023028560629, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
       propertyPath: m_Name
       value: AButtonIcon Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4034755334878230086, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
       propertyPath: m_Color.b
-      value: 0.08995247
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034755334878230086, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
-      propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4034755334878230086, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
-      propertyPath: m_Color.r
+      propertyPath: m_Color.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034755334878230086, guid: ba4ea018dc83661488d7b9aa8971911f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
