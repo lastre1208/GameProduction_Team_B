@@ -8,10 +8,10 @@ using UnityEngine.Events;
 [System.Serializable]
 public enum TrickButton
 {
-    A,
-    B,
-    X,
-    Y
+    south,
+    east,
+    west,
+    north
 }
 
 public class TrickPatternEffect : MonoBehaviour

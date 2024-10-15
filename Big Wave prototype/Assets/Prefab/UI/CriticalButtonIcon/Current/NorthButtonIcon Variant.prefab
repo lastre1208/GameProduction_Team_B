@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5445108410717249032, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
       propertyPath: m_Name
-      value: YButtonIcon Variant
+      value: NorthButtonIcon Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6886740003472280251, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
       propertyPath: m_Color.b
@@ -55,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 7802331296569267516, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802331296569267516, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802331296569267516, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7802331296569267516, guid: 1c9b2e0f3613bf74e9f0e38645ca5e62, type: 3}
       propertyPath: m_LocalPosition.x

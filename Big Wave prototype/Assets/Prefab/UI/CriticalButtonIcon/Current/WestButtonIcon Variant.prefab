@@ -58,19 +58,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295302957402863521, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3174864644132710438, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_Color.b
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038909013340011669, guid: c3c4c1e57dd413e478adcbd74c333dec, type: 3}
       propertyPath: m_Name
-      value: XButtonIcon Variant
+      value: WestButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
