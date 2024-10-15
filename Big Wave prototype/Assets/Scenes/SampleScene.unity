@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 274497789}
   - component: {fileID: 274497790}
   m_Layer: 0
-  m_Name: A
+  m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3979,6 +3979,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4059,9 +4063,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons (1)
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4110,7 +4126,7 @@ GameObject:
   - component: {fileID: 533307688}
   - component: {fileID: 533307689}
   m_Layer: 0
-  m_Name: B
+  m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4511,7 +4527,7 @@ GameObject:
   - component: {fileID: 579773585}
   - component: {fileID: 579773586}
   m_Layer: 0
-  m_Name: X
+  m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5608,6 +5624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5688,9 +5708,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons (2)
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7154,7 +7186,7 @@ GameObject:
   - component: {fileID: 1018656153}
   - component: {fileID: 1018656154}
   m_Layer: 0
-  m_Name: Y
+  m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8868,6 +8900,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8948,9 +8984,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons (5)
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11909,6 +11957,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11989,9 +12041,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons (3)
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12784,6 +12848,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12864,9 +12932,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19297,7 +19377,7 @@ GameObject:
   - component: {fileID: 2057826624}
   - component: {fileID: 2057826625}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GuideButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19438,6 +19518,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2057826624}
     m_Modifications:
+    - target: {fileID: 296676786404333059, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: WestButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 475962395817536532, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19518,9 +19602,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699201457869587655, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: NorthButtonIcon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335473999955685677, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: SouthButtonIcon Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 1950608313661799331, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
       propertyPath: m_Name
-      value: ButtonIcons (4)
+      value: GuideButtonIcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770693276818445650, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
+      propertyPath: m_Name
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
