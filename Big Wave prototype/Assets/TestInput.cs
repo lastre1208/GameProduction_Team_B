@@ -7,30 +7,29 @@ using UnityEngine.InputSystem;
 public class TestInput : MonoBehaviour
 {
     bool isPressed=false;
-    public void InputNothing()
+
+    public void InputNothingContext()
     {
         Debug.Log("âΩÇ…Ç‡ê›íËÇ≥ÇÍÇƒÇ¢Ç»Ç¢");
     }
-
-    public void InputPerform(InputAction.CallbackContext context)
+    public void InputNothing(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-
-        Debug.Log("îƒóp");
+        Debug.Log(context.phase+"åƒÇŒÇÍÇƒÇÈÇÊ");
     }
 
-    public void InputEveryFrameTrue(InputAction.CallbackContext context)
+    public void InputMoment(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-
-        isPressed = true;
+        if(context.performed)
+        {
+            Debug.Log(context.phase + "åƒÇŒÇÍÇƒÇÈÇÊ");
+        }
     }
 
-    public void InputEveryFrameFalse(InputAction.CallbackContext context)
+    public void InputEveryFrame(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        isPressed = false;
+        isPressed = !isPressed;
     }
 
     void Update()

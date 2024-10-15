@@ -78,12 +78,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DebugModeOn",
+                    "name": "Test",
                     "type": "Button",
-                    "id": "90c3c5d1-01f3-46b2-9966-8b1c865894f1",
+                    "id": "6aa7d40a-d8ee-4546-9aba-5ee69c1f1fe9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -508,12 +508,12 @@
                 },
                 {
                     "name": "",
-                    "id": "637a003d-f901-46f2-b1fb-1dcee7a6470a",
-                    "path": "<Keyboard>/escape",
+                    "id": "a888d9ef-7640-49ac-a430-f69198f217cd",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DebugModeOn",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
