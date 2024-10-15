@@ -7245,6 +7245,7 @@ GameObject:
   - component: {fileID: 1034766461}
   - component: {fileID: 1034766463}
   - component: {fileID: 1034766462}
+  - component: {fileID: 1034766464}
   m_Layer: 0
   m_Name: ControllerManager
   m_TagString: Untagged
@@ -7548,10 +7549,6 @@ MonoBehaviour:
     m_ActionId: 9ef3ddc5-79e2-4107-8abf-6fe48dd14bd2
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 90c3c5d1-01f3-46b2-9966-8b1c865894f1
-    m_ActionName: Player/DebugModeOn[/Keyboard/escape]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1034766456}
         m_TargetAssemblyTypeName: ControllerOfPause, Assembly-CSharp
@@ -7567,6 +7564,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5172592-9842-46d7-b5e5-c85eef6759cb
     m_ActionName: UI/ResumeGame[/Keyboard/p,/Keyboard/escape,/SwitchProControllerHID/buttonSouth,/SwitchProControllerHID/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034766464}
+        m_TargetAssemblyTypeName: TestInput, Assembly-CSharp
+        m_MethodName: InputEveryFrame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6aa7d40a-d8ee-4546-9aba-5ee69c1f1fe9
+    m_ActionName: Player/Test[/Keyboard/o]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -7582,6 +7595,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 761772120de969943a1888a0671d0cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034766464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbed04df4c419d49b506bdd8ef8a06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1041760308
@@ -12423,7 +12448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 98503838}
-  animName: Attack_2
+  animName: Attack_Slash
   shotType: {fileID: 1562493072}
   actionEffect:
     generate: 1
