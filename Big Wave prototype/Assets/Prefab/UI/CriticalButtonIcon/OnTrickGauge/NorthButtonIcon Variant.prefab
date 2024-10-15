@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2149487108345467685, guid: d799f8669b7da2848976bbf316864dd8, type: 3}
       propertyPath: m_Name
-      value: YButtonIcon Variant
+      value: NorthButtonIcon Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4734034191263415557, guid: d799f8669b7da2848976bbf316864dd8, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.84533167
       objectReference: {fileID: 0}
     - target: {fileID: 4734034191263415557, guid: d799f8669b7da2848976bbf316864dd8, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734034191263415557, guid: d799f8669b7da2848976bbf316864dd8, type: 3}
       propertyPath: m_Color.r
-      value: 0.9254902
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7682907292226969080, guid: d799f8669b7da2848976bbf316864dd8, type: 3}
       propertyPath: m_text

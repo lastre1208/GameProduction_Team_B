@@ -25,24 +25,24 @@ public class ControllerOfTrick : MonoBehaviour
     public void Trick_Y(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.Y);
+        Trick_Process(TrickButton.north);
     }
 
     public void Trick_X(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.X);
+        Trick_Process(TrickButton.west);
     }
 
     public void Trick_B(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.B);
+        Trick_Process(TrickButton.east);
     }
 
     public void Trick_A(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.A);
+        Trick_Process(TrickButton.south);
     }
 }

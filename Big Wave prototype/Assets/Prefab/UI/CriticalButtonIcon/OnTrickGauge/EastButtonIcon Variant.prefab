@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 159342443511378174, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_Name
-      value: BButtonIcon Variant
+      value: EastButtonIcon Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6795985965259874014, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_Color.b
-      value: 0.011764706
+      value: 0.84533167
       objectReference: {fileID: 0}
     - target: {fileID: 6795985965259874014, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_Color.g
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501894311753052237, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7501894311753052237, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501894311753052237, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7501894311753052237, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501894311753052237, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8466117765687131683, guid: a252104cb8501cc478ecde46a5ab17d6, type: 3}
       propertyPath: m_text
