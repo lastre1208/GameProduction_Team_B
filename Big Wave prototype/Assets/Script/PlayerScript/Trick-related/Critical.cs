@@ -17,17 +17,17 @@ public class Critical : MonoBehaviour
     [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
 　　[SerializeField] AudioSource audioSource;
     [SerializeField] TrickPoint player_TrickPoint;
-    private Button[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
+    private TrickButton[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
     
 
-    public Button[] CriticalButton
+    public TrickButton[] CriticalButton
     {
         get { return criticalButton; }
     }
 
     void Start()
     {
-        criticalButton = new Button[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
+        criticalButton = new TrickButton[player_TrickPoint.TrickGaugeNum];//プレイヤーのトリックゲージの本数分criticalButtonの配列を用意する
         StartAllocateButton();
     }
 
@@ -39,7 +39,7 @@ public class Critical : MonoBehaviour
         }
     }
 
-    public float CriticalDamageRate(Button button)//指定されたボタンを入力することによってクリティカルが発生するようにする(ダメージがアップするようにする)
+    public float CriticalDamageRate(TrickButton button)//指定されたボタンを入力することによってクリティカルが発生するようにする(ダメージがアップするようにする)
     {
         if (button == criticalButton[0])//入力したボタンが指定されたボタンだった時(クリティカル時)
         {
@@ -64,14 +64,14 @@ public class Critical : MonoBehaviour
         return 1;//等倍を返す
     }
 
-    void AllocateButton(ref Button button)//ボタンの割り当て(ランダム)
+    void AllocateButton(ref TrickButton button)//ボタンの割り当て(ランダム)
     {
         //enum型のButtonの要素数を取得
-        int max = Enum.GetNames(typeof(Button)).Length;
+        int max = Enum.GetNames(typeof(TrickButton)).Length;
         //ランダムな整数を取得
         int num = UnityEngine.Random.Range(0, max);
         //取得したランダムな整数をenum型:Buttonに変換してcriticalButtonに入れる
-        button = (Button)Enum.ToObject(typeof(Button), num);
+        button = (TrickButton)Enum.ToObject(typeof(TrickButton), num);
     }
 
 }

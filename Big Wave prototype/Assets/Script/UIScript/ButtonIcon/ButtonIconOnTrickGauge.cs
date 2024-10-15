@@ -26,7 +26,7 @@ public class ButtonIconOnTrickGauge : MonoBehaviour
             if(display)
             {
                 int criticalButtonNum = trickPoint.MaxCount-1-i;//何番目に指定されているボタンを表示するか、要素番号を入れなければならないので例えば2番目に指定されているボタンを表示するなら(2-1)=1を入れる
-                Button buttonDisplayed = critical.CriticalButton[criticalButtonNum];//表示するボタン、criticalButtonNum+1番目(要素番号でいえばcriticalButtonNum)に指定されているボタンを設定
+                TrickButton buttonDisplayed = critical.CriticalButton[criticalButtonNum];//表示するボタン、criticalButtonNum+1番目(要素番号でいえばcriticalButtonNum)に指定されているボタンを設定
                 buttonIcon[i].DisplayButton(buttonDisplayed);//ボタンアイコンを表示
             }
             else
