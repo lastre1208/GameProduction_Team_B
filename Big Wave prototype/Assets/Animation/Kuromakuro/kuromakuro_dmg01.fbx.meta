@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e588398797578dc429ff5b8191c215ee
+guid: 069827921325f3544ba547db86e6c963
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Slash_yoko
+      name: damage
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 28
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
