@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 //作成者：桑原
@@ -5,10 +6,8 @@ using UnityEngine;
 public class CustomButtonEventsManager : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
-    [Header("▼ゲームを開始するボタン")]
-    [SerializeField] GameObject startGameButton;
-    [Header("▼ゲームを終了するボタン")]
-    [SerializeField] GameObject endGameButton;
+    [Header("▼シーンを遷移するボタン")]
+    [SerializeField] GameObject sceneMoveButton;
 
     private SceneControlManager sceneControlManager;
     private MenuEffectController menuEffectController;
@@ -17,7 +16,7 @@ public class CustomButtonEventsManager : MonoBehaviour
 
     void Start()
     {
-        sceneControlManager = startGameButton.GetComponent<SceneControlManager>();
+        sceneControlManager = sceneMoveButton.GetComponent<SceneControlManager>();
         menuEffectController = canvas.GetComponent<MenuEffectController>();
     }
 
@@ -56,20 +55,44 @@ public class CustomButtonEventsManager : MonoBehaviour
     //各ボタンの処理
     private void ButtonsProcess()
     {
-        if (currentClickedButton == startGameButton.GetComponent<RectTransform>())//ゲームを開始するボタンが押されたら
+        if (currentClickedButton == null)
         {
-            if (menuEffectController.EffectColorChange_FadeOutWasCompleted)//ボタンの色の変化と画面の暗転が終了していたら
-            {
-                sceneControlManager.ChangeGameScene();//ロード画面への移行処理を呼び出す
-            }
-        }     
+            return;
+        }
 
-        else if (currentClickedButton == endGameButton.GetComponent<RectTransform>())//ゲームを終了するボタンが押されたら
+        switch (currentClickedButton.gameObject.tag)
         {
-            if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
-            {
-                sceneControlManager.EndGame();//ゲームの終了処理を呼びだす
-            }
+            case "StartButton":
+                if (menuEffectController.EffectColorChange_FadeOutWasCompleted)//ボタンの色の変化と画面の暗転が終了していたら
+                {
+                    sceneControlManager.ChangeGameScene();//ロード画面への移行処理を呼び出す
+                }
+                break;
+
+            case "EndButton":
+                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
+                {
+                    sceneControlManager.EndGame();//ゲームの終了処理を呼びだす
+                }
+                break;
+
+            case "RetryButton":
+                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
+                {
+                    sceneControlManager.ChangeGameScene();//ゲームの終了処理を呼びだす
+                }
+                break;
+
+            case "QuitButton":
+                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
+                {
+                    sceneControlManager.ChangeMenuScene();//ゲームの終了処理を呼びだす
+                }
+                break;
+
+            case null:
+                break;
+
         }
     }
 }
