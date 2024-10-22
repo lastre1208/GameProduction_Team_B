@@ -47,20 +47,20 @@ public class RopeEffect : MonoBehaviour
 
     void DrawRope()
     {
-        Vector3 enemyPosition = enemy.transform.position;//敵の座標を取得
-        Vector3 playerPosition = player.transform.position;//プレイヤーの座標を取得
+        //Vector3 enemyPosition = enemy.transform.position;//敵の座標を取得
+        //Vector3 playerPosition = player.transform.position;//プレイヤーの座標を取得
 
-        Vector3 enemyLocalPosition= transform.InverseTransformPoint(enemyPosition);
-        Vector3 playerLocalPosition = transform.InverseTransformPoint(playerPosition);
+        //Vector3 enemyLocalPosition= transform.InverseTransformPoint(enemyPosition);
+        //Vector3 playerLocalPosition = transform.InverseTransformPoint(playerPosition);
 
-        enemyLocalPosition.z -= enemy.transform.localScale.z / 2f;
-        playerLocalPosition.z += player.transform.localScale.z / 2f;
+        //enemyLocalPosition.z -= enemy.transform.localScale.z / 2f;
+        //playerLocalPosition.z += player.transform.localScale.z / 2f;
 
-        enemyPosition= transform.TransformPoint(enemyLocalPosition);
-        playerPosition= transform.TransformPoint(playerLocalPosition);
+        //enemyPosition= transform.TransformPoint(enemyLocalPosition);
+        //playerPosition= transform.TransformPoint(playerLocalPosition);
 
-        startPoint.transform.position = playerPosition;//ロープの視点の座標にプレイヤーの座標に移動
-        endPoint.transform.position = enemyPosition;//ロープの終点の座標を敵の座標に移動
+        //startPoint.transform.position = playerPosition;//ロープの始点の座標をプレイヤーの座標に移動
+        //endPoint.transform.position = enemyPosition;//ロープの終点の座標を敵の座標に移動
 
         int index = 0;
         foreach (GameObject v in vertices)
