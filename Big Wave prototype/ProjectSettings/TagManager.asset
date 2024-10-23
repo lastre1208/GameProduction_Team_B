@@ -17,9 +17,6 @@ TagManager:
   - GameStartManager
   - PauseManager
   - VectorOfShot
-  - ClickedWaveEffect
-  - StartButton
-  - EndButton
   layers:
   - Default
   - TransparentFX

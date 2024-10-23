@@ -418,9 +418,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1289409830}
   - component: {fileID: 1289409829}
-  - component: {fileID: 1289409833}
   - component: {fileID: 1289409832}
   - component: {fileID: 1289409831}
+  - component: {fileID: 1289409833}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -483,7 +483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2013484148}
-  sceneMoveButton: {fileID: 2002658158}
+  startGameButton: {fileID: 2002658158}
+  endGameButton: {fileID: 1294400625}
 --- !u!114 &1289409833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ GameObject:
   - component: {fileID: 1294400631}
   m_Layer: 5
   m_Name: QuitTheGameButton
-  m_TagString: EndButton
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,7 +976,7 @@ GameObject:
   - component: {fileID: 2002658164}
   m_Layer: 5
   m_Name: StartButton
-  m_TagString: StartButton
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

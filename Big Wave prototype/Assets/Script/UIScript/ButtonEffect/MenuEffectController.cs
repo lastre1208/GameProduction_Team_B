@@ -14,6 +14,16 @@ public class MenuEffectController : MonoBehaviour
     [Header("フェードアウトの設定")]
     [SerializeField] FadeOut fadeOut;
 
+    //[Header("▼フェードアウトに使う画像")]
+    //[SerializeField] Image fadeImage;
+    /*[Header("▼ゲームを開始するボタン")]
+    [SerializeField] GameObject startGameButton;
+    [Header("▼ゲームを終了するボタン")]
+    //[SerializeField] GameObject endGameButton;*/
+    //[Header("▼完全に画面がフェードアウトするまでにかかる時間")]
+    //[SerializeField] float fadeDuration = 1.0f;
+
+
     private TriangleWaveLine triangleWaveLine;
 
     private GameObject leftSelectedEffect;//左側に生成されるボタン選択時のエフェクト
@@ -23,11 +33,16 @@ public class MenuEffectController : MonoBehaviour
 
     private Image currentButtonImage;
 
-    private float setSizeOffset = 5f;//座標計算の補正用
-    private float aspectRatio = 0.75f;//エフェクトの横幅に対する高さの倍率
-
+    private float setPositionOffset = 2.5f;//座標計算の補正用
+    //private float fadeTimer = 0f;//フェードアウト時間の管理用
+    //private bool fadeCompleted;
     private bool clickedEffectGenerated = false;//決定されたかどうか
     private bool effectColorChanged = false;
+
+    //public bool FadeCompleted
+    //{
+    //    get { return fadeCompleted; }
+    //}
 
     public bool EffectColorChanged
     {
@@ -41,6 +56,10 @@ public class MenuEffectController : MonoBehaviour
 
     private void Start()
     {
+        //fadeImage.color = new Color(0, 0, 0, 0);//フェードアウト用の画像を透明に設定
+
+        //fadeCompleted = false;
+
         clickedEffectGenerated = false;
     }
 
@@ -98,44 +117,29 @@ public class MenuEffectController : MonoBehaviour
     //エフェクトの生成
     public void GenerateEffects(RectTransform buttonRect, GameObject effectPrefab, ref GameObject leftEffect, ref GameObject rightEffect)
     {
-        float scaledPanelWidth = CalculateScaledWidth(menuPanel);
-        float panelHalfWidth = scaledPanelWidth * 0.5f;
+        float panelWidth = menuPanel.rect.width;//パネルの横幅
+        float panelLeftX = -panelWidth * 0.5f;//パネルの左端
+        float panelRightX = panelWidth * 0.5f;//パネルの右端
 
-        float scaledButtonWidth = CalculateScaledWidth(buttonRect);
-        float buttonHalfWidth = scaledButtonWidth * 0.5f;
+        //float buttonWidth = buttonRect.rect.width;//ボタンの幅
 
-        float buttonCenterY = buttonRect.anchoredPosition.y;//ボタンの中央のアンカーY座標
-
-        Image buttonImage = buttonRect.GetComponent<Image>();
-        Color buttonColor = buttonImage.color;//対象のボタンの色を取得
-
-        leftEffect = Instantiate(effectPrefab, menuPanel);//左側エフェクトの生成
+        float buttonCenterY = buttonRect.anchoredPosition.y;//ボタンの中央のアンカーY座標を取得
+                
+        leftEffect = Instantiate(effectPrefab, menuPanel);//左側のエフェクトを生成
         RectTransform leftEffectRect = leftEffect.GetComponent<RectTransform>();
+                
+        float effectWidth = leftEffectRect.rect.width;//エフェクトの幅の半分を取得
 
-        SetColorOfEffect(leftEffect, effectPrefab, buttonColor);//左側エフェクトの色を設定
+        float leftEffectX = panelLeftX + effectWidth * setPositionOffset;//左エフェクトの座標をパネルの左端の座標に合わせる
+        leftEffectRect.anchoredPosition = new Vector2(leftEffectX, buttonCenterY);//計算した座標に配置
 
-        float effectRectWidth = ((panelHalfWidth - buttonHalfWidth) + setSizeOffset) / menuPanel.localScale.x;//エフェクトの横幅をパネル端からボタン端までの幅に設定
-        float effectRectHeight = effectRectWidth * aspectRatio;//取得した幅に応じたエフェクトの高さを設定
-
-        leftEffectRect.sizeDelta = new Vector2(effectRectWidth + buttonRect.anchoredPosition.x, effectRectHeight);//パネルのスケールを考慮して幅を設定
-
-        float effectWidth = leftEffectRect.rect.width * 0.5f * menuPanel.localScale.x;//スケールを考慮してエフェクトの半分の幅を取得
-
-        float leftEffectX = (-panelHalfWidth + effectWidth) / menuPanel.localScale.x;//パネル左端に合わせた左エフェクトのX座標
-        leftEffectRect.anchoredPosition = new Vector2(leftEffectX, buttonCenterY);//スケール補正してエフェクトを配置
-
-        rightEffect = Instantiate(effectPrefab, menuPanel);//右側エフェクトの生成
+        rightEffect = Instantiate(effectPrefab, menuPanel);//右側のエフェクトを生成
         RectTransform rightEffectRect = rightEffect.GetComponent<RectTransform>();
 
-        SetColorOfEffect(rightEffect, effectPrefab, buttonColor);//右側エフェクトの色を設定
-
-        rightEffectRect.sizeDelta = new Vector2(effectRectWidth - buttonRect.anchoredPosition.x, effectRectHeight);//スケールを考慮して右エフェクトのサイズを設定
-
-        float rightEffectX = (panelHalfWidth - effectWidth + buttonRect.anchoredPosition.x) / menuPanel.localScale.x;//パネル右端に合わせた右エフェクトのX座標
-        rightEffectRect.anchoredPosition = new Vector2(rightEffectX, buttonCenterY);//スケール補正して右エフェクトを配置
-        rightEffectRect.localRotation = Quaternion.Euler(0, 180, 0);//右エフェクトを反転
+        float rightEffectX = panelRightX - effectWidth * setPositionOffset;//右エフェクトの座標をパネルの右端の座標に合わせる
+        rightEffectRect.anchoredPosition = new Vector2(rightEffectX, buttonCenterY);//計算した座標に配置
+        rightEffectRect.localRotation = Quaternion.Euler(0, 180, 0);//右側のエフェクトを回転させる
     }
-
 
     //エフェクトの破棄
     public void DestroyEffects(ref GameObject leftEffect, ref GameObject rightEffect)
@@ -150,24 +154,20 @@ public class MenuEffectController : MonoBehaviour
         {
             DestroyImmediate(rightEffect);
             rightEffect = null;
-        }
+        }      
     }
 
-    //エフェクトの色の設定
-    private void SetColorOfEffect(GameObject effect, GameObject effectPrefab, Color buttonColor)
-    {
-        if (effectPrefab == selectedEffectPrefab)
-        {
-            Image effectImage = effect.GetComponent<Image>();
-            effectImage.color = buttonColor;
-        }
-    }
+    ////画面の暗転
+    //private void FadeOutDisplay()
+    //{
+    //    fadeTimer += Time.deltaTime;
+    //    float normalizedTime = fadeTimer / fadeDuration;
+    //    float newAlpha = Mathf.Clamp01(normalizedTime);//経過時間をもとに透明度を計算
+    //    fadeImage.color = new Color(0, 0, 0, newAlpha);//フェードアウト用の画像の透明度を更新
 
-    //スケールに基づく横幅の取得
-    private float CalculateScaledWidth(RectTransform rectTransform)
-    {
-        float width = rectTransform.rect.width;
-        float scaleX = rectTransform.localScale.x;
-        return width * scaleX;
-    }
+    //    if (fadeTimer >= fadeDuration)
+    //    {
+    //        fadeCompleted = true;//完全に画面が暗転した
+    //    }
+    //}
 }
