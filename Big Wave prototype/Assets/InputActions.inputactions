@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "YTrick",
+                    "name": "NorthTrick",
                     "type": "Button",
                     "id": "28c76b47-0f3d-44b4-98f5-36f0a2383653",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ATrick",
+                    "name": "SouthTrick",
                     "type": "Button",
                     "id": "fb5ee62d-7c64-4906-b62b-cedcc15d76ce",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BTrick",
+                    "name": "EastTrick",
                     "type": "Button",
                     "id": "c6f14c21-bf16-4e97-a36f-b4128cf5db13",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "XTrick",
+                    "name": "WestTrick",
                     "type": "Button",
                     "id": "b77aa287-3015-4ab9-88a0-c84e9fe6b7c6",
                     "expectedControlType": "Button",
@@ -282,7 +282,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "YTrick",
+                    "action": "NorthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -293,7 +293,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "YTrick",
+                    "action": "NorthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -304,7 +304,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "YTrick",
+                    "action": "NorthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -315,7 +315,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ATrick",
+                    "action": "SouthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -326,7 +326,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ATrick",
+                    "action": "SouthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -337,7 +337,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ATrick",
+                    "action": "SouthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -348,7 +348,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BTrick",
+                    "action": "EastTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -359,7 +359,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BTrick",
+                    "action": "EastTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -370,7 +370,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BTrick",
+                    "action": "EastTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -381,7 +381,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "XTrick",
+                    "action": "WestTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -392,7 +392,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "XTrick",
+                    "action": "WestTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -403,7 +403,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "XTrick",
+                    "action": "WestTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

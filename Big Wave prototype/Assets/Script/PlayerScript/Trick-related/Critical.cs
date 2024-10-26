@@ -4,26 +4,28 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 //作成者:杉山
-//受け取ったボタンの種類に応じてダメージ増加倍率を返す
+//最後に押したボタンがクリティカルになるかを判定
 public class Critical : MonoBehaviour
 {
-    [Header("ダメージの増加倍率")]
-    [SerializeField] float criticalRate;//クリティカル時のダメージの増加倍率
-    [Header("クリティカル時の効果音")]
-    [SerializeField] AudioClip criticalSound;//クリティカル時の効果音
+    [Header("クリティカル発生時に呼び出すイベント")]
+    [SerializeField] UnityEvent criticalEvents;//クリティカル発生時に呼び出すイベント
+    [Header("クリティカル不発時に呼び出すイベント")]
+    [SerializeField] UnityEvent notCriticalEvents;//クリティカル不発時に呼び出すイベント
     [Header("必要なコンポーネント")]
+    [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
     [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
 　　[SerializeField] AudioSource audioSource;
     [SerializeField] TrickPoint player_TrickPoint;
-    private TrickButton[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
-    
 
-    public TrickButton[] CriticalButton
-    {
-        get { return criticalButton; }
-    }
+    bool criticalNow = false;//最後に押したボタンがクリティカルだったか
+    private TrickButton[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
+
+    public bool CriticalNow { get { return criticalNow; } }
+    
+    public TrickButton[] CriticalButton{ get { return criticalButton; } }
 
     void Start()
     {
@@ -39,29 +41,31 @@ public class Critical : MonoBehaviour
         }
     }
 
-    public float CriticalDamageRate(TrickButton button)//指定されたボタンを入力することによってクリティカルが発生するようにする(ダメージがアップするようにする)
+    public void SetCriticalNow()//クリティカルが発生したかを設定
     {
-        if (button == criticalButton[0])//入力したボタンが指定されたボタンだった時(クリティカル時)
+        //入力したボタンが指定されていたボタンだった時(クリティカルの時)
+        if(pushedButton_CurrentTrickPattern.PushedButton == criticalButton[0])
         {
-            audioSource.PlayOneShot(criticalSound);//効果音の再生
+            criticalNow = true;
 
-            criticalTrickCount.AddScoreWhenCritical(true);//クリティカルだったためスコアの加算
+            criticalEvents.Invoke();
 
-            for(int i=1; i<criticalButton.Length ;i++)//[0](現在指定されている)ボタン以外の全てのボタンを1つ前([0]方向)にずらす
+            for (int i = 1; i < criticalButton.Length; i++)//[0](現在指定されている)ボタン以外の全てのボタンを1つ前([0]方向)にずらす
             {
                 criticalButton[i - 1] = criticalButton[i];
             }
 
             AllocateButton(ref criticalButton[criticalButton.Length - 1]);//ボタンの配列の最後のボタンに割り当て
-
-            return criticalRate;//クリティカル時の倍率を返す
         }
 
+        //入力したボタンが指定されていたボタンではなかった時
+        else
+        {
+            criticalNow=false;
 
-        //入力したボタンが指定されたボタンではなかった時(クリティカルではなかった時)
-        criticalTrickCount.AddScoreWhenCritical(false);//クリティカルではなかったためスコアの加算はされない
+            notCriticalEvents.Invoke();
+        }
 
-        return 1;//等倍を返す
     }
 
     void AllocateButton(ref TrickButton button)//ボタンの割り当て(ランダム)

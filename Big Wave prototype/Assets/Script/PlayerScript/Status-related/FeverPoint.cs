@@ -13,7 +13,11 @@ public class FeverPoint : MonoBehaviour
     public float FeverPoint_
     {
         get { return feverPoint; }
-        set { feverPoint = value; }
+        set
+        {
+            feverPoint = value;
+            feverPoint = Mathf.Clamp(feverPoint, 0f, feverPointMax);//フィーバーポイントが限界突破しないように
+        }
     }
 
     public float FeverPointMax
@@ -24,11 +28,5 @@ public class FeverPoint : MonoBehaviour
     void Start()
     {
         feverPoint = 0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        feverPoint = Mathf.Clamp(feverPoint, 0f, feverPointMax);//フィーバーポイントが限界突破しないように
     }
 }

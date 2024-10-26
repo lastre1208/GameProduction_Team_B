@@ -945,6 +945,7 @@ MonoBehaviour:
   scorePerOneCritical: 30
   plusContinueBonus: 10
   scorePerOneCriticalMax: 100
+  critical: {fileID: 1244729556}
 --- !u!4 &119824062
 Transform:
   m_ObjectHideFlags: 0
@@ -1991,13 +1992,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1244729579}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 100
-          m_StringArgument: 
+          m_StringArgument: Trick_1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1450173098}
@@ -4357,13 +4358,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1244729579}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 100
-          m_StringArgument: 
+          m_StringArgument: Trick
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1450173098}
@@ -4810,13 +4811,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1244729579}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 100
-          m_StringArgument: 
+          m_StringArgument: Trick
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1450173098}
@@ -7496,13 +7497,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1244729579}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 100
-          m_StringArgument: 
+          m_StringArgument: Trick
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1450173098}
@@ -7733,7 +7734,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1034766459}
         m_TargetAssemblyTypeName: ControllerOfTrick, Assembly-CSharp
-        m_MethodName: Trick_Y
+        m_MethodName: Trick_North
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7749,7 +7750,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1034766459}
         m_TargetAssemblyTypeName: ControllerOfTrick, Assembly-CSharp
-        m_MethodName: Trick_A
+        m_MethodName: Trick_South
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7765,7 +7766,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1034766459}
         m_TargetAssemblyTypeName: ControllerOfTrick, Assembly-CSharp
-        m_MethodName: Trick_B
+        m_MethodName: Trick_East
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7781,7 +7782,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1034766459}
         m_TargetAssemblyTypeName: ControllerOfTrick, Assembly-CSharp
-        m_MethodName: Trick_X
+        m_MethodName: Trick_West
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9655,10 +9656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feverEffect: {fileID: 1450010173}
   feverTime: 20
-  powerUpBuff:
-    powerUp_GrowthRate: 2
-  chargeTrickBuff:
-    chargeTrick_GrowthRate: 2
   player_FeverPoint: {fileID: 1244729563}
 --- !u!114 &1244729556
 MonoBehaviour:
@@ -9672,8 +9669,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalRate: 4
-  criticalSound: {fileID: 8300000, guid: 24706dcbb6e711a49acb12f3b45d10f1, type: 3}
+  criticalEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1778482265}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 24706dcbb6e711a49acb12f3b45d10f1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  notCriticalEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  pushedButton_CurrentTrickPattern: {fileID: 1244729568}
   criticalTrickCount: {fileID: 119824061}
   audioSource: {fileID: 1778482265}
   player_TrickPoint: {fileID: 1244729564}
@@ -9720,6 +9734,42 @@ MonoBehaviour:
   eventsWhenTrick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1244729556}
+        m_TargetAssemblyTypeName: Critical, Assembly-CSharp
+        m_MethodName: SetCriticalNow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729565}
+        m_TargetAssemblyTypeName: CountTrickWhileJump, Assembly-CSharp
+        m_MethodName: AddTrickCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729557}
+        m_TargetAssemblyTypeName: CountTrickCombo, Assembly-CSharp
+        m_MethodName: AddCombo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1244729568}
         m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
         m_MethodName: TrickEffect
@@ -9735,18 +9785,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1034766461}
         m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
         m_MethodName: Vibe
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729565}
-        m_TargetAssemblyTypeName: CountTrickWhileJump, Assembly-CSharp
-        m_MethodName: AddTrickCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9780,18 +9818,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729557}
-        m_TargetAssemblyTypeName: CountTrickCombo, Assembly-CSharp
-        m_MethodName: AddCombo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1244729559}
         m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
         m_MethodName: HoverJumpTrigger
@@ -9816,9 +9842,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pushedButton_TrickPattern: {fileID: 1244729568}
+      - m_Target: {fileID: 119824061}
+        m_TargetAssemblyTypeName: Score_CriticalTrickCount, Assembly-CSharp
+        m_MethodName: AddScoreWhenCritical
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   judgeJumpNow: {fileID: 1244729571}
   player_TrickPoint: {fileID: 1244729564}
+  pushedButton_TrickPattern: {fileID: 1244729568}
 --- !u!114 &1244729562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9923,6 +9961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeTrickGrowthRate_Fever: 2
   changeChargeRateTheChargers: {fileID: 1244729575}
   feverMode: {fileID: 1244729544}
   player_TrickPoint: {fileID: 1244729564}
@@ -10156,6 +10195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDamageAmount: 100
+  damageGrowthRate_Fever: 2
+  damageGrowthRate_Critical: 4
   feverMode: {fileID: 1244729544}
   critical: {fileID: 1244729556}
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
