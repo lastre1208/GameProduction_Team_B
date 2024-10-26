@@ -9734,42 +9734,6 @@ MonoBehaviour:
   eventsWhenTrick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244729556}
-        m_TargetAssemblyTypeName: Critical, Assembly-CSharp
-        m_MethodName: SetCriticalNow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729565}
-        m_TargetAssemblyTypeName: CountTrickWhileJump, Assembly-CSharp
-        m_MethodName: AddTrickCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729557}
-        m_TargetAssemblyTypeName: CountTrickCombo, Assembly-CSharp
-        m_MethodName: AddCombo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1244729568}
         m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
         m_MethodName: TrickEffect
@@ -9857,6 +9821,9 @@ MonoBehaviour:
   judgeJumpNow: {fileID: 1244729571}
   player_TrickPoint: {fileID: 1244729564}
   pushedButton_TrickPattern: {fileID: 1244729568}
+  critical: {fileID: 1244729556}
+  countTrickCombo: {fileID: 1244729557}
+  countTrickWhileJump: {fileID: 1244729565}
 --- !u!114 &1244729562
 MonoBehaviour:
   m_ObjectHideFlags: 0

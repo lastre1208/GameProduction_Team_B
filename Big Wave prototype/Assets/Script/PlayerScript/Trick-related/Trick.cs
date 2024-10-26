@@ -18,13 +18,9 @@ public partial class Trick : MonoBehaviour
     [SerializeField] JudgeJumpNow judgeJumpNow;
     [SerializeField] TrickPoint player_TrickPoint;
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
-    //[SerializeField] CountTrickCombo countTrickCombo;
-    //[SerializeField] CountTrickWhileJump countTrickWhileJump;
-    //[SerializeField] ControllerVibeOfTrick controllerVibeOfTrick;
-    //[SerializeField] ChargeFeverPointWhenTrick chargeFeverPointWhenTrick;
-    //[SerializeField] Score_TrickCount score_TrickCount;
-    //[SerializeField] HoverJump hoverJump;
-    //[SerializeField] GenerateEffectAlongWay generateEffectAlongWay;
+    [SerializeField] Critical critical;
+    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] CountTrickWhileJump countTrickWhileJump;
 
     HP enemy_Hp;
     
@@ -43,22 +39,12 @@ public partial class Trick : MonoBehaviour
 
         if (JudgeSuccessOfTrick())//トリック成功時
         {
+            critical.SetCriticalNow();//押されたボタンからクリティカルの判定
+            countTrickWhileJump.AddTrickCount();//ジャンプ中のトリック回数の加算
+            countTrickCombo.AddCombo();//トリックコンボ回数の加算
             eventsWhenTrick.Invoke();//登録された全イベントを呼ぶ
-            //EventsWhwnTrick();
         }
     }
-
-    //void EventsWhwnTrick()//トリック時の処理(イベント)
-    //{
-    //    countTrickWhileJump.AddTrickCount();//ジャンプ中のトリック回数の加算
-    //    countTrickCombo.AddCombo();//トリックコンボ回数の加算
-    //    pushedButton_TrickPattern.TrickEffect();//トリック事の効果を発動
-    //    controllerVibeOfTrick.Vibe();//トリック時のコントローラのバイブ
-    //    chargeFeverPointWhenTrick.Charge();//フィーバーポイントのチャージ
-    //    score_TrickCount.AddScore();//トリック回数のスコア加算
-    //    hoverJump.HoverJumpTrigger();//ホバージャンプさせる
-    //    generateEffectAlongWay.ActivateEffect();//ロープを伝うエフェクトを生成する
-    //}
 
     bool JudgeSuccessOfTrick()//トリック成功かの判定(成功であればtrueを返す)
     {
