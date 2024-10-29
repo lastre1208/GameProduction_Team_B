@@ -6,56 +6,54 @@ public class InstantiateBuildings : MonoBehaviour
 {
     //☆作成者:桑原
     //☆後に杉山が一部改良
-    [SerializeField] GameObject buildingsPrefab;//ビルのプレハブ
-    //[SerializeField] GameObject buildingsGroundPrefab;//ビルの地面部のプレハブ
-    //[SerializeField] float buildingsPrefabPosX = -37f;//生成するビルのX軸の座標（調整用）
-    //[SerializeField] float buildingsPrefabRotY = 90f;//生成するビルのY軸の角度（調整用）
-    //[SerializeField] float buildingsGroundPrefabPosX = -48f;//生成するビルの地面部のX軸の位置（調整用）
-    [SerializeField] float instantiateIntervalTime = 2.5f;//ビルの出現間隔
+    [SerializeField] GameObject buildingsPrefab;//生成する建物のプレハブ
+    [SerializeField] GameObject lastBuilding;//直前に生成された建物のプレハブ
 
-    private float instantiatePrefabTime = 0f;//ビルの出現間隔を管理する時間
-    private int randomNumber;
+    private Vector3 lastPosition;
+    private float building_sizeX;//建物のx軸方向の大きさ
+    private float building_sizeZ;//建物のz軸方向の大きさ
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        if (buildingsPrefab != null)
+        {
+            BoxCollider collider = buildingsPrefab.GetComponent<BoxCollider>();
+
+            if (collider != null)
+            {
+                building_sizeX = collider.size.x;
+                building_sizeZ = collider.size.z;
+            }
+        }
+
+        if (lastBuilding != null)
+        {
+            lastPosition = lastBuilding.transform.position;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        InstantiateBuildingsPrefab();//ビルの生成
+        InstantiateBuildingsPrefab();//建物の生成
     }
 
-    void InstantiateBuildingsPrefab()
+    void InstantiateBuildingsPrefab()//建物の生成
     {
-        instantiatePrefabTime += Time.deltaTime;//経過時間の計測
+        Vector3 currentPosition = transform.position;
+        Vector3 direction = (currentPosition - lastPosition).normalized; //前回の位置から現在の位置への進行方向ベクトル
+        
+        float minGenerationDistance = Mathf.Max(building_sizeX, building_sizeZ);//建物のサイズに応じた生成間隔の設定
 
-        if(instantiatePrefabTime > instantiateIntervalTime)//経過時間が一定の時間を超えたら
-        {
-            randomNumber = Random.Range(0, 2);
-            instantiatePrefabTime = 0f;//経過時間をリセット
+        if (Vector3.Distance(currentPosition, lastPosition) > minGenerationDistance)//指定された距離以上離れたときにのみ生成
+        {            
+            Vector3 newPosition = lastPosition + direction * minGenerationDistance;//進行方向に沿った新しい位置の計算
+            
+            GameObject newBuilding = Instantiate(buildingsPrefab, newPosition, transform.rotation);//新しい建物を生成
 
-            //Instantiate(buildingsGroundPrefab,transform.position,transform.rotation);//ビルの地面部の生成
-
-            Instantiate(buildingsPrefab, transform.position, transform.rotation);//ビルの生成
-
-            //if (randomNumber == 0)//ランダムに取得した値が0だった場合
-            //{
-            //    Instantiate(buildingsPrefab,
-            //        new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-            //        Quaternion.Euler(0f, buildingsPrefabRotY, 0f));
-            //    //buildingsPrefabRotYの値の分だけY軸に回転させて表示
-            //}
-
-            //else//ランダムに取得した値が1だった場合
-            //{
-            //    Instantiate(buildingsPrefab,
-            //       new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-            //       Quaternion.Euler(0f, -buildingsPrefabRotY, 0f));
-            //    //buildingsPrefabRotYの値の分だけY軸に逆回転させて表示
-            //}
+            lastPosition = newPosition;//最後に生成した建物の位置を更新
         }
     }
+
 }
