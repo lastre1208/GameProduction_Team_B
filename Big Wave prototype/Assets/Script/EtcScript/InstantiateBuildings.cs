@@ -7,19 +7,28 @@ public class InstantiateBuildings : MonoBehaviour
     //☆作成者:桑原
     //☆後に杉山が一部改良
     [SerializeField] GameObject buildingsPrefab;//ビルのプレハブ
-    //[SerializeField] GameObject buildingsGroundPrefab;//ビルの地面部のプレハブ
-    //[SerializeField] float buildingsPrefabPosX = -37f;//生成するビルのX軸の座標（調整用）
-    //[SerializeField] float buildingsPrefabRotY = 90f;//生成するビルのY軸の角度（調整用）
-    //[SerializeField] float buildingsGroundPrefabPosX = -48f;//生成するビルの地面部のX軸の位置（調整用）
-    [SerializeField] float instantiateIntervalTime = 2.5f;//ビルの出現間隔
+    [SerializeField] GameObject lastBuilding;//直前に生成されたビルのプレハブ
+    [SerializeField] float generationDistance = 70f;//ビルの出現間隔
 
-    private float instantiatePrefabTime = 0f;//ビルの出現間隔を管理する時間
-    private int randomNumber;
+    private Vector3 lastPosition;
+    private float buildingWidth;
+    private float buildingDepth;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        if (buildingsPrefab != null)
+        {
+            BoxCollider collider = buildingsPrefab.GetComponent<BoxCollider>();
+
+            if (collider != null)
+            {
+                buildingWidth = collider.size.x;
+                buildingDepth = collider.size.z;
+            }
+
+            lastPosition = lastBuilding.transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -30,32 +39,19 @@ public class InstantiateBuildings : MonoBehaviour
 
     void InstantiateBuildingsPrefab()
     {
-        instantiatePrefabTime += Time.deltaTime;//経過時間の計測
+        Vector3 newPosition = transform.position;
 
-        if(instantiatePrefabTime > instantiateIntervalTime)//経過時間が一定の時間を超えたら
+        if (Vector3.Distance(newPosition, lastPosition) > generationDistance)//今回生成するビルと前回生成されているビルの間隔が一定以上離れたら
         {
-            randomNumber = Random.Range(0, 2);
-            instantiatePrefabTime = 0f;//経過時間をリセット
+            bool isOverlapX = Mathf.Abs(newPosition.x - lastPosition.x) > buildingWidth;//x座標の間隔がビルのx軸サイズよりも大きいかどうか
+            bool isOverlapZ = Mathf.Abs(newPosition.z - lastPosition.z) > buildingDepth;//z軸の間隔がビルのz軸サイズよりも大きいかどうか
 
-            //Instantiate(buildingsGroundPrefab,transform.position,transform.rotation);//ビルの地面部の生成
+            if (isOverlapX || isOverlapZ)//ビル同士の重なりがないなら
+            {
+                GameObject newBuilding = Instantiate(buildingsPrefab, newPosition, transform.rotation);
 
-            Instantiate(buildingsPrefab, transform.position, transform.rotation);//ビルの生成
-
-            //if (randomNumber == 0)//ランダムに取得した値が0だった場合
-            //{
-            //    Instantiate(buildingsPrefab,
-            //        new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-            //        Quaternion.Euler(0f, buildingsPrefabRotY, 0f));
-            //    //buildingsPrefabRotYの値の分だけY軸に回転させて表示
-            //}
-
-            //else//ランダムに取得した値が1だった場合
-            //{
-            //    Instantiate(buildingsPrefab,
-            //       new Vector3(buildingsPrefabPosX, transform.position.y, transform.position.z),
-            //       Quaternion.Euler(0f, -buildingsPrefabRotY, 0f));
-            //    //buildingsPrefabRotYの値の分だけY軸に逆回転させて表示
-            //}
+                lastPosition = newPosition;//最後に生成した建物の位置を更新
+            }
         }
     }
 }
