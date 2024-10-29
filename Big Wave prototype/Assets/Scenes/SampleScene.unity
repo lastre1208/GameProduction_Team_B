@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ac9c77239059c4c86cf8d18763e0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 50
 --- !u!4 &473982371
 Transform:
   m_ObjectHideFlags: 0
@@ -5443,9 +5443,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
+      propertyPath: lastBuilding
+      value: 
+      objectReference: {fileID: 1206199008}
+    - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: buildingsPrefab
       value: 
       objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
+    - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
+      propertyPath: generationDistance
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: instantiateIntervalTime
       value: 1.8
@@ -6157,6 +6165,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+--- !u!1 &790929106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+  m_PrefabInstance: {fileID: 790929105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &791982657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6322,9 +6335,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 473982371}
     m_Modifications:
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
+      propertyPath: lastBuilding
+      value: 
+      objectReference: {fileID: 790929106}
+    - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: buildingsPrefab
       value: 
       objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
+    - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
+      propertyPath: generationDistance
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: instantiateIntervalTime
       value: 1.8
@@ -9238,6 +9259,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+--- !u!1 &1206199008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+  m_PrefabInstance: {fileID: 1206199007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206232368
 GameObject:
   m_ObjectHideFlags: 0
