@@ -42,8 +42,8 @@ public class InstantiateWave : MonoBehaviour
         if (m_waveTime>waveInterval)
         {
             m_waveTime = 0f;//波の出現間隔を管理する時間をリセット
-            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation/*, gamePos.transform*/);//波を生成
-            wave.transform.rotation = Quaternion.Euler(0, 180, 0);//波を後ろ向き(プレイヤー方向)にする
+            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//波を生成
+            wave.transform.localRotation = Quaternion.Euler(0, 180, 0);//波を後ろ向き(プレイヤー方向)にする
         }
     }
 }
