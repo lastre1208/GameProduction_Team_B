@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8091417505521369428}
-  - component: {fileID: 216338054512344520}
   m_Layer: 0
   m_Name: CyberpunkCityPrefab
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 9060804687089801341}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &216338054512344520
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420242159872049716}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 68, y: 1, z: 41}
-  m_Center: {x: -2, y: 0, z: 1.2}
 --- !u!1001 &8805883787504517014
 PrefabInstance:
   m_ObjectHideFlags: 0
