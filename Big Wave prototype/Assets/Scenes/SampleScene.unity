@@ -1217,10 +1217,9 @@ MonoBehaviour:
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
   wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
   ground: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
-  width: 4
-  height: 4
+  width: 3
+  height: 3
   generationProbability: 0.5
-  previewDisplayDuration: 5
   transparencyCycleDuration: 0.5
   spawnPosOfWallPreview: {fileID: 523200429}
   matchCameraSize: 1
@@ -5605,10 +5604,10 @@ PrefabInstance:
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: buildingsPrefab
       value: 
-      objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
+      objectReference: {fileID: 4420242159872049716, guid: ac68f88ce665bf448bc6466724f21968, type: 3}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: generationDistance
-      value: 70
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: instantiateIntervalTime
@@ -6497,10 +6496,10 @@ PrefabInstance:
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: buildingsPrefab
       value: 
-      objectReference: {fileID: 6027847474279880852, guid: 5fffa91ac7aab7948b5648206a2cdde0, type: 3}
+      objectReference: {fileID: 4420242159872049716, guid: ac68f88ce665bf448bc6466724f21968, type: 3}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: generationDistance
-      value: 70
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: instantiateIntervalTime

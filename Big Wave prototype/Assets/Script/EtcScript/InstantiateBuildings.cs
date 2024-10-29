@@ -6,13 +6,12 @@ public class InstantiateBuildings : MonoBehaviour
 {
     //☆作成者:桑原
     //☆後に杉山が一部改良
-    [SerializeField] GameObject buildingsPrefab;//ビルのプレハブ
-    [SerializeField] GameObject lastBuilding;//直前に生成されたビルのプレハブ
-    [SerializeField] float generationDistance = 70f;//ビルの出現間隔
+    [SerializeField] GameObject buildingsPrefab;//生成する建物のプレハブ
+    [SerializeField] GameObject lastBuilding;//直前に生成された建物のプレハブ
 
     private Vector3 lastPosition;
-    private float buildingWidth;
-    private float buildingDepth;
+    private float building_sizeX;//建物のx軸方向の大きさ
+    private float building_sizeZ;//建物のz軸方向の大きさ
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +22,13 @@ public class InstantiateBuildings : MonoBehaviour
 
             if (collider != null)
             {
-                buildingWidth = collider.size.x;
-                buildingDepth = collider.size.z;
+                building_sizeX = collider.size.x;
+                building_sizeZ = collider.size.z;
             }
+        }
 
+        if (lastBuilding != null)
+        {
             lastPosition = lastBuilding.transform.position;
         }
     }
@@ -34,24 +36,24 @@ public class InstantiateBuildings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InstantiateBuildingsPrefab();//ビルの生成
+        InstantiateBuildingsPrefab();//建物の生成
     }
 
-    void InstantiateBuildingsPrefab()
+    void InstantiateBuildingsPrefab()//建物の生成
     {
-        Vector3 newPosition = transform.position;
+        Vector3 currentPosition = transform.position;
+        Vector3 direction = (currentPosition - lastPosition).normalized; //前回の位置から現在の位置への進行方向ベクトル
+        
+        float minGenerationDistance = Mathf.Max(building_sizeX, building_sizeZ);//建物のサイズに応じた生成間隔の設定
 
-        if (Vector3.Distance(newPosition, lastPosition) > generationDistance)//今回生成するビルと前回生成されているビルの間隔が一定以上離れたら
-        {
-            bool isOverlapX = Mathf.Abs(newPosition.x - lastPosition.x) > buildingWidth;//x座標の間隔がビルのx軸サイズよりも大きいかどうか
-            bool isOverlapZ = Mathf.Abs(newPosition.z - lastPosition.z) > buildingDepth;//z軸の間隔がビルのz軸サイズよりも大きいかどうか
+        if (Vector3.Distance(currentPosition, lastPosition) > minGenerationDistance)//指定された距離以上離れたときにのみ生成
+        {            
+            Vector3 newPosition = lastPosition + direction * minGenerationDistance;//進行方向に沿った新しい位置の計算
+            
+            GameObject newBuilding = Instantiate(buildingsPrefab, newPosition, transform.rotation);//新しい建物を生成
 
-            if (isOverlapX || isOverlapZ)//ビル同士の重なりがないなら
-            {
-                GameObject newBuilding = Instantiate(buildingsPrefab, newPosition, transform.rotation);
-
-                lastPosition = newPosition;//最後に生成した建物の位置を更新
-            }
+            lastPosition = newPosition;//最後に生成した建物の位置を更新
         }
     }
+
 }
