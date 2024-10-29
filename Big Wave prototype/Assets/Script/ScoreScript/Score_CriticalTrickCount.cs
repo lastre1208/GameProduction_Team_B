@@ -12,6 +12,8 @@ public class Score_CriticalTrickCount : Score
     [Header("1回のクリティカルごとのスコア量の最大値")]
     [Tooltip("連続ボーナスで1回のクリティカルごとのスコア量が増えていきますがこの値以上は増えません")]
     [SerializeField] float scorePerOneCriticalMax;//1回のクリティカルごとのスコア量の最大値、連続ボーナスで1回のクリティカルごとのスコア量が増えていきますがこの値以上は増えません
+    [Header("必要なコンポーネント")]
+    [SerializeField] Critical critical;
     private static float score_CriticalTrickCount = 0;//クリティカル回数とクリティカル連続ボーナスのスコア
     private float currentScorePerOneCritical;//現在の1回のクリティカルごとのスコア量
 
@@ -26,17 +28,11 @@ public class Score_CriticalTrickCount : Score
         currentScorePerOneCritical = scorePerOneCritical;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void AddScoreWhenCritical(bool critical)//クリティカル時にスコアの加算をする、引数にはクリティカルだった場合はtrue、そうじゃなかったら(普通の攻撃だったら)falseを入れる
+    public void AddScoreWhenCritical()//クリティカル時にスコアの加算をする
     {
         //クリティカルを連続でするほど(クリティカル二度目から)スコア上昇量が増えていく
 
-        if(critical)//クリティカルだった
+        if(critical.CriticalNow)//クリティカルだった
         {
             score += currentScorePerOneCritical;//スコア加算
             currentScorePerOneCritical += plusContinueBonus;//現在の1回のクリティカルごとのスコア量が上がる

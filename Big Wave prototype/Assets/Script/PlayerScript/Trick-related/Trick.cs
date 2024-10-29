@@ -15,9 +15,13 @@ public partial class Trick : MonoBehaviour
     [Header("トリック時の処理(メソッド)")]
     [SerializeField] UnityEvent eventsWhenTrick;//トリック時の処理(メソッド)
     [Header("必要なコンポーネント")]
-    [SerializeField] PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     [SerializeField] JudgeJumpNow judgeJumpNow;
     [SerializeField] TrickPoint player_TrickPoint;
+    [SerializeField] PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
+    [SerializeField] Critical critical;
+    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] CountTrickWhileJump countTrickWhileJump;
+
     HP enemy_Hp;
     
     
@@ -29,10 +33,15 @@ public partial class Trick : MonoBehaviour
     }
 
     //トリック発動
-    public void TrickTrigger()
+    public void TrickTrigger(TrickButton button)
     {
-        if(JudgeSuccessOfTrick())//トリック成功時
+        pushedButton_TrickPattern.SetTrickPattern(button);//押されたボタンの種類を設定
+
+        if (JudgeSuccessOfTrick())//トリック成功時
         {
+            critical.SetCriticalNow();//押されたボタンからクリティカルの判定
+            countTrickWhileJump.AddTrickCount();//ジャンプ中のトリック回数の加算
+            countTrickCombo.AddCombo();//トリックコンボ回数の加算
             eventsWhenTrick.Invoke();//登録された全イベントを呼ぶ
         }
     }

@@ -7,12 +7,17 @@ using UnityEngine;
 //トリックのチャージ
 public class ChargeTrickPoint : MonoBehaviour
 {
+    [Header("フィーバー状態のチャージトリック量アップの増加率")]
+    [SerializeField] float chargeTrickGrowthRate_Fever;
+
     [Header("必要なコンポーネント")]
     [SerializeField] ChangeChargeRateTheChargers changeChargeRateTheChargers;
     [SerializeField] FeverMode feverMode;
     [SerializeField] TrickPoint player_TrickPoint;
     [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
     [SerializeField] ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
+
+    const float chargeTrickGrowthRate_Normal = 1;//等倍(チャージトリック量アップの増加率)
     private bool chargeStandby = false;//これがtrueになっている時かつ波に触れている時のみトリックをチャージできる
 
     /////private(別クラスは使用不可)のメソッド/////
@@ -20,7 +25,7 @@ public class ChargeTrickPoint : MonoBehaviour
     float ChargeTrickAmount(float chargeAmount)//チャージされるトリック量
     {
         float ret = chargeAmount;//通常時のチャージされるトリック量
-        ret *= feverMode.CurrentChargeTrick_GrowthRate;//フィーバー状態のチャージ倍率
+        ret *= feverMode.FeverNow ? chargeTrickGrowthRate_Fever : chargeTrickGrowthRate_Normal;//フィーバー状態のチャージ倍率
         ret *= changeChargeRateTheChargers.ChargeRate(player_TrickPoint.MaxCount,player_TrickPoint.TrickGaugeNum);//満タンのトリックゲージの数によるチャージ倍率
         ret *= changeChargeRateTheSurfer.ChargeRate();//波に乗っている時間によるチャージ倍率
         return ret;

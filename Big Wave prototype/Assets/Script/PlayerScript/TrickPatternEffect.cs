@@ -4,15 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 //作成者:杉山
-//トリックパターンの抽象クラス
-[System.Serializable]
-public enum TrickButton
-{
-    south,
-    east,
-    west,
-    north
-}
+//トリックごとの効果
 
 public class TrickPatternEffect : MonoBehaviour
 {

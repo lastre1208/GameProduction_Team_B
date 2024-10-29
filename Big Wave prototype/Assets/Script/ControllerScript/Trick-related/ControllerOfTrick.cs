@@ -16,33 +16,27 @@ public class ControllerOfTrick : MonoBehaviour
         pushedButton_TrickPattern = GameObject.FindWithTag("Player").GetComponent<PushedButton_CurrentTrickPattern>();
     }
 
-    void Trick_Process(TrickButton button)
-    {
-        pushedButton_TrickPattern.SetTrickPattern(button);//押されたボタンの種類を設定
-        trick.TrickTrigger();//トリック
-    }
-
-    public void Trick_Y(InputAction.CallbackContext context)
+    public void Trick_North(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.north);
+        trick.TrickTrigger(TrickButton.north);//トリック
     }
 
-    public void Trick_X(InputAction.CallbackContext context)
+    public void Trick_West(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.west);
+        trick.TrickTrigger(TrickButton.west);//トリック
     }
 
-    public void Trick_B(InputAction.CallbackContext context)
+    public void Trick_East(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.east);
+        trick.TrickTrigger(TrickButton.east);//トリック
     }
 
-    public void Trick_A(InputAction.CallbackContext context)
+    public void Trick_South(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        Trick_Process(TrickButton.south);
+        trick.TrickTrigger(TrickButton.south);//トリック
     }
 }

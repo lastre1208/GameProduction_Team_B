@@ -41,7 +41,7 @@ public class GenerateEffectAlongWay : MonoBehaviour
 
                 Instantiate(effect, passPos.position, passPos.rotation, passPos);//¶¬
 
-                if (isLastPoint) landEvents.Invoke();//’…’e‚É“o˜^‚µ‚Ä‚¢‚½ƒCƒxƒ“ƒg‚ğŒÄ‚Ño‚·
+                if (isLastPoint) landEvents.Invoke();//’…’e‚È‚ç’…’e‚É“o˜^‚µ‚Ä‚¢‚½ƒCƒxƒ“ƒg‚ğŒÄ‚Ño‚·
 
                 generatePosList[i].TransitNextPos();//Ÿ‚ÌêŠ‚ğİ’è
             }
