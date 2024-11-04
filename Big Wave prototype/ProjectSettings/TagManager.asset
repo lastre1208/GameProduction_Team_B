@@ -20,6 +20,7 @@ TagManager:
   - ClickedWaveEffect
   - StartButton
   - EndButton
+  - LineManager
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PostProcess
   - 
   - 
   - 
