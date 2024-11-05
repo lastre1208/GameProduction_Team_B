@@ -7,6 +7,8 @@ public class DeleteObject : MonoBehaviour
 {
     //™‰–‚ª‘‚¢‚½
     [SerializeField] float deleteTime = 4f;
+    [SerializeField] UnityEvent deleteEvents;
+    private float currentDeleteTime = 0;
    
     void Start()
     {
@@ -15,8 +17,18 @@ public class DeleteObject : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        Destroy(gameObject,deleteTime);
-       
+    {
+        UpdateDeleteTime();
+    }
+
+    void UpdateDeleteTime()
+    {
+        currentDeleteTime += Time.deltaTime;
+
+        if(currentDeleteTime>=deleteTime)
+        {
+            deleteEvents.Invoke();
+            Destroy(gameObject);
+        }
     }
 }
