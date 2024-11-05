@@ -45,7 +45,7 @@ public class InstantiateWave : MonoBehaviour
 
         m_waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
 
-        if (m_waveTime>waveInterval)
+        if (m_waveTime > waveInterval)
         {
             m_waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
             GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬

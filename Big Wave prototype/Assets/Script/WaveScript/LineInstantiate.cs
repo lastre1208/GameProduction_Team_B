@@ -34,7 +34,6 @@ public class LineInstantiate : MonoBehaviour
 
     public void LineSet(Transform transform)
     {
-        
         //    Transform newposition = transform;
         //    // V‚µ‚¢“_‚ğ’Ç‰Á
         //    points.Enqueue(newposition);
