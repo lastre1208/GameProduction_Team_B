@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//作成者：桑原
+
 public class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
     [SerializeField] AnimatorController_Enemy animController;
@@ -25,9 +27,6 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
 
     [Header("▼それぞれの壁が生成される確率")]
     [SerializeField] float generationProbability = 0.5f;//壁が生成される確率
-
-    [Header("▼攻撃範囲の予告を表示する時間")]
-    [SerializeField] float previewDisplayDuration = 5f;//攻撃範囲の予告を表示する時間
 
     [Header("▼透明度が変化するサイクルの時間")]
     [SerializeField] float transparencyCycleDuration = 0.5f;//透明度が変化するサイクルの時間
@@ -99,10 +98,10 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
         get { return generationProbability; }
     }
 
-    public float PreviewDisplayDuration
+    /*public float PreviewDisplayDuration
     {
         get { return previewDisplayDuration; }
-    }
+    }*/
 
     public float TransparencyCycleDuration
     {
@@ -113,6 +112,12 @@ public class EnemyActionTypeShotWall : EnemyActionTypeBase
     {
         get { return matchCameraSize; }
     }
+
+    public bool Shoted
+    {
+        get { return shoted; }
+    }
+
 
     public GameObject WallAreaInstance
     {

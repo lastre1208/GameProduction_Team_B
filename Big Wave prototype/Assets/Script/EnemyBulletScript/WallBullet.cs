@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//作成者：桑原
+
 public class WallBullet : MonoBehaviour
 {
     GameObject[,] walls;//生成した壁のプレハブを管理する配列
@@ -64,7 +66,8 @@ public class WallBullet : MonoBehaviour
     {
         currentDelayTime += Time.deltaTime;
 
-        if (currentDelayTime < enemyActionTypeShotWall.PreviewDisplayDuration)
+        //if (currentDelayTime < enemyActionTypeShotWall.PreviewDisplayDuration)
+        if (!enemyActionTypeShotWall.Shoted)
         {
             float alpha = Mathf.PingPong(currentDelayTime / enemyActionTypeShotWall.TransparencyCycleDuration * 255f, 255f);
             SetPreviewTransparency(alpha / 255f);//攻撃範囲予告の透明度を設定する
@@ -73,9 +76,8 @@ public class WallBullet : MonoBehaviour
         else//一定時間経過が経過したら
         {
             DisableWallsPreview();//攻撃範囲の予告の無効化処理
-        }
-
-        AddForceToWalls();//壁に力を加える
+            AddForceToWalls();//壁に力を加える
+        }        
     }
 
     void PositioningWallArea()//壁の生成範囲プレハブの位置の設定
@@ -144,6 +146,18 @@ public class WallBullet : MonoBehaviour
     void PositioningWalls()
     {
         Vector3 size_WallArea = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Renderer>().bounds.size;//壁の生成範囲プレハブの大きさを取得
+
+        for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+        {
+            for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+            {
+                if (walls[i, j] != null)
+                {
+                    walls[i, j].transform.localScale = Vector3.one;//スケールをリセット
+                }
+            }
+        }
+
         Vector3 size_Wall = walls[0, 0].GetComponent<Renderer>().bounds.size;//生成された壁プレハブの大きさを取得
 
         //壁プレハブのスケール計算
