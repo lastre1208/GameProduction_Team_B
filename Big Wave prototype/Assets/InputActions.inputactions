@@ -288,11 +288,22 @@
                 },
                 {
                     "name": "",
+                    "id": "a7bf213d-2c55-4f33-a8dd-944bdf3bdc69",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NorthTrick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fb699b1a-cbd5-4ae6-b94d-fbe6ba30e6c1",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "NorthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -321,11 +332,22 @@
                 },
                 {
                     "name": "",
+                    "id": "a0acd9ab-40d1-4bf3-8eea-fdaf06b73496",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SouthTrick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "87eaeeba-e2a3-4ef2-923a-acdb4bc20d89",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "SouthTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -354,11 +376,22 @@
                 },
                 {
                     "name": "",
+                    "id": "45480a54-a62c-4785-9a65-8623e45a3c0b",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EastTrick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f488fda2-6b5b-42f7-9cf4-a54ff000fcc5",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "EastTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -387,11 +420,22 @@
                 },
                 {
                     "name": "",
+                    "id": "cb0e2982-ed6d-4dfb-9c30-71e3ccbbdedd",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WestTrick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bdc6a5c6-6fcb-4058-8fb7-b70cd2ad4730",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "WestTrick",
                     "isComposite": false,
                     "isPartOfComposite": false
