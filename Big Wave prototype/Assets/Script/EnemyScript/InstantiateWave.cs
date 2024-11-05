@@ -18,11 +18,11 @@ public class InstantiateWave : MonoBehaviour
     [SerializeField] GameObject gamePos;//GamePos
     private float m_waveTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
     JudgeGameStart judgeGameStart;
-    LineInstantiate line;
+  [SerializeField]  LineInstantiate line;
     // Start is called before the first frame update
     void Start()
     {
-        line = GameObject.FindWithTag("LineManager").GetComponent<LineInstantiate>();
+       
         judgeGameStart=GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
        
         //‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚é‚½‚ß‚É”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğ‚»‚Ì•ª‚¸‚ç‚·
@@ -42,12 +42,15 @@ public class InstantiateWave : MonoBehaviour
 
         m_waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
 
-        if (m_waveTime>waveInterval)
+        if (m_waveTime > waveInterval)
         {
             m_waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
             GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬
             wave.transform.localRotation = Quaternion.Euler(0, 180, 0);//”g‚ğŒã‚ëŒü‚«(ƒvƒŒƒCƒ„[•ûŒü)‚É‚·‚é
-            line.LineSet(wave.transform);
+            if (line != null)
+            {
+                line.LineSet(wave.transform);
+            }
         }
     }
 }

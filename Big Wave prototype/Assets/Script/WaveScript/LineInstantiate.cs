@@ -23,7 +23,7 @@ public class LineInstantiate : MonoBehaviour
             int index = 0;
             foreach (Transform point in points)
             {
-                lineRenderer.SetPosition(index, point.position);
+                lineRenderer.SetPosition(index,point.position);
                 index++;
             }
         
