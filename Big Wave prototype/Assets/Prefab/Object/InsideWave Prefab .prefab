@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4060439058681899844}
   - component: {fileID: -821361975915702940}
   - component: {fileID: 7548293596235421466}
+  - component: {fileID: 1549828567137004416}
   m_Layer: 0
   m_Name: 'InsideWave Prefab '
   m_TagString: InsideWave
@@ -125,6 +126,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 3
+  deleteEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1549828567137004416}
+        m_TargetAssemblyTypeName: LineWave, Assembly-CSharp
+        m_MethodName: Method2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7435244416450707420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +252,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+--- !u!114 &1549828567137004416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794894681774472066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a0fe5875feaac47929d905b956240d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
