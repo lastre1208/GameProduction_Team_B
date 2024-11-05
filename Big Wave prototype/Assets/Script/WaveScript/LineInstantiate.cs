@@ -7,7 +7,12 @@ public class LineInstantiate : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     private Queue<Transform> points = new Queue<Transform>();
 
+    private void Update()
+    {
+        ReflectLineRenderer();
+    }
     //”g¶¬‚ÉŒÄ‚Ô
+
     public void Method1(Transform point)
     {
         points.Enqueue(point);

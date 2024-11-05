@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 98503817}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 37.8}
+  m_LocalPosition: {x: 0, y: 1.8, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -861,7 +861,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93674e49462d0e74cb45c78599b41042, type: 2}
+  - {fileID: 2100000, guid: be18069341ae1114e9241c35a76321c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -885,15 +885,24 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 4.282119
+    widthMultiplier: 1.7279829
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.02758789
-        value: 1
+        time: 0
+        value: 0.38461763
         inSlope: 0
         outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5731361
+        value: 0.5623606
+        inSlope: 0.9766375
+        outSlope: 0.9766375
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -6996,13 +7005,13 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 4.282119
+    widthMultiplier: 5.938082
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.02758789
-        value: 1
+        time: 0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -7010,14 +7019,23 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        time: 0.41976476
+        value: 0.83262634
+        inSlope: 1.4049323
+        outSlope: 1.4049323
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: -0.03276419
+        outSlope: -0.03276419
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.32589558
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -12574,7 +12592,7 @@ Transform:
   m_GameObject: {fileID: 1318383700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.45, z: -0.516}
+  m_LocalPosition: {x: 0, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13612,7 +13630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_countPrefab: {fileID: 5540319640275630485, guid: 145769507210e8e49a0ce2d4b61e50bb, type: 3}
-  chasePlayer: {fileID: 647215248}
+  canvas: {fileID: 651057538}
+  target: {fileID: 1244729529}
 --- !u!4 &1429956298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8230670919615570437, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
@@ -13777,7 +13796,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8916428, g: 1, b: 0, a: 1}
-  m_Intensity: 200
+  m_Intensity: 10
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15487,7 +15506,7 @@ Transform:
   m_GameObject: {fileID: 1658198234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: -0.516}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
