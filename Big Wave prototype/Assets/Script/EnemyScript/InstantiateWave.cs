@@ -17,7 +17,8 @@ public class InstantiateWave : MonoBehaviour
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
     [Header("LineInstantiate")]
-    [SerializeField] LineInstantiate m_lineInstantiate;
+  [SerializeField] LineInstantiate m_lineInstantiate;
+   
     private float m_waveTime;//波の出現間隔を管理する時間(内部数値)
     JudgeGameStart judgeGameStart;
     //LineInstantiate line;
@@ -44,7 +45,7 @@ public class InstantiateWave : MonoBehaviour
         if (!judgeGameStart.IsStarted) return;//まだゲーム開始されてなかったら波を生成しない
 
         m_waveTime += Time.deltaTime;//波の出現間隔を管理する時間を更新
-
+        
         if (m_waveTime > waveInterval)
         {
             m_waveTime = 0f;//波の出現間隔を管理する時間をリセット

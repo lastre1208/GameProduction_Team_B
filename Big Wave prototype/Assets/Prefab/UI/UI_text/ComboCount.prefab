@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 1
+  deleteEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8525625964512908466
 MonoBehaviour:
   m_ObjectHideFlags: 0
