@@ -25,22 +25,4 @@ public class NavigationEventsManager : MonoBehaviour
             eventSystem.sendNavigationEvents=active;
         }
     }
-
-    //public void AbleNavigationEvents()
-    //{
-    //    if (eventSystem != null)
-    //    {
-    //        eventSystem.sendNavigationEvents = true;
-    //    }
-    //}
-
-    //public void DisableNavigationEvents()
-    //{
-    //    if (eventSystem != null)
-    //    {
-    //        eventSystem.sendNavigationEvents = false;
-    //    }
-    //}
-
-   
 }
