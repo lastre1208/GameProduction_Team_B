@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class FeverPointDisplay : MonoBehaviour
 {
     [Header("▼プレイヤーのフィーバーゲージ")]
-    [SerializeField] GameObject feverGaugeOfPlayer;//プレイヤーのフィーバーゲージ
+    [SerializeField] Image feverGaugeOfPlayer;//プレイヤーのフィーバーゲージ
     [Header("▼通常状態のフィーバーゲージの色")]
     [SerializeField] Color feverGaugeNormalColor;//通常状態のフィーバーゲージの色
     [Header("▼フィーバー状態のフィーバーゲージの色")]
@@ -31,15 +31,17 @@ public class FeverPointDisplay : MonoBehaviour
     void FeverGaugeOfPlayer()//プレイヤーのフィーバーゲージの処理
     {
         float feverRatio = player_FeverPoint.FeverPoint_ / player_FeverPoint.FeverPointMax;
-        feverGaugeOfPlayer.GetComponent<Image>().fillAmount = feverRatio;
+        feverGaugeOfPlayer.fillAmount = feverRatio;
         //ゲージの色の変更
-        if (processFeverPoint.FeverNow)//フィーバー状態の時
-        {
-            feverGaugeOfPlayer.GetComponent<Image>().color = feverGaugeFeverModeColor;
-        }
-        else//通常時
-        {
-            feverGaugeOfPlayer.GetComponent<Image>().color = feverGaugeNormalColor;
-        }
+        feverGaugeOfPlayer.color = processFeverPoint.FeverNow ? feverGaugeFeverModeColor : feverGaugeNormalColor;
+
+        //if (processFeverPoint.FeverNow)//フィーバー状態の時
+        //{
+        //    feverGaugeOfPlayer.color = feverGaugeFeverModeColor;
+        //}
+        //else//通常時
+        //{
+        //    feverGaugeOfPlayer.color = feverGaugeNormalColor;
+        //}
     }
 }

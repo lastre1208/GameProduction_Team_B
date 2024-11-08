@@ -8987,7 +8987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14231,7 +14231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15155,7 +15155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6044fd2a27591a340a79647d8979d9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverGaugeOfPlayer: {fileID: 1248422115}
+  feverGaugeOfPlayer: {fileID: 1248422116}
   feverGaugeNormalColor: {r: 0.57254905, g: 0, b: 0.5921569, a: 1}
   feverGaugeFeverModeColor: {r: 1, g: 0.5568628, b: 0.92941177, a: 1}
 --- !u!114 &1392526996
@@ -15191,8 +15191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGaugeOfPlayer: {fileID: 1044993408}
+  hpGauge: {fileID: 1044993410}
   objectDisplayHp: {fileID: 1244729562}
+  normalColor: {r: 0, g: 0.8352941, b: 0.18039216, a: 1}
+  pinchColor: {r: 0.8352941, g: 0.16884138, b: 0, a: 1}
+  borderRatio: 0.3
 --- !u!1 &1401361794
 GameObject:
   m_ObjectHideFlags: 0
@@ -24828,8 +24831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGaugeOfPlayer: {fileID: 207016421}
+  hpGauge: {fileID: 589254838}
   objectDisplayHp: {fileID: 98503836}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  pinchColor: {r: 1, g: 1, b: 1, a: 1}
+  borderRatio: 0
 --- !u!114 &2052975956
 MonoBehaviour:
   m_ObjectHideFlags: 0
