@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateWavePos: {fileID: 1318383700}
-  wavePrefab: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
+  wavePrefab: {fileID: 860120198557006581, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
   waveInterval: 0.1
   firstWaveInterval: 0.8
   gamePos: {fileID: 1923540436}
@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateWavePos: {fileID: 1658198234}
-  wavePrefab: {fileID: 794894681774472066, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
+  wavePrefab: {fileID: 1549828567137004416, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
   waveInterval: 0.03
   firstWaveInterval: 0.8
   gamePos: {fileID: 1923540436}
@@ -3965,7 +3965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1370720890797905826, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -5.08
       objectReference: {fileID: 0}
     - target: {fileID: 1370720890797905826, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7097,6 +7097,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: instantiatePrefab
+      value: 
+      objectReference: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: instantiateIntervalTime
       value: 1.5
       objectReference: {fileID: 0}
@@ -8983,7 +8987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14227,7 +14231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26414,7 +26418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seaTestPrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!54 &1631327482500787822
 Rigidbody:
@@ -27147,7 +27151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seaTestPrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!4 &2858219203215715389
 Transform:

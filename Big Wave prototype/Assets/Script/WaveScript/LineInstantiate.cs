@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LineInstantiate : MonoBehaviour
 {
-    //[SerializeField] int pointNumber;
     [SerializeField] LineRenderer lineRenderer;
     private Queue<Transform> points = new Queue<Transform>();
 
@@ -11,22 +10,21 @@ public class LineInstantiate : MonoBehaviour
     {
         ReflectLineRenderer();
     }
-    //”g¶¬Žž‚ÉŒÄ‚Ô
 
-    public void Method1(Transform point)
+    //ü¶¬ˆÊ’u‚Ì’Ç‰Á
+
+    public void Add(Transform point)
     {
         points.Enqueue(point);
-        ReflectLineRenderer();// LineRenderer‚É”½‰f
     }
 
-    //”gÁ–Å’¼‘OŽž‚ÉŒÄ‚Ô
-    public void Method2()
+    //ü¶¬ˆÊ’u‚Ìíœ
+    public void Remove()
     {
         points.Dequeue();
-        ReflectLineRenderer();// LineRenderer‚É”½‰f
     }
 
-    void ReflectLineRenderer()
+    void ReflectLineRenderer()// LineRenderer‚É”½‰f
     {
         int index = 0;
         lineRenderer.positionCount = points.Count;
@@ -37,23 +35,23 @@ public class LineInstantiate : MonoBehaviour
         }
     }
 
-    public void LineSet(Transform transform)
-    {
-        //    Transform newposition = transform;
-        //    // V‚µ‚¢“_‚ð’Ç‰Á
-        //    points.Enqueue(newposition);
-        //if(points.Count > pointNumber)
-        //{
-        //    points.Dequeue();
-        //}
-        //    // LineRenderer‚É”½‰f
-        //    lineRenderer.positionCount = points.Count;
-        //    int index = 0;
-        //    foreach (Transform point in points)
-        //    {
-        //        lineRenderer.SetPosition(index, point.position);
-        //        index++;
-        //    }
+    //public void LineSet(Transform transform)
+    //{
+    //    //    Transform newposition = transform;
+    //    //    // V‚µ‚¢“_‚ð’Ç‰Á
+    //    //    points.Enqueue(newposition);
+    //    //if(points.Count > pointNumber)
+    //    //{
+    //    //    points.Dequeue();
+    //    //}
+    //    //    // LineRenderer‚É”½‰f
+    //    //    lineRenderer.positionCount = points.Count;
+    //    //    int index = 0;
+    //    //    foreach (Transform point in points)
+    //    //    {
+    //    //        lineRenderer.SetPosition(index, point.position);
+    //    //        index++;
+    //    //    }
         
-    }
+    //}
 }

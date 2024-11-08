@@ -8,7 +8,7 @@ public class InstantiateWave : MonoBehaviour
     [Header("”g‚Ì¶¬ˆÊ’u")]
     [SerializeField] GameObject instantiateWavePos;//”g‚Ì¶¬ˆÊ’u
     [Header("”g‚ÌƒvƒŒƒnƒu")]
-    [SerializeField] GameObject wavePrefab;//”g‚ÌƒvƒŒƒnƒu
+    [SerializeField] LineWave wavePrefab;//”g‚ÌƒvƒŒƒnƒu
     [Header("‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu")]
     [SerializeField] float waveInterval;//‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu
     [Header("‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu")]
@@ -17,7 +17,7 @@ public class InstantiateWave : MonoBehaviour
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
     [Header("LineInstantiate")]
-  [SerializeField] LineInstantiate m_lineInstantiate;
+   [SerializeField] LineInstantiate m_lineInstantiate;
    
     private float m_waveTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
     JudgeGameStart judgeGameStart;
@@ -49,12 +49,10 @@ public class InstantiateWave : MonoBehaviour
         if (m_waveTime > waveInterval)
         {
             m_waveTime = 0f;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğƒŠƒZƒbƒg
-            GameObject wave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬
-            wave.transform.localRotation = Quaternion.Euler(0, 180, 0);//”g‚ğŒã‚ëŒü‚«(ƒvƒŒƒCƒ„[•ûŒü)‚É‚·‚é
-            m_lineInstantiate.Method1(wave.transform);
-            LineWave lineWave= wave.GetComponent<LineWave>();
-            lineWave.Method1(m_lineInstantiate);
-            //line.LineSet(wave.transform);
+            LineWave lineWave = Instantiate(wavePrefab, instantiateWavePos.transform.position, transform.rotation, gamePos.transform);//”g‚ğ¶¬
+            lineWave.transform.localRotation = Quaternion.Euler(0, 180, 0);//”g‚ğŒã‚ëŒü‚«(ƒvƒŒƒCƒ„[•ûŒü)‚É‚·‚é
+            m_lineInstantiate.Add(lineWave.transform);
+            lineWave.GetLineInstantiate(m_lineInstantiate);
         }
     }
 }

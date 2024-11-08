@@ -132,7 +132,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1549828567137004416}
         m_TargetAssemblyTypeName: LineWave, Assembly-CSharp
-        m_MethodName: Method2
+        m_MethodName: Remove
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
