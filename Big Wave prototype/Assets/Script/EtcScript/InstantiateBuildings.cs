@@ -55,5 +55,4 @@ public class InstantiateBuildings : MonoBehaviour
             lastPosition = newPosition;//ÅŒã‚É¶¬‚µ‚½Œš•¨‚ÌˆÊ’u‚ğXV
         }
     }
-
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //作成者：桑原
 
@@ -8,6 +9,8 @@ public class CustomButtonEventsManager : MonoBehaviour
     [SerializeField] GameObject canvas;
     [Header("▼シーンを遷移するボタン")]
     [SerializeField] GameObject sceneMoveButton;
+
+    [SerializeField] bool isFadeOut;
 
     private SceneControlManager sceneControlManager;
     private MenuEffectController menuEffectController;
@@ -63,7 +66,7 @@ public class CustomButtonEventsManager : MonoBehaviour
         switch (currentClickedButton.gameObject.tag)
         {
             case "StartButton":
-                if (menuEffectController.EffectColorChange_FadeOutWasCompleted)//ボタンの色の変化と画面の暗転が終了していたら
+                if (isFadeOut ? menuEffectController.EffectColorChange_FadeOutWasCompleted : menuEffectController.EffectColorChanged)//ボタンの色の変化と画面の暗転が終了していたら
                 {
                     sceneControlManager.ChangeGameScene();//ロード画面への移行処理を呼び出す
                 }
@@ -77,7 +80,7 @@ public class CustomButtonEventsManager : MonoBehaviour
                 break;
 
             case "RetryButton":
-                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
+                if (isFadeOut ? menuEffectController.EffectColorChange_FadeOutWasCompleted : menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
                 {
                     sceneControlManager.ChangeGameScene();//ゲームの終了処理を呼びだす
                 }
@@ -92,7 +95,6 @@ public class CustomButtonEventsManager : MonoBehaviour
 
             case null:
                 break;
-
         }
     }
 }

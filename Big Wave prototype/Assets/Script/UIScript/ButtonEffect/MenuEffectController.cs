@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 //作成者：桑原
@@ -11,6 +12,8 @@ public class MenuEffectController : MonoBehaviour
     [SerializeField] GameObject selectedEffectPrefab;
     [Header("▼ボタン決定時に生成されるエフェクト")]
     [SerializeField] GameObject clickedEffectPrefab;
+    [Header("▼ボタン決定時に生成されるエフェクトの色")]
+    [SerializeField] Color clickedEffectColor;
     [Header("フェードアウトの設定")]
     [SerializeField] FadeOut fadeOut;
 
@@ -27,7 +30,7 @@ public class MenuEffectController : MonoBehaviour
     private float aspectRatio = 0.75f;//エフェクトの横幅に対する高さの倍率
 
     private bool clickedEffectGenerated = false;//決定されたかどうか
-    private bool effectColorChanged = false;
+    private bool effectColorChanged = false;//エフェクトの色が変化したか
 
     public bool EffectColorChanged
     {
@@ -42,6 +45,8 @@ public class MenuEffectController : MonoBehaviour
     private void Start()
     {
         clickedEffectGenerated = false;
+
+        SetColorOfClickedEffect(clickedEffectPrefab);
     }
 
     void Update()
@@ -58,7 +63,7 @@ public class MenuEffectController : MonoBehaviour
             {
                 if (currentButtonImage != null)
                 {
-                    currentButtonImage.color = new Color(1.0f, 0.64f, 0.0f, 1.0f);//ボタンの色をオレンジ色にする
+                    currentButtonImage.color = clickedEffectColor;//ボタンの色を決定時エフェクトの色に変更する
                     effectColorChanged = true;
                 }
 
@@ -112,7 +117,7 @@ public class MenuEffectController : MonoBehaviour
         leftEffect = Instantiate(effectPrefab, menuPanel);//左側エフェクトの生成
         RectTransform leftEffectRect = leftEffect.GetComponent<RectTransform>();
 
-        SetColorOfEffect(leftEffect, effectPrefab, buttonColor);//左側エフェクトの色を設定
+        SetColorOfSelectedEffect(leftEffect, effectPrefab, buttonColor);//左側エフェクトの色を設定
 
         float effectRectWidth = ((panelHalfWidth - buttonHalfWidth) + setSizeOffset) / menuPanel.localScale.x;//エフェクトの横幅をパネル端からボタン端までの幅に設定
         float effectRectHeight = effectRectWidth * aspectRatio;//取得した幅に応じたエフェクトの高さを設定
@@ -127,7 +132,7 @@ public class MenuEffectController : MonoBehaviour
         rightEffect = Instantiate(effectPrefab, menuPanel);//右側エフェクトの生成
         RectTransform rightEffectRect = rightEffect.GetComponent<RectTransform>();
 
-        SetColorOfEffect(rightEffect, effectPrefab, buttonColor);//右側エフェクトの色を設定
+        SetColorOfSelectedEffect(rightEffect, effectPrefab, buttonColor);//右側エフェクトの色を設定
 
         rightEffectRect.sizeDelta = new Vector2(effectRectWidth - buttonRect.anchoredPosition.x, effectRectHeight);//スケールを考慮して右エフェクトのサイズを設定
 
@@ -154,12 +159,22 @@ public class MenuEffectController : MonoBehaviour
     }
 
     //エフェクトの色の設定
-    private void SetColorOfEffect(GameObject effect, GameObject effectPrefab, Color buttonColor)
+    private void SetColorOfSelectedEffect(GameObject effect, GameObject effectPrefab, Color buttonColor)
     {
         if (effectPrefab == selectedEffectPrefab)
         {
             Image effectImage = effect.GetComponent<Image>();
             effectImage.color = buttonColor;
+        }
+    }
+
+    //決定時のエフェクトの色の設定
+    private void SetColorOfClickedEffect(GameObject effectPrefab)
+    {
+        if (effectPrefab == clickedEffectPrefab)
+        {
+            Image effectImage = effectPrefab.GetComponent<Image>();
+            effectImage.color = clickedEffectColor;
         }
     }
 

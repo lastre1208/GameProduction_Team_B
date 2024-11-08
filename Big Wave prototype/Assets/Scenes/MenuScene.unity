@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2013484148}
   sceneMoveButton: {fileID: 2002658158}
+  isFadeOut: 1
 --- !u!114 &1289409833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,6 +1318,7 @@ MonoBehaviour:
   menuPanel: {fileID: 1840747372}
   selectedEffectPrefab: {fileID: 2288280720221174192, guid: 80afabc050ff04443b07374c159ac376, type: 3}
   clickedEffectPrefab: {fileID: 2288280720221174192, guid: df4aec1eea7f9304388fd029b1b9ad1e, type: 3}
+  clickedEffectColor: {r: 1, g: 0.46177554, b: 0, a: 1}
   fadeOut: {fileID: 2013484154}
 --- !u!114 &2013484154
 MonoBehaviour:
