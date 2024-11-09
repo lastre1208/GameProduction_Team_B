@@ -34,14 +34,5 @@ public class FeverPointDisplay : MonoBehaviour
         feverGaugeOfPlayer.fillAmount = feverRatio;
         //ゲージの色の変更
         feverGaugeOfPlayer.color = processFeverPoint.FeverNow ? feverGaugeFeverModeColor : feverGaugeNormalColor;
-
-        //if (processFeverPoint.FeverNow)//フィーバー状態の時
-        //{
-        //    feverGaugeOfPlayer.color = feverGaugeFeverModeColor;
-        //}
-        //else//通常時
-        //{
-        //    feverGaugeOfPlayer.color = feverGaugeNormalColor;
-        //}
     }
 }

@@ -1,21 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //作成者:杉山
 //トリックポイント
 public class TrickPoint : MonoBehaviour
 {
+    [System.Serializable]
+    class A_TrickPoint
+    {
+        [Header("満タンになった時に呼ぶイベント")]
+        [SerializeField] UnityEvent fullEvent;
+        private float trickPoint=0;//トリックポイント
+
+        public A_TrickPoint()
+        {
+            trickPoint = 0;
+        }
+
+        public float TrickPoint
+        {
+            get { return trickPoint; } 
+            set {  trickPoint = value; }
+        }
+
+        public void FullTrigger()//満タンになった直後に呼ぶ処理
+        {
+            fullEvent.Invoke();
+        }
+    }
+
     [Header("1ゲージに入る最大トリックポイントの量")]
     [SerializeField] float trickPointMax = 50;//1ゲージに入る最大トリックポイント(全ゲージ同じ容量)
-    [Header("トリックゲージの数(本数)")]
-    [SerializeField] int trickGaugeNum = 6;//トリックゲージの本数
-    private float[] trickPoint;//トリックポイント(容量trickGaugeMaxのゲージがtrickGaugeNum個ある)
+    [Header("トリックゲージの本数分要素を作ってください")]
+    [SerializeField] A_TrickPoint[] trickPoint;//トリックポイント(容量trickGaugeMaxのゲージがtrickGaugeNum個ある)
     private int maxCount = 0;//満タンのトリックゲージの数
 
-    public float[] TrickPoint_
+    public float this[int index]
     {
-        get { return trickPoint; }
+        get { return trickPoint[index].TrickPoint; }
     }
 
     public float TrickPointMax//トリックゲージ1本に入るトリックの容量
@@ -25,7 +49,7 @@ public class TrickPoint : MonoBehaviour
 
     public int TrickGaugeNum//トリックゲージの本数
     {
-        get { return trickGaugeNum; }
+        get { return trickPoint.Length; }
     }
 
     public int MaxCount//満タンのトリックゲージの本数
@@ -33,32 +57,33 @@ public class TrickPoint : MonoBehaviour
         get { return maxCount; }
     }
 
+    public bool Full//全てのゲージが満タンか
+    {
+        get { return maxCount == trickPoint.Length; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //トリックの初期化
-        trickPoint = new float[trickGaugeNum];
-        for (int i = 0; i < trickPoint.Length; i++)
-        {
-            trickPoint[i] = 0f;
-        }
+       
     }
 
     public void Charge(float charge)//トリックポイントのチャージ
     {
-        if (maxCount == trickGaugeNum)//全ゲージが満タンの時は処理しない
+        if (maxCount == trickPoint.Length)//全ゲージが満タンの時は処理しない
         {
             return;
         }
 
         for (int i = maxCount; i < trickPoint.Length; i++)
         {
-            trickPoint[i] += charge;
+            trickPoint[i].TrickPoint += charge;
 
-            if (trickPoint[i] >= trickPointMax)//今チャージしているゲージが満タンになったら
+            if (trickPoint[i].TrickPoint >= trickPointMax)//今チャージしているゲージが満タンになったら
             {
-                charge = trickPoint[i] - trickPointMax;//次のゲージにチャージする分
-                trickPoint[i] = trickPointMax;//トリックポイントが限界突破しないように
+                charge = trickPoint[i].TrickPoint - trickPointMax;//次のゲージにチャージする分
+                trickPoint[i].TrickPoint = trickPointMax;//トリックポイントが限界突破しないように
+                trickPoint[i].FullTrigger();
                 maxCount++;//満タンのトリックゲージの数を増やす
             }
             else//今チャージしているゲージが満タンにならなかったらチャージ処理を終える
@@ -80,18 +105,14 @@ public class TrickPoint : MonoBehaviour
             //使うゲージの中身を0にする
             for (int i = 0; i < cost; i++)
             {
-                trickPoint[maxCount - 1 - i] = 0;
+                trickPoint[maxCount - 1 - i].TrickPoint = 0;
             }
 
 
-            if (maxCount == trickGaugeNum)
+            if (maxCount != trickPoint.Length)
             {
-
-            }
-            else
-            {
-                trickPoint[maxCount - cost] = trickPoint[maxCount];
-                trickPoint[maxCount] = 0;
+                trickPoint[maxCount - cost].TrickPoint = trickPoint[maxCount].TrickPoint;
+                trickPoint[maxCount].TrickPoint = 0;
             }
 
             //満タンのゲージの数を使った分減らす

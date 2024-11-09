@@ -8987,7 +8987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12902,7 +12902,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trickPointMax: 100
-  trickGaugeNum: 6
+  trickPoint:
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &1244729565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14231,7 +14249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14333,10 +14351,10 @@ AudioSource:
   m_GameObject: {fileID: 1320317330}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7825319988324301183, guid: d34fac00f4f9f5b49bf10bf78a548673, type: 2}
   m_audioClip: {fileID: 8300000, guid: 163e0244ce5d73b468edba4037a73413, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23081,7 +23099,7 @@ AudioSource:
   m_GameObject: {fileID: 1778482263}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4883493182744358477, guid: d34fac00f4f9f5b49bf10bf78a548673, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

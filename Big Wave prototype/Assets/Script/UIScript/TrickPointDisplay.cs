@@ -36,7 +36,7 @@ public class TrickPointDisplay : MonoBehaviour
     {
         for (int i = 0; i < trickGauges.Length; i++)
         {
-            float trickRatio = player_TrickPoint.TrickPoint_[i] / player_TrickPoint.TrickPointMax;
+            float trickRatio = player_TrickPoint[i] / player_TrickPoint.TrickPointMax;
             trickGauges[i].fillAmount = trickRatio;
 
 
