@@ -10781,7 +10781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.83396226, b: 0.18036616, a: 1}
+  m_Color: {r: 0, g: 0.8352941, b: 0.18039213, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15206,14 +15206,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392526993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 22b8e205800c3c648b4f45188980517b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hpGauge: {fileID: 1044993410}
   objectDisplayHp: {fileID: 1244729562}
-  normalColor: {r: 0, g: 0.8352941, b: 0.18039216, a: 1}
-  pinchColor: {r: 0.8352941, g: 0.16884138, b: 0, a: 1}
+  normalColor: {r: 0, g: 0.84, b: 0.18200003, a: 1}
+  pinchColor: {r: 0.84, g: 0.16800001, b: 0, a: 1}
   borderRatio: 0.3
+  recoverHPWhileCharging: {fileID: 1244729578}
+  blinkColor:
+    cycle: 1.5
+    s_maxValue: 0
 --- !u!1 &1401361794
 GameObject:
   m_ObjectHideFlags: 0
@@ -24813,8 +24817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052975954}
-  - component: {fileID: 2052975955}
-  - component: {fileID: 2052975956}
+  - component: {fileID: 2052975957}
   m_Layer: 0
   m_Name: EnemyDisplay
   m_TagString: Untagged
@@ -24837,24 +24840,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2119914096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2052975955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052975953}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpGauge: {fileID: 589254838}
-  objectDisplayHp: {fileID: 98503836}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  pinchColor: {r: 1, g: 1, b: 1, a: 1}
-  borderRatio: 0
---- !u!114 &2052975956
+--- !u!114 &2052975957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24863,10 +24849,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052975953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007bd8ef13af7704b9f06d3dac8e81fc, type: 3}
+  m_Script: {fileID: 11500000, guid: d6d61eecac4a465409ef697bee8c3f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGaugeOfEnemy: {fileID: 589254836}
+  hpGauge: {fileID: 589254838}
   objectDisplayHp: {fileID: 98503836}
 --- !u!1 &2057826623
 GameObject:

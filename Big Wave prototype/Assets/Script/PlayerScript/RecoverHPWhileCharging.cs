@@ -11,15 +11,20 @@ public class RecoverHPWhileCharging : MonoBehaviour
     [Header("必要なコンポーネント")]
     [SerializeField] HP hp_Player;
     [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
+    bool healing=false;//回復中か
+
+    public bool Healing { get { return healing; } }
 
     void Update()
     {
-        RecoverHP(judgeChargeTrickPointNow.ChargeNow());
+        RecoverHP();
     }
 
-    void RecoverHP(bool chargeNow)
+    void RecoverHP()
     {
-        if(chargeNow)
+        healing = judgeChargeTrickPointNow.ChargeNow();//回復する条件
+
+        if(healing)
         {
             hp_Player.Hp += recoveryAmount * Time.deltaTime;
         }
