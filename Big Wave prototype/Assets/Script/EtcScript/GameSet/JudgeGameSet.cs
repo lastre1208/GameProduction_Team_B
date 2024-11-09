@@ -33,7 +33,6 @@ public class JudgeGameSet : MonoBehaviour
     [SerializeField] ReflectScore[] reflectScores;
     HP player_Hp;
     HP enemy_Hp;
-    CountTrickCombo countTrickCombo;
     private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
@@ -41,8 +40,6 @@ public class JudgeGameSet : MonoBehaviour
         player_Hp= GameObject.FindWithTag("Player").GetComponent<HP>();
 
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-
-        countTrickCombo= GameObject.FindWithTag("Player").GetComponent<CountTrickCombo>();
     }
 
     // Update is called once per frame
@@ -94,8 +91,7 @@ public class JudgeGameSet : MonoBehaviour
     void GameSetProcess(bool gameClear)//ゲーム終了時の処理
     {
         StopControllerVibe();//コントローラの振動を止める
-        //ゲーム終了直前のコンボ回数をスコアに加算
-        score_TrickCombo.AddScore(countTrickCombo.ComboCount);
+        //ここから消す
         //スコア反映
         for(int i = 0; i<reflectScores.Length; i++)
         {

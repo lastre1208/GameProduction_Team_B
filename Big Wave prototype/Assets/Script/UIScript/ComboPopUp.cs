@@ -8,30 +8,17 @@ using Unity.VisualScripting;
 public class ComboPopUp : MonoBehaviour
 {
     [SerializeField] TMP_Text text_countPrefab;
-   // [SerializeField] Transform chasePlayer;
+    [SerializeField] RectTransform target;
     [SerializeField] Canvas canvas;
-    [SerializeField] Transform target;
-    private TMP_Text text_countInstance;
-    private int comboCount;
-   
+    [SerializeField] CountTrickCombo countTrickCombo;
    
     public void PopUp()
     {
-
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(target.position);
-        comboCount++;
-        text_countPrefab.text = (comboCount+("COMBO!!"));
-       // Canvas の子要素としてインスタンスを生成
-        //text_countInstance = Instantiate(text_countPrefab, chasePlayer.transform.position, chasePlayer.transform.rotation, chasePlayer.transform);
-        text_countInstance = Instantiate(text_countPrefab, canvas.transform);
-        //表示内容を設定
-       // インスタンスの位置をターゲットのスクリーン座標に合わせる
-        RectTransform rectTransformCount = text_countInstance.GetComponent<RectTransform>();
-       // スクリーン座標を UI のローカル座標に変換
-        rectTransformCount.position = screenPosition;
-    }
-    public void ResetCount()
-    {
-        comboCount = 0;
+        if(countTrickCombo.ContinueCombo)
+        {
+            int comboCount=countTrickCombo.ComboCount;
+            text_countPrefab.text = (comboCount + ("COMBO!!"));
+            Instantiate(text_countPrefab, target.position, target.rotation, canvas.transform);// Canvas の子要素としてtargetの位置にインスタンスを生成
+        }
     }
 }

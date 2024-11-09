@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 211626277}
+  - component: {fileID: 211626278}
   m_Layer: 5
   m_Name: CriticalTrickCount
   m_TagString: Untagged
@@ -160,6 +161,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.6, y: -2.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &211626278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211626276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 976077086}
+  m_showScores:
+  - {fileID: 11400000, guid: 87e407ecd20548042ab8f9b10db866e0, type: 2}
 --- !u!1 &249080771
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 385679217}
+  - component: {fileID: 385679218}
   m_Layer: 5
   m_Name: GameClear
   m_TagString: Untagged
@@ -818,6 +835,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -2.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &385679218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385679216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 889933941}
+  m_showScores:
+  - {fileID: 11400000, guid: c28a8180726eb524fb2e610be5b27ff0, type: 2}
 --- !u!1 &431413048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507843055}
+  - component: {fileID: 507843056}
   m_Layer: 5
   m_Name: TrickCombo
   m_TagString: Untagged
@@ -1126,6 +1159,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -2.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &507843056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507843054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 537935012}
+  m_showScores:
+  - {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
 --- !u!1 &513160298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1867573059}
   sceneMoveButton: {fileID: 381110454}
+  isFadeOut: 0
 --- !u!114 &538749094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678075448}
+  - component: {fileID: 678075449}
   m_Layer: 5
   m_Name: TrickCount
   m_TagString: Untagged
@@ -1671,6 +1721,21 @@ RectTransform:
   m_AnchoredPosition: {x: 26.3, y: -0.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &678075449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678075447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 752291978}
+  m_showScores:
+  - {fileID: 11400000, guid: 7d2813c7dc6dc4d4ca2999d89b86480f, type: 2}
 --- !u!1 &741852632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194476531}
+  - component: {fileID: 1194476532}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -2453,6 +2519,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -6.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1194476532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194476530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 475062004}
+  m_showScores:
+  - {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
 --- !u!1 &1410406176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2677,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477585643}
-  - component: {fileID: 1477585644}
   m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
@@ -2626,33 +2706,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1477585644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477585642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9cb8d45caea764aba8d4ae6a78b295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreTypeDisplays:
-  - scoreType: 0
-    score_UI: {fileID: 752291978}
-  - scoreType: 1
-    score_UI: {fileID: 976077086}
-  - scoreType: 2
-    score_UI: {fileID: 537935012}
-  - scoreType: 3
-    score_UI: {fileID: 889933941}
-  - scoreType: 4
-    score_UI: {fileID: 1769988717}
-  - scoreType: 5
-    score_UI: {fileID: 475062004}
-  - scoreType: 6
-    score_UI: {fileID: 2079446392}
 --- !u!1 &1586334129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,6 +2715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1586334130}
+  - component: {fileID: 1586334131}
   m_Layer: 5
   m_Name: TimeLimit
   m_TagString: Untagged
@@ -2690,6 +2744,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -4.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1586334131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586334129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 1769988717}
+  m_showScores:
+  - {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
 --- !u!1 &1627396313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +3004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1739478021}
+  - component: {fileID: 1739478022}
   m_Layer: 5
   m_Name: Total
   m_TagString: Untagged
@@ -2963,6 +3033,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1739478022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739478020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b95287ba92016a48be6a36c0a7b421a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scoreText: {fileID: 2079446392}
+  m_showScores:
+  - {fileID: 11400000, guid: 7d2813c7dc6dc4d4ca2999d89b86480f, type: 2}
+  - {fileID: 11400000, guid: 87e407ecd20548042ab8f9b10db866e0, type: 2}
+  - {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
+  - {fileID: 11400000, guid: c28a8180726eb524fb2e610be5b27ff0, type: 2}
+  - {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
+  - {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
 --- !u!1 &1769988715
 GameObject:
   m_ObjectHideFlags: 0

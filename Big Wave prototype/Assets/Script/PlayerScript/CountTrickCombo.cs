@@ -3,52 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//トリックのコンボ回数を数える
+//コンボ回数(クリティカルの連続回数)を数える
 public class CountTrickCombo : MonoBehaviour
 {
-    [Header("何秒経ったらコンボ回数をリセットするか")]
-    [SerializeField] float resetTime;//何秒経ったらコンボ回数をリセットするか
     [Header("必要なコンポーネント")]
-    [SerializeField] Score_TrickCombo score_TrickCombo;//トリックのコンボ回数のスコア
-    private float currentResetTime=0;//最後にトリックをしてから経った時間、ResetTimeになったらコンボ回数をリセット
-    private int comboCount = 0;//コンボ回数
-    private bool comboContinue = false;//コンボが続いているか
+    [SerializeField] Critical critical;
+    private int m_comboCount = 0;//コンボ回数
+    private int m_comboCountMax = 0;//最大コンボ回数
+    private bool m_continueCombo=false;//コンボが続いているか
+    const int m_resetComboCount = 0;//リセット時のコンボ回数
 
-    public int ComboCount
+    public int ComboCount{ get { return m_comboCount; } }
+
+    public int ComboCountMax{ get { return m_comboCountMax; } }
+
+    public bool ContinueCombo{ get { return m_continueCombo; } }
+
+    public void Count()//回数を増やす
     {
-        get { return comboCount; }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateResetTime();
-    }
-
-    public void AddCombo()//トリックをしたときにコンボ回数を増やす
-    {
-        comboCount++;
-        comboContinue = true;//コンボが発生
-        currentResetTime = 0;//最後にトリックをしてからの時間をリセット
-    }
-
-    void UpdateResetTime()//コンボのリセット時間の更新処理
-    {
-        currentResetTime += Time.deltaTime;
-
-        //コンボが途切れたばかりでかつ最後にトリックをしてからresetTime秒、時間が経ったときtrue(リセット処理をする)
-        bool reset = (comboContinue && currentResetTime >= resetTime);//コンボ回数をリセットするか
-
-        if (reset)
+        if(critical.CriticalNow)//クリティカルだったら
         {
-            ResetProcess();
+            AddCombo();//回数加算処理
+        }
+        else//クリティカルじゃなかったら
+        {
+            ResetCombo();//回数リセット処理
         }
     }
 
-    void ResetProcess()//リセット処理
+    void AddCombo()//回数加算処理
     {
-        score_TrickCombo.AddScore(comboCount);//コンボ回数分スコアを増やす
-        comboContinue = false;//コンボが途切れた
-        comboCount = 0; //コンボ回数をリセット
+        //コンボ回数を加算
+        m_comboCount++;
+
+        m_continueCombo = true;
+    }
+
+    void ResetCombo()//回数リセット処理
+    {
+        //コンボ回数が最大だったら更新
+        if(m_comboCount>m_comboCountMax) m_comboCountMax = m_comboCount;
+        //コンボ回数をリセット
+        m_comboCount = m_resetComboCount;
+
+        m_continueCombo = false;
     }
 }
