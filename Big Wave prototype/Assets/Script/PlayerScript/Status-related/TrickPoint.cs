@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class TrickPoint : MonoBehaviour
 {
     [System.Serializable]
-    class A_TrickPoint
+    class A_TrickPoint//トリックポイント1ゲージ分のクラス
     {
         [Header("満タンになった時に呼ぶイベント")]
         [SerializeField] UnityEvent fullEvent;
