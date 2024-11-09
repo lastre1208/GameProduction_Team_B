@@ -9,7 +9,7 @@ public class TimeLimit : MonoBehaviour
     [Header("¥§ŒÀŠÔi•bj")]
     [SerializeField] float timeLimit = 120;//§ŒÀŠÔ(•b)
     private static float remainingTime;//c‚èŠÔ
-
+    private bool Startgame=false;
     public static float RemainingTime
     {
         get { return remainingTime; }
@@ -24,6 +24,13 @@ public class TimeLimit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        remainingTime -= Time.deltaTime;
+        if (Startgame)
+        {
+            remainingTime -= Time.deltaTime;
+        }
+    }
+    public void EnableStart()
+    {
+        Startgame = true;
     }
 }

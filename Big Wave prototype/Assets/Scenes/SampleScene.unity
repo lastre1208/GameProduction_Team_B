@@ -7104,6 +7104,14 @@ PrefabInstance:
       propertyPath: instantiateIntervalTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: instantiatePrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: instantiatePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
     - target: {fileID: 8314275602441310986, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: m_Name
       value: SpawnPointOfSeaTest
@@ -11427,6 +11435,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1320317333}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1114562919}
+          m_TargetAssemblyTypeName: TimeLimit, Assembly-CSharp
+          m_MethodName: EnableStart
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26428,7 +26448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefabs:
+  - {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!54 &1631327482500787822
 Rigidbody:
@@ -27161,7 +27182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefabs:
+  - {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!4 &2858219203215715389
 Transform:
