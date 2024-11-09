@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateWavePos: {fileID: 1318383700}
-  wavePrefab: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
+  wavePrefab: {fileID: 860120198557006581, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
   waveInterval: 0.1
   firstWaveInterval: 0.8
   gamePos: {fileID: 1923540436}
@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiateWavePos: {fileID: 1658198234}
-  wavePrefab: {fileID: 794894681774472066, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
+  wavePrefab: {fileID: 1549828567137004416, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
   waveInterval: 0.03
   firstWaveInterval: 0.8
   gamePos: {fileID: 1923540436}
@@ -3965,7 +3965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1370720890797905826, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -5.08
       objectReference: {fileID: 0}
     - target: {fileID: 1370720890797905826, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7097,6 +7097,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: instantiatePrefab
+      value: 
+      objectReference: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: instantiateIntervalTime
       value: 1.5
       objectReference: {fileID: 0}
@@ -8983,7 +8987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10777,7 +10781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.83396226, b: 0.18036616, a: 1}
+  m_Color: {r: 0, g: 0.8352941, b: 0.18039213, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12898,7 +12902,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trickPointMax: 100
-  trickGaugeNum: 6
+  trickPoint:
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &1244729565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14227,7 +14249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14329,10 +14351,10 @@ AudioSource:
   m_GameObject: {fileID: 1320317330}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7825319988324301183, guid: d34fac00f4f9f5b49bf10bf78a548673, type: 2}
   m_audioClip: {fileID: 8300000, guid: 163e0244ce5d73b468edba4037a73413, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15151,7 +15173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6044fd2a27591a340a79647d8979d9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverGaugeOfPlayer: {fileID: 1248422115}
+  feverGaugeOfPlayer: {fileID: 1248422116}
   feverGaugeNormalColor: {r: 0.57254905, g: 0, b: 0.5921569, a: 1}
   feverGaugeFeverModeColor: {r: 1, g: 0.5568628, b: 0.92941177, a: 1}
 --- !u!114 &1392526996
@@ -15184,11 +15206,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392526993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 22b8e205800c3c648b4f45188980517b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGaugeOfPlayer: {fileID: 1044993408}
+  hpGauge: {fileID: 1044993410}
   objectDisplayHp: {fileID: 1244729562}
+  normalColor: {r: 0, g: 0.84, b: 0.18200003, a: 1}
+  pinchColor: {r: 0.84, g: 0.16800001, b: 0, a: 1}
+  borderRatio: 0.3
+  recoverHPWhileCharging: {fileID: 1244729578}
+  blinkColor:
+    cycle: 1.5
+    s_maxValue: 0
 --- !u!1 &1401361794
 GameObject:
   m_ObjectHideFlags: 0
@@ -23074,7 +23103,7 @@ AudioSource:
   m_GameObject: {fileID: 1778482263}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4883493182744358477, guid: d34fac00f4f9f5b49bf10bf78a548673, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -24788,8 +24817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052975954}
-  - component: {fileID: 2052975955}
-  - component: {fileID: 2052975956}
+  - component: {fileID: 2052975957}
   m_Layer: 0
   m_Name: EnemyDisplay
   m_TagString: Untagged
@@ -24812,21 +24840,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2119914096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2052975955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052975953}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7279a53b74001fe468ad012d12e320fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpGaugeOfPlayer: {fileID: 207016421}
-  objectDisplayHp: {fileID: 98503836}
---- !u!114 &2052975956
+--- !u!114 &2052975957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24835,10 +24849,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052975953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007bd8ef13af7704b9f06d3dac8e81fc, type: 3}
+  m_Script: {fileID: 11500000, guid: d6d61eecac4a465409ef697bee8c3f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGaugeOfEnemy: {fileID: 589254836}
+  hpGauge: {fileID: 589254838}
   objectDisplayHp: {fileID: 98503836}
 --- !u!1 &2057826623
 GameObject:
@@ -26414,7 +26428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seaTestPrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!54 &1631327482500787822
 Rigidbody:
@@ -27147,7 +27161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c945427c9f31c242a36d474f9ea55cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seaTestPrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+  instantiatePrefab: {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   instantiateIntervalTime: 0.5
 --- !u!4 &2858219203215715389
 Transform:

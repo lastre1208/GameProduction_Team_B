@@ -17,6 +17,7 @@ public class TrickPointDisplay : MonoBehaviour
     [SerializeField] Color trickGaugeMaxColor;//満タン状態のトリックゲージの色
 
     TrickPoint player_TrickPoint;
+    const float maxRatio = 1;//トリックゲージ満タン時の割合
 
     // Start is called before the first frame update
     void Start()
@@ -36,19 +37,12 @@ public class TrickPointDisplay : MonoBehaviour
     {
         for (int i = 0; i < trickGauges.Length; i++)
         {
-            float trickRatio = player_TrickPoint.TrickPoint_[i] / player_TrickPoint.TrickPointMax;
+            float trickRatio = player_TrickPoint[i] / player_TrickPoint.TrickPointMax;
             trickGauges[i].fillAmount = trickRatio;
 
 
-            //ゲージの色の変更
-            if (trickRatio == 1)//満タン時の色
-            {
-                trickGauges[i].color = trickGaugeMaxColor;
-            }
-            else//それ以外の時の色
-            {
-                trickGauges[i].color = trickGaugeNormalColor;
-            }
+            //ゲージの色の変更(ゲージ1個ごとに満タン時とそれ以外の時でゲージの色を切り替える)
+            trickGauges[i].color = trickRatio == maxRatio ? trickGaugeMaxColor : trickGaugeNormalColor;
         }
     }
 }

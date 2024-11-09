@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//生成時にLineInstantiateを取得し、そのオブジェクトが消える時にLineInstantiateから消去する
 public class LineWave : MonoBehaviour
 {
     private LineInstantiate m_lineInstantiate;
 
     //生成時に呼び出す
-    public void Method1(LineInstantiate lineInstantiate)
+    public void GetLineInstantiate(LineInstantiate lineInstantiate)
     {
         m_lineInstantiate = lineInstantiate;
     }
 
-    //消去時に呼び出す
-    public void Method2()
+    //
+    public void Remove()
     {
-        m_lineInstantiate.Method2();
+        m_lineInstantiate.Remove();
     }
 }
