@@ -7,16 +7,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/Hp")]
 public class Score_HP_ : Score_Base
 {
-    float m_remainingHp;//残りHP
-    float m_scorePerHp;//HP1あたりのスコア量
+    float m_remainingHpPercent;//残りHP割合
+    float m_scorePerOnePercent;//最大HPに対しての残りHPの1%ごとのスコア量
 
-    public float RemainingHP { get { return m_remainingHp; }  }
-    public float ScorePerHp { get {  return m_scorePerHp; } }
+    public float RemainingHPPercent { get { return m_remainingHpPercent; }  }
+    public float ScorePerOnePercent { get {  return m_scorePerOnePercent; } }
 
-    public void Rewrite(float score,float remainingHp,float scorePerHp)//スコアの書き換え
+    public void Rewrite(float score,float remainingHpPercent,float scorePerOnePercent)//スコアの書き換え
     {
         m_score=score;
-        m_remainingHp=remainingHp;
-        m_scorePerHp=scorePerHp;
+        m_remainingHpPercent=remainingHpPercent;
+        m_scorePerOnePercent=scorePerOnePercent;
     }
 }

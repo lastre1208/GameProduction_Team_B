@@ -4,36 +4,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-class ReflectScore
-{
-    [Header("ゲーム終了時に反映させたいスコア")]
-    [SerializeField] Score reflectScore;
-    [Header("クリア時のみスコアを反映させるか")]
-    [SerializeField] bool reflectWhenClear;
-
-    internal void Reflect(bool gameClear)
-    {
-        if(reflectWhenClear)//クリア時のみスコアを反映させる場合(ゲームオーバー時はスコアが0)
-        {
-            reflectScore.ReflectScore(gameClear);
-        }
-        else//ゲームオーバー時でもスコアを反映させる場合
-        {
-            reflectScore.ReflectScore();
-        }
-    }
-}
-
 public class JudgeGameSet : MonoBehaviour
 {
-    [Header("コンボ回数のスコア")]
-    [SerializeField] Score_TrickCombo score_TrickCombo;//コンボ回数のスコア
-    [Header("ゲーム終了時に反映させたいスコア")]
-    [SerializeField] ReflectScore[] reflectScores;
+    [Header("コントローラのバイブを止めるため")]
+    [SerializeField] ControlVibe controlVibe;
+    [Header("スコア反映するコンポーネント")]
+    [SerializeField] ScoreGameScene_GameClear score_GameClear;
+    [SerializeField] ScoreGameScene_HP score_HP;
+    [SerializeField] ScoreGameScene_TimeLimit score_TimeLimit;
+    [SerializeField] ScoreGameScene_ComboMax score_ComboMax;
+    [SerializeField] ScoreGameScene_ChargeTime score_ChargeTime;
+    [SerializeField] ScoreGameScene_TrickCombo score_TrickCombo;
     HP player_Hp;
     HP enemy_Hp;
-    private Gamepad gamepad = Gamepad.current;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +39,7 @@ public class JudgeGameSet : MonoBehaviour
     {
         if(player_Hp.Hp<=0)//プレイヤーが死んだら
         {
-            GameOver();
+            GameOverProcess();
         }
     }
 
@@ -64,7 +47,7 @@ public class JudgeGameSet : MonoBehaviour
     {
         if(enemy_Hp.Hp<=0)//敵が死んだら
         {
-            Clear();
+            ClearProcess();
         }
     }
 
@@ -72,38 +55,41 @@ public class JudgeGameSet : MonoBehaviour
     {
         if(TimeLimit.RemainingTime<=0)//時間切れになったら
         {
-            GameOver();
+            GameOverProcess();
         }
     }
 
-    void GameOver()//ゲームオーバーシーンに移行する時の処理
+    void GameOverProcess()//ゲームオーバーシーンに移行する時の処理
     {
         GameSetProcess(false);
         SceneManager.LoadScene("GameoverScene");//ゲームオーバーシーンに移行
     }
 
-    void Clear()//クリアシーンに移行する時の処理
+    void ClearProcess()//クリアシーンに移行する時の処理
     {
         GameSetProcess(true);
         SceneManager.LoadScene("ClearScene");//クリアシーンに移行
     }
 
-    void GameSetProcess(bool gameClear)//ゲーム終了時の処理
+    void GameSetProcess(bool gameClear)//ゲーム終了しシーンに移行する直前に行う処理
     {
-        StopControllerVibe();//コントローラの振動を止める
-        //ここから消す
+        //コントローラのバイブを止める
+        controlVibe.Vibe();
         //スコア反映
-        for(int i = 0; i<reflectScores.Length; i++)
-        {
-            reflectScores[i].Reflect(gameClear);
-        }
-    }
+        score_GameClear.Reflect(gameClear);
+        score_HP.Reflect(gameClear);
+        score_TimeLimit.Reflect(gameClear);
+        score_ComboMax.Refelect();
+        score_ChargeTime.Reflect();
+        score_TrickCombo.Reflect();
 
-    void StopControllerVibe()//ゲーム終了時コントローラーの振動を止める応急処置
-    {
-        if (gamepad != null)
+        if(gameClear)//クリア時
         {
-            gamepad.SetMotorSpeeds(0f, 0f);
+
+        }
+        else//ゲームオーバー時
+        {
+
         }
     }
 }

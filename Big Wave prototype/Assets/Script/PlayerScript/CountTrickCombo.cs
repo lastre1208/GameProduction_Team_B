@@ -36,6 +36,9 @@ public class CountTrickCombo : MonoBehaviour
         //コンボ回数を加算
         m_comboCount++;
 
+        //コンボ回数が最大だったら更新
+        if (m_comboCount > m_comboCountMax) m_comboCountMax = m_comboCount;
+
         m_continueCombo = true;
     }
 
@@ -43,6 +46,7 @@ public class CountTrickCombo : MonoBehaviour
     {
         //コンボ回数が最大だったら更新
         if(m_comboCount>m_comboCountMax) m_comboCountMax = m_comboCount;
+
         //コンボ回数をリセット
         m_comboCount = m_resetComboCount;
 

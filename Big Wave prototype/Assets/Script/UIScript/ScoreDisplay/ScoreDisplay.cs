@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//作成者:杉山
+//登録したスコアを表示させる
 public class ScoreDisplay : MonoBehaviour
 {
+    [Header("スコア表示する文字")]
     [SerializeField] TMP_Text m_scoreText;
-    [SerializeField] Score_Base[] m_showScores;
+    [Header("表示したいスコア")]
+    [SerializeField] Score_Base[] m_showScores;//表示したいスコア
 
     void Start()
     {
