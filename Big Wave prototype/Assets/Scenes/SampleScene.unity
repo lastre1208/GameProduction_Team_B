@@ -10753,7 +10753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12992,7 +12992,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.5
+    delayTime: 0.3
     shotType: 0
     speed: 35
 --- !u!1001 &1085998507
@@ -14537,34 +14537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criticalEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   notCriticalEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
   audioSource: {fileID: 1778482265}
   player_TrickPoint: {fileID: 1244729564}
@@ -15739,7 +15715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13291848, y: 0, z: 0, w: 0.991127}
+  m_LocalRotation: {x: 0.13291846, y: 0, z: 0, w: 0.991127}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18007,7 +17983,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 1
+    delayTime: 0.4
     shotType: 0
     speed: 30
 --- !u!1 &1565991087
