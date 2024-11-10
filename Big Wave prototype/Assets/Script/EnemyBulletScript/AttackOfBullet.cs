@@ -29,6 +29,7 @@ public class AttackOfBullet : MonoBehaviour
             {
                 audioSource.PlayOneShot(audioClip);
             }
+            
 
             hit = true;
 

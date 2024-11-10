@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  ifHitDestroy: 1
+  ifHitDestroy: 0
   audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
   audioSource: {fileID: 4676479468248113912}
 --- !u!114 &-6004389847963506041
@@ -164,7 +164,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8159401926849947737, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
