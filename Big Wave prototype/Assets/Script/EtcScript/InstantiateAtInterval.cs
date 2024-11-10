@@ -34,6 +34,6 @@ public class InstantiateAtInterval : MonoBehaviour
     }
     void SetObject()
     {
-        instantiatePrefab = instantiatePrefabs[Random.Range(0,instantiatePrefabs.Count-1)];
+        instantiatePrefab = instantiatePrefabs[Random.Range(0,instantiatePrefabs.Count)];
     }
 }
