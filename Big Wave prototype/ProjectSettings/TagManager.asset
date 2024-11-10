@@ -18,8 +18,6 @@ TagManager:
   - PauseManager
   - VectorOfShot
   - ClickedWaveEffect
-  - StartButton
-  - EndButton
   - LineManager
   layers:
   - Default

@@ -24,13 +24,20 @@ public class MenuEffectController : MonoBehaviour
     private GameObject leftClickedEffect;//左側に生成されるボタン決定時のエフェクト
     private GameObject rightClickedEffect;//右側に生成されるボタン決定時のエフェクト
 
+    private Color originalButtonColor;
     private Image currentButtonImage;
+    private RectTransform currentButtonRect;
 
     private float setSizeOffset = 5f;//座標計算の補正用
     private float aspectRatio = 0.75f;//エフェクトの横幅に対する高さの倍率
 
     private bool clickedEffectGenerated = false;//決定されたかどうか
     private bool effectColorChanged = false;//エフェクトの色が変化したか
+
+    public bool ClickedEffectGenerated
+    {
+        get { return clickedEffectGenerated; }
+    }
 
     public bool EffectColorChanged
     {
@@ -66,11 +73,6 @@ public class MenuEffectController : MonoBehaviour
                     currentButtonImage.color = clickedEffectColor;//ボタンの色を決定時エフェクトの色に変更する
                     effectColorChanged = true;
                 }
-
-                if (effectColorChanged)
-                {
-                    fadeOut.FadeOutTrigger();//画面の暗転処理を開始
-                }
             }
         }
     }
@@ -79,6 +81,9 @@ public class MenuEffectController : MonoBehaviour
     {
         if (buttonRect != null)
         {
+            currentButtonRect = buttonRect;
+            currentButtonImage = buttonRect.GetComponent<Image>();
+            originalButtonColor = currentButtonImage.color;
             DestroyEffects(ref leftSelectedEffect, ref rightSelectedEffect);
             GenerateEffects(buttonRect, selectedEffectPrefab, ref leftSelectedEffect, ref rightSelectedEffect);
         }
@@ -94,7 +99,6 @@ public class MenuEffectController : MonoBehaviour
 
     public void ButtonClickedProcess(RectTransform buttonRect)//ボタンがクリックされたときの処理
     {
-        DestroyEffects(ref leftClickedEffect, ref rightClickedEffect);//決定エフェクトの削除
         GenerateEffects(buttonRect, clickedEffectPrefab, ref leftClickedEffect, ref rightClickedEffect);
         clickedEffectGenerated = true;//決定時のエフェクトが生成された
         currentButtonImage = buttonRect.GetComponent<Image>();
@@ -158,6 +162,19 @@ public class MenuEffectController : MonoBehaviour
         }
     }
 
+    //決定時のエフェクトの破棄
+    public void DestroyClickedEffect()
+    {
+        if (leftClickedEffect != null && rightClickedEffect != null)
+        {
+            DestroyImmediate(leftClickedEffect);
+            leftClickedEffect = null;
+
+            DestroyImmediate(rightClickedEffect);
+            rightClickedEffect = null;
+        }
+    }
+
     //エフェクトの色の設定
     private void SetColorOfSelectedEffect(GameObject effect, GameObject effectPrefab, Color buttonColor)
     {
@@ -184,5 +201,20 @@ public class MenuEffectController : MonoBehaviour
         float width = rectTransform.rect.width;
         float scaleX = rectTransform.localScale.x;
         return width * scaleX;
+    }
+
+    public void ResetButtonClickEffect()//ボタン決定時のエフェクト削除・選択時エフェクトの再設定
+    {
+        DestroyClickedEffect();
+
+        clickedEffectGenerated = false;
+        effectColorChanged = false;
+
+        if (currentButtonImage != null)
+        {
+            currentButtonImage.color = originalButtonColor;
+        }
+
+        ButtonSelectedProcess(currentButtonRect);
     }
 }

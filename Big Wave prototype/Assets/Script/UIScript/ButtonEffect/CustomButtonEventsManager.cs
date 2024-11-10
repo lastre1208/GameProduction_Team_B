@@ -7,25 +7,17 @@ using UnityEngine.Events;
 public class CustomButtonEventsManager : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
-    [Header("▼シーンを遷移するボタン")]
-    [SerializeField] GameObject sceneMoveButton;
+    [Header("▼シーンを遷移するコンポーネント")]
+    [SerializeField] GameObject sceneController;
 
-    [SerializeField] bool isFadeOut;
-
-    private SceneControlManager sceneControlManager;
+    //private SceneControlManager sceneControlManager;
     private MenuEffectController menuEffectController;
     private RectTransform currentSelectedButton;
     private RectTransform currentClickedButton;
 
     void Start()
     {
-        sceneControlManager = sceneMoveButton.GetComponent<SceneControlManager>();
         menuEffectController = canvas.GetComponent<MenuEffectController>();
-    }
-
-    void Update()
-    {
-        ButtonsProcess();//各ボタンの処理
     }
 
     //ボタン選択時の処理
@@ -53,48 +45,5 @@ public class CustomButtonEventsManager : MonoBehaviour
     {
         menuEffectController.ButtonClickedProcess(buttonRect);
         currentClickedButton = buttonRect;
-    }
-
-    //各ボタンの処理
-    private void ButtonsProcess()
-    {
-        if (currentClickedButton == null)
-        {
-            return;
-        }
-
-        switch (currentClickedButton.gameObject.tag)
-        {
-            case "StartButton":
-                if (isFadeOut ? menuEffectController.EffectColorChange_FadeOutWasCompleted : menuEffectController.EffectColorChanged)//ボタンの色の変化と画面の暗転が終了していたら
-                {
-                    sceneControlManager.ChangeGameScene();//ロード画面への移行処理を呼び出す
-                }
-                break;
-
-            case "EndButton":
-                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
-                {
-                    sceneControlManager.EndGame();//ゲームの終了処理を呼びだす
-                }
-                break;
-
-            case "RetryButton":
-                if (isFadeOut ? menuEffectController.EffectColorChange_FadeOutWasCompleted : menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
-                {
-                    sceneControlManager.ChangeGameScene();//ゲームの終了処理を呼びだす
-                }
-                break;
-
-            case "QuitButton":
-                if (menuEffectController.EffectColorChanged)//ボタンの色の変化が終了していたら
-                {
-                    sceneControlManager.ChangeMenuScene();//ゲームの終了処理を呼びだす
-                }
-                break;
-
-            case null:
-                break;
-        }
     }
 }

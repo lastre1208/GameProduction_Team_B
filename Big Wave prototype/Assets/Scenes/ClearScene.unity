@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 381110460}
   m_Layer: 5
   m_Name: RetryButton
-  m_TagString: RetryButton
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,13 +1071,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 538749093}
-        m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 2
+      - m_Target: {fileID: 1843264085}
+        m_TargetAssemblyTypeName: RetryButtonEvent, Assembly-CSharp
+        m_MethodName: RetryButtonClicked
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 381110455}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1090,6 +1090,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 538749095}
+        m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 381110455}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1150,7 +1162,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonSelected
           m_Mode: 2
@@ -1166,7 +1178,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonDeselected
           m_Mode: 2
@@ -1182,7 +1194,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonSelected
           m_Mode: 2
@@ -1198,7 +1210,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonDeselected
           m_Mode: 2
@@ -1396,7 +1408,7 @@ GameObject:
   - component: {fileID: 538749090}
   - component: {fileID: 538749089}
   - component: {fileID: 538749091}
-  - component: {fileID: 538749093}
+  - component: {fileID: 538749095}
   - component: {fileID: 538749094}
   m_Layer: 0
   m_Name: EventSystem
@@ -1465,21 +1477,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &538749093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538749087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149d7438e0960254f9cc433e72dbc753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1867573059}
-  sceneMoveButton: {fileID: 381110454}
-  isFadeOut: 0
 --- !u!114 &538749094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1489,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1769cecbcde1b0647bc0715b8588b624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &538749095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538749087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149d7438e0960254f9cc433e72dbc753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1867573059}
+  sceneController: {fileID: 1945694143}
 --- !u!1 &607359782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,7 +2875,7 @@ GameObject:
   - component: {fileID: 1627396319}
   m_Layer: 5
   m_Name: QuitButton
-  m_TagString: QuitButton
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2945,13 +2956,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 538749093}
-        m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 2
+      - m_Target: {fileID: 1650733696}
+        m_TargetAssemblyTypeName: QuitButtonEvent, Assembly-CSharp
+        m_MethodName: QuitButtonClicked
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1627396314}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2964,6 +2975,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 538749095}
+        m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1627396314}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3024,7 +3047,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonSelected
           m_Mode: 2
@@ -3040,7 +3063,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonDeselected
           m_Mode: 2
@@ -3056,7 +3079,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonSelected
           m_Mode: 2
@@ -3072,7 +3095,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 538749093}
+        - m_Target: {fileID: 538749095}
           m_TargetAssemblyTypeName: CustomButtonEventsManager, Assembly-CSharp
           m_MethodName: OnButtonDeselected
           m_Mode: 2
@@ -3137,6 +3160,54 @@ MonoBehaviour:
   m_scoreText: {fileID: 1918502651}
   m_showScores:
   - {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
+--- !u!1 &1650733693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650733694}
+  - component: {fileID: 1650733696}
+  m_Layer: 0
+  m_Name: QuitEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1650733694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650733693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1945694145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650733696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650733693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8c3206af69734fb117eaff7b55215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFadeOut: 0
+  sceneMove: {fileID: 1945694143}
+  menuEffect: {fileID: 1867573059}
+  fadeOutCom: {fileID: 1867573059}
 --- !u!1 &1678111406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,6 +3610,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802267285}
   m_CullTransparentMesh: 1
+--- !u!1 &1843264083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1843264084}
+  - component: {fileID: 1843264085}
+  m_Layer: 0
+  m_Name: RetryEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1843264084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843264083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1945694145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1843264085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843264083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFadeOut: 0
+  sceneMove: {fileID: 1945694143}
+  menuEffect: {fileID: 1867573059}
+  fadeOutCom: {fileID: 1867573059}
 --- !u!1 &1867573059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,6 +4067,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918502649}
   m_CullTransparentMesh: 1
+--- !u!1 &1945694143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945694145}
+  - component: {fileID: 1945694144}
+  m_Layer: 0
+  m_Name: ButtonEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1945694144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945694143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c59744901a0f794b8d602a52ea7d663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1945694145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945694143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 894.6599, y: 521.13293, z: 38.65289}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1843264084}
+  - {fileID: 1650733694}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069669917
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,3 +4507,4 @@ SceneRoots:
   - {fileID: 2145332162}
   - {fileID: 1867573063}
   - {fileID: 538749090}
+  - {fileID: 1945694145}
