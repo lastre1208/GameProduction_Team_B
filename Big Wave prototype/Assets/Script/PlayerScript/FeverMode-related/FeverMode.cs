@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //作成者:杉山
 //フィーバー状態の効果
@@ -11,6 +12,8 @@ public class FeverMode : MonoBehaviour
     [Header("フィーバー状態の効果時間")]
     [SerializeField] float feverTime=20f;//フィーバー状態の効果時間
     private float remainingFeverTime = 0f;//フィーバー状態の残り効果時間
+    [Header("フィーバー状態移行時に起こすイベント")]
+    [SerializeField] UnityEvent feverEvent;//フィーバー状態移行時に起こすイベント
 
     [Header("必要なコンポーネント")]
     [SerializeField] FeverPoint player_FeverPoint;
@@ -47,6 +50,7 @@ public class FeverMode : MonoBehaviour
         {
             feverNow = true;
             remainingFeverTime = feverTime;
+            feverEvent.Invoke();
         }
     }
 

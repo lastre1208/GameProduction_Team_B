@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   ifHitDestroy: 1
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
   audioSource: {fileID: 4676479468248113912}
 --- !u!114 &-6004389847963506041
 MonoBehaviour:
