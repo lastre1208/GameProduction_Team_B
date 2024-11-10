@@ -6,7 +6,7 @@ public class InstantiateAtInterval : MonoBehaviour
 {
     //☆作成者:桑原
     [Header("生成させたいオブジェクトを入れてください")]
-    [SerializeField] RandomGetGameObject randomGetGameObject;//登録したオブジェクトをランダムに取得する
+    [SerializeField] RandomGetGameObject randomGetGameObject=new RandomGetGameObject();//登録したオブジェクトをランダムに取得する
     [SerializeField] float instantiateIntervalTime = 1.5f;//生成出現間隔
     private float instantiateCurrentTime = 0f;//出現間隔を管理する時間
     // Start is called before the first frame update

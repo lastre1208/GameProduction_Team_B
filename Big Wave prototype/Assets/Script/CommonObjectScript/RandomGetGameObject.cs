@@ -9,6 +9,11 @@ public class RandomGetGameObject
 {
     [SerializeField] GameObject[] objects;
 
+    public RandomGetGameObject()//コンストラクタ
+    {
+
+    }
+
     //呼ばれるとランダムにゲームオブジェクトを返す
     public GameObject GetObjectRandom()
     {
