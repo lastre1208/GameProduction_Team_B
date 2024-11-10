@@ -17,10 +17,12 @@ public class ChargeFeverPointWhenTrick : MonoBehaviour
     //フィーバーポイントのチャージ
     public void Charge()
     {
-        int count =countTrickWhileJump.TrickCount;//トリックをした時のその1回のジャンプ中にしたトリック回数(1ジャンプ中のトリック回数の加算後にこの処理を入れるようにする)
-
-        if (!feverMode.FeverNow)//フィーバー状態でない時
+        if (!feverMode.FeverNow)//フィーバー状態でない時のみ溜まるようにする
         {
+            int count = countTrickWhileJump.TrickCount;//トリックをした時のその1回のジャンプ中にしたトリック回数(1ジャンプ中のトリック回数の加算後にこの処理を入れるようにする)
+
+            if (count>chargeFeverPoint.Length) count = chargeFeverPoint.Length;//例外処理対策
+
             player_FeverPoint.FeverPoint_ += chargeFeverPoint[count - 1];//フィーバーポイント加算(トリックするごとに加算するようにする)
         }
     }
