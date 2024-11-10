@@ -6,7 +6,9 @@ public class InstantiateBuildings : MonoBehaviour
 {
     //☆作成者:桑原
     //☆後に杉山が一部改良
-    [SerializeField] GameObject buildingsPrefab;//生成する建物のプレハブ
+    [Header("生成させたいオブジェクトを入れてください")]
+    [SerializeField] RandomGetGameObject randomGetGameObject = new RandomGetGameObject();//登録したオブジェクトをランダムに取得する
+    //[SerializeField] GameObject buildingsPrefab;//生成する建物のプレハブ
     [SerializeField] GameObject lastBuilding;//直前に生成された建物のプレハブ
 
     private Vector3 lastPosition;
@@ -16,9 +18,9 @@ public class InstantiateBuildings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (buildingsPrefab != null)
+        if (randomGetGameObject != null)
         {
-            BoxCollider collider = buildingsPrefab.GetComponent<BoxCollider>();
+            BoxCollider collider = randomGetGameObject[0].GetComponent<BoxCollider>();
 
             if (collider != null)
             {
@@ -50,7 +52,7 @@ public class InstantiateBuildings : MonoBehaviour
         {            
             Vector3 newPosition = lastPosition + direction * minGenerationDistance;//進行方向に沿った新しい位置の計算
             
-            GameObject newBuilding = Instantiate(buildingsPrefab, newPosition, transform.rotation);//新しい建物を生成
+            GameObject newBuilding = Instantiate(randomGetGameObject.GetObjectRandom(), newPosition, transform.rotation);//新しい建物を生成
 
             lastPosition = newPosition;//最後に生成した建物の位置を更新
         }
