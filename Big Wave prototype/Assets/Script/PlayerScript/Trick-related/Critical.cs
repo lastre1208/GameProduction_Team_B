@@ -16,7 +16,6 @@ public class Critical : MonoBehaviour
     [SerializeField] UnityEvent notCriticalEvents;//クリティカル不発時に呼び出すイベント
     [Header("必要なコンポーネント")]
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
-    [SerializeField] Score_CriticalTrickCount criticalTrickCount;//クリティカルのスコア
 　　[SerializeField] AudioSource audioSource;
     [SerializeField] TrickPoint player_TrickPoint;
 
