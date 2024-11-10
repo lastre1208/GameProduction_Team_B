@@ -53,6 +53,7 @@ public class InstantiateBuildings : MonoBehaviour
             Vector3 newPosition = lastPosition + direction * minGenerationDistance;//進行方向に沿った新しい位置の計算
             
             GameObject newBuilding = Instantiate(randomGetGameObject.GetObjectRandom(), newPosition, transform.rotation);//新しい建物を生成
+            newBuilding.transform.Rotate(0,Random.Range(0, 4)*90,0);
 
             lastPosition = newPosition;//最後に生成した建物の位置を更新
         }
