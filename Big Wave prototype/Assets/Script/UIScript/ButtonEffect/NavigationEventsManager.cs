@@ -13,7 +13,6 @@ public class NavigationEventsManager : MonoBehaviour
     {
         eventSystem = GetComponent<EventSystem>();
 
-        //AbleNavigationEvents();
         ChangeNavigationEvent(true);
     }
 
