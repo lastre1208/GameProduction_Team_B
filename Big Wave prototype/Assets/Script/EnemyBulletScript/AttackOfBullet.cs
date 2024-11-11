@@ -10,12 +10,14 @@ public class AttackOfBullet : MonoBehaviour
     [SerializeField] float damage;//ダメージ量
     [Header("プレイヤーに当たった時に弾を消すか")]
     [SerializeField] bool ifHitDestroy=true;//プレイヤーに当たった時に弾を消すか
+    [Header("壊すオブジェクト")]
+    [SerializeField] GameObject destroyObject;
     [Header("当たった時の効果音")]
     [SerializeField] AudioClip audioClip;
     [SerializeField] AudioSource audioSource;
     bool hit=false;//当たったか
 
-    void HitTrigger(Collider t)//当たった時の処理
+    public void HitTrigger(Collider t)//当たった時の処理
     {
         if (t.gameObject.CompareTag("Player")&&!hit)
         {
@@ -33,15 +35,10 @@ public class AttackOfBullet : MonoBehaviour
 
             hit = true;
 
-            if (ifHitDestroy)//trueかつ当たった時弾が消える
+            if (ifHitDestroy&&destroyObject!=null)//trueかつ当たった時弾が消える
             {
-                Destroy(gameObject);
+                Destroy(destroyObject);
             }
         }
-    }
-
-    void OnTriggerEnter(Collider t)
-    {
-       HitTrigger(t);
     }
 }
