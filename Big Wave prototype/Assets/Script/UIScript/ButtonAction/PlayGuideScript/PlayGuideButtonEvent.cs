@@ -2,21 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//作成者：桑原
-
 public class PlayGuideButtonEvent : MonoBehaviour
 {
     [SerializeField] GameObject menuEffect;
-    [Header("▼制御したいInputSystem")]
     [SerializeField] GameObject inputModule;
-
-    [Header("▼表示させたい画像のグループ")]
     [SerializeField] RectTransform playGuideGroup;
-    [Header("▼表示させたい画像")]
     [SerializeField] List<Image> playGuideImages;
-    [Header("▼最初に表示させたい画像")]
     [SerializeField] Image displayImage;
-    [Header("▼画像をスライドさせる速さ")]
     [SerializeField] float slideSpeed = 5f;
 
     private MenuEffectController menuEffectController;
@@ -28,22 +20,22 @@ public class PlayGuideButtonEvent : MonoBehaviour
     private int currentIndex = 0;
     private float currentSpeed;
 
-    private bool isSliding = false;
-    private bool isSlidingIn = false;
-    private bool isSlidingOut = false;
-    private bool isImageDisplayed = false;
-    private bool isPlayGuideButtonClicked = false;
+    private bool isSliding = false;//スライドしているか
+    private bool isSlidingIn = false;//スライドインしているか
+    private bool isSlidingOut = false;//スライドアウトしているか
+    private bool isImageDisplayed = false;//画像が表示されているか
+    private bool isPlayGuideButtonClicked = false;//ボタンが押されたか
 
     private void Start()
     {
         menuEffectController = menuEffect.GetComponent<MenuEffectController>();
         playGuideInputModule = inputModule.GetComponent<PlayGuideInputModule>();
 
+        playGuideInputModule.enabled = false;
+
         playGuideGroup.gameObject.SetActive(true);
-
+        offScreenPosition = new Vector2(0, Screen.height);//画像収納時の座標を設定
         onScreenPosition = playGuideGroup.anchoredPosition;//画像表示時の座標を設定
-        offScreenPosition = new Vector2(0, Screen.height);//画像収納時の位置座標を設定
-
         playGuideGroup.anchoredPosition = offScreenPosition;//初期位置を画面外に設定
 
         foreach (var image in playGuideImages)//全ての画像を非表示にする
@@ -54,25 +46,21 @@ public class PlayGuideButtonEvent : MonoBehaviour
 
     private void Update()
     {
+        //ボタンがクリックされていないなら
         if (!isPlayGuideButtonClicked) return;
 
-        if (menuEffectController.ClickedEffectGenerated)//決定時のエフェクトが生成され終えたら
+        if (menuEffectController.EffectColorChanged)//決定時のエフェクトが生成され終えたら
         {
-            playGuideInputModule.DisableAllUIActions();//全ての入力を無効化
-
-            if (menuEffectController.EffectColorChanged)
+            if (isSlidingIn || isSlidingOut)//画像がスライド移動中なら
             {
-                if (isSlidingIn || isSlidingOut)
-                {
-                    isSliding = true;
-                    playGuideInputModule.DisableAllUIActions();
-                    SlidingPlayGuide();
-                }
+                isSliding = true;
+                playGuideInputModule.DisableAllUIActions();//全ての入力を無効化
+                SlidingPlayGuide();//画像のスライド処理
+            }
 
-                if (isImageDisplayed)
-                {
-                    playGuideInputModule.EnableSpecificUIActions();
-                }
+            if (isImageDisplayed)//画像が表示されているなら
+            {
+                playGuideInputModule.EnableSpecificUIActions();//一部の入力を有効化
             }
         }
     }
@@ -90,7 +78,7 @@ public class PlayGuideButtonEvent : MonoBehaviour
         {
             playGuideImages[currentIndex].gameObject.SetActive(false);
             currentIndex = (currentIndex + 1) % playGuideImages.Count;
-            ShowImage(currentIndex);//画像の表示
+            ShowImage(currentIndex);
         }
     }
 
@@ -100,11 +88,11 @@ public class PlayGuideButtonEvent : MonoBehaviour
         {
             playGuideImages[currentIndex].gameObject.SetActive(false);
             currentIndex = (currentIndex - 1 + playGuideImages.Count) % playGuideImages.Count;
-            ShowImage(currentIndex);//画像の表示
+            ShowImage(currentIndex);
         }
     }
 
-    public void CloseImage()//画像をしまう
+    public void CloseImage()//画像を収納
     {
         if (!isSliding)
         {
@@ -117,45 +105,54 @@ public class PlayGuideButtonEvent : MonoBehaviour
     {
         if (!isSliding)
         {
-            ShowImage(currentIndex);//画像の表示
+            ShowImage(currentIndex);
             isPlayGuideButtonClicked = true;
         }
     }
 
     private void SlidingPlayGuide()//画像のスライド移動処理
     {
-        if (isSlidingIn)//画面内にスライドさせる場合
-        {
-            playGuideInputModule.DisableAllUIActions();//全ての入力を無効化
-            playGuideGroup.anchoredPosition = Vector2.Lerp(playGuideGroup.anchoredPosition, onScreenPosition, currentSpeed * Time.deltaTime);//画像の移動
+        playGuideInputModule.enabled = false;
 
-            if (Vector2.Distance(playGuideGroup.anchoredPosition, onScreenPosition) < 0.1f)//現在の画像の座標と画面内の設定座標との距離が一定以下になったら
+        //画像の移動処理
+        playGuideGroup.anchoredPosition = Vector2.Lerp(playGuideGroup.anchoredPosition,
+            isSlidingIn ? onScreenPosition : offScreenPosition, currentSpeed * Time.deltaTime);
+
+        //現在の画像の座標と設定座標との距離が一定以下になったら
+        if (Vector2.Distance(playGuideGroup.anchoredPosition,
+            isSlidingIn ? onScreenPosition : offScreenPosition) < 0.1f)
+        {
+            isSliding = false;
+            playGuideGroup.anchoredPosition = isSlidingIn ? onScreenPosition : offScreenPosition;
+
+            if (isSlidingIn)//スライドイン完了時の処理
             {
-                isSliding = false;
-                isSlidingIn = false;
-                isImageDisplayed = true;
-                playGuideGroup.anchoredPosition = onScreenPosition;
-                playGuideInputModule.EnableSpecificUIActions();//一部入力を有効化
+                CompleteSlideIn();
+            }
+            else if (isSlidingOut)//スライドアウト完了時の処理
+            {
+                CompleteSlideOut();
             }
         }
+    }
 
-        else if (isSlidingOut)//画面外にスライドさせる場合
-        {
-            playGuideInputModule.DisableAllUIActions();//入力を無効化
-            playGuideGroup.anchoredPosition = Vector2.Lerp(playGuideGroup.anchoredPosition, offScreenPosition, currentSpeed * Time.deltaTime);//画像の移動
+    private void CompleteSlideIn()//スライドイン完了時の処理
+    {
+        isSlidingIn = false;
+        isImageDisplayed = true;
+        playGuideInputModule.enabled = true;
+        playGuideInputModule.EnableSpecificUIActions();//一部入力を有効化
+    }
 
-            if (Vector2.Distance(playGuideGroup.anchoredPosition, offScreenPosition) < 0.1f)//現在の画像の座標と画面外の設定座標との距離が一定以下になったら
-            {
-                playGuideImages[currentIndex].gameObject.SetActive(false);
-                isPlayGuideButtonClicked = false;
-                isSliding = false;                
-                isSlidingOut = false;
-                isImageDisplayed = false;
-
-                playGuideGroup.anchoredPosition = offScreenPosition;
-                menuEffectController.ResetButtonClickEffect();//ボタンのエフェクトを再設定
-                playGuideInputModule.EnableAllUIActions();//全ての入力を有効化
-            }
-        }
+    private void CompleteSlideOut()//スライドアウト完了時の処理
+    {
+        playGuideImages[currentIndex].gameObject.SetActive(false);
+        isPlayGuideButtonClicked = false;
+        isSlidingOut = false;
+        isImageDisplayed = false;
+        menuEffectController.ResetButtonClickEffect();//ボタンエフェクトの再設定
+        playGuideInputModule.enabled = true;
+        playGuideInputModule.EnableAllUIActions();//一部入力を有効化
+        playGuideInputModule.enabled = false;
     }
 }
