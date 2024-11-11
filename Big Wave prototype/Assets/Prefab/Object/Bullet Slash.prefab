@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -644923674235814764}
   - component: {fileID: -5986218938326887950}
   - component: {fileID: -3483843851783838564}
+  - component: {fileID: 1361519753140590313}
   m_Layer: 0
   m_Name: Bullet Slash
   m_TagString: Untagged
@@ -141,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 40
   ifHitDestroy: 0
+  destroyObject: {fileID: 0}
   audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
   audioSource: {fileID: -3483843851783838564}
 --- !u!114 &-5986218938326887950
@@ -251,3 +253,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1361519753140590313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524258651142115283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56da1fbb55e04fa46a40307c11a6b496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackOfBullet: {fileID: -644923674235814764}
