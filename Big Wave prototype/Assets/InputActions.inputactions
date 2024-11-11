@@ -1187,6 +1187,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e3f6cba4-9c2a-4bb3-b593-d67bdac8f161",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "68a391fa-dc77-44d6-8e85-a6d74f1caa56",
                     "path": "<Keyboard>/p",
                     "interactions": "",
@@ -1244,6 +1255,17 @@
                     "name": "",
                     "id": "3ae01163-2c0a-4822-97fa-612402b0b71e",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResumeGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a288aa5a-46f1-455a-9a79-ea2a439cc3c9",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1490,6 +1512,17 @@
                     "name": "",
                     "id": "0356ffcb-7578-4c44-ac71-5f6254bcaa90",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3a79370-bcbd-48e0-aa87-291ea7dcb446",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
