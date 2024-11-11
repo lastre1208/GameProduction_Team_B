@@ -108,4 +108,10 @@ public class PlayGuideInputModule : MonoBehaviour
         leftRightAction.Enable();
         cancelAction.Enable();
     }
+
+    public void DisableSpecificUIActions()//ˆê•”“ü—Í‚ð–³Œø‰»
+    {
+        leftRightAction.Disable();
+        cancelAction.Disable();
+    }
 }
