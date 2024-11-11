@@ -16707,7 +16707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePos: {fileID: 1923540436}
   bullets:
-  - bulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
+  - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
     delayTime: 1
     shotType: 0
@@ -17266,7 +17266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePos: {fileID: 1923540436}
   bullets:
-  - bulletPrefab: {fileID: 7524258651142115283, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
+  - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
     delayTime: 1
     shotType: 1
