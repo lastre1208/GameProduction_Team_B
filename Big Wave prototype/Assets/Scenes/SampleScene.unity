@@ -758,61 +758,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forms:
-  - actionPatterns:
-    - action:
-      - {fileID: 1507679698}
-      actionProbability: 40
-      actionTime: 5
-    - action: []
-      actionProbability: 10
-      actionTime: 3
-    - action:
-      - {fileID: 1507679698}
-      - {fileID: 1343859083}
-      actionProbability: 10
-      actionTime: 3
-    - action:
-      - {fileID: 1507679698}
-      - {fileID: 1415608679}
-      actionProbability: 10
-      actionTime: 1.5
-    - action:
-      - {fileID: 1343859083}
-      actionProbability: 15
-      actionTime: 1.5
-    - action:
-      - {fileID: 1415608679}
-      actionProbability: 15
-      actionTime: 1.5
-    - action:
-      - {fileID: 456875094}
-      actionProbability: 10
-      actionTime: 1.5
-  - actionPatterns:
-    - action:
-      - {fileID: 1931415814}
-      actionProbability: 20
-      actionTime: 3
-    - action:
-      - {fileID: 1931415814}
-      - {fileID: 1084221215}
-      actionProbability: 52
-      actionTime: 1
-    - action:
-      - {fileID: 1931415814}
-      - {fileID: 1562493071}
-      actionProbability: 25
-      actionTime: 2
-    - action:
-      - {fileID: 1931415814}
-      - {fileID: 996687316}
-      actionProbability: 3
-      actionTime: 5
-    - action:
-      - {fileID: 1931415814}
-      - {fileID: 143768134}
-      actionProbability: 5
-      actionTime: 6
+  - elements:
+    - element:
+        action:
+        - {fileID: 1507679698}
+        actionTime: 5
+      probability: 40
+    - element:
+        action: []
+        actionTime: 3
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1507679698}
+        - {fileID: 1343859083}
+        actionTime: 3
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1507679698}
+        - {fileID: 1415608679}
+        actionTime: 1.5
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1343859083}
+        actionTime: 1.5
+      probability: 15
+    - element:
+        action:
+        - {fileID: 1415608679}
+        actionTime: 1.5
+      probability: 15
+    - element:
+        action:
+        - {fileID: 456875094}
+        actionTime: 1.5
+      probability: 10
+  - elements:
+    - element:
+        action:
+        - {fileID: 1931415814}
+        actionTime: 3
+      probability: 20
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 1084221215}
+        actionTime: 1
+      probability: 52
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 1562493071}
+        actionTime: 2
+      probability: 25
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 996687316}
+        actionTime: 5
+      probability: 3
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 143768134}
+        actionTime: 6
+      probability: 5
   formOfEnemy: {fileID: 98503837}
 --- !u!114 &98503834
 MonoBehaviour:
@@ -829,7 +841,6 @@ MonoBehaviour:
   firstActionPattern:
     action:
     - {fileID: 1507679698}
-    actionProbability: 0
     actionTime: 5
 --- !u!114 &98503835
 MonoBehaviour:
@@ -8267,11 +8278,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: randomGetGameObject.objects.Array.data[0]
       value: 
       objectReference: {fileID: 7751605380675990011, guid: d41c8e42f6076e14e8a7adb926d90897, type: 3}
     - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
       propertyPath: randomGetGameObject.objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 4420242159872049716, guid: d3f502886348e284cbfefec4b4681776, type: 3}
+    - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.data[0]
+      value: 
+      objectReference: {fileID: 7751605380675990011, guid: d41c8e42f6076e14e8a7adb926d90897, type: 3}
+    - target: {fileID: 5758575303174960997, guid: 9ad60184d0a8d7f4d9c549b1bb10e02d, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.data[1]
       value: 
       objectReference: {fileID: 4420242159872049716, guid: d3f502886348e284cbfefec4b4681776, type: 3}
     m_RemovedComponents: []
@@ -8665,7 +8688,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
       propertyPath: randomGetGameObject.objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
+    - target: {fileID: 7055361672725828539, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.data[0]
       value: 
       objectReference: {fileID: 7261692088444349580, guid: c0779ad9e546e99418d4d49ebdddbcea, type: 3}
     - target: {fileID: 8314275602441310986, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
@@ -9689,11 +9720,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: randomGetGameObject.objects.Array.data[0]
       value: 
       objectReference: {fileID: 7751605380675990011, guid: d41c8e42f6076e14e8a7adb926d90897, type: 3}
     - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
       propertyPath: randomGetGameObject.objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 4420242159872049716, guid: d3f502886348e284cbfefec4b4681776, type: 3}
+    - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.data[0]
+      value: 
+      objectReference: {fileID: 7751605380675990011, guid: d41c8e42f6076e14e8a7adb926d90897, type: 3}
+    - target: {fileID: 5461039318012272597, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
+      propertyPath: randomGetGameObject.elements.Array.data[1]
       value: 
       objectReference: {fileID: 4420242159872049716, guid: d3f502886348e284cbfefec4b4681776, type: 3}
     - target: {fileID: 6559662897025510711, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
@@ -15665,17 +15708,14 @@ MonoBehaviour:
   actionPattern_a:
     action:
     - {fileID: 0}
-    actionProbability: 0
     actionTime: 2
   actionPattern_b:
     action:
     - {fileID: 143768134}
-    actionProbability: 0
     actionTime: 3
   actionPattern_c:
     action:
     - {fileID: 0}
-    actionProbability: 0
     actionTime: 4
   algorithm: {fileID: 98503834}
 --- !u!114 &1244729578
@@ -29668,7 +29708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomGetGameObject:
-    objects:
+    elements:
     - {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
     - {fileID: 4006354317908398092, guid: af64f89e52dc27f4f8cc8ea061ab0209, type: 3}
   instantiateIntervalTime: 0.5
@@ -31443,7 +31483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomGetGameObject:
-    objects:
+    elements:
     - {fileID: 4006354317908398092, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
     - {fileID: 4006354317908398092, guid: af64f89e52dc27f4f8cc8ea061ab0209, type: 3}
   instantiateIntervalTime: 0.5
