@@ -175,9 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6907941993347224532}
-  - component: {fileID: 4499418033660471722}
   - component: {fileID: 9083885710443909502}
-  - component: {fileID: 230863058076878658}
+  - component: {fileID: 7853385620687972691}
+  - component: {fileID: 6387616385030121732}
   m_Layer: 0
   m_Name: HomingMissile(Object)
   m_TagString: Untagged
@@ -206,22 +206,6 @@ Transform:
   - {fileID: 7377216514062594487}
   m_Father: {fileID: 7849763675342871162}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4499418033660471722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2689588328361841874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 477d1cf916e4be34ab1119cdc5055b30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deleteTime: 4
-  deleteEvents:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!136 &9083885710443909502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -245,7 +229,7 @@ CapsuleCollider:
   m_Height: 2.32
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.04}
---- !u!114 &230863058076878658
+--- !u!114 &7853385620687972691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,10 +238,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2689588328361841874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56da1fbb55e04fa46a40307c11a6b496, type: 3}
+  m_Script: {fileID: 11500000, guid: 23fe0fac40eaecf41b10675bd8566686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackOfBullet: {fileID: 3892380534150841544}
+--- !u!114 &6387616385030121732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2689588328361841874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dbef386c265d64a931cc4fa9562051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3498517856208074209
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +596,6 @@ GameObject:
   - component: {fileID: 7849763675342871162}
   - component: {fileID: 362798383252631972}
   - component: {fileID: 3892380534150841544}
-  - component: {fileID: 6784625731830303129}
   - component: {fileID: 1818647858197290469}
   m_Layer: 0
   m_Name: HomingMissile
@@ -659,18 +653,7 @@ MonoBehaviour:
   destroyObject: {fileID: 2689588328361841874}
   audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
   audioSource: {fileID: 1818647858197290469}
---- !u!114 &6784625731830303129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613377540000614300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dbef386c265d64a931cc4fa9562051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onTriggerEvent: {fileID: 7853385620687972691}
 --- !u!82 &1818647858197290469
 AudioSource:
   m_ObjectHideFlags: 0

@@ -158,7 +158,7 @@ public class WallBullet : MonoBehaviour
             }
         }
 
-        Vector3 size_Wall = walls[0, 0].GetComponent<Renderer>().bounds.size;//生成された壁プレハブの大きさを取得
+        Vector3 size_Wall = walls[0, 0].GetComponentInChildren<Renderer>().bounds.size;//生成された壁プレハブの大きさを取得
 
         //壁プレハブのスケール計算
         Vector3 scaleFactor = new Vector3(
@@ -278,7 +278,7 @@ public class WallBullet : MonoBehaviour
                     if (walls[i, j] != null)
                     {
                         //壁のRigidbodyを取得
-                        Rigidbody wallRigidbody = walls[i, j].GetComponent<Rigidbody>();
+                        Rigidbody wallRigidbody = walls[i, j].GetComponentInChildren<Rigidbody>();
 
                         if (wallRigidbody != null)
                         {
@@ -301,7 +301,7 @@ public class WallBullet : MonoBehaviour
                     if (walls[i, j] != null)
                     {
                         //壁プレハブのコライダーを取得
-                        Collider wallCollider = walls[i, j].GetComponent<Collider>();
+                        Collider wallCollider = walls[i, j].GetComponentInChildren<Collider>();
 
                         if (wallCollider != null)
                         {

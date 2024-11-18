@@ -33,7 +33,7 @@ public abstract class ShotTypeBase : MonoBehaviour
         return false;
     }
 
-    protected GameObject GenerateBullet(BulletSettingTypeBase bulletSetting)
+    protected GameObject GenerateBullet(BulletSettingTypeBase bulletSetting)//’e”­Ë‘O‚É’e‚ğ¶¬‚·‚éˆ—‚Ìˆê˜A
     {
         bulletSetting.Shoted = true;
         //UŒ‚‚ğŒ‚‚¿‚¾‚·ˆÊ’u‚ÆŠp“x‚ğæ“¾

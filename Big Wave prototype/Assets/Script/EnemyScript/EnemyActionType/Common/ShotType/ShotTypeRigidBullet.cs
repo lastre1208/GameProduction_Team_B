@@ -14,13 +14,13 @@ public class ShotTypeRigidBullet : ShotTypeBase
         vectorOfShotType=GameObject.FindWithTag("VectorOfShot").GetComponent<VectorOfShotType>();
     }
 
-    public override void InitShotTiming()
+    public override void InitShotTiming()//撃つタイミングの初期化
     {
         base.InitShotTiming();
         ResetShoted(bullets);
     }
 
-    public override void UpdateShotTiming()
+    public override void UpdateShotTiming()//撃つタイミングの更新
     {
         base.UpdateShotTiming();
         for (int i = 0; i < bullets.Length; i++)
@@ -35,8 +35,16 @@ public class ShotTypeRigidBullet : ShotTypeBase
     void Shot(BulletSettingTypeRigid bulletSetting)
     {
         GameObject bulletObject = GenerateBullet(bulletSetting);
-        //弾のRigidbodyを取得
+       
         Rigidbody bulletObjectRb = bulletObject.GetComponent<Rigidbody>();
+
+        //弾を撃ちだすための設定(RigidBodyを取得出来ていなかったらエラーメッセージを出す)
+        if(bulletObjectRb==null)
+        {
+            Debug.Log("弾プレハブにRigidBody入ってません！");
+            return;
+        }
+
         //撃つ向きを決める
         Vector3 shotVec=vectorOfShotType.ShotVec(bulletSetting.ShotType,bulletSetting.ShotPos);
         //攻撃の向きを撃つ方向に変更

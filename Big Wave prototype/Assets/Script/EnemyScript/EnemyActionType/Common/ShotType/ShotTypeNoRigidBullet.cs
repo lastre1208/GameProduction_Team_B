@@ -14,13 +14,13 @@ public class ShotTypeNoRigidBullet : ShotTypeBase
         vectorOfShotType = GameObject.FindWithTag("VectorOfShot").GetComponent<VectorOfShotType>();
     }
 
-    public override void InitShotTiming()
+    public override void InitShotTiming()//撃つタイミングの初期化
     {
         base.InitShotTiming();
         ResetShoted(bullets);
     }
 
-    public override void UpdateShotTiming()
+    public override void UpdateShotTiming()//撃つタイミングの更新
     {
         base.UpdateShotTiming();
         for (int i = 0; i < bullets.Length; i++)
@@ -37,8 +37,16 @@ public class ShotTypeNoRigidBullet : ShotTypeBase
         GameObject bulletObject = GenerateBullet(bulletSetting);
         //撃つ向きを決める
         Vector3 shotVec = vectorOfShotType.ShotVec(bulletSetting.ShotType, bulletSetting.ShotPos);
-        NoRigidBullet noRigidBullet=bulletObject.GetComponent<NoRigidBullet>();
-        //弾の設定をする
+
+        NoRigidBullet noRigidBullet=bulletObject.GetComponentInChildren<NoRigidBullet>();
+
+        //弾の設定をする(NoRigidBulletを取得出来てなかったらエラーメッセージを出す)
+        if(noRigidBullet==null)
+        {
+            Debug.Log("弾プレハブにNoRigidBullet入ってません！");
+            return;
+        }
+
         noRigidBullet.SetBullet(bulletSetting.Speed, shotVec);
     }
 }
