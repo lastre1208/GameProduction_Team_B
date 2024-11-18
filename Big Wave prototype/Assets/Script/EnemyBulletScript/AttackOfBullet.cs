@@ -15,7 +15,14 @@ public class AttackOfBullet : MonoBehaviour
     [Header("当たった時の効果音")]
     [SerializeField] AudioClip audioClip;
     [SerializeField] AudioSource audioSource;
+    [Header("必要なコンポーネント")]
+    [SerializeField] OnTriggerActionEvent onTriggerEvent;
     bool hit=false;//当たったか
+
+    void Start()
+    {
+        onTriggerEvent.EnterAction += HitTrigger;//当たった時の処理を登録
+    }
 
     public void HitTrigger(Collider t)//当たった時の処理
     {
