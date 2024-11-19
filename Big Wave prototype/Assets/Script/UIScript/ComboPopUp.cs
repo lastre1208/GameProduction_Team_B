@@ -8,15 +8,17 @@ using System.Runtime.CompilerServices;
 
 public class ComboPopUp : MonoBehaviour
 {
-    [SerializeField] TMP_Text text_countPrefab;
+    public TMP_Text text_countPrefab;
     [SerializeField] RectTransform target;
     [SerializeField] Canvas canvas;
     [SerializeField] CountTrickCombo countTrickCombo;
     [SerializeField] float ScaleLimit;
+    [SerializeField] float StartSize;
     private float DefaultSize;
     public void Start()
     {
-        DefaultSize = text_countPrefab.fontSize;
+        DefaultSize = StartSize;
+        text_countPrefab.fontSize = DefaultSize;
     }
     public void PopUp()
     {
