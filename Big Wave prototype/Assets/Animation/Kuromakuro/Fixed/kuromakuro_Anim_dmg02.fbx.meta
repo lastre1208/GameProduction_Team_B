@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6188b4789bb1cd4b827be90df5e33d7
+guid: abba087fb40d86545b320f2f571686a5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,18 +33,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Bullet
+      name: Damage
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
