@@ -15694,9 +15694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDamageAmount: 100
+  normalDamageAmount: 0
+  criticalDamageAmount: 400
   damageGrowthRate_Fever: 2
-  damageGrowthRate_Critical: 4
   feverMode: {fileID: 1244729544}
   critical: {fileID: 1244729556}
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}

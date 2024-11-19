@@ -4,14 +4,15 @@ using UnityEngine;
 
 //作成者:杉山
 //敵にダメージを与える
+//仕様の変更(クリティカルでなくてもダメージを与えられていたのをクリティカルでないとダメージを与えられないようにしました)
 public class DamageToEnemy : MonoBehaviour
 {
-    [Header("基本ダメージ量")]
-    [SerializeField] float defaultDamageAmount;//基本ダメージ量
+    [Header("通常ダメージ量")]
+    [SerializeField] float normalDamageAmount;//通常ダメージ量
+    [Header("クリティカルダメージ量")]
+    [SerializeField] float criticalDamageAmount;//クリティカルダメージ量
     [Header("フィーバーモード時のダメージの増加率")]
     [SerializeField] float damageGrowthRate_Fever;//フィーバーモード時のダメージ増加率
-    [Header("クリティカル時のダメージの増加率")]
-    [SerializeField] float damageGrowthRate_Critical;//クリティカル時のダメージ増加率
 
     [Header("必要なコンポーネント")]
     [SerializeField] FeverMode feverMode;
@@ -30,9 +31,8 @@ public class DamageToEnemy : MonoBehaviour
     public void AccumulateDamage()//ダメージをキューに蓄積
     {
         //ダメージ計算
-        float damage = defaultDamageAmount;//基本ダメージ
-        damage *= feverMode.FeverNow?damageGrowthRate_Fever:damageGrowthRate_Normal;//フィーバーモードのダメージ加算
-        damage *= critical.CriticalNow?damageGrowthRate_Critical:damageGrowthRate_Normal;//クリティカルダメージの加算
+        float damage = critical.CriticalNow ? criticalDamageAmount : normalDamageAmount;//ダメージ量
+        damage *= feverMode.FeverNow ? damageGrowthRate_Fever : damageGrowthRate_Normal;//フィーバーモードのダメージ加算
         //キューにダメージを登録
         damageQueue.Enqueue(damage);
     }
