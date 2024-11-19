@@ -255,7 +255,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
-  - m_Name: ChargeNow
+  - m_Name: WaitingForJump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -325,7 +325,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Onground
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: ChargeNow
+    m_ConditionEvent: WaitingForJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1526506340856483526}
@@ -353,7 +353,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Onground
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: ChargeNow
+    m_ConditionEvent: WaitingForJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6599072401225813638}

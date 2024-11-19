@@ -8,15 +8,27 @@ using UnityEngine.InputSystem;
 public class ControllerOfJump : MonoBehaviour
 {
     Jump jump;
+    bool pushing=false;
+
+    public bool Pushing { get { return pushing; }  }
+
     void Start()
     {
         jump = GameObject.FindWithTag("Player").GetComponent<Jump>();
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void PrepareJump(InputAction.CallbackContext context)//âüÇµénÇﬂÇ…ê›íË
     {
         if (!context.performed) return;
 
+        pushing = true;
+    }
+
+    public void Jump(InputAction.CallbackContext context)//ó£ÇµÇΩèuä‘Ç…ê›íË
+    {
+        if (!context.performed) return;
+
+        pushing = false;
         jump.JumpTrigger();
     }
 }

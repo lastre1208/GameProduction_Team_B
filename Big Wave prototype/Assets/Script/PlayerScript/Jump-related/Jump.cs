@@ -14,14 +14,20 @@ public class Jump : MonoBehaviour
     [SerializeField] JudgeTouchWave touchWave;
     [SerializeField] JudgeJumpNow judgeJumpNow;
     [SerializeField] JudgeOnceReachedHighestPoint_Jumping judgeOnceReachedHighestPoint_Jumping;
+    
+    public bool Jumpable()//ジャンプ可能条件
+    {
+        return touchWave.TouchWaveNow && !judgeJumpNow.JumpNow();//波に触れている時かつジャンプしていない時のみジャンプ可能
+    }
 
     public void JumpTrigger()//ジャンプ発動
     {
-        if (touchWave.TouchWaveNow&&!judgeJumpNow.JumpNow())//波に触れている時かつジャンプしていない時のみジャンプ可能
+        if (Jumpable())//波に触れている時かつジャンプしていない時のみジャンプ可能
         {
+            //ジャンプする
             judgeJumpNow.StartJump();
             judgeOnceReachedHighestPoint_Jumping.StartJump();
-            rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);//ジャンプする高さは常に一定
+            rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
         }
     }
 }

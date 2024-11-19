@@ -11563,8 +11563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcc5c07c30e1034faf9acedcf1de347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgeChargeTrickPointNow: {fileID: 1244729572}
   animator: {fileID: 1450173098}
+  controllerOfJump: {fileID: 1034766457}
+  jump: {fileID: 1244729534}
 --- !u!224 &964903230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755090226515748358, guid: ae657e1e8bd6bb04f88607f578ccf59f, type: 3}
@@ -12628,7 +12629,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034766454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d511dcc321162f140b5a6956eaacfd96, type: 3}
   m_Name: 
@@ -12755,9 +12756,9 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034766458}
-        m_TargetAssemblyTypeName: ControllerOfChargeTrickPoint, Assembly-CSharp
-        m_MethodName: ChargeStandby_On
+      - m_Target: {fileID: 1034766457}
+        m_TargetAssemblyTypeName: ControllerOfJump, Assembly-CSharp
+        m_MethodName: PrepareJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12851,18 +12852,6 @@ MonoBehaviour:
     m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034766458}
-        m_TargetAssemblyTypeName: ControllerOfChargeTrickPoint, Assembly-CSharp
-        m_MethodName: ChargeStandby_Off
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1034766457}
         m_TargetAssemblyTypeName: ControllerOfJump, Assembly-CSharp
         m_MethodName: Jump
