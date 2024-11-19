@@ -15,6 +15,6 @@ public class BlinkUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        blinkColor.Blinking()
+        //blinkColor.Blinking()
     }
 }
