@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//指定オブジェクトとy軸とz軸を同じ方向を向かせる
+//カメラの軸を追従目標と同じ方向に向くように固定させる
 public class CinemachineExtend_Look : CinemachineExtension
 {
     [Header("追従目標")]
@@ -13,6 +13,24 @@ public class CinemachineExtend_Look : CinemachineExtension
     [SerializeField] bool x;
     [SerializeField] bool y;
     [SerializeField] bool z;
+
+    public bool X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public bool Y
+    { 
+        get { return y; }
+        set {  y = value; } 
+    }
+
+    public bool Z
+    {
+        get { return z; }
+        set { z = value; }
+    }
 
     [Header("これに入れたオブジェクトとy軸のみ常に同じ方向を向くようになる")]
     [SerializeField] Transform lookObj;
@@ -35,16 +53,6 @@ public class CinemachineExtend_Look : CinemachineExtension
         if (y) eulerAngles.y = target.eulerAngles.y;//x軸の固定
         if (z) eulerAngles.z = target.eulerAngles.z;//x軸の固定
         state.RawOrientation = Quaternion.Euler(eulerAngles);
-
-        //y軸とz軸を同じ方向を向かせる
-        //var eulerAngles = state.RawOrientation.eulerAngles;
-        //eulerAngles.y=lookObj.eulerAngles.y;
-        //eulerAngles.z = 0;
-        //state.RawOrientation = Quaternion.Euler(eulerAngles);
-        //Quaternion rot = state.RawOrientation;
-        //rot.y=lookObj.rotation.y;
-        //rot.z=0;
-        //state.RawOrientation = rot;
     }
 
     
