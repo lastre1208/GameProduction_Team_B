@@ -10,13 +10,9 @@ using UnityEngine.Events;
 //最後に押したボタンがクリティカルになるかを判定
 public class Critical : MonoBehaviour
 {
-    [Header("クリティカル発生時に呼び出すイベント")]
-    [SerializeField] UnityEvent criticalEvents;//クリティカル発生時に呼び出すイベント
-    [Header("クリティカル不発時に呼び出すイベント")]
-    [SerializeField] UnityEvent notCriticalEvents;//クリティカル不発時に呼び出すイベント
+    public event Action<bool> CriticalAction;//トリック時にこれに登録したイベントを呼ぶ、クリティカルならtrueを、そうでないならfalseを入れる
     [Header("必要なコンポーネント")]
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
-　　[SerializeField] AudioSource audioSource;
     [SerializeField] TrickPoint player_TrickPoint;
 
     bool criticalNow = false;//最後に押したボタンがクリティカルだったか
@@ -32,23 +28,13 @@ public class Critical : MonoBehaviour
         StartAllocateButton();
     }
 
-    void StartAllocateButton()//最初に全てのcriticalButtonにボタンを割り当てる
-    {
-        for(int i=0; i<criticalButton.Length;i++)
-        {
-            AllocateButton(ref criticalButton[i]);
-        }
-    }
-
     public void SetCriticalNow()//クリティカルが発生したかを設定(押されたボタンからクリティカルの判定)
     {
+        criticalNow = (pushedButton_CurrentTrickPattern.PushedButton == criticalButton[0]);
+
         //入力したボタンが指定されていたボタンだった時(クリティカルの時)
-        if(pushedButton_CurrentTrickPattern.PushedButton == criticalButton[0])
+        if(criticalNow)
         {
-            criticalNow = true;
-
-            criticalEvents.Invoke();
-
             for (int i = 1; i < criticalButton.Length; i++)//[0](現在指定されている)ボタン以外の全てのボタンを1つ前([0]方向)にずらす
             {
                 criticalButton[i - 1] = criticalButton[i];
@@ -56,15 +42,19 @@ public class Critical : MonoBehaviour
 
             AllocateButton(ref criticalButton[criticalButton.Length - 1]);//ボタンの配列の最後のボタンに割り当て
         }
+    }
 
-        //入力したボタンが指定されていたボタンではなかった時
-        else
+    public void ActivateCriticalAction()//クリティカルが発生したかを設定した後にこれを呼ぶ
+    {
+        CriticalAction.Invoke(CriticalNow);
+    }
+
+    void StartAllocateButton()//最初に全てのcriticalButtonにボタンを割り当てる
+    {
+        for (int i = 0; i < criticalButton.Length; i++)
         {
-            criticalNow=false;
-
-            notCriticalEvents.Invoke();
+            AllocateButton(ref criticalButton[i]);
         }
-
     }
 
     void AllocateButton(ref TrickButton button)//ボタンの割り当て(ランダム)
