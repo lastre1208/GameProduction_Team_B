@@ -1,20 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using JetBrains.Annotations;
 public class BlinkUI : MonoBehaviour
 {
-    BlinkColor blinkColor;
-
-    // Start is called before the first frame update
-    void Start()
+    private TMP_Text T_Color;
+    [SerializeField] float cycle;
+    [SerializeField] JumpUI jump;
+    private float time;
+    private void Start()
     {
-        
+         T_Color=this.GetComponent<TMP_Text>();
+        T_Color.enabled = true; 
     }
-
     // Update is called once per frame
     void Update()
     {
-        blinkColor.Blinking()
+        time += Time.deltaTime;
+        if (time > cycle&&!jump.reached)
+        {
+            time = 0;
+            T_Color.enabled = !T_Color.enabled;
+        }
+        else
+        {
+            T_Color.enabled = true;
+        }
     }
 }

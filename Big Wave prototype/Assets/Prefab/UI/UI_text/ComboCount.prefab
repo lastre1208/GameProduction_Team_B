@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5540319640275630485}
   - component: {fileID: -5711511932167288715}
   - component: {fileID: 8525625964512908466}
+  - component: {fileID: 1439873359768685361}
   m_Layer: 5
   m_Name: ComboCount
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10COMBO!!
+  m_text: 2COMBO!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a69b714d5c8d699468497acc6255622f, type: 2}
   m_sharedMaterial: {fileID: -21385085090457684, guid: a69b714d5c8d699468497acc6255622f, type: 2}
@@ -166,3 +167,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Move_Y: 100
   MoveSpeed: 4
+--- !u!114 &1439873359768685361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286849294236564644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99de9815be8b9148b0479bebee25ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycle: 0.01
+  jump: {fileID: 8525625964512908466}

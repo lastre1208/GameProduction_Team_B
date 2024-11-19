@@ -4966,7 +4966,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -67.55, y: -9.440408, z: -0.0000090942185}
+  m_ConnectedAnchor: {x: -2.6000302, y: 0.14000025, z: -0.0000010850595}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -17329,6 +17329,8 @@ MonoBehaviour:
   target: {fileID: 647215248}
   canvas: {fileID: 651057538}
   countTrickCombo: {fileID: 1244729557}
+  ScaleLimit: 10
+  StartSize: 72
 --- !u!4 &1429956298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8230670919615570437, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
@@ -34146,7 +34148,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000019071754, y: 1.98, z: 25.799997}
+  m_ConnectedAnchor: {x: 0.0000019071754, y: 3.98, z: 38}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
