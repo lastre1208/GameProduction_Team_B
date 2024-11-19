@@ -14,17 +14,17 @@ public class ControllerOfChargeTrickPoint : MonoBehaviour
         chargeTrickPoint = GameObject.FindWithTag("Player").GetComponent<ChargeTrickPoint>();
     }
 
-    public void ChargeStandby_On(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
+    //public void ChargeStandby_On(InputAction.CallbackContext context)
+    //{
+    //    if (!context.performed) return;
 
-        chargeTrickPoint.ChargeStandby = true;
-    }
+    //    chargeTrickPoint.ChargeStandby = true;
+    //}
 
-    public void ChargeStandby_Off(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
+    //public void ChargeStandby_Off(InputAction.CallbackContext context)
+    //{
+    //    if (!context.performed) return;
 
-        chargeTrickPoint.ChargeStandby = false;
-    }
+    //    chargeTrickPoint.ChargeStandby = false;
+    //}
 }
