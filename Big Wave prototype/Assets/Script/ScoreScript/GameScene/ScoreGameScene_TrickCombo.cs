@@ -17,9 +17,16 @@ public class ScoreGameScene_TrickCombo : MonoBehaviour
     [SerializeField] Score_TrickCombo_ score_TrickCombo;//スコア反映
     [Header("コンボ回数を数えるコンポーネント")]
     [SerializeField] CountTrickCombo countTrickCombo;
+    [Header("ゲーム終了を判断するコンポーネント")]
+    [SerializeField] JudgeGameSet judgeGameSet;
     private float m_score=0;
 
     public float Score { get { return m_score; }  }
+
+    private void Start()
+    {
+        judgeGameSet.GameSetCommonAction += Reflect;
+    }
 
     public void AddScore()//スコア加算(トリック時に呼ぶ)
     {

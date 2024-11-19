@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
 
 public class JudgeGameSet : MonoBehaviour
 {
-    [Header("コントローラのバイブを止めるため")]
-    [SerializeField] ControlVibe controlVibe;
-    [Header("スコア反映するコンポーネント")]
-    [SerializeField] ScoreGameScene_GameClear score_GameClear;
-    [SerializeField] ScoreGameScene_HP score_HP;
-    [SerializeField] ScoreGameScene_TimeLimit score_TimeLimit;
-    [SerializeField] ScoreGameScene_ComboMax score_ComboMax;
-    [SerializeField] ScoreGameScene_ChargeTime score_ChargeTime;
-    [SerializeField] ScoreGameScene_TrickCombo score_TrickCombo;
+    public event Action<bool> GameSetAction;//trueならゲームクリア、falseならゲームオーバー
+    public event Action GameSetCommonAction;//ゲーム終了時クリアでもゲームオーバーでもどちらでもやる共通イベント
     HP player_Hp;
     HP enemy_Hp;
     // Start is called before the first frame update
@@ -28,68 +22,34 @@ public class JudgeGameSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DeadEnemy();
-
-        DeadPlayer();
-
-        TimeUp();
+        JudgeClear();
+        JudgeGameOver();
     }
 
-    void DeadPlayer()//プレイヤー死亡時、ゲームオーバー
+    void JudgeClear()
     {
-        if(player_Hp.Hp<=0)//プレイヤーが死んだら
+        if (enemy_Hp.Hp <= 0)//敵が死んだら
         {
-            GameOverProcess();
+            GameSetProcess(true);
         }
     }
 
-    void DeadEnemy()//プレイヤー死亡時、ゲームクリア
+    void JudgeGameOver()
     {
-        if(enemy_Hp.Hp<=0)//敵が死んだら
+        if (player_Hp.Hp <= 0|| TimeLimit.RemainingTime <= 0)//プレイヤーが死んだらまたは時間切れになったら
         {
-            ClearProcess();
+            GameSetProcess(false);
         }
-    }
-
-    void TimeUp()//時間切れ時、ゲームオーバー
-    {
-        if(TimeLimit.RemainingTime<=0)//時間切れになったら
-        {
-            GameOverProcess();
-        }
-    }
-
-    void GameOverProcess()//ゲームオーバーシーンに移行する時の処理
-    {
-        GameSetProcess(false);
-        SceneManager.LoadScene("GameoverScene");//ゲームオーバーシーンに移行
-    }
-
-    void ClearProcess()//クリアシーンに移行する時の処理
-    {
-        GameSetProcess(true);
-        SceneManager.LoadScene("ClearScene");//クリアシーンに移行
     }
 
     void GameSetProcess(bool gameClear)//ゲーム終了しシーンに移行する直前に行う処理
     {
-        //コントローラのバイブを止める
-        controlVibe.Vibe();
-        //スコア反映
-        score_GameClear.Reflect(gameClear);
-        score_HP.Reflect(gameClear);
-        score_TimeLimit.Reflect(gameClear);
-        score_ComboMax.Refelect();
-        score_ChargeTime.Reflect();
-        score_TrickCombo.Reflect();
+        GameSetCommonAction.Invoke();
+        GameSetAction.Invoke(gameClear);
 
-        if(gameClear)//クリア時
-        {
-
-        }
-        else//ゲームオーバー時
-        {
-
-        }
+        //シーン移行
+        string nextSceneName;
+        nextSceneName = gameClear ? "ClearScene" : "GameOverScene";
+        SceneManager.LoadScene(nextSceneName);
     }
 }

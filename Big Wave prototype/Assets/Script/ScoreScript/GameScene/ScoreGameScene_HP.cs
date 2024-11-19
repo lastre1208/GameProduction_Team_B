@@ -12,8 +12,15 @@ public class ScoreGameScene_HP : MonoBehaviour
     [SerializeField] HP player_HP;//プレイヤーのHP
     [Header("スコア反映に使うコンポーネント")]
     [SerializeField] Score_HP_ score_HP;//スコア反映
+    [Header("ゲーム終了を判断するコンポーネント")]
+    [SerializeField] JudgeGameSet judgeGameSet;
     const float ratioToPercent = 100;//割合から％に変換する係数
     const float hpRatio_GameOver = 0;//ゲームオーバー時残り体力の割合を自動的に0とする
+
+    private void Start()
+    {
+        judgeGameSet.GameSetAction += Reflect;
+    }
 
     public void Reflect(bool gameClear)//スコア反映
     {

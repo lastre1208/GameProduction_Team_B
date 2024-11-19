@@ -12,8 +12,15 @@ public class ScoreGameScene_ChargeTime : MonoBehaviour
     [SerializeField] Score_ChargeTime_ score_ChargeTime;//スコア反映
     [Header("チャージ時間を計測するコンポーネント")]
     [SerializeField] CountChargeTime countChargeTime;
+    [Header("ゲーム終了を判断するコンポーネント")]
+    [SerializeField] JudgeGameSet judgeGameSet;
 
     public float Score { get { return countChargeTime.ChargeTime * m_scorePerSecond; } }//スコアの計算式
+
+    private void Start()
+    {
+        judgeGameSet.GameSetCommonAction += Reflect;
+    }
 
     public void Reflect()//スコア反映
     {
