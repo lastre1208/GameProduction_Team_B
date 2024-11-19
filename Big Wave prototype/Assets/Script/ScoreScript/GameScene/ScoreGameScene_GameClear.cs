@@ -10,7 +10,14 @@ public class ScoreGameScene_GameClear : MonoBehaviour
     [SerializeField] float m_scoreGameClear;//ゲームクリア時のスコア量
     [Header("スコア反映に使うコンポーネント")]
     [SerializeField] Score_GameClear_ score_GameClear;//スコア反映
+    [Header("ゲーム終了を判断するコンポーネント")]
+    [SerializeField] JudgeGameSet judgeGameSet;
     const float m_scoreGameOver = 0;//ゲームオーバー時のスコア量
+
+    private void Start()
+    {
+        judgeGameSet.GameSetAction += Reflect;
+    }
 
     public void Reflect(bool gameClear)//スコア反映
     {

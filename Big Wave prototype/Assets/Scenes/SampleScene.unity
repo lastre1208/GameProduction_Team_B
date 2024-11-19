@@ -555,6 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scorePerSecond: 20
   score_TimeLimit: {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1 &98503817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1354,7 @@ MonoBehaviour:
   m_scorePerSecond: 20
   score_ChargeTime: {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
   countChargeTime: {fileID: 1244729580}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1 &119866080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +3831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scoreGameClear: 2000
   score_GameClear: {fileID: 11400000, guid: c28a8180726eb524fb2e610be5b27ff0, type: 2}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1 &296756003
 GameObject:
   m_ObjectHideFlags: 0
@@ -12906,6 +12909,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6aa7d40a-d8ee-4546-9aba-5ee69c1f1fe9
     m_ActionName: Player/Test[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: efaf53b1-d966-4e42-8083-36759b1bb82b
+    m_ActionName: PlayGuide/Navigate[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a063227-a3bd-4783-9e9c-fbb29459b605
+    m_ActionName: PlayGuide/Cancel[/Keyboard/p,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -12935,8 +12946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1a2e1eef720a64295c4e895a8a66f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  low: 0
-  high: 0
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1 &1041760308
 GameObject:
   m_ObjectHideFlags: 0
@@ -13096,6 +13106,7 @@ MonoBehaviour:
   m_scorePerCombo: 50
   score_ComboMax: {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
   countTrickCombo: {fileID: 1244729557}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1 &1058489859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14680,6 +14691,7 @@ MonoBehaviour:
   m_scorePerOnePercent: 10
   player_HP: {fileID: 1244729562}
   score_HP: {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!1001 &1239549432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15985,6 +15997,7 @@ MonoBehaviour:
   m_maxAddComboCount: 10
   score_TrickCombo: {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
   countTrickCombo: {fileID: 1244729557}
+  judgeGameSet: {fileID: 1511769283}
 --- !u!4 &1258393162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1055092956111960930, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
@@ -18346,13 +18359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cde6294cc1e1b419103447e43bcdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlVibe: {fileID: 1034766464}
-  score_GameClear: {fileID: 293782974}
-  score_HP: {fileID: 1239453833}
-  score_TimeLimit: {fileID: 91722889}
-  score_ComboMax: {fileID: 1045309821}
-  score_ChargeTime: {fileID: 119824063}
-  score_TrickCombo: {fileID: 1250788302}
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0
