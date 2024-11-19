@@ -17,8 +17,17 @@ public class GenerateEffectAlongWay : MonoBehaviour
     [SerializeField] float generateInterval;//エフェクトを生成するインターバル
     [Header("着弾時に呼び出したいイベント")]
     [SerializeField] UnityEvent landEvents;//着弾時に呼び出したいイベント
+     [Header("着弾時(非クリティカル)に呼び出したいイベント")]
+    [SerializeField] UnityEvent landEvents_F;
+  
     private List<GenerateEffectPos_AlongWay> generatePosList=new List<GenerateEffectPos_AlongWay>();
+    private Queue<bool> C_Trick=new Queue<bool>();
 
+    public Queue<bool> c_Trick
+    {
+        get { return C_Trick; }
+        set { C_Trick = value; }
+    }
     void Update()
     {
         GenerateEffectAtGeneratePos();
@@ -41,8 +50,17 @@ public class GenerateEffectAlongWay : MonoBehaviour
 
                 Instantiate(effect, passPos.position, passPos.rotation, passPos);//生成
 
-                if (isLastPoint) landEvents.Invoke();//着弾なら着弾時に登録していたイベントを呼び出す
-
+               
+                if (isLastPoint && c_Trick.Peek())
+                {
+                    landEvents.Invoke();//着弾なら着弾時に登録していたイベントを呼び出す
+                    c_Trick.Dequeue();
+                }
+                else if (isLastPoint)
+                {
+                    landEvents_F.Invoke();
+                    c_Trick.Dequeue();
+                }
                 generatePosList[i].TransitNextPos();//次の場所を設定
             }
         }

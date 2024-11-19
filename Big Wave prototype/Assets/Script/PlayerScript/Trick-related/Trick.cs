@@ -43,7 +43,7 @@ public partial class Trick : MonoBehaviour
         }
     }
 
-    bool JudgeSuccessOfTrick()//トリック成功かの判定(成功であればtrueを返す)
+     bool JudgeSuccessOfTrick()//トリック成功かの判定(成功であればtrueを返す)
     {
         int trickCost = pushedButton_TrickPattern.TrickCost;//トリック消費量、押されたボタンに対応したトリックパターンのトリック消費量
 
