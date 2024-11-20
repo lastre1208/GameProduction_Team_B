@@ -15032,7 +15032,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  isInertiaEnabled: 1
+  isCenterPullEnabled: 0
+  speed: 11.5
+  acceleration: 300
+  deceleration: 150
+  targetSpeed: 150
+  centerPullStrength: 10
+  maxCenterPullStrength: 100
+  centerThreshold: 0.1
 --- !u!114 &1244729534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,6 +15115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
   player_TrickPoint: {fileID: 1244729564}
+  generate: {fileID: 0}
 --- !u!114 &1244729557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15639,6 +15648,9 @@ MonoBehaviour:
           m_StringArgument: Damage
           m_BoolArgument: 0
         m_CallState: 2
+  landEvents_F:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
