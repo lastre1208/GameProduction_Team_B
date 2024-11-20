@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class ShakeObject : MonoBehaviour
 {
+    [SerializeField] Generate_AlongWay generate_AlongWay;
+
+    void Start()
+    {
+        generate_AlongWay.CriticalTrickEffect.LandAction += EnableShake;
+        generate_AlongWay.CriticalFeverTrickEffect.LandAction += EnableShake;
+    }
+
     // 単一のパーリンノイズ情報を格納する構造体
     [Serializable]
     private struct NoiseParam
