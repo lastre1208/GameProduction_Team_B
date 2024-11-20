@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 //作成者:杉山
-//
+//ロープを伝うエフェクトの設定
 [System.Serializable]
 public class EffectType_AlongWay
 {
@@ -22,13 +22,13 @@ public class EffectType_AlongWay
 
     public GameObject PassEffect()//伝導エフェクトを出すときに呼ぶ
     {
-        PassAction.Invoke();
+        PassAction?.Invoke();
         return passEffect;
     }
 
     public GameObject LandEffect()//着弾エフェクトを出すときに呼ぶ
     {
-        LandAction.Invoke();
+        LandAction?.Invoke();
         return landEffect;
     }
 }

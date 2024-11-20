@@ -1981,6 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b12cd40595bab419140fe21d12646c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generate_AlongWay: {fileID: 1244729582}
   _noisePosition:
     x:
       amplitude: 10
@@ -14881,12 +14882,13 @@ GameObject:
   - component: {fileID: 1244729572}
   - component: {fileID: 1244729569}
   - component: {fileID: 1244729573}
-  - component: {fileID: 1244729576}
   - component: {fileID: 1244729577}
   - component: {fileID: 1244729578}
   - component: {fileID: 1244729579}
   - component: {fileID: 1244729580}
   - component: {fileID: 1244729581}
+  - component: {fileID: 1244729582}
+  - component: {fileID: 1244729583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15238,8 +15240,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729576}
-        m_TargetAssemblyTypeName: TrickEffectOnRope, Assembly-CSharp
+      - m_Target: {fileID: 1244729582}
+        m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
         m_MethodName: ActivateEffect
         m_Mode: 1
         m_Arguments:
@@ -15568,86 +15570,6 @@ MonoBehaviour:
   - 0.6
   - 0.4
   - 0.3
---- !u!114 &1244729576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e192b208fd0a454bab3a08bbff40fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectWays:
-  - {fileID: 5534817772448045311}
-  - {fileID: 4297786818734687993}
-  - {fileID: 2405486781112149817}
-  - {fileID: 6918615426044428664}
-  - {fileID: 3497325616683864622}
-  - {fileID: 2858219203215715389}
-  - {fileID: 4856438578308231287}
-  - {fileID: 6714918716175753405}
-  - {fileID: 6506725979776084341}
-  passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
-  landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
-  generateInterval: 0.1
-  landEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729579}
-        m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
-        m_MethodName: CauseDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1294514542}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 157259727}
-        m_TargetAssemblyTypeName: ShakeObject, Assembly-CSharp
-        m_MethodName: EnableShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
-  landEvents_F:
-    m_PersistentCalls:
-      m_Calls: []
-  critical: {fileID: 1244729556}
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15709,6 +15631,7 @@ MonoBehaviour:
   feverMode: {fileID: 1244729544}
   critical: {fileID: 1244729556}
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
+  generate_AlongWay: {fileID: 1244729582}
 --- !u!114 &1244729580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15738,6 +15661,54 @@ MonoBehaviour:
   normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
   audioSource: {fileID: 238903304}
   critical: {fileID: 1244729556}
+--- !u!114 &1244729582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68084f5e44975b4e9ff33bdf2dd578b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
+  criticalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
+  generateInterval: 0.1
+  effectWays:
+  - {fileID: 5534817772448045311}
+  - {fileID: 8664208825981449658}
+  - {fileID: 2480021081193508844}
+  - {fileID: 3497325616683864622}
+  - {fileID: 2643956098914295589}
+  - {fileID: 4888374120523155975}
+  - {fileID: 271956237}
+  - {fileID: 1756788141}
+  - {fileID: 870038182}
+  - {fileID: 1217077221}
+  - {fileID: 6506725979776084341}
+  critical: {fileID: 1244729556}
+--- !u!114 &1244729583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1294514542}
+  source: {fileID: 1778482265}
+  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  generate_AlongWay: {fileID: 1244729582}
 --- !u!1001 &1245455794
 PrefabInstance:
   m_ObjectHideFlags: 0

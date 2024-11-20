@@ -18,6 +18,7 @@ public class DamageToEnemy : MonoBehaviour
     [SerializeField] FeverMode feverMode;
     [SerializeField] Critical critical;
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
+    [SerializeField] Generate_AlongWay generate_AlongWay;
 
     const float damageGrowthRate_Normal=1;//等倍(ダメージ増加率)
     HP enemy_Hp;
@@ -26,6 +27,8 @@ public class DamageToEnemy : MonoBehaviour
     void Start()
     {
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        generate_AlongWay.CriticalTrickEffect.LandAction += CauseDamage;
+        generate_AlongWay.NormalTrickEffect.LandAction += CauseDamage;
     }
 
     public void AccumulateDamage()//ダメージをキューに蓄積
