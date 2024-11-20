@@ -17,7 +17,7 @@ public class GenerateEffectAlongWay : MonoBehaviour
     [SerializeField] float generateInterval;//エフェクトを生成するインターバル
     [Header("着弾時に呼び出したいイベント")]
     [SerializeField] UnityEvent landEvents;//着弾時に呼び出したいイベント
-     [Header("着弾時(非クリティカル)に呼び出したいイベント")]
+    [Header("着弾時(非クリティカル)に呼び出したいイベント")]
     [SerializeField] UnityEvent landEvents_F;
     [SerializeField] Critical critical;
   

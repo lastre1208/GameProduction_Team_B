@@ -15033,7 +15033,7 @@ MonoBehaviour:
   isCenterPullEnabled: 0
   speed: 11.5
   acceleration: 300
-  deceleration: 150
+  deceleration: 250
   targetSpeed: 150
   centerPullStrength: 10
   maxCenterPullStrength: 100
