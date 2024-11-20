@@ -14,7 +14,6 @@ public class Critical : MonoBehaviour
     [Header("必要なコンポーネント")]
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
     [SerializeField] TrickPoint player_TrickPoint;
-    [SerializeField] GenerateEffectAlongWay generate;
     bool criticalNow = false;//最後に押したボタンがクリティカルだったか
     private TrickButton[] criticalButton;//指定されたボタンの配列([0]が現在指定されているボタン、[1]が二番目に指定されているボタン...)
 
@@ -31,7 +30,6 @@ public class Critical : MonoBehaviour
     public void SetCriticalNow()//クリティカルが発生したかを設定(押されたボタンからクリティカルの判定)
     {
         criticalNow = (pushedButton_CurrentTrickPattern.PushedButton == criticalButton[0]);
-        generate.c_Trick.Enqueue(criticalNow);
         //入力したボタンが指定されていたボタンだった時(クリティカルの時)
         if(criticalNow)
         {
