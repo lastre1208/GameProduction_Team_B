@@ -15679,20 +15679,30 @@ MonoBehaviour:
   criticalTrickEffect:
     passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
     landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
-  generateInterval: 0.1
+  criticalFeverTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 815de1e0e1738404e970684120633544, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 5f6dfde0105ecae4a96bfb5bd07622c9, type: 3}
+  generateInterval: 0.05
   effectWays:
   - {fileID: 5534817772448045311}
-  - {fileID: 8664208825981449658}
+  - {fileID: 4297786818734687993}
+  - {fileID: 4175646745233137918}
   - {fileID: 2480021081193508844}
-  - {fileID: 3497325616683864622}
-  - {fileID: 2643956098914295589}
+  - {fileID: 1023002749357401671}
+  - {fileID: 2611329527905224869}
+  - {fileID: 2858219203215715389}
+  - {fileID: 4856438578308231287}
   - {fileID: 4888374120523155975}
-  - {fileID: 271956237}
+  - {fileID: 1068010473}
+  - {fileID: 1274392268}
   - {fileID: 1756788141}
-  - {fileID: 870038182}
-  - {fileID: 1217077221}
+  - {fileID: 1773698022}
+  - {fileID: 599778570}
+  - {fileID: 1925923499}
+  - {fileID: 836346427}
   - {fileID: 6506725979776084341}
   critical: {fileID: 1244729556}
+  feverMode: {fileID: 1244729544}
 --- !u!114 &1244729583
 MonoBehaviour:
   m_ObjectHideFlags: 0

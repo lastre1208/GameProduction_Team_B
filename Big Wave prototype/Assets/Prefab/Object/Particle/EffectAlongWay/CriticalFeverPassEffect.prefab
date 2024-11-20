@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7166970518373483701}
   - component: {fileID: 4869105687409673805}
   m_Layer: 0
-  m_Name: CriticalPassEffect
+  m_Name: CriticalFeverPassEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.14787209, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.8552151, g: 0, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4126,7 +4126,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.4590628, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.72492886, g: 0, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

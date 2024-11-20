@@ -10,20 +10,47 @@ public class Generate_AlongWay : MonoBehaviour
     [SerializeField] EffectType_AlongWay normalTrickEffect=new EffectType_AlongWay();//通常のトリックのエフェクト
     [Header("クリティカルのトリックのエフェクト")]
     [SerializeField] EffectType_AlongWay criticalTrickEffect = new EffectType_AlongWay();//クリティカルのトリックのエフェクト
+    [Header("クリティカルフィーバーのトリックのエフェクト")]
+    [SerializeField] EffectType_AlongWay criticalFeverTrickEffect = new EffectType_AlongWay();//クリティカルフィーバーのトリックのエフェクト
     [Header("エフェクトを生成するインターバル")]
     [SerializeField] float generateInterval;//エフェクトを生成するインターバル
     [Header("エフェクトの通る地点")]
     [SerializeField] Transform[] effectWays;//エフェクトの通る地点、最初の地点から指定時間ごとに進んでいって最後の地点で着弾エフェクトを出す
     [SerializeField] Critical critical;
+    [SerializeField] FeverMode feverMode;
     private List<Pos_AlongWay> generatePosList = new List<Pos_AlongWay>();//エフェクト生成位置情報のリスト
 
     public EffectType_AlongWay NormalTrickEffect { get { return  normalTrickEffect; }}
     public EffectType_AlongWay CriticalTrickEffect { get { return criticalTrickEffect; }}
 
+    public EffectType_AlongWay CriticalFeverTrickEffect { get { return criticalFeverTrickEffect; }}
+
     void Update()
     {
         GenerateEffectAtGeneratePos();
         DestroyGeneratePos();
+    }
+
+    //トリック時に呼び出す(エフェクトを新たに生成させる)
+    public void ActivateEffect()
+    {
+        GenerateType_AlongWay generateType;
+
+        //トリックの状況(クリティカルとかフィーバー中とか)によってエフェクトを変える
+        if (critical.CriticalNow&&feverMode.FeverNow)//フィーバー中＆クリティカル
+        {
+            generateType = GenerateType_AlongWay.criticalFever;
+        }
+        else if(critical.CriticalNow)//クリティカルだけ
+        {
+            generateType = GenerateType_AlongWay.critical;
+        }
+        else//通常トリック
+        {
+            generateType = GenerateType_AlongWay.normal;
+        }
+
+        generatePosList.Add(new Pos_AlongWay(generateType, generateInterval));
     }
 
     void GenerateEffectAtGeneratePos()//通る地点にエフェクトを生成
@@ -64,20 +91,13 @@ public class Generate_AlongWay : MonoBehaviour
         }
     }
 
-    //トリック時に呼び出す(エフェクトを新たに生成させる)
-    public void ActivateEffect()
-    {
-        //クリティカルかそうでないかによってエフェクトを変える
-        GenerateType_AlongWay generateType=critical.CriticalNow? GenerateType_AlongWay.critical : GenerateType_AlongWay.normal;
-        generatePosList.Add(new Pos_AlongWay(generateType, generateInterval));
-    }
-
     EffectType_AlongWay EffectType(GenerateType_AlongWay generateType)//引数のエフェクトの生成タイプからそれに対応したエフェクトタイプを返す
     {
         switch(generateType)
         {
             case GenerateType_AlongWay.normal: return normalTrickEffect;
             case GenerateType_AlongWay.critical: return criticalTrickEffect;
+            case GenerateType_AlongWay.criticalFever: return criticalFeverTrickEffect;
             default: return null;
         }
     }

@@ -29,6 +29,7 @@ public class DamageToEnemy : MonoBehaviour
         enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
         generate_AlongWay.CriticalTrickEffect.LandAction += CauseDamage;
         generate_AlongWay.NormalTrickEffect.LandAction += CauseDamage;
+        generate_AlongWay.CriticalFeverTrickEffect.LandAction += CauseDamage;
     }
 
     public void AccumulateDamage()//ダメージをキューに蓄積
