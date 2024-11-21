@@ -7,15 +7,10 @@ using UnityEngine.InputSystem;
 //ƒWƒƒƒ“ƒv‚Ì‘€ì
 public class ControllerOfJump : MonoBehaviour
 {
-    Jump jump;
+    [SerializeField] Jump jump;
     bool pushing=false;
 
     public bool Pushing { get { return pushing; }  }
-
-    void Start()
-    {
-        jump = GameObject.FindWithTag("Player").GetComponent<Jump>();
-    }
 
     public void PrepareJump(InputAction.CallbackContext context)//‰Ÿ‚µn‚ß‚Éİ’è
     {

@@ -15,15 +15,13 @@ public class TrickPointDisplay : MonoBehaviour
     [SerializeField] Color trickGaugeNormalColor;//通常状態のトリックゲージの色
     [Header("▼満タン状態のトリックゲージの色")]
     [SerializeField] Color trickGaugeMaxColor;//満タン状態のトリックゲージの色
-
-    TrickPoint player_TrickPoint;
+    [Header("プレイヤーのトリックポイント")]
+    [SerializeField] TrickPoint player_TrickPoint;
     const float maxRatio = 1;//トリックゲージ満タン時の割合
 
     // Start is called before the first frame update
     void Start()
     {
-        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
-
         //エラーコード
         if (player_TrickPoint.TrickGaugeNum != trickGauges.Length) Debug.Log("トリックゲージの本数分登録してください");
     }

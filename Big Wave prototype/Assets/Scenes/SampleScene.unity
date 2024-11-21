@@ -1307,6 +1307,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119033915}
   m_CullTransparentMesh: 1
+--- !u!1 &119766253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119766254}
+  - component: {fileID: 119766255}
+  m_Layer: 0
+  m_Name: TouchWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119766254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119766253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119766255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119766253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerActionEvent: {fileID: 1244729584}
+  touchBorderTime: 0.2
 --- !u!1 &119824060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scorePerSecond: 20
   score_ChargeTime: {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
-  countChargeTime: {fileID: 1244729580}
+  countChargeTime: {fileID: 996376306}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1 &119866080
 GameObject:
@@ -1981,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b12cd40595bab419140fe21d12646c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generate_AlongWay: {fileID: 1244729582}
+  generate_AlongWay: {fileID: 1722094696}
   _noisePosition:
     x:
       amplitude: 10
@@ -2629,6 +2675,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207016421}
   m_CullTransparentMesh: 1
+--- !u!1 &226841899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226841900}
+  - component: {fileID: 226841901}
+  m_Layer: 0
+  m_Name: Recover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &226841900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226841899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226841901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226841899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20dd4912db2e77e4ba8f96a6a991fe26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoveryAmount: 10
+  hp_Player: {fileID: 1777186614}
+  judgeChargeTrickPointNow: {fileID: 996376304}
 --- !u!1 &228029194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3589,7 @@ MonoBehaviour:
   trickEffectEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -4558,6 +4651,9 @@ MonoBehaviour:
   Guide:
     Delay: 0.85
     MoveSpeed: 0
+  judgeJumpNow: {fileID: 1017912876}
+  player_TrickPoint: {fileID: 1777186615}
+  critical: {fileID: 1438732579}
 --- !u!1 &357618611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,6 +4930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390091950}
+  - component: {fileID: 390091951}
   m_Layer: 0
   m_Name: TrickPattern
   m_TagString: Untagged
@@ -4849,7 +4946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390091949}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4858,8 +4955,25 @@ Transform:
   - {fileID: 533307688}
   - {fileID: 579773585}
   - {fileID: 1018656153}
-  m_Father: {fileID: 1244729529}
+  m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390091951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390091949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264a183277c09574097a37950b8b67cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickPatterns:
+  - {fileID: 274497790}
+  - {fileID: 533307689}
+  - {fileID: 579773586}
+  - {fileID: 1018656154}
 --- !u!4 &394037649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -6817,7 +6931,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -7584,7 +7698,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -8927,7 +9041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  player: {fileID: 1244729524}
+  judgeJumpNow: {fileID: 0}
 --- !u!4 &739861873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -9437,6 +9551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount_UI: {fileID: 1907413406}
+  countTrickCombo: {fileID: 1105820353}
 --- !u!1001 &790929105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11514,7 +11629,7 @@ GameObject:
   - component: {fileID: 963624350}
   - component: {fileID: 963624349}
   m_Layer: 0
-  m_Name: AnimationScript
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11533,7 +11648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1244729529}
+  m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963624349
 MonoBehaviour:
@@ -11547,7 +11662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda1f1f075e556348b7c560ea16b21cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgeJumpNow: {fileID: 1244729571}
+  judgeJumpNow: {fileID: 1017912876}
   animator: {fileID: 1450173098}
 --- !u!114 &963624350
 MonoBehaviour:
@@ -11563,7 +11678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1450173098}
   controllerOfJump: {fileID: 1034766457}
-  jump: {fileID: 1244729534}
+  jump: {fileID: 1017912877}
 --- !u!224 &964903230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755090226515748358, guid: ae657e1e8bd6bb04f88607f578ccf59f, type: 3}
@@ -12123,6 +12238,217 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+--- !u!1 &991254475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991254476}
+  - component: {fileID: 991254477}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991254476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991254475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991254477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991254475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDamageAmount: 0
+  criticalDamageAmount: 400
+  damageGrowthRate_Fever: 2
+  feverMode: {fileID: 1663075736}
+  critical: {fileID: 1438732579}
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
+  generate_AlongWay: {fileID: 1722094696}
+--- !u!1 &996376301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996376302}
+  - component: {fileID: 996376307}
+  - component: {fileID: 996376303}
+  - component: {fileID: 996376305}
+  - component: {fileID: 996376304}
+  - component: {fileID: 996376306}
+  m_Layer: 0
+  m_Name: ChargeTrickPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &996376302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996376303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df421f08466e984cabb0c095878978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRateMax: 3
+  byMaxRateTime: 10
+  minusChargeRateSpeed: 2
+  judgeJumpNow: {fileID: 1017912876}
+  judgeTouchWave: {fileID: 119766255}
+--- !u!114 &996376304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedBorderTime: 0.2
+  startChargeEvents:
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1722439556}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1778482265}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  endChargeEvents:
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1722439556}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &996376305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5e96ce97f369d48a578ada73e657f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 0.9
+  - 0.7
+  - 0.6
+  - 0.4
+  - 0.3
+--- !u!114 &996376306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fababa80187ee4297ad3051128f582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judge: {fileID: 996376304}
+--- !u!114 &996376307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTrickGrowthRate_Fever: 2
+  changeChargeRateTheChargers: {fileID: 996376305}
+  feverMode: {fileID: 1663075736}
+  player_TrickPoint: {fileID: 1777186615}
+  judgeChargeTrickPointNow: {fileID: 996376304}
+  changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!1 &996687311
 GameObject:
   m_ObjectHideFlags: 0
@@ -12402,6 +12728,125 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8091417505521369428, guid: d3f502886348e284cbfefec4b4681776, type: 3}
   m_PrefabInstance: {fileID: 943815897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017912874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017912875}
+  - component: {fileID: 1017912876}
+  - component: {fileID: 1017912877}
+  - component: {fileID: 1017912878}
+  m_Layer: 0
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017912875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017912876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startJumpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814354297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1778482265}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  landEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814354297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onCollisionActionEvent: {fileID: 1244729585}
+--- !u!114 &1017912877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbb77602af716b4c9110ab2940846a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 25
+  rb: {fileID: 1244729530}
+  touchWave: {fileID: 119766255}
+  judgeJumpNow: {fileID: 1017912876}
+  judgeOnceReachedHighestPoint_Jumping: {fileID: 1017912878}
+--- !u!114 &1017912878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1244729530}
 --- !u!1 &1018656151
 GameObject:
   m_ObjectHideFlags: 0
@@ -12463,7 +12908,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -12565,7 +13010,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034766455}
-  - component: {fileID: 1034766458}
   - component: {fileID: 1034766460}
   - component: {fileID: 1034766457}
   - component: {fileID: 1034766456}
@@ -12620,18 +13064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed62528663100be43aa32be5d0c71a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1034766458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034766454}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d511dcc321162f140b5a6956eaacfd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  jump: {fileID: 1017912877}
 --- !u!114 &1034766459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12657,6 +13090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationSpeed: 1
+  judgeChargeTrickPointNow: {fileID: 996376304}
 --- !u!114 &1034766461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12921,6 +13355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761772120de969943a1888a0671d0cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveLeftAndRight: {fileID: 1951183558}
 --- !u!114 &1034766464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13092,7 +13527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scorePerCombo: 50
   score_ComboMax: {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1 &1058489859
 GameObject:
@@ -13573,6 +14008,227 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1704c1b3015484a8f9f213c6d552cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1105820348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105820349}
+  - component: {fileID: 1105820350}
+  - component: {fileID: 1105820351}
+  - component: {fileID: 1105820352}
+  - component: {fileID: 1105820353}
+  - component: {fileID: 1105820354}
+  m_Layer: 0
+  m_Name: Trick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105820349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105820350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsWhenTrick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 390091951}
+        m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
+        m_MethodName: TrickEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 991254477}
+        m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
+        m_MethodName: AccumulateDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250788302}
+        m_TargetAssemblyTypeName: ScoreGameScene_TrickCombo, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1034766461}
+        m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
+        m_MethodName: Vibe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2072012867}
+        m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
+        m_MethodName: Charge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1105820351}
+        m_TargetAssemblyTypeName: TrickSoundEffect, Assembly-CSharp
+        m_MethodName: PlayTrickSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1722094696}
+        m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
+        m_MethodName: ActivateEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1423253759}
+        m_TargetAssemblyTypeName: ComboPopUp, Assembly-CSharp
+        m_MethodName: PopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1105820354}
+        m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
+        m_MethodName: HoverJumpTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  judgeJumpNow: {fileID: 1017912876}
+  player_TrickPoint: {fileID: 1777186615}
+  pushedButton_TrickPattern: {fileID: 390091951}
+  critical: {fileID: 1438732579}
+  countTrickCombo: {fileID: 1105820353}
+  countTrickWhileJump: {fileID: 1105820352}
+--- !u!114 &1105820351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f783552e2ee8d0e4289652f5e413aa91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criticalSE: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
+  normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
+  audioSource: {fileID: 238903304}
+  critical: {fileID: 1438732579}
+--- !u!114 &1105820352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgeJumpNow: {fileID: 1017912876}
+--- !u!114 &1105820353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4535f21f2ea664aabaf619f6a2dd43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  critical: {fileID: 1438732579}
+--- !u!114 &1105820354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6a0e95143eb90418d21cc14f40461a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStrength: 17
+  rb: {fileID: 1244729530}
 --- !u!1 &1110614296
 GameObject:
   m_ObjectHideFlags: 0
@@ -14676,7 +15332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scorePerOnePercent: 10
-  player_HP: {fileID: 1244729562}
+  player_HP: {fileID: 1777186614}
   score_HP: {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1001 &1239549432
@@ -14862,33 +15518,9 @@ GameObject:
   - component: {fileID: 1244729527}
   - component: {fileID: 1244729526}
   - component: {fileID: 1244729530}
-  - component: {fileID: 1244729562}
-  - component: {fileID: 1244729564}
-  - component: {fileID: 1244729563}
-  - component: {fileID: 1244729532}
-  - component: {fileID: 1244729534}
-  - component: {fileID: 1244729571}
-  - component: {fileID: 1244729559}
-  - component: {fileID: 1244729539}
-  - component: {fileID: 1244729544}
-  - component: {fileID: 1244729556}
-  - component: {fileID: 1244729557}
-  - component: {fileID: 1244729560}
-  - component: {fileID: 1244729568}
-  - component: {fileID: 1244729565}
-  - component: {fileID: 1244729570}
-  - component: {fileID: 1244729574}
-  - component: {fileID: 1244729575}
-  - component: {fileID: 1244729572}
-  - component: {fileID: 1244729569}
-  - component: {fileID: 1244729573}
   - component: {fileID: 1244729577}
-  - component: {fileID: 1244729578}
-  - component: {fileID: 1244729579}
-  - component: {fileID: 1244729580}
-  - component: {fileID: 1244729581}
-  - component: {fileID: 1244729582}
-  - component: {fileID: 1244729583}
+  - component: {fileID: 1244729584}
+  - component: {fileID: 1244729585}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14987,9 +15619,8 @@ Transform:
   - {fileID: 1503523462}
   - {fileID: 1720416258}
   - {fileID: 1450010176}
-  - {fileID: 390091950}
-  - {fileID: 963624348}
   - {fileID: 1814354298}
+  - {fileID: 1341016743}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1244729530
@@ -15019,557 +15650,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1244729532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInertiaEnabled: 1
-  isCenterPullEnabled: 0
-  speed: 11.5
-  acceleration: 300
-  deceleration: 250
-  targetSpeed: 150
-  centerPullStrength: 10
-  maxCenterPullStrength: 100
-  centerThreshold: 0.1
---- !u!114 &1244729534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbb77602af716b4c9110ab2940846a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 25
-  rb: {fileID: 1244729530}
-  touchWave: {fileID: 1244729539}
-  judgeJumpNow: {fileID: 1244729571}
-  judgeOnceReachedHighestPoint_Jumping: {fileID: 1244729573}
---- !u!114 &1244729539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchBorderTime: 0.2
---- !u!114 &1244729544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverEffect: {fileID: 1450010173}
-  feverTime: 20
-  feverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  player_FeverPoint: {fileID: 1244729563}
---- !u!114 &1244729556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushedButton_CurrentTrickPattern: {fileID: 1244729568}
-  player_TrickPoint: {fileID: 1244729564}
---- !u!114 &1244729557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4535f21f2ea664aabaf619f6a2dd43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critical: {fileID: 1244729556}
---- !u!114 &1244729559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6a0e95143eb90418d21cc14f40461a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpStrength: 17
-  rb: {fileID: 1244729530}
---- !u!114 &1244729560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventsWhenTrick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1244729568}
-        m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
-        m_MethodName: TrickEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729556}
-        m_TargetAssemblyTypeName: Critical, Assembly-CSharp
-        m_MethodName: ActivateCriticalAction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1250788302}
-        m_TargetAssemblyTypeName: ScoreGameScene_TrickCombo, Assembly-CSharp
-        m_MethodName: AddScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1034766461}
-        m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
-        m_MethodName: Vibe
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729569}
-        m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
-        m_MethodName: Charge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Score_TrickCount, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729559}
-        m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
-        m_MethodName: HoverJumpTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729582}
-        m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
-        m_MethodName: ActivateEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1423253759}
-        m_TargetAssemblyTypeName: ComboPopUp, Assembly-CSharp
-        m_MethodName: PopUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  judgeJumpNow: {fileID: 1244729571}
-  player_TrickPoint: {fileID: 1244729564}
-  pushedButton_TrickPattern: {fileID: 1244729568}
-  critical: {fileID: 1244729556}
-  countTrickCombo: {fileID: 1244729557}
-  countTrickWhileJump: {fileID: 1244729565}
---- !u!114 &1244729562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpMax: 350
---- !u!114 &1244729563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc35e6b71177234ba12d439630e2be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverPointMax: 500
---- !u!114 &1244729564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1abf8c3a61ce541be7e55715f3598d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trickPointMax: 100
-  trickPoint:
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 238903304}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1244729565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judgeJumpNow: {fileID: 1244729571}
---- !u!114 &1244729568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264a183277c09574097a37950b8b67cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trickPatterns:
-  - {fileID: 274497790}
-  - {fileID: 533307689}
-  - {fileID: 579773586}
-  - {fileID: 1018656154}
---- !u!114 &1244729569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeFeverPoint:
-  - 10
-  - 20
-  - 30
-  - 40
-  - 50
-  - 60
-  player_FeverPoint: {fileID: 1244729563}
-  feverMode: {fileID: 1244729544}
-  countTrickWhileJump: {fileID: 1244729565}
---- !u!114 &1244729570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeTrickGrowthRate_Fever: 2
-  changeChargeRateTheChargers: {fileID: 1244729575}
-  feverMode: {fileID: 1244729544}
-  player_TrickPoint: {fileID: 1244729564}
-  judgeChargeTrickPointNow: {fileID: 1244729572}
-  changeChargeRateTheSurfer: {fileID: 1244729574}
---- !u!114 &1244729571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startJumpEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  landEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &1244729572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargedBorderTime: 0.2
-  startChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1778482265}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  endChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1244729573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1244729530}
---- !u!114 &1244729574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df421f08466e984cabb0c095878978a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRateMax: 3
-  byMaxRateTime: 10
-  minusChargeRateSpeed: 2
-  judgeJumpNow: {fileID: 1244729571}
-  judgeTouchWave: {fileID: 1244729539}
---- !u!114 &1244729575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5e96ce97f369d48a578ada73e657f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate:
-  - 1
-  - 0.9
-  - 0.7
-  - 0.6
-  - 0.4
-  - 0.3
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15582,7 +15662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45c23bf51d44ec4c9d27381e6679bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1244729562}
+  player: {fileID: 1777186614}
   enemy: {fileID: 98503836}
   debug: {fileID: 854034728}
   actionPattern_a:
@@ -15598,7 +15678,7 @@ MonoBehaviour:
     - {fileID: 0}
     actionTime: 4
   algorithm: {fileID: 98503834}
---- !u!114 &1244729578
+--- !u!114 &1244729584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15607,13 +15687,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1244729524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20dd4912db2e77e4ba8f96a6a991fe26, type: 3}
+  m_Script: {fileID: 11500000, guid: 23fe0fac40eaecf41b10675bd8566686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoveryAmount: 10
-  hp_Player: {fileID: 1244729562}
-  judgeChargeTrickPointNow: {fileID: 1244729572}
---- !u!114 &1244729579
+--- !u!114 &1244729585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15622,103 +15699,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1244729524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
+  m_Script: {fileID: 11500000, guid: d0aa450dcbfe4364eb8d8175d6d2e9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDamageAmount: 0
-  criticalDamageAmount: 400
-  damageGrowthRate_Fever: 2
-  feverMode: {fileID: 1244729544}
-  critical: {fileID: 1244729556}
-  pushedButton_CurrentTrickPattern: {fileID: 1244729568}
-  generate_AlongWay: {fileID: 1244729582}
---- !u!114 &1244729580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09fababa80187ee4297ad3051128f582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judge: {fileID: 1244729572}
---- !u!114 &1244729581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f783552e2ee8d0e4289652f5e413aa91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  criticalSE: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
-  normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
-  audioSource: {fileID: 238903304}
-  critical: {fileID: 1244729556}
---- !u!114 &1244729582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68084f5e44975b4e9ff33bdf2dd578b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
-  criticalTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
-  criticalFeverTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 815de1e0e1738404e970684120633544, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: 5f6dfde0105ecae4a96bfb5bd07622c9, type: 3}
-  generateInterval: 0.05
-  effectWays:
-  - {fileID: 5534817772448045311}
-  - {fileID: 4297786818734687993}
-  - {fileID: 4175646745233137918}
-  - {fileID: 2480021081193508844}
-  - {fileID: 1023002749357401671}
-  - {fileID: 2611329527905224869}
-  - {fileID: 2858219203215715389}
-  - {fileID: 4856438578308231287}
-  - {fileID: 4888374120523155975}
-  - {fileID: 1068010473}
-  - {fileID: 1274392268}
-  - {fileID: 1756788141}
-  - {fileID: 1773698022}
-  - {fileID: 599778570}
-  - {fileID: 1925923499}
-  - {fileID: 836346427}
-  - {fileID: 6506725979776084341}
-  critical: {fileID: 1244729556}
-  feverMode: {fileID: 1244729544}
---- !u!114 &1244729583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1294514542}
-  source: {fileID: 1778482265}
-  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
-  generate_AlongWay: {fileID: 1244729582}
 --- !u!1001 &1245455794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15961,7 +15944,7 @@ MonoBehaviour:
   m_addComboScore: 5
   m_maxAddComboCount: 10
   score_TrickCombo: {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   judgeGameSet: {fileID: 1511769283}
 --- !u!4 &1258393162 stripped
 Transform:
@@ -16639,6 +16622,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7fa8d21cf57904392054d17ec54259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1341016742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341016743}
+  m_Layer: 0
+  m_Name: Component(Category)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341016743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341016742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1777186613}
+  - {fileID: 963624348}
+  - {fileID: 226841900}
+  - {fileID: 390091950}
+  - {fileID: 1438732578}
+  - {fileID: 991254476}
+  - {fileID: 1105820349}
+  - {fileID: 996376302}
+  - {fileID: 1017912875}
+  - {fileID: 1722094694}
+  - {fileID: 119766254}
+  - {fileID: 1663075735}
+  - {fileID: 1951183557}
+  - {fileID: 2072012866}
+  - {fileID: 1621591150}
+  m_Father: {fileID: 1244729529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343859078
 GameObject:
   m_ObjectHideFlags: 0
@@ -17110,6 +17139,8 @@ MonoBehaviour:
   feverGaugeOfPlayer: {fileID: 1248422116}
   feverGaugeNormalColor: {r: 0.57254905, g: 0, b: 0.5921569, a: 1}
   feverGaugeFeverModeColor: {r: 1, g: 0, b: 0.8407078, a: 1}
+  player_FeverPoint: {fileID: 1777186616}
+  processFeverPoint: {fileID: 1663075736}
 --- !u!114 &1392526996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17131,6 +17162,7 @@ MonoBehaviour:
   - {fileID: 1109764894266374634}
   trickGaugeNormalColor: {r: 0, g: 0.08235294, b: 1, a: 1}
   trickGaugeMaxColor: {r: 0, g: 1, b: 0.80681825, a: 1}
+  player_TrickPoint: {fileID: 1777186615}
 --- !u!114 &1392526997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17144,11 +17176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpGauge: {fileID: 1044993410}
-  objectDisplayHp: {fileID: 1244729562}
+  objectDisplayHp: {fileID: 1777186614}
   normalColor: {r: 0, g: 0.84, b: 0.18200003, a: 1}
   pinchColor: {r: 0.84, g: 0.16800001, b: 0, a: 1}
   borderRatio: 0.3
-  recoverHPWhileCharging: {fileID: 1244729578}
+  recoverHPWhileCharging: {fileID: 226841901}
   blinkColor:
     cycle: 1.5
     s_maxValue: 0
@@ -17197,7 +17229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  player: {fileID: 919132148156821028}
+  judgeJumpNow: {fileID: 0}
 --- !u!1 &1415608674
 GameObject:
   m_ObjectHideFlags: 0
@@ -17337,7 +17369,7 @@ MonoBehaviour:
   text_countPrefab: {fileID: 5540319640275630485, guid: 145769507210e8e49a0ce2d4b61e50bb, type: 3}
   target: {fileID: 647215248}
   canvas: {fileID: 651057538}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   ScaleLimit: 10
   StartSize: 72
 --- !u!4 &1429956298 stripped
@@ -17419,6 +17451,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
+--- !u!1 &1438732577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438732578}
+  - component: {fileID: 1438732579}
+  m_Layer: 0
+  m_Name: Critical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438732578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438732577}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438732579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438732577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
+  player_TrickPoint: {fileID: 1777186615}
 --- !u!1 &1450010173
 GameObject:
   m_ObjectHideFlags: 0
@@ -18345,6 +18423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cde6294cc1e1b419103447e43bcdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_Hp: {fileID: 1777186614}
+  enemy_Hp: {fileID: 98503836}
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0
@@ -19164,6 +19244,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
+--- !u!1 &1621591149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621591150}
+  m_Layer: 0
+  m_Name: Etc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621591150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621591149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656330841
 GameObject:
   m_ObjectHideFlags: 0
@@ -19236,6 +19347,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 98503821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663075734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663075735}
+  - component: {fileID: 1663075736}
+  m_Layer: 0
+  m_Name: FeverMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663075735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1663075736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverEffect: {fileID: 1450010173}
+  feverTime: 20
+  feverEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1778482265}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player_FeverPoint: {fileID: 1777186616}
 --- !u!1 &1665899943
 GameObject:
   m_ObjectHideFlags: 0
@@ -19779,6 +19952,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1722094693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722094694}
+  - component: {fileID: 1722094696}
+  - component: {fileID: 1722094695}
+  m_Layer: 0
+  m_Name: Effect_AlongWay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722094694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1722094695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1294514542}
+  source: {fileID: 1778482265}
+  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  generate_AlongWay: {fileID: 1722094696}
+--- !u!114 &1722094696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68084f5e44975b4e9ff33bdf2dd578b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
+  criticalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
+  criticalFeverTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 815de1e0e1738404e970684120633544, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 5f6dfde0105ecae4a96bfb5bd07622c9, type: 3}
+  generateInterval: 0.05
+  effectWays:
+  - {fileID: 5534817772448045311}
+  - {fileID: 4297786818734687993}
+  - {fileID: 4175646745233137918}
+  - {fileID: 2480021081193508844}
+  - {fileID: 1023002749357401671}
+  - {fileID: 2611329527905224869}
+  - {fileID: 2858219203215715389}
+  - {fileID: 4856438578308231287}
+  - {fileID: 4888374120523155975}
+  - {fileID: 1068010473}
+  - {fileID: 1274392268}
+  - {fileID: 1756788141}
+  - {fileID: 1773698022}
+  - {fileID: 599778570}
+  - {fileID: 1925923499}
+  - {fileID: 836346427}
+  - {fileID: 6506725979776084341}
+  critical: {fileID: 1438732579}
+  feverMode: {fileID: 1663075736}
 --- !u!1 &1722439556
 GameObject:
   m_ObjectHideFlags: 0
@@ -24624,6 +24888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxScaleRate: 4
+  changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!114 &1728219623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1299993265973752346, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}
@@ -25284,6 +25549,110 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773698021}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1777186612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1777186613}
+  - component: {fileID: 1777186614}
+  - component: {fileID: 1777186615}
+  - component: {fileID: 1777186616}
+  m_Layer: 0
+  m_Name: Status_Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1777186613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777186614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpMax: 350
+--- !u!114 &1777186615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1abf8c3a61ce541be7e55715f3598d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickPointMax: 100
+  trickPoint:
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 238903304}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1777186616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc35e6b71177234ba12d439630e2be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverPointMax: 500
 --- !u!1 &1778482263
 GameObject:
   m_ObjectHideFlags: 0
@@ -26701,6 +27070,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940460168}
   m_CullTransparentMesh: 1
+--- !u!1 &1951183556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951183557}
+  - component: {fileID: 1951183558}
+  m_Layer: 0
+  m_Name: Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951183557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951183556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951183558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951183556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1244729529}
+  isInertiaEnabled: 1
+  isCenterPullEnabled: 0
+  speed: 11.5
+  acceleration: 300
+  deceleration: 250
+  targetSpeed: 150
+  centerPullStrength: 10
+  maxCenterPullStrength: 100
+  centerThreshold: 0.1
 --- !u!1001 &1959805271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27392,6 +27815,8 @@ MonoBehaviour:
   - {fileID: 1451263046}
   - {fileID: 1098362692}
   - {fileID: 1376619233}
+  trickPoint: {fileID: 1777186615}
+  critical: {fileID: 1438732579}
 --- !u!1 &2062112554
 GameObject:
   m_ObjectHideFlags: 0
@@ -27544,6 +27969,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6579495070610654838, guid: c3e2e53825ae7cb41884e7b7af16fc59, type: 3}
   m_PrefabInstance: {fileID: 2128173252}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2072012865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072012866}
+  - component: {fileID: 2072012867}
+  m_Layer: 0
+  m_Name: ChargeFeverPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072012866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072012865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072012867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072012865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeFeverPoint:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
+  player_FeverPoint: {fileID: 1777186616}
+  feverMode: {fileID: 1663075736}
+  countTrickWhileJump: {fileID: 1105820352}
 --- !u!4 &2081322844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8230670919615570437, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
@@ -37028,6 +37507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2bcb49a515f4d47bbc98db5ebcb63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_Hp: {fileID: 1777186614}
+  enemy_Hp: {fileID: 98503836}
   startPoint: {fileID: 919132148156821028}
   endPoint: {fileID: 919132148536887225}
   vertices:

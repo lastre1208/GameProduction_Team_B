@@ -30,7 +30,7 @@ public class AttackOfBullet : MonoBehaviour
         {
             //プレイヤーにダメージを与える
             HP player_Hp;
-            player_Hp = t.GetComponent<HP>();
+            player_Hp = t.GetComponentInChildren<HP>();
             player_Hp.Hp -= damage;
 
             //効果音を流す

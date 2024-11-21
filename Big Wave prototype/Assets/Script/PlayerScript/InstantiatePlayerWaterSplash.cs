@@ -6,15 +6,7 @@ using UnityEngine;
 
 public class InstantiatePlayerWaterSplash : InstantiateWaterSplash
 {
-    [SerializeField] GameObject player;
-
-    JudgeJumpNow judgeJumpNow;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        judgeJumpNow = player.GetComponent<JudgeJumpNow>();
-    }
+    [SerializeField] JudgeJumpNow judgeJumpNow;
 
     // Update is called once per frame
     void Update()

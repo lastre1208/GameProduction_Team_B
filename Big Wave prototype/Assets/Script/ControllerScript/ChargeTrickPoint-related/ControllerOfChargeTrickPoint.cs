@@ -7,11 +7,11 @@ using UnityEngine.InputSystem;
 //トリックポイントのチャージの操作
 public class ControllerOfChargeTrickPoint : MonoBehaviour
 {
-    ChargeTrickPoint chargeTrickPoint;
+    //ChargeTrickPoint chargeTrickPoint;
 
     void Start()
     {
-        chargeTrickPoint = GameObject.FindWithTag("Player").GetComponent<ChargeTrickPoint>();
+       //chargeTrickPoint = GameObject.FindWithTag("Player").GetComponent<ChargeTrickPoint>();
     }
 
     //public void ChargeStandby_On(InputAction.CallbackContext context)

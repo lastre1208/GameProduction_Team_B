@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MoveLeftAndRight : MonoBehaviour
 {
+    [Header("動かす対象")]
+    [SerializeField] Transform target;
     [Header("移動に慣性をつけるかどうか")]
     [SerializeField] bool isInertiaEnabled;
     [Header("中央へ引き寄せられる力を加えるかどうか")]
@@ -35,7 +37,7 @@ public class MoveLeftAndRight : MonoBehaviour
     void Move()//プレイヤーの移動
     {
         if (!isInertiaEnabled)
-            transform.Translate(move * Time.deltaTime * speed);
+            target.Translate(move * Time.deltaTime * speed);
 
         else
         {
@@ -51,8 +53,8 @@ public class MoveLeftAndRight : MonoBehaviour
                 velocity.x = Mathf.MoveTowards(velocity.x, 0f, deceleration * Time.deltaTime);
             }
 
-            float targetPosition = transform.localPosition.x + velocity.x * Time.deltaTime;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(targetPosition, transform.localPosition.y, transform.localPosition.z), 0.1f); // Lerpでスムーズに移動
+            float targetPosition = target.localPosition.x + velocity.x * Time.deltaTime;
+            target.localPosition = Vector3.Lerp(target.localPosition, new Vector3(targetPosition, target.localPosition.y, target.localPosition.z), 0.1f); // Lerpでスムーズに移動
 
             //最大速度制限
             if (velocity.x > targetSpeed)
@@ -60,7 +62,7 @@ public class MoveLeftAndRight : MonoBehaviour
                 velocity.x = targetSpeed;
             }
 
-            if (move.x == 0 && Mathf.Approximately(velocity.x, 0f) || Mathf.Approximately(transform.localPosition.x, 9f))
+            if (move.x == 0 && Mathf.Approximately(velocity.x, 0f) || Mathf.Approximately(target.localPosition.x, 9f))
             {
                 velocity.x = 0f;
             }
@@ -74,13 +76,13 @@ public class MoveLeftAndRight : MonoBehaviour
     {
         float centerPosition = 0f;
 
-        float distanceFromCenter = transform.localPosition.x - centerPosition;
+        float distanceFromCenter = target.localPosition.x - centerPosition;
 
         if (Mathf.Abs(distanceFromCenter) > centerThreshold)
         {
             float pullForce = Mathf.Clamp(Mathf.Abs(distanceFromCenter) * centerPullStrength, 0f, maxCenterPullStrength);
 
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x - Mathf.Sign(distanceFromCenter) * pullForce * Time.deltaTime, transform.localPosition.y, transform.localPosition.z), 0.1f);
+            target.localPosition = Vector3.Lerp(target.localPosition, new Vector3(target.localPosition.x - Mathf.Sign(distanceFromCenter) * pullForce * Time.deltaTime, target.localPosition.y, target.localPosition.z), 0.1f);
         }
     }
 

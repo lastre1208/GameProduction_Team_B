@@ -24,53 +24,39 @@ public class ButtonIconChasingPlayer : MonoBehaviour
 {
     [SerializeField] ButtonDisplays[] buttonDisplays;
     [SerializeField] Guide Guide;
-    JudgeJumpNow judgeJumpNow;
-    TrickPoint player_TrickPoint;
-    Critical critical;
+    [SerializeField] JudgeJumpNow judgeJumpNow;
+    [SerializeField] TrickPoint player_TrickPoint;
+    [SerializeField] Critical critical;
     private float elapsedTime = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        judgeJumpNow= GameObject.FindWithTag("Player").GetComponent<JudgeJumpNow>();
-        player_TrickPoint = GameObject.FindWithTag("Player").GetComponent<TrickPoint>();
-        critical = GameObject.FindWithTag("Player").GetComponent<Critical>();
-
-      
-    }
-
-    // Update is called once per frame
     void Update()
     {
-             DisplayAndHideButton();
+        DisplayAndHideButton();
     }
 
-    
-
-
-void DisplayAndHideButton()//ボタン表示と非表示
-{
+    void DisplayAndHideButton()//ボタン表示と非表示
+    {
         if (judgeJumpNow.JumpNow() == false)
         {
             elapsedTime = 0;
         }
-        for(int i=0;i<buttonDisplays.Length ;i++)
+        for (int i = 0; i < buttonDisplays.Length; i++)
         {
             //ジャンプしている時かつ満タンのトリックゲージの数が表示したいボタンの要素番号より多くあるとき表示
             bool display = (judgeJumpNow.JumpNow() && player_TrickPoint.MaxCount > buttonDisplays[i].buttonNum);
 
-            if(display)//表示する時
+            if (display)//表示する時
             {
                 elapsedTime += Time.deltaTime;
                 if (elapsedTime > Guide.Delay * i)
                 {
-                    Vector3 moveDirection= Vector3.zero;
+                    Vector3 moveDirection = Vector3.zero;
                     buttonDisplays[i].criticalButtonDisplay.DisplayButton(critical.CriticalButton[buttonDisplays[i].buttonNum]);
                     switch (critical.CriticalButton[buttonDisplays[i].buttonNum])
                     {
                         case TrickButton.south:
                             {
-                                moveDirection= Vector3.down;
+                                moveDirection = Vector3.down;
                                 break;
                             }
                         case TrickButton.west:
@@ -80,12 +66,12 @@ void DisplayAndHideButton()//ボタン表示と非表示
                             }
                         case TrickButton.north:
                             {
-                                moveDirection=-Vector3.up;
+                                moveDirection = -Vector3.up;
                                 break;
                             }
                         case TrickButton.east:
                             {
-                                moveDirection=Vector3.right;
+                                moveDirection = Vector3.right;
                                 break;
                             }
                     }

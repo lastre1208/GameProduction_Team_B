@@ -5,12 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ControllerOfMove : MonoBehaviour
 {
-    MoveLeftAndRight moveLeftAndRight;
-
-    void Start()
-    {
-        moveLeftAndRight = GameObject.FindWithTag("Player").GetComponent<MoveLeftAndRight>();
-    }
+    [SerializeField] MoveLeftAndRight moveLeftAndRight;
 
     public void GettInputVector(InputAction.CallbackContext context)//ƒRƒ“ƒgƒ[ƒ‰‚Ì“ü—Í•ûŒü‚ğó‚¯æ‚é
     {

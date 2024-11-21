@@ -9,13 +9,11 @@ public class ChangeScaleTheSurfer : MonoBehaviour
     [Header("最大倍率時のチャージ時の大きさ(倍率)")]
     [SerializeField] float maxScaleRate;//最大倍率時のチャージ時の大きさの倍率、初期の大きさから何倍の大きさか
     private Vector3 normalScale;//通常時(初期)の大きさ
-    ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
-    
+    [SerializeField] ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
 
     void Start()
     {
         normalScale = transform.localScale;//通常時(初期)の大きさを記憶
-        changeChargeRateTheSurfer=GameObject.FindWithTag("Player").GetComponent<ChangeChargeRateTheSurfer>();
     }
 
     void Update()
