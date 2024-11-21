@@ -9,15 +9,8 @@ public class JudgeGameSet : MonoBehaviour
 {
     public event Action<bool> GameSetAction;//trueならゲームクリア、falseならゲームオーバー
     public event Action GameSetCommonAction;//ゲーム終了時クリアでもゲームオーバーでもどちらでもやる共通イベント
-    HP player_Hp;
-    HP enemy_Hp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        player_Hp= GameObject.FindWithTag("Player").GetComponent<HP>();
-
-        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
-    }
+    [SerializeField] HP player_Hp;
+    [SerializeField] HP enemy_Hp;
 
     // Update is called once per frame
     void Update()

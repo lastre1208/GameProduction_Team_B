@@ -5,10 +5,8 @@ using UnityEngine;
 public class RopeEffect : MonoBehaviour
 {
     //☆作成者:桑原
-    GameObject player;
-    HP player_Hp;
-    GameObject enemy;
-    HP enemy_Hp;
+    [SerializeField] HP player_Hp;
+    [SerializeField] HP enemy_Hp;
     LineRenderer lineRenderer; // LineRendererコンポーネント
 
     [SerializeField] GameObject startPoint;//ロープの始点
@@ -16,12 +14,7 @@ public class RopeEffect : MonoBehaviour
     [SerializeField] GameObject[] vertices = new GameObject[20];//ロープの質点
 
     void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-        player_Hp = player.GetComponent<HP>();
-        enemy = GameObject.FindWithTag("Enemy");
-        enemy_Hp = enemy.GetComponent<HP>();
-        
+    {   
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.positionCount = vertices.Length;

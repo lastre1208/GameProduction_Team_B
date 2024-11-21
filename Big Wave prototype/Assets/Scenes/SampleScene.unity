@@ -2720,7 +2720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoveryAmount: 10
-  hp_Player: {fileID: 1244729562}
+  hp_Player: {fileID: 1777186614}
   judgeChargeTrickPointNow: {fileID: 996376304}
 --- !u!1 &228029194
 GameObject:
@@ -3262,37 +3262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8091417505521369428, guid: d3f502886348e284cbfefec4b4681776, type: 3}
   m_PrefabInstance: {fileID: 2037618903}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &268843674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 268843675}
-  m_Layer: 0
-  m_Name: Critical
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &268843675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268843674}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1341016743}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271956236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,7 +3589,7 @@ MonoBehaviour:
   trickEffectEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -4683,8 +4652,8 @@ MonoBehaviour:
     Delay: 0.85
     MoveSpeed: 0
   judgeJumpNow: {fileID: 1017912876}
-  player_TrickPoint: {fileID: 1244729564}
-  critical: {fileID: 1244729556}
+  player_TrickPoint: {fileID: 1777186615}
+  critical: {fileID: 1438732579}
 --- !u!1 &357618611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,7 +6931,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -7729,7 +7698,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -12269,6 +12238,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+--- !u!1 &991254475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991254476}
+  - component: {fileID: 991254477}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991254476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991254475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991254477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991254475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDamageAmount: 0
+  criticalDamageAmount: 400
+  damageGrowthRate_Fever: 2
+  feverMode: {fileID: 1663075736}
+  critical: {fileID: 1438732579}
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
+  generate_AlongWay: {fileID: 1722094696}
 --- !u!1 &996376301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12278,11 +12298,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 996376302}
+  - component: {fileID: 996376307}
   - component: {fileID: 996376303}
   - component: {fileID: 996376305}
   - component: {fileID: 996376304}
   - component: {fileID: 996376306}
-  - component: {fileID: 996376307}
   m_Layer: 0
   m_Name: ChargeTrickPoint
   m_TagString: Untagged
@@ -12425,8 +12445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeTrickGrowthRate_Fever: 2
   changeChargeRateTheChargers: {fileID: 996376305}
-  feverMode: {fileID: 1244729544}
-  player_TrickPoint: {fileID: 1244729564}
+  feverMode: {fileID: 1663075736}
+  player_TrickPoint: {fileID: 1777186615}
   judgeChargeTrickPointNow: {fileID: 996376304}
   changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!1 &996687311
@@ -12888,7 +12908,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
         m_MethodName: AccumulateDamage
         m_Mode: 1
@@ -12990,7 +13010,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034766455}
-  - component: {fileID: 1034766458}
   - component: {fileID: 1034766460}
   - component: {fileID: 1034766457}
   - component: {fileID: 1034766456}
@@ -13046,18 +13065,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {fileID: 1017912877}
---- !u!114 &1034766458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034766454}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d511dcc321162f140b5a6956eaacfd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1034766459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13348,6 +13355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761772120de969943a1888a0671d0cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveLeftAndRight: {fileID: 1951183558}
 --- !u!114 &1034766464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14063,6 +14071,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 991254477}
+        m_TargetAssemblyTypeName: DamageToEnemy, Assembly-CSharp
+        m_MethodName: AccumulateDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1250788302}
         m_TargetAssemblyTypeName: ScoreGameScene_TrickCombo, Assembly-CSharp
         m_MethodName: AddScore
@@ -14087,7 +14107,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729569}
+      - m_Target: {fileID: 2072012867}
         m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
         m_MethodName: Charge
         m_Mode: 1
@@ -14148,9 +14168,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   judgeJumpNow: {fileID: 1017912876}
-  player_TrickPoint: {fileID: 1244729564}
+  player_TrickPoint: {fileID: 1777186615}
   pushedButton_TrickPattern: {fileID: 390091951}
-  critical: {fileID: 1244729556}
+  critical: {fileID: 1438732579}
   countTrickCombo: {fileID: 1105820353}
   countTrickWhileJump: {fileID: 1105820352}
 --- !u!114 &1105820351
@@ -14168,7 +14188,7 @@ MonoBehaviour:
   criticalSE: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
   normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
   audioSource: {fileID: 238903304}
-  critical: {fileID: 1244729556}
+  critical: {fileID: 1438732579}
 --- !u!114 &1105820352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14194,7 +14214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4535f21f2ea664aabaf619f6a2dd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  critical: {fileID: 1244729556}
+  critical: {fileID: 1438732579}
 --- !u!114 &1105820354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15312,7 +15332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scorePerOnePercent: 10
-  player_HP: {fileID: 1244729562}
+  player_HP: {fileID: 1777186614}
   score_HP: {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1001 &1239549432
@@ -15498,15 +15518,7 @@ GameObject:
   - component: {fileID: 1244729527}
   - component: {fileID: 1244729526}
   - component: {fileID: 1244729530}
-  - component: {fileID: 1244729562}
-  - component: {fileID: 1244729564}
-  - component: {fileID: 1244729563}
-  - component: {fileID: 1244729532}
-  - component: {fileID: 1244729544}
-  - component: {fileID: 1244729556}
-  - component: {fileID: 1244729569}
   - component: {fileID: 1244729577}
-  - component: {fileID: 1244729579}
   - component: {fileID: 1244729584}
   - component: {fileID: 1244729585}
   m_Layer: 0
@@ -15638,163 +15650,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1244729532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInertiaEnabled: 1
-  isCenterPullEnabled: 0
-  speed: 11.5
-  acceleration: 300
-  deceleration: 250
-  targetSpeed: 150
-  centerPullStrength: 10
-  maxCenterPullStrength: 100
-  centerThreshold: 0.1
---- !u!114 &1244729544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverEffect: {fileID: 1450010173}
-  feverTime: 20
-  feverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  player_FeverPoint: {fileID: 1244729563}
---- !u!114 &1244729556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushedButton_CurrentTrickPattern: {fileID: 390091951}
-  player_TrickPoint: {fileID: 1244729564}
---- !u!114 &1244729562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpMax: 350
---- !u!114 &1244729563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc35e6b71177234ba12d439630e2be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feverPointMax: 500
---- !u!114 &1244729564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1abf8c3a61ce541be7e55715f3598d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trickPointMax: 100
-  trickPoint:
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 238903304}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1244729569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeFeverPoint:
-  - 10
-  - 20
-  - 30
-  - 40
-  - 50
-  - 60
-  player_FeverPoint: {fileID: 1244729563}
-  feverMode: {fileID: 1244729544}
-  countTrickWhileJump: {fileID: 1105820352}
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15807,7 +15662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45c23bf51d44ec4c9d27381e6679bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1244729562}
+  player: {fileID: 1777186614}
   enemy: {fileID: 98503836}
   debug: {fileID: 854034728}
   actionPattern_a:
@@ -15823,25 +15678,6 @@ MonoBehaviour:
     - {fileID: 0}
     actionTime: 4
   algorithm: {fileID: 98503834}
---- !u!114 &1244729579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614e4cbe2761a42408c1a20890eda450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalDamageAmount: 0
-  criticalDamageAmount: 400
-  damageGrowthRate_Fever: 2
-  feverMode: {fileID: 1244729544}
-  critical: {fileID: 1244729556}
-  pushedButton_CurrentTrickPattern: {fileID: 390091951}
-  generate_AlongWay: {fileID: 1722094696}
 --- !u!114 &1244729584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16815,17 +16651,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 390091950}
+  - {fileID: 1777186613}
   - {fileID: 963624348}
   - {fileID: 226841900}
+  - {fileID: 390091950}
+  - {fileID: 1438732578}
+  - {fileID: 991254476}
   - {fileID: 1105820349}
   - {fileID: 996376302}
   - {fileID: 1017912875}
   - {fileID: 1722094694}
   - {fileID: 119766254}
-  - {fileID: 268843675}
   - {fileID: 1663075735}
   - {fileID: 1951183557}
+  - {fileID: 2072012866}
   - {fileID: 1621591150}
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17300,6 +17139,8 @@ MonoBehaviour:
   feverGaugeOfPlayer: {fileID: 1248422116}
   feverGaugeNormalColor: {r: 0.57254905, g: 0, b: 0.5921569, a: 1}
   feverGaugeFeverModeColor: {r: 1, g: 0, b: 0.8407078, a: 1}
+  player_FeverPoint: {fileID: 1777186616}
+  processFeverPoint: {fileID: 1663075736}
 --- !u!114 &1392526996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17321,6 +17162,7 @@ MonoBehaviour:
   - {fileID: 1109764894266374634}
   trickGaugeNormalColor: {r: 0, g: 0.08235294, b: 1, a: 1}
   trickGaugeMaxColor: {r: 0, g: 1, b: 0.80681825, a: 1}
+  player_TrickPoint: {fileID: 1777186615}
 --- !u!114 &1392526997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17334,7 +17176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpGauge: {fileID: 1044993410}
-  objectDisplayHp: {fileID: 1244729562}
+  objectDisplayHp: {fileID: 1777186614}
   normalColor: {r: 0, g: 0.84, b: 0.18200003, a: 1}
   pinchColor: {r: 0.84, g: 0.16800001, b: 0, a: 1}
   borderRatio: 0.3
@@ -17609,6 +17451,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
+--- !u!1 &1438732577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438732578}
+  - component: {fileID: 1438732579}
+  m_Layer: 0
+  m_Name: Critical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438732578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438732577}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438732579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438732577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
+  player_TrickPoint: {fileID: 1777186615}
 --- !u!1 &1450010173
 GameObject:
   m_ObjectHideFlags: 0
@@ -18535,6 +18423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cde6294cc1e1b419103447e43bcdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_Hp: {fileID: 1777186614}
+  enemy_Hp: {fileID: 98503836}
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0
@@ -19466,6 +19356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663075735}
+  - component: {fileID: 1663075736}
   m_Layer: 0
   m_Name: FeverMode
   m_TagString: Untagged
@@ -19488,6 +19379,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1663075736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverEffect: {fileID: 1450010173}
+  feverTime: 20
+  feverEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1778482265}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player_FeverPoint: {fileID: 1777186616}
 --- !u!1 &1665899943
 GameObject:
   m_ObjectHideFlags: 0
@@ -20120,8 +20041,8 @@ MonoBehaviour:
   - {fileID: 1925923499}
   - {fileID: 836346427}
   - {fileID: 6506725979776084341}
-  critical: {fileID: 1244729556}
-  feverMode: {fileID: 1244729544}
+  critical: {fileID: 1438732579}
+  feverMode: {fileID: 1663075736}
 --- !u!1 &1722439556
 GameObject:
   m_ObjectHideFlags: 0
@@ -25628,6 +25549,110 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773698021}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1777186612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1777186613}
+  - component: {fileID: 1777186614}
+  - component: {fileID: 1777186615}
+  - component: {fileID: 1777186616}
+  m_Layer: 0
+  m_Name: Status_Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1777186613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777186614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpMax: 350
+--- !u!114 &1777186615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1abf8c3a61ce541be7e55715f3598d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickPointMax: 100
+  trickPoint:
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - fullEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 238903304}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1777186616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777186612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc35e6b71177234ba12d439630e2be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverPointMax: 500
 --- !u!1 &1778482263
 GameObject:
   m_ObjectHideFlags: 0
@@ -27054,6 +27079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951183557}
+  - component: {fileID: 1951183558}
   m_Layer: 0
   m_Name: Move
   m_TagString: Untagged
@@ -27076,6 +27102,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951183558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951183556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a74ce96b905efa4d805a2b8bd052755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1244729529}
+  isInertiaEnabled: 1
+  isCenterPullEnabled: 0
+  speed: 11.5
+  acceleration: 300
+  deceleration: 250
+  targetSpeed: 150
+  centerPullStrength: 10
+  maxCenterPullStrength: 100
+  centerThreshold: 0.1
 --- !u!1001 &1959805271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27767,6 +27815,8 @@ MonoBehaviour:
   - {fileID: 1451263046}
   - {fileID: 1098362692}
   - {fileID: 1376619233}
+  trickPoint: {fileID: 1777186615}
+  critical: {fileID: 1438732579}
 --- !u!1 &2062112554
 GameObject:
   m_ObjectHideFlags: 0
@@ -27919,6 +27969,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6579495070610654838, guid: c3e2e53825ae7cb41884e7b7af16fc59, type: 3}
   m_PrefabInstance: {fileID: 2128173252}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2072012865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072012866}
+  - component: {fileID: 2072012867}
+  m_Layer: 0
+  m_Name: ChargeFeverPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072012866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072012865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072012867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072012865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f89ed7c67012f4eb01b1c356cbae3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeFeverPoint:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
+  player_FeverPoint: {fileID: 1777186616}
+  feverMode: {fileID: 1663075736}
+  countTrickWhileJump: {fileID: 1105820352}
 --- !u!4 &2081322844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8230670919615570437, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
@@ -37403,6 +37507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2bcb49a515f4d47bbc98db5ebcb63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_Hp: {fileID: 1777186614}
+  enemy_Hp: {fileID: 98503836}
   startPoint: {fileID: 919132148156821028}
   endPoint: {fileID: 919132148536887225}
   vertices:

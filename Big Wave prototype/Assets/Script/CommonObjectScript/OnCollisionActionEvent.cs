@@ -5,6 +5,7 @@ using UnityEngine;
 
 //作成者:杉山
 //特定オブジェクトが衝突した瞬間に呼びたい関数を登録して呼び出すことが出来る
+//当たり判定のついているオブジェクトにアタッチしてお使いください
 public class OnCollisionActionEvent : MonoBehaviour
 {
     public event Action<Collision> EnterAction;
