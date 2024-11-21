@@ -6,6 +6,7 @@ using UnityEngine;
 //”g‚ÉG‚Á‚Ä‚¢‚é‚©”»’f
 public class JudgeTouchWave : MonoBehaviour
 {
+    [SerializeField] OnTriggerActionEvent onTriggerActionEvent;
     [SerializeField] float touchBorderTime = 0.1f;//G‚Á‚½EG‚Á‚Ä‚È‚¢‚Ì‹«ŠE‚ÌŠÔ
     private bool touchWaveNow=false;//¡”g‚ÉG‚Á‚Ä‚¢‚é‚©
     private float sinceLastTouchWaveTime = 0.1f;//ÅŒã‚É”g‚ÉG‚Á‚Ä‚©‚ç‚ÌŠÔ
@@ -18,6 +19,7 @@ public class JudgeTouchWave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        onTriggerActionEvent.EnterAction += TouchWave;
         sinceLastTouchWaveTime = touchBorderTime;
     }
 
@@ -27,9 +29,9 @@ public class JudgeTouchWave : MonoBehaviour
         JudgeTouchWaveNow();//”g‚ÉG‚ê‚Ä‚¢‚é‚©”»’è
     }
 
-    void OnTriggerEnter(Collider t)
+    public void TouchWave(Collider c)
     {
-        if (t.gameObject.CompareTag("InsideWave") || t.gameObject.CompareTag("OutsideWave"))
+        if (c.gameObject.CompareTag("InsideWave") || c.gameObject.CompareTag("OutsideWave"))
         {
             sinceLastTouchWaveTime = 0f;//ÅŒã‚É”g‚ÉG‚Á‚Ä‚©‚ç‚ÌŠÔ‚ğXV
         }

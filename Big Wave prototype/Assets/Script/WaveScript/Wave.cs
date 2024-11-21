@@ -26,7 +26,7 @@ public class Wave : MonoBehaviour
     {
         if(!isTouched&&other.CompareTag("Player"))//まだ触れられてないかつ当たったのがプレイヤーなら
         {
-            ChargeTrickPoint chargeTrick = other.GetComponent<ChargeTrickPoint>();//プレイヤーのトリックチャージのコンポーネントを取得
+            ChargeTrickPoint chargeTrick = other.GetComponentInChildren<ChargeTrickPoint>();//プレイヤーのトリックチャージのコンポーネントを取得
             chargeTrick.Charge(chargeTrickAmount);//トリックをチャージ
             isTouched = true;//触れられた
         }

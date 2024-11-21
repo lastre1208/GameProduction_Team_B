@@ -11,7 +11,13 @@ public class JudgeJumpNow : MonoBehaviour
     [SerializeField] UnityEvent startJumpEvent;
     [Header("着地時に呼ぶイベント")]
     [SerializeField] UnityEvent landEvent;
+    [SerializeField] OnCollisionActionEvent onCollisionActionEvent;
     private bool jumpNow = false;//現在ジャンプしているか
+
+    private void Start()
+    {
+        onCollisionActionEvent.EnterAction += Landing;
+    }
 
     public bool JumpNow()//現在ジャンプしているかを返す(しているならtrue)
     {
@@ -24,7 +30,7 @@ public class JudgeJumpNow : MonoBehaviour
         startJumpEvent.Invoke();
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void Landing(Collision collision)//着地
     {
         if (collision.gameObject.CompareTag("Ground"))//触れているものが地面である
         {

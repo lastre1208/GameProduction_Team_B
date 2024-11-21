@@ -1307,6 +1307,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119033915}
   m_CullTransparentMesh: 1
+--- !u!1 &119766253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119766254}
+  - component: {fileID: 119766255}
+  m_Layer: 0
+  m_Name: TouchWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119766254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119766253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119766255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119766253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerActionEvent: {fileID: 1244729584}
+  touchBorderTime: 0.2
 --- !u!1 &119824060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b12cd40595bab419140fe21d12646c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generate_AlongWay: {fileID: 1244729582}
+  generate_AlongWay: {fileID: 1722094696}
   _noisePosition:
     x:
       amplitude: 10
@@ -3216,6 +3262,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8091417505521369428, guid: d3f502886348e284cbfefec4b4681776, type: 3}
   m_PrefabInstance: {fileID: 2037618903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &268843674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268843675}
+  m_Layer: 0
+  m_Name: Critical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268843675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268843674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271956236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4682,9 @@ MonoBehaviour:
   Guide:
     Delay: 0.85
     MoveSpeed: 0
+  judgeJumpNow: {fileID: 1017912876}
+  player_TrickPoint: {fileID: 1244729564}
+  critical: {fileID: 1244729556}
 --- !u!1 &357618611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +4961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390091950}
+  - component: {fileID: 390091951}
   m_Layer: 0
   m_Name: TrickPattern
   m_TagString: Untagged
@@ -4907,6 +4988,23 @@ Transform:
   - {fileID: 1018656153}
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390091951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390091949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264a183277c09574097a37950b8b67cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trickPatterns:
+  - {fileID: 274497790}
+  - {fileID: 533307689}
+  - {fileID: 579773586}
+  - {fileID: 1018656154}
 --- !u!4 &394037649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -8974,7 +9072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  player: {fileID: 1244729524}
+  judgeJumpNow: {fileID: 0}
 --- !u!4 &739861873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -11595,7 +11693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda1f1f075e556348b7c560ea16b21cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgeJumpNow: {fileID: 1244729571}
+  judgeJumpNow: {fileID: 1017912876}
   animator: {fileID: 1450173098}
 --- !u!114 &963624350
 MonoBehaviour:
@@ -11611,7 +11709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1450173098}
   controllerOfJump: {fileID: 1034766457}
-  jump: {fileID: 1244729534}
+  jump: {fileID: 1017912877}
 --- !u!224 &964903230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755090226515748358, guid: ae657e1e8bd6bb04f88607f578ccf59f, type: 3}
@@ -12184,6 +12282,7 @@ GameObject:
   - component: {fileID: 996376305}
   - component: {fileID: 996376304}
   - component: {fileID: 996376306}
+  - component: {fileID: 996376307}
   m_Layer: 0
   m_Name: ChargeTrickPoint
   m_TagString: Untagged
@@ -12221,8 +12320,8 @@ MonoBehaviour:
   chargeRateMax: 3
   byMaxRateTime: 10
   minusChargeRateSpeed: 2
-  judgeJumpNow: {fileID: 1244729571}
-  judgeTouchWave: {fileID: 1244729539}
+  judgeJumpNow: {fileID: 1017912876}
+  judgeTouchWave: {fileID: 119766255}
 --- !u!114 &996376304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12312,6 +12411,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   judge: {fileID: 996376304}
+--- !u!114 &996376307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTrickGrowthRate_Fever: 2
+  changeChargeRateTheChargers: {fileID: 996376305}
+  feverMode: {fileID: 1244729544}
+  player_TrickPoint: {fileID: 1244729564}
+  judgeChargeTrickPointNow: {fileID: 996376304}
+  changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!1 &996687311
 GameObject:
   m_ObjectHideFlags: 0
@@ -12600,6 +12717,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1017912875}
+  - component: {fileID: 1017912876}
+  - component: {fileID: 1017912877}
+  - component: {fileID: 1017912878}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -12622,6 +12742,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017912876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startJumpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814354297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1778482265}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  landEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814354297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onCollisionActionEvent: {fileID: 1244729585}
+--- !u!114 &1017912877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbb77602af716b4c9110ab2940846a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 25
+  rb: {fileID: 1244729530}
+  touchWave: {fileID: 119766255}
+  judgeJumpNow: {fileID: 1017912876}
+  judgeOnceReachedHighestPoint_Jumping: {fileID: 1017912878}
+--- !u!114 &1017912878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1244729530}
 --- !u!1 &1018656151
 GameObject:
   m_ObjectHideFlags: 0
@@ -12840,6 +13045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed62528663100be43aa32be5d0c71a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: {fileID: 1017912877}
 --- !u!114 &1034766458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13845,7 +14051,7 @@ MonoBehaviour:
   eventsWhenTrick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244729568}
+      - m_Target: {fileID: 390091951}
         m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
         m_MethodName: TrickEffect
         m_Mode: 1
@@ -13905,7 +14111,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1244729582}
+      - m_Target: {fileID: 1722094696}
         m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
         m_MethodName: ActivateEffect
         m_Mode: 1
@@ -13941,9 +14147,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  judgeJumpNow: {fileID: 1244729571}
+  judgeJumpNow: {fileID: 1017912876}
   player_TrickPoint: {fileID: 1244729564}
-  pushedButton_TrickPattern: {fileID: 1244729568}
+  pushedButton_TrickPattern: {fileID: 390091951}
   critical: {fileID: 1244729556}
   countTrickCombo: {fileID: 1105820353}
   countTrickWhileJump: {fileID: 1105820352}
@@ -13975,7 +14181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgeJumpNow: {fileID: 1244729571}
+  judgeJumpNow: {fileID: 1017912876}
 --- !u!114 &1105820353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15296,20 +15502,13 @@ GameObject:
   - component: {fileID: 1244729564}
   - component: {fileID: 1244729563}
   - component: {fileID: 1244729532}
-  - component: {fileID: 1244729534}
-  - component: {fileID: 1244729571}
-  - component: {fileID: 1244729539}
   - component: {fileID: 1244729544}
   - component: {fileID: 1244729556}
-  - component: {fileID: 1244729568}
-  - component: {fileID: 1244729570}
   - component: {fileID: 1244729569}
-  - component: {fileID: 1244729573}
   - component: {fileID: 1244729577}
   - component: {fileID: 1244729579}
-  - component: {fileID: 1244729582}
-  - component: {fileID: 1244729583}
   - component: {fileID: 1244729584}
+  - component: {fileID: 1244729585}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15460,36 +15659,6 @@ MonoBehaviour:
   centerPullStrength: 10
   maxCenterPullStrength: 100
   centerThreshold: 0.1
---- !u!114 &1244729534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbb77602af716b4c9110ab2940846a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 25
-  rb: {fileID: 1244729530}
-  touchWave: {fileID: 1244729539}
-  judgeJumpNow: {fileID: 1244729571}
-  judgeOnceReachedHighestPoint_Jumping: {fileID: 1244729573}
---- !u!114 &1244729539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76e25d4cca763243808efe45c16a1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchBorderTime: 0.2
 --- !u!114 &1244729544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15532,7 +15701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a072d1b805d3e0448b85ea7cd13ae55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushedButton_CurrentTrickPattern: {fileID: 1244729568}
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
   player_TrickPoint: {fileID: 1244729564}
 --- !u!114 &1244729562
 MonoBehaviour:
@@ -15604,23 +15773,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1244729568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264a183277c09574097a37950b8b67cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trickPatterns:
-  - {fileID: 274497790}
-  - {fileID: 533307689}
-  - {fileID: 579773586}
-  - {fileID: 1018656154}
 --- !u!114 &1244729569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15643,91 +15795,6 @@ MonoBehaviour:
   player_FeverPoint: {fileID: 1244729563}
   feverMode: {fileID: 1244729544}
   countTrickWhileJump: {fileID: 1105820352}
---- !u!114 &1244729570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0c6045ac2b3854ea561d48370b0968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeTrickGrowthRate_Fever: 2
-  changeChargeRateTheChargers: {fileID: 996376305}
-  feverMode: {fileID: 1244729544}
-  player_TrickPoint: {fileID: 1244729564}
-  judgeChargeTrickPointNow: {fileID: 996376304}
-  changeChargeRateTheSurfer: {fileID: 996376303}
---- !u!114 &1244729571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startJumpEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  landEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &1244729573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1a9c63bc90b7a479e7a22c1afb11f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1244729530}
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15773,66 +15840,8 @@ MonoBehaviour:
   damageGrowthRate_Fever: 2
   feverMode: {fileID: 1244729544}
   critical: {fileID: 1244729556}
-  pushedButton_CurrentTrickPattern: {fileID: 1244729568}
-  generate_AlongWay: {fileID: 1244729582}
---- !u!114 &1244729582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68084f5e44975b4e9ff33bdf2dd578b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
-  criticalTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
-  criticalFeverTrickEffect:
-    passEffect: {fileID: 4192832085697537460, guid: 815de1e0e1738404e970684120633544, type: 3}
-    landEffect: {fileID: 7907333123781970492, guid: 5f6dfde0105ecae4a96bfb5bd07622c9, type: 3}
-  generateInterval: 0.05
-  effectWays:
-  - {fileID: 5534817772448045311}
-  - {fileID: 4297786818734687993}
-  - {fileID: 4175646745233137918}
-  - {fileID: 2480021081193508844}
-  - {fileID: 1023002749357401671}
-  - {fileID: 2611329527905224869}
-  - {fileID: 2858219203215715389}
-  - {fileID: 4856438578308231287}
-  - {fileID: 4888374120523155975}
-  - {fileID: 1068010473}
-  - {fileID: 1274392268}
-  - {fileID: 1756788141}
-  - {fileID: 1773698022}
-  - {fileID: 599778570}
-  - {fileID: 1925923499}
-  - {fileID: 836346427}
-  - {fileID: 6506725979776084341}
-  critical: {fileID: 1244729556}
-  feverMode: {fileID: 1244729544}
---- !u!114 &1244729583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1294514542}
-  source: {fileID: 1778482265}
-  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
-  generate_AlongWay: {fileID: 1244729582}
+  pushedButton_CurrentTrickPattern: {fileID: 390091951}
+  generate_AlongWay: {fileID: 1722094696}
 --- !u!114 &1244729584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15843,6 +15852,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23fe0fac40eaecf41b10675bd8566686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244729585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aa450dcbfe4364eb8d8175d6d2e9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1245455794
@@ -16800,6 +16821,12 @@ Transform:
   - {fileID: 1105820349}
   - {fileID: 996376302}
   - {fileID: 1017912875}
+  - {fileID: 1722094694}
+  - {fileID: 119766254}
+  - {fileID: 268843675}
+  - {fileID: 1663075735}
+  - {fileID: 1951183557}
+  - {fileID: 1621591150}
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343859078
@@ -17360,7 +17387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  player: {fileID: 919132148156821028}
+  judgeJumpNow: {fileID: 0}
 --- !u!1 &1415608674
 GameObject:
   m_ObjectHideFlags: 0
@@ -19327,6 +19354,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
+--- !u!1 &1621591149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621591150}
+  m_Layer: 0
+  m_Name: Etc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621591150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621591149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656330841
 GameObject:
   m_ObjectHideFlags: 0
@@ -19398,6 +19456,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 98503821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663075734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663075735}
+  m_Layer: 0
+  m_Name: FeverMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663075735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665899943
 GameObject:
@@ -19942,6 +20031,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1722094693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722094694}
+  - component: {fileID: 1722094696}
+  - component: {fileID: 1722094695}
+  m_Layer: 0
+  m_Name: Effect_AlongWay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722094694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1722094695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1294514542}
+  source: {fileID: 1778482265}
+  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  generate_AlongWay: {fileID: 1722094696}
+--- !u!114 &1722094696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722094693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68084f5e44975b4e9ff33bdf2dd578b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 797c02aef81277e4eb04f08f123ea82b, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: cc98cda009e0308438f298e68ea55c27, type: 3}
+  criticalTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 5c0032c110395324a99cbee7ed1d3eb2, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 9291f28fd9ac55541af1acc3a7cde4f1, type: 3}
+  criticalFeverTrickEffect:
+    passEffect: {fileID: 4192832085697537460, guid: 815de1e0e1738404e970684120633544, type: 3}
+    landEffect: {fileID: 7907333123781970492, guid: 5f6dfde0105ecae4a96bfb5bd07622c9, type: 3}
+  generateInterval: 0.05
+  effectWays:
+  - {fileID: 5534817772448045311}
+  - {fileID: 4297786818734687993}
+  - {fileID: 4175646745233137918}
+  - {fileID: 2480021081193508844}
+  - {fileID: 1023002749357401671}
+  - {fileID: 2611329527905224869}
+  - {fileID: 2858219203215715389}
+  - {fileID: 4856438578308231287}
+  - {fileID: 4888374120523155975}
+  - {fileID: 1068010473}
+  - {fileID: 1274392268}
+  - {fileID: 1756788141}
+  - {fileID: 1773698022}
+  - {fileID: 599778570}
+  - {fileID: 1925923499}
+  - {fileID: 836346427}
+  - {fileID: 6506725979776084341}
+  critical: {fileID: 1244729556}
+  feverMode: {fileID: 1244729544}
 --- !u!1 &1722439556
 GameObject:
   m_ObjectHideFlags: 0
@@ -26865,6 +27045,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940460168}
   m_CullTransparentMesh: 1
+--- !u!1 &1951183556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951183557}
+  m_Layer: 0
+  m_Name: Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951183557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951183556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1959805271
 PrefabInstance:
   m_ObjectHideFlags: 0
