@@ -39,6 +39,7 @@ public partial class Trick : MonoBehaviour
             critical.SetCriticalNow();//押されたボタンからクリティカルの判定
             countTrickWhileJump.AddTrickCount();//ジャンプ中のトリック回数の加算
             countTrickCombo.Count();//トリックコンボ回数の加算
+
             eventsWhenTrick.Invoke();//登録された全イベントを呼ぶ
         }
     }

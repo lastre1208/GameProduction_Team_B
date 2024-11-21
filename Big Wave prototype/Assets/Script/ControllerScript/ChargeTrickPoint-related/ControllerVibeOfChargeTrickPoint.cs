@@ -10,14 +10,13 @@ public class ControllerVibeOfChargeTrickPoint : MonoBehaviour
     [Header("トリックをチャージしている時のバイブの速さ")]
     [Range(0, 1)]
     [SerializeField] float vibrationSpeed = 1f;//トリックをチャージしている時のバイブの速さ
-    JudgeChargeTrickPointNow judgeChargeTrickPointNow;
+    [SerializeField] JudgeChargeTrickPointNow judgeChargeTrickPointNow;
     JudgePauseNow judgePauseNow;
     private Gamepad gamepad = Gamepad.current;
 
     // Start is called before the first frame update
     void Start()
     {
-        judgeChargeTrickPointNow = GameObject.FindWithTag("Player").GetComponent<JudgeChargeTrickPointNow>();
         judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
     }
 

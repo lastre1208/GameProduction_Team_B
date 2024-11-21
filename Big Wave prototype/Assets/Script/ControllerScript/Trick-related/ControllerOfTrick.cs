@@ -8,12 +8,10 @@ using UnityEngine.InputSystem;
 public class ControllerOfTrick : MonoBehaviour
 {
     Trick trick;
-    PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
 
     void Start()
     {
-        trick = GameObject.FindWithTag("Player").GetComponent<Trick>();
-        pushedButton_TrickPattern = GameObject.FindWithTag("Player").GetComponent<PushedButton_CurrentTrickPattern>();
+        trick = GameObject.FindWithTag("Player").GetComponentInChildren<Trick>();
     }
 
     public void Trick_North(InputAction.CallbackContext context)

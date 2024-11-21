@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scorePerSecond: 20
   score_ChargeTime: {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
-  countChargeTime: {fileID: 1244729580}
+  countChargeTime: {fileID: 996376306}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1 &119866080
 GameObject:
@@ -2629,6 +2629,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207016421}
   m_CullTransparentMesh: 1
+--- !u!1 &226841899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226841900}
+  - component: {fileID: 226841901}
+  m_Layer: 0
+  m_Name: Recover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &226841900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226841899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226841901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226841899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20dd4912db2e77e4ba8f96a6a991fe26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoveryAmount: 10
+  hp_Player: {fileID: 1244729562}
+  judgeChargeTrickPointNow: {fileID: 996376304}
 --- !u!1 &228029194
 GameObject:
   m_ObjectHideFlags: 0
@@ -4849,7 +4896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390091949}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4858,7 +4905,7 @@ Transform:
   - {fileID: 533307688}
   - {fileID: 579773585}
   - {fileID: 1018656153}
-  m_Father: {fileID: 1244729529}
+  m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &394037649 stripped
 Transform:
@@ -9437,6 +9484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount_UI: {fileID: 1907413406}
+  countTrickCombo: {fileID: 1105820353}
 --- !u!1001 &790929105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11514,7 +11562,7 @@ GameObject:
   - component: {fileID: 963624350}
   - component: {fileID: 963624349}
   m_Layer: 0
-  m_Name: AnimationScript
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11533,7 +11581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1244729529}
+  m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963624349
 MonoBehaviour:
@@ -12123,6 +12171,147 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
+--- !u!1 &996376301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996376302}
+  - component: {fileID: 996376303}
+  - component: {fileID: 996376305}
+  - component: {fileID: 996376304}
+  - component: {fileID: 996376306}
+  m_Layer: 0
+  m_Name: ChargeTrickPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &996376302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996376303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df421f08466e984cabb0c095878978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRateMax: 3
+  byMaxRateTime: 10
+  minusChargeRateSpeed: 2
+  judgeJumpNow: {fileID: 1244729571}
+  judgeTouchWave: {fileID: 1244729539}
+--- !u!114 &996376304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargedBorderTime: 0.2
+  startChargeEvents:
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1722439556}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1778482265}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  endChargeEvents:
+    events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1722439556}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &996376305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5e96ce97f369d48a578ada73e657f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRate:
+  - 1
+  - 0.9
+  - 0.7
+  - 0.6
+  - 0.4
+  - 0.3
+--- !u!114 &996376306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fababa80187ee4297ad3051128f582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judge: {fileID: 996376304}
 --- !u!1 &996687311
 GameObject:
   m_ObjectHideFlags: 0
@@ -12402,6 +12591,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8091417505521369428, guid: d3f502886348e284cbfefec4b4681776, type: 3}
   m_PrefabInstance: {fileID: 943815897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017912874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017912875}
+  m_Layer: 0
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017912875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1018656151
 GameObject:
   m_ObjectHideFlags: 0
@@ -12657,6 +12877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationSpeed: 1
+  judgeChargeTrickPointNow: {fileID: 996376304}
 --- !u!114 &1034766461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13092,7 +13313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scorePerCombo: 50
   score_ComboMax: {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1 &1058489859
 GameObject:
@@ -13573,6 +13794,215 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1704c1b3015484a8f9f213c6d552cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1105820348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105820349}
+  - component: {fileID: 1105820350}
+  - component: {fileID: 1105820351}
+  - component: {fileID: 1105820352}
+  - component: {fileID: 1105820353}
+  - component: {fileID: 1105820354}
+  m_Layer: 0
+  m_Name: Trick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105820349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341016743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105820350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsWhenTrick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1244729568}
+        m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
+        m_MethodName: TrickEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250788302}
+        m_TargetAssemblyTypeName: ScoreGameScene_TrickCombo, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1034766461}
+        m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
+        m_MethodName: Vibe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729569}
+        m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
+        m_MethodName: Charge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1105820351}
+        m_TargetAssemblyTypeName: TrickSoundEffect, Assembly-CSharp
+        m_MethodName: PlayTrickSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244729582}
+        m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
+        m_MethodName: ActivateEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1423253759}
+        m_TargetAssemblyTypeName: ComboPopUp, Assembly-CSharp
+        m_MethodName: PopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1105820354}
+        m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
+        m_MethodName: HoverJumpTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  judgeJumpNow: {fileID: 1244729571}
+  player_TrickPoint: {fileID: 1244729564}
+  pushedButton_TrickPattern: {fileID: 1244729568}
+  critical: {fileID: 1244729556}
+  countTrickCombo: {fileID: 1105820353}
+  countTrickWhileJump: {fileID: 1105820352}
+--- !u!114 &1105820351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f783552e2ee8d0e4289652f5e413aa91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criticalSE: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
+  normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
+  audioSource: {fileID: 238903304}
+  critical: {fileID: 1244729556}
+--- !u!114 &1105820352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgeJumpNow: {fileID: 1244729571}
+--- !u!114 &1105820353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4535f21f2ea664aabaf619f6a2dd43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  critical: {fileID: 1244729556}
+--- !u!114 &1105820354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6a0e95143eb90418d21cc14f40461a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStrength: 17
+  rb: {fileID: 1244729530}
 --- !u!1 &1110614296
 GameObject:
   m_ObjectHideFlags: 0
@@ -14868,27 +15298,18 @@ GameObject:
   - component: {fileID: 1244729532}
   - component: {fileID: 1244729534}
   - component: {fileID: 1244729571}
-  - component: {fileID: 1244729559}
   - component: {fileID: 1244729539}
   - component: {fileID: 1244729544}
   - component: {fileID: 1244729556}
-  - component: {fileID: 1244729557}
-  - component: {fileID: 1244729560}
   - component: {fileID: 1244729568}
-  - component: {fileID: 1244729565}
   - component: {fileID: 1244729570}
-  - component: {fileID: 1244729574}
-  - component: {fileID: 1244729575}
-  - component: {fileID: 1244729572}
   - component: {fileID: 1244729569}
   - component: {fileID: 1244729573}
   - component: {fileID: 1244729577}
-  - component: {fileID: 1244729578}
   - component: {fileID: 1244729579}
-  - component: {fileID: 1244729580}
-  - component: {fileID: 1244729581}
   - component: {fileID: 1244729582}
   - component: {fileID: 1244729583}
+  - component: {fileID: 1244729584}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14987,9 +15408,8 @@ Transform:
   - {fileID: 1503523462}
   - {fileID: 1720416258}
   - {fileID: 1450010176}
-  - {fileID: 390091950}
-  - {fileID: 963624348}
   - {fileID: 1814354298}
+  - {fileID: 1341016743}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1244729530
@@ -15114,162 +15534,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
   player_TrickPoint: {fileID: 1244729564}
---- !u!114 &1244729557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4535f21f2ea664aabaf619f6a2dd43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critical: {fileID: 1244729556}
---- !u!114 &1244729559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6a0e95143eb90418d21cc14f40461a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpStrength: 17
-  rb: {fileID: 1244729530}
---- !u!114 &1244729560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d791e91a489b74a9d3c2be5cfaab4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventsWhenTrick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1244729568}
-        m_TargetAssemblyTypeName: PushedButton_CurrentTrickPattern, Assembly-CSharp
-        m_MethodName: TrickEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729556}
-        m_TargetAssemblyTypeName: Critical, Assembly-CSharp
-        m_MethodName: ActivateCriticalAction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1250788302}
-        m_TargetAssemblyTypeName: ScoreGameScene_TrickCombo, Assembly-CSharp
-        m_MethodName: AddScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1034766461}
-        m_TargetAssemblyTypeName: ControllerVibeOfTrick, Assembly-CSharp
-        m_MethodName: Vibe
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729569}
-        m_TargetAssemblyTypeName: ChargeFeverPointWhenTrick, Assembly-CSharp
-        m_MethodName: Charge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Score_TrickCount, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729559}
-        m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
-        m_MethodName: HoverJumpTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244729582}
-        m_TargetAssemblyTypeName: Generate_AlongWay, Assembly-CSharp
-        m_MethodName: ActivateEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1423253759}
-        m_TargetAssemblyTypeName: ComboPopUp, Assembly-CSharp
-        m_MethodName: PopUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  judgeJumpNow: {fileID: 1244729571}
-  player_TrickPoint: {fileID: 1244729564}
-  pushedButton_TrickPattern: {fileID: 1244729568}
-  critical: {fileID: 1244729556}
-  countTrickCombo: {fileID: 1244729557}
-  countTrickWhileJump: {fileID: 1244729565}
 --- !u!114 &1244729562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15340,19 +15604,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1244729565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33063f3b7ad034f44960716980fc62bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judgeJumpNow: {fileID: 1244729571}
 --- !u!114 &1244729568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15391,7 +15642,7 @@ MonoBehaviour:
   - 60
   player_FeverPoint: {fileID: 1244729563}
   feverMode: {fileID: 1244729544}
-  countTrickWhileJump: {fileID: 1244729565}
+  countTrickWhileJump: {fileID: 1105820352}
 --- !u!114 &1244729570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15405,11 +15656,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeTrickGrowthRate_Fever: 2
-  changeChargeRateTheChargers: {fileID: 1244729575}
+  changeChargeRateTheChargers: {fileID: 996376305}
   feverMode: {fileID: 1244729544}
   player_TrickPoint: {fileID: 1244729564}
-  judgeChargeTrickPointNow: {fileID: 1244729572}
-  changeChargeRateTheSurfer: {fileID: 1244729574}
+  judgeChargeTrickPointNow: {fileID: 996376304}
+  changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!114 &1244729571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15464,63 +15715,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &1244729572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1341a91212ce6fe48b381772517117e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargedBorderTime: 0.2
-  startChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1778482265}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  endChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1244729573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15534,42 +15728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1244729530}
---- !u!114 &1244729574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df421f08466e984cabb0c095878978a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRateMax: 3
-  byMaxRateTime: 10
-  minusChargeRateSpeed: 2
-  judgeJumpNow: {fileID: 1244729571}
-  judgeTouchWave: {fileID: 1244729539}
---- !u!114 &1244729575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5e96ce97f369d48a578ada73e657f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate:
-  - 1
-  - 0.9
-  - 0.7
-  - 0.6
-  - 0.4
-  - 0.3
 --- !u!114 &1244729577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15598,21 +15756,6 @@ MonoBehaviour:
     - {fileID: 0}
     actionTime: 4
   algorithm: {fileID: 98503834}
---- !u!114 &1244729578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20dd4912db2e77e4ba8f96a6a991fe26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recoveryAmount: 10
-  hp_Player: {fileID: 1244729562}
-  judgeChargeTrickPointNow: {fileID: 1244729572}
 --- !u!114 &1244729579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15632,35 +15775,6 @@ MonoBehaviour:
   critical: {fileID: 1244729556}
   pushedButton_CurrentTrickPattern: {fileID: 1244729568}
   generate_AlongWay: {fileID: 1244729582}
---- !u!114 &1244729580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09fababa80187ee4297ad3051128f582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judge: {fileID: 1244729572}
---- !u!114 &1244729581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244729524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f783552e2ee8d0e4289652f5e413aa91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  criticalSE: {fileID: 8300000, guid: 8382dea47fff4554eb736ea96ee8053b, type: 3}
-  normalSE: {fileID: 8300000, guid: 463bdf91381eb314e951bdcec0b411c4, type: 3}
-  audioSource: {fileID: 238903304}
-  critical: {fileID: 1244729556}
 --- !u!114 &1244729582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15719,6 +15833,18 @@ MonoBehaviour:
   source: {fileID: 1778482265}
   clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
   generate_AlongWay: {fileID: 1244729582}
+--- !u!114 &1244729584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244729524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fe0fac40eaecf41b10675bd8566686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1245455794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15961,7 +16087,7 @@ MonoBehaviour:
   m_addComboScore: 5
   m_maxAddComboCount: 10
   score_TrickCombo: {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   judgeGameSet: {fileID: 1511769283}
 --- !u!4 &1258393162 stripped
 Transform:
@@ -16639,6 +16765,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7fa8d21cf57904392054d17ec54259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1341016742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341016743}
+  m_Layer: 0
+  m_Name: Component(Category)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341016743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341016742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 390091950}
+  - {fileID: 963624348}
+  - {fileID: 226841900}
+  - {fileID: 1105820349}
+  - {fileID: 996376302}
+  - {fileID: 1017912875}
+  m_Father: {fileID: 1244729529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343859078
 GameObject:
   m_ObjectHideFlags: 0
@@ -17148,7 +17311,7 @@ MonoBehaviour:
   normalColor: {r: 0, g: 0.84, b: 0.18200003, a: 1}
   pinchColor: {r: 0.84, g: 0.16800001, b: 0, a: 1}
   borderRatio: 0.3
-  recoverHPWhileCharging: {fileID: 1244729578}
+  recoverHPWhileCharging: {fileID: 226841901}
   blinkColor:
     cycle: 1.5
     s_maxValue: 0
@@ -17337,7 +17500,7 @@ MonoBehaviour:
   text_countPrefab: {fileID: 5540319640275630485, guid: 145769507210e8e49a0ce2d4b61e50bb, type: 3}
   target: {fileID: 647215248}
   canvas: {fileID: 651057538}
-  countTrickCombo: {fileID: 1244729557}
+  countTrickCombo: {fileID: 1105820353}
   ScaleLimit: 10
   StartSize: 72
 --- !u!4 &1429956298 stripped
@@ -24624,6 +24787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxScaleRate: 4
+  changeChargeRateTheSurfer: {fileID: 996376303}
 --- !u!114 &1728219623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1299993265973752346, guid: 8f58a5a63668b564db85b1bfad9caacf, type: 3}

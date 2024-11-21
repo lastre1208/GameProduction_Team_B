@@ -10,7 +10,6 @@ using UnityEngine.Events;
 //最後に押したボタンがクリティカルになるかを判定
 public class Critical : MonoBehaviour
 {
-    public event Action<bool> CriticalAction;//トリック時にこれに登録したイベントを呼ぶ、クリティカルならtrueを、そうでないならfalseを入れる
     [Header("必要なコンポーネント")]
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
     [SerializeField] TrickPoint player_TrickPoint;
@@ -40,12 +39,6 @@ public class Critical : MonoBehaviour
            
             AllocateButton(ref criticalButton[criticalButton.Length - 1]);//ボタンの配列の最後のボタンに割り当て
         } 
-       
-    }
-
-    public void ActivateCriticalAction()//クリティカルが発生したかを設定した後にこれを呼ぶ
-    {
-        CriticalAction.Invoke(CriticalNow);
     }
 
     void StartAllocateButton()//最初に全てのcriticalButtonにボタンを割り当てる

@@ -12,14 +12,9 @@ public class TrickSoundEffect : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] Critical critical;
 
-    void Start()
+    public void PlayTrickSE()//クリティカル状況によって鳴らす音を変える
     {
-        critical.CriticalAction += PlayTrickSE;
-    }
-
-    public void PlayTrickSE(bool critical)//クリティカル状況によって鳴らす音を変える
-    {
-        AudioClip se=critical? criticalSE: normalSE;
+        AudioClip se=critical.CriticalNow ? criticalSE: normalSE;
         audioSource.PlayOneShot(se);
     }
 }
