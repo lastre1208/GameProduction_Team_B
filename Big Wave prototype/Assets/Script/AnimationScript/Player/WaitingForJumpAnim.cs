@@ -9,7 +9,7 @@ public class WaitingForJumpAnim : MonoBehaviour
     [Header("必要なコンポーネント")]
     [SerializeField] Animator animator;
     [SerializeField] ControllerOfJump controllerOfJump;
-    [SerializeField] Jump jump;
+    [SerializeField] JudgeJumpable judgeJumpable;
 
     void Update()
     {
@@ -19,6 +19,6 @@ public class WaitingForJumpAnim : MonoBehaviour
     void WaitingForJumpBool()
     {
         //ジャンプできるかつジャンプのボタンを押してる時のみジャンプ準備モーションをする
-        animator.SetBool("WaitingForJump", jump.Jumpable()&&controllerOfJump.Pushing);
+        animator.SetBool("WaitingForJump", judgeJumpable.Jumpable&&controllerOfJump.Pushing);
     }
 }

@@ -12,16 +12,16 @@ public class BlinkColor
     [Header("最も点滅している時の彩度の値")]
     [Range(0f, 100f)]
     [SerializeField] float s_maxValue;//最も点滅している時の彩度の値
-    private float m_time = 0;
+    private float _time = 0;
 
     public BlinkColor()//コンストラクタ
     {
-        m_time = 0;
+        _time = 0;
     }
 
     public Color Blinking(Color color)//点滅させる(点滅時の色を返す)
     {
-        m_time += Time.deltaTime;
+        _time += Time.deltaTime;
 
         float h;//色相
         float s;//彩度
@@ -31,7 +31,7 @@ public class BlinkColor
         UnityEngine.Color.RGBToHSV(color,out h,out s,out v);
 
         //s(彩度)を変更
-        float ratio = MathfExtend.Cos01(2*Mathf.PI*m_time/cycle);
+        float ratio = MathfExtend.Cos01(2*Mathf.PI*_time/cycle);
         
         s = ratio * (s-s_maxValue)+s_maxValue;
 

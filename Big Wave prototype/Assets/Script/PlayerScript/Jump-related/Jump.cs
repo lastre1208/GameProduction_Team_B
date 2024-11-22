@@ -8,26 +8,32 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     [Header("ジャンプ力")]
-    [SerializeField] float jumpPower=20f;//ジャンプ力
+    [SerializeField] JumpPower jumpPower;
+    [Header("ジャンプ関係のコントローラ操作")]
+    [SerializeField] ControllerOfJump controllerOfJump;//ジャンプ関係のコントローラ操作
     [Header("必要なコンポーネント")]
     [SerializeField] Rigidbody rb;
-    [SerializeField] JudgeTouchWave touchWave;
     [SerializeField] JudgeJumpNow judgeJumpNow;
     [SerializeField] JudgeOnceReachedHighestPoint_Jumping judgeOnceReachedHighestPoint_Jumping;
-    
-    public bool Jumpable()//ジャンプ可能条件
+    [SerializeField] JudgeJumpable judgeJumpable;
+
+    void Start()
     {
-        return touchWave.TouchWaveNow && !judgeJumpNow.JumpNow();//波に触れている時かつジャンプしていない時のみジャンプ可能
+        controllerOfJump.ExitAction += JumpTrigger;
     }
 
     public void JumpTrigger()//ジャンプ発動
     {
-        if (Jumpable())//波に触れている時かつジャンプしていない時のみジャンプ可能
+        if (judgeJumpable.Jumpable)//ジャンプできるか判定
         {
             //ジャンプする
             judgeJumpNow.StartJump();
             judgeOnceReachedHighestPoint_Jumping.StartJump();
-            rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpPower.Power, ForceMode.Impulse);
         }
+
+        //ジャンプに成功しても失敗してもジャンプ力はリセットさせる
+        jumpPower.ResetJumpPower();
+
     }
 }

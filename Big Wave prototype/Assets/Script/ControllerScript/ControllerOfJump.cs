@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 //ì¬Ò:™R
 //ƒWƒƒƒ“ƒv‚Ì‘€ì
 public class ControllerOfJump : MonoBehaviour
 {
-    [SerializeField] Jump jump;
+    public event Action EnterAction;
+    public event Action ExitAction;
     bool pushing=false;
 
     public bool Pushing { get { return pushing; }  }
@@ -17,6 +19,7 @@ public class ControllerOfJump : MonoBehaviour
         if (!context.performed) return;
 
         pushing = true;
+        EnterAction?.Invoke();
     }
 
     public void Jump(InputAction.CallbackContext context)//—£‚µ‚½uŠÔ‚Éİ’è
@@ -24,6 +27,6 @@ public class ControllerOfJump : MonoBehaviour
         if (!context.performed) return;
 
         pushing = false;
-        jump.JumpTrigger();
+        ExitAction?.Invoke();
     }
 }
