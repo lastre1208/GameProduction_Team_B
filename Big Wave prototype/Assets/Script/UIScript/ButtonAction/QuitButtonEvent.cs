@@ -7,22 +7,10 @@ public class QuitButtonEvent : MonoBehaviour
     [Header("▼フェードアウトするかどうか")]
     [SerializeField] bool isFadeOut;
 
-    [SerializeField] GameObject sceneMove;
-    [SerializeField] GameObject menuEffect;
-    [SerializeField] GameObject fadeOutCom;
-
-    private SceneControlManager sceneControlManager;
-    private MenuEffectController menuEffectController;
-    private FadeOut fadeOut;
-
+    [SerializeField] SceneController sceneController;
+    [SerializeField] MenuEffectController menuEffectController;
+    [SerializeField] FadeOut fadeOut;
     private bool isQuitButtonClicked = false;
-
-    private void Start()
-    {
-        sceneControlManager = sceneMove.GetComponent<SceneControlManager>();
-        menuEffectController = menuEffect.GetComponent<MenuEffectController>();
-        fadeOut = fadeOutCom.GetComponent<FadeOut>();
-    }
 
     private void Update()
     {
@@ -53,7 +41,7 @@ public class QuitButtonEvent : MonoBehaviour
 
             if (isFadeOut ? menuEffectController.EffectColorChange_FadeOutWasCompleted : menuEffectController.EffectColorChanged)
             {
-                sceneControlManager.ChangeMenuScene();
+                sceneController.MenuScene();
             }
         }
     }

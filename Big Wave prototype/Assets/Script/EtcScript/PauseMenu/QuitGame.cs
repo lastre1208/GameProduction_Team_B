@@ -8,10 +8,12 @@ public class QuitGame : MonoBehaviour
 {
     [Header("ゲーム中断時に呼ぶイベント")]
     [SerializeField] UnityEvent quitEvents;
+    [Header("シーン移行コンポーネント")]
+    [SerializeField] SceneController _sceneController;
 
     public void Quit()//ゲーム中断時の処理
     {
         quitEvents.Invoke();
-        SceneManager.LoadScene("MenuScene");
+        _sceneController.MenuScene();//メニューシーンに移行
     }
 }

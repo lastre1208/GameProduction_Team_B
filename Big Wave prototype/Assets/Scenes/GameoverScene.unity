@@ -1004,7 +1004,7 @@ AudioSource:
   m_GameObject: {fileID: 353407723}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8159401926849947737, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1821,7 +1821,7 @@ AudioSource:
   m_GameObject: {fileID: 762296253}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9192227704122883557, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2275,7 +2275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1112961326}
-  - component: {fileID: 1112961325}
+  - component: {fileID: 1112961327}
   m_Layer: 0
   m_Name: ButtonEventManager
   m_TagString: Untagged
@@ -2283,18 +2283,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1112961325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112961324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c59744901a0f794b8d602a52ea7d663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1112961326
 Transform:
   m_ObjectHideFlags: 0
@@ -2312,6 +2300,19 @@ Transform:
   - {fileID: 1781894171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112961327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112961324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07151c6d20b73314fbcfb53c049c62fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
 --- !u!1 &1245759030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,8 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d7438e0960254f9cc433e72dbc753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1756324132}
-  sceneController: {fileID: 1112961324}
+  menuEffectController: {fileID: 1756324138}
 --- !u!1 &1330360301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,9 +3041,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFadeOut: 0
-  sceneMove: {fileID: 1112961324}
-  menuEffect: {fileID: 1756324132}
-  fadeOutCom: {fileID: 1756324132}
+  sceneController: {fileID: 1112961327}
+  menuEffectController: {fileID: 1756324138}
+  fadeOut: {fileID: 1756324137}
 --- !u!1 &1613294085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,7 +3458,6 @@ GameObject:
   - component: {fileID: 1642325573}
   - component: {fileID: 1642325572}
   - component: {fileID: 1642325571}
-  - component: {fileID: 1642325570}
   - component: {fileID: 1642325574}
   m_Layer: 5
   m_Name: QuitButton
@@ -3487,18 +3486,6 @@ RectTransform:
   m_AnchoredPosition: {x: -10.61, y: -339.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1642325570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642325568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c59744901a0f794b8d602a52ea7d663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1642325571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4006,7 +3993,6 @@ GameObject:
   - component: {fileID: 1774953352}
   - component: {fileID: 1774953351}
   - component: {fileID: 1774953350}
-  - component: {fileID: 1774953349}
   - component: {fileID: 1774953353}
   m_Layer: 5
   m_Name: RetryButton
@@ -4035,18 +4021,6 @@ RectTransform:
   m_AnchoredPosition: {x: -10.61, y: -208.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1774953349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774953347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c59744901a0f794b8d602a52ea7d663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1774953350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4311,9 +4285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFadeOut: 0
-  sceneMove: {fileID: 1112961324}
-  menuEffect: {fileID: 1756324132}
-  fadeOutCom: {fileID: 1756324132}
+  sceneController: {fileID: 1112961327}
+  menuEffectController: {fileID: 1756324138}
+  fadeOut: {fileID: 1756324137}
 --- !u!1 &1878806118
 GameObject:
   m_ObjectHideFlags: 0
