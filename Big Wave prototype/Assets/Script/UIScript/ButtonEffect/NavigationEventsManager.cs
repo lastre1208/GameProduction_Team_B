@@ -7,12 +7,10 @@ using UnityEngine.EventSystems;
 //ボタン選択後に別のボタンを選択できないようにするためにこれを使う
 public class NavigationEventsManager : MonoBehaviour
 {
-    private EventSystem eventSystem;
+    [SerializeField] EventSystem eventSystem;
 
     private void Start()
     {
-        eventSystem = GetComponent<EventSystem>();
-
         ChangeNavigationEvent(true);
     }
 

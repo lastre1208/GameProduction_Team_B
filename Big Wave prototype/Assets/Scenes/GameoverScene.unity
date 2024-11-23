@@ -2597,6 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1769cecbcde1b0647bc0715b8588b624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1325587644}
 --- !u!114 &1325587648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,7 +3041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
+  isFadeOut: 1
   _selectScene:
     _scene: 3
     _sceneController: {fileID: 1112961327}
@@ -3978,7 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455fd2a4fc5aeff4b84f32e05c2f85f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPanel: {fileID: 1756324136}
+  menuPanel: {fileID: 1509253548}
   selectedEffectPrefab: {fileID: 2288280720221174192, guid: 80afabc050ff04443b07374c159ac376, type: 3}
   clickedEffectPrefab: {fileID: 2288280720221174192, guid: df4aec1eea7f9304388fd029b1b9ad1e, type: 3}
   clickedEffectColor: {r: 1, g: 0.8882457, b: 0, a: 1}

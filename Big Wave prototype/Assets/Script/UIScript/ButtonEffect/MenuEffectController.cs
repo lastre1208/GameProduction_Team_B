@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 //作成者：桑原
-
+//
 public class MenuEffectController : MonoBehaviour
 {
     [Header("▼座標計算のもとにするオブジェクト")]
@@ -44,8 +44,6 @@ public class MenuEffectController : MonoBehaviour
 
     private void Start()
     {
-        clickedEffectGenerated = false;
-
         SetColorOfClickedEffect(clickedEffectPrefab);
     }
 
@@ -87,18 +85,23 @@ public class MenuEffectController : MonoBehaviour
         if (buttonRect != null)
         {
             DestroyEffects(ref leftSelectedEffect, ref rightSelectedEffect);//選択エフェクトの削除
+            DestroyEffects(ref leftClickedEffect, ref rightClickedEffect);//決定エフェクトの削除
+            currentButtonImage.color = originalButtonColor;
+            clickedEffectGenerated = false;
         }
     }
 
     public void ButtonClickedProcess(RectTransform buttonRect)//ボタンがクリックされたときの処理
     {
+        if (leftClickedEffect != null || rightClickedEffect != null) return;
+
         GenerateEffects(buttonRect, clickedEffectPrefab, ref leftClickedEffect, ref rightClickedEffect);
         clickedEffectGenerated = true;//決定時のエフェクトが生成された
         currentButtonImage = buttonRect.GetComponent<Image>();
     }
 
     //エフェクトの生成
-    public void GenerateEffects(RectTransform buttonRect, GameObject effectPrefab, ref GameObject leftEffect, ref GameObject rightEffect)
+    private void GenerateEffects(RectTransform buttonRect, GameObject effectPrefab, ref GameObject leftEffect, ref GameObject rightEffect)
     {
         float scaledPanelWidth = CalculateScaledWidth(menuPanel);
         float panelHalfWidth = scaledPanelWidth * 0.5f;
@@ -140,7 +143,7 @@ public class MenuEffectController : MonoBehaviour
 
 
     //エフェクトの破棄
-    public void DestroyEffects(ref GameObject leftEffect, ref GameObject rightEffect)
+    private void DestroyEffects(ref GameObject leftEffect, ref GameObject rightEffect)
     {
         if (leftEffect != null)
         {
@@ -156,7 +159,7 @@ public class MenuEffectController : MonoBehaviour
     }
 
     //決定時のエフェクトの破棄
-    public void DestroyClickedEffect()
+    private void DestroyClickedEffect()
     {
         if (leftClickedEffect != null && rightClickedEffect != null)
         {

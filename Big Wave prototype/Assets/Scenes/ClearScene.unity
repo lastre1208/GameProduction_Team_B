@@ -1500,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1769cecbcde1b0647bc0715b8588b624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 538749089}
 --- !u!114 &538749095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4112,7 +4113,6 @@ MonoBehaviour:
   selectedEffectPrefab: {fileID: 2288280720221174192, guid: 80afabc050ff04443b07374c159ac376, type: 3}
   clickedEffectPrefab: {fileID: 2288280720221174192, guid: df4aec1eea7f9304388fd029b1b9ad1e, type: 3}
   clickedEffectColor: {r: 1, g: 0.40232414, b: 0, a: 1}
-  fadeOut: {fileID: 1867573064}
 --- !u!1 &1912723492
 GameObject:
   m_ObjectHideFlags: 0
