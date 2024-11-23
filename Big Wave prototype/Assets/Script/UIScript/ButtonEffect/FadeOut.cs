@@ -14,6 +14,11 @@ public class FadeOut : MonoBehaviour
     private bool fadeStart;//フェードアウトが開始されたか
     private bool fadeCompleted;//フェードアウトが終わったか
 
+    public bool FadeStart
+    {
+        get { return fadeStart; }
+    }
+
     public bool FadeCompleted
     {
         get { return fadeCompleted; }

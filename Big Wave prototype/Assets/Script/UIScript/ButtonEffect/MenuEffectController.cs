@@ -14,8 +14,6 @@ public class MenuEffectController : MonoBehaviour
     [SerializeField] GameObject clickedEffectPrefab;
     [Header("▼ボタン決定時に生成されるエフェクトの色")]
     [SerializeField] Color clickedEffectColor;
-    [Header("フェードアウトの設定")]
-    [SerializeField] FadeOut fadeOut;
 
     private TriangleWaveLine triangleWaveLine;
 
@@ -42,11 +40,6 @@ public class MenuEffectController : MonoBehaviour
     public bool EffectColorChanged
     {
         get { return effectColorChanged; }
-    }
-
-    public bool EffectColorChange_FadeOutWasCompleted
-    {
-        get { return effectColorChanged && fadeOut.FadeCompleted; }
     }
 
     private void Start()

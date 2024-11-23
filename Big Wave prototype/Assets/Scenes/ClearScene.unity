@@ -1059,8 +1059,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1843264085}
-        m_TargetAssemblyTypeName: RetryButtonEvent, Assembly-CSharp
-        m_MethodName: RetryButtonClicked
+        m_TargetAssemblyTypeName: CustomButtonEvent, Assembly-CSharp
+        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3242,9 +3242,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1650733696}
-        m_TargetAssemblyTypeName: QuitButtonEvent, Assembly-CSharp
-        m_MethodName: QuitButtonClicked
+      - m_Target: {fileID: 1650733695}
+        m_TargetAssemblyTypeName: CustomButtonEvent, Assembly-CSharp
+        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3479,7 +3479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1650733694}
-  - component: {fileID: 1650733696}
+  - component: {fileID: 1650733695}
   m_Layer: 0
   m_Name: QuitEvent
   m_TagString: Untagged
@@ -3502,7 +3502,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1945694145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1650733696
+--- !u!114 &1650733695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3511,11 +3511,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650733693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8c3206af69734fb117eaff7b55215, type: 3}
+  m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFadeOut: 0
-  sceneController: {fileID: 1945694146}
+  _selectScene:
+    _scene: 0
+    _sceneController: {fileID: 1945694146}
   menuEffectController: {fileID: 1867573065}
   fadeOut: {fileID: 1867573064}
 --- !u!1 &1678111406
@@ -3964,8 +3966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
-  sceneController: {fileID: 1945694146}
+  isFadeOut: 1
+  _selectScene:
+    _scene: 3
+    _sceneController: {fileID: 1945694146}
   menuEffectController: {fileID: 1867573065}
   fadeOut: {fileID: 1867573064}
 --- !u!1 &1867573059

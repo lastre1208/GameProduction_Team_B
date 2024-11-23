@@ -774,11 +774,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 820341796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88df7fb0037e9f943a9a31634d5dc025, type: 3}
+  m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFadeOut: 1
-  sceneController: {fileID: 1552875808}
+  _selectScene:
+    _scene: 3
+    _sceneController: {fileID: 1552875808}
   menuEffectController: {fileID: 2013484153}
   fadeOut: {fileID: 2013484154}
 --- !u!1 &823458451
@@ -1579,8 +1581,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1484966817}
-        m_TargetAssemblyTypeName: EndButtonAction, Assembly-CSharp
-        m_MethodName: EndButtonClicked
+        m_TargetAssemblyTypeName: CustomButtonEvent, Assembly-CSharp
+        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1979,11 +1981,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1484966815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8d155c14eefb5348b74ee195fe9b122, type: 3}
+  m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFadeOut: 0
-  sceneController: {fileID: 1552875808}
+  _selectScene:
+    _scene: 4
+    _sceneController: {fileID: 1552875808}
   menuEffectController: {fileID: 2013484153}
   fadeOut: {fileID: 2013484154}
 --- !u!1 &1552875805
@@ -2614,8 +2618,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 820341798}
-        m_TargetAssemblyTypeName: StartButtonAction, Assembly-CSharp
-        m_MethodName: StartButtonClicked
+        m_TargetAssemblyTypeName: CustomButtonEvent, Assembly-CSharp
+        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
