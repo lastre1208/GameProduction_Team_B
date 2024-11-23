@@ -3,22 +3,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 //作成者：桑原
-
+//
 public class CustomButtonEventsManager : MonoBehaviour
 {
-    [SerializeField] GameObject canvas;
-    [Header("▼シーンを遷移するコンポーネント")]
-    [SerializeField] GameObject sceneController;
-
-    //private SceneControlManager sceneControlManager;
-    private MenuEffectController menuEffectController;
+    [SerializeField] MenuEffectController menuEffectController;
     private RectTransform currentSelectedButton;
-    private RectTransform currentClickedButton;
-
-    void Start()
-    {
-        menuEffectController = canvas.GetComponent<MenuEffectController>();
-    }
 
     //ボタン選択時の処理
     public void OnButtonSelected(RectTransform buttonRect)
@@ -44,6 +33,5 @@ public class CustomButtonEventsManager : MonoBehaviour
     public void OnButtonClicked(RectTransform buttonRect)
     {
         menuEffectController.ButtonClickedProcess(buttonRect);
-        currentClickedButton = buttonRect;
     }
 }

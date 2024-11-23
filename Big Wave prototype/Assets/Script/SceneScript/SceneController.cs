@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//作成者:杉山
+//シーン遷移のメソッドを呼ぶ(シーン名が変わった時の変更のコストを減らすため)
+public class SceneController : MonoBehaviour
+{
+    [Header("ゲームシーンに移行するのに必要なオブジェクト")]
+    [Tooltip("ゲームシーンに移行しない場合は入れなくても問題ない")]
+    [SerializeField] GameSceneName _gameSceneName;
+
+    public void MenuScene()//メニュー画面に移行
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
+    public void ClearScene()//クリアシーンに移行
+    {
+        SceneManager.LoadScene("ClearScene");
+    }
+
+    public void GameOverScene()//ゲームオーバーシーンに移行
+    {
+        SceneManager.LoadScene("GameoverScene");
+    }
+
+    public void GameScene_1()//ゲームシーン1へ移動
+    {
+        _gameSceneName.NextGameScene = "SampleScene";
+        SceneManager.LoadScene("ToMainLoadScene");//一度ロード画面(ToMainLoadScene)を経由させる
+    }
+
+    public void EndGame()//ゲームを終了する
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+}

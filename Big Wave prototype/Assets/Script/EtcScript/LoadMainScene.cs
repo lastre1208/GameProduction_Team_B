@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadMainScene : MonoBehaviour
 {
     [SerializeField] Slider _slider;
+    [SerializeField] GameSceneName _gameSceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class LoadMainScene : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        AsyncOperation async = SceneManager.LoadSceneAsync("SampleScene");
+        AsyncOperation async = SceneManager.LoadSceneAsync(_gameSceneName.NextGameScene);
 
         while (!async.isDone)
         {

@@ -4,15 +4,12 @@ using UnityEngine.UI;
 
 public class PlayGuideButtonEvent : MonoBehaviour
 {
-    [SerializeField] GameObject menuEffect;
-    [SerializeField] GameObject inputModule;
+    [SerializeField] MenuEffectController menuEffectController;
+    [SerializeField] PlayGuideInputModule playGuideInputModule;
     [SerializeField] RectTransform playGuideGroup;
     [SerializeField] List<Image> playGuideImages;
     [SerializeField] Image displayImage;
     [SerializeField] float slideSpeed = 5f;
-
-    private MenuEffectController menuEffectController;
-    private PlayGuideInputModule playGuideInputModule;
 
     private Vector2 offScreenPosition;
     private Vector2 onScreenPosition;
@@ -28,20 +25,12 @@ public class PlayGuideButtonEvent : MonoBehaviour
 
     private void Start()
     {
-        menuEffectController = menuEffect.GetComponent<MenuEffectController>();
-        playGuideInputModule = inputModule.GetComponent<PlayGuideInputModule>();
-
         playGuideInputModule.enabled = false;
 
         playGuideGroup.gameObject.SetActive(true);
         offScreenPosition = new Vector2(0, Screen.height);//画像収納時の座標を設定
         onScreenPosition = playGuideGroup.anchoredPosition;//画像表示時の座標を設定
         playGuideGroup.anchoredPosition = offScreenPosition;//初期位置を画面外に設定
-
-        foreach (var image in playGuideImages)//全ての画像を非表示にする
-        {
-            image.gameObject.SetActive(false);
-        }
     }
 
     private void Update()

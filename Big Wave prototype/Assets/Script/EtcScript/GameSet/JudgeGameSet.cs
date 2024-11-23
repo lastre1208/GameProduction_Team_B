@@ -9,8 +9,14 @@ public class JudgeGameSet : MonoBehaviour
 {
     public event Action<bool> GameSetAction;//trueならゲームクリア、falseならゲームオーバー
     public event Action GameSetCommonAction;//ゲーム終了時クリアでもゲームオーバーでもどちらでもやる共通イベント
-    [SerializeField] HP player_Hp;
-    [SerializeField] HP enemy_Hp;
+    [Header("ゲームクリアの演出")]
+    [SerializeField] GameClearEffect gameClearEffect;//ゲームクリアの演出
+    [Header("ゲームオーバーの演出")]
+    [SerializeField] GameOverEffect gameOverEffect;//ゲームオーバーの演出
+    [Header("プレイヤーのHP")]
+    [SerializeField] HP player_Hp;//プレイヤーのHP
+    [Header("敵のHP")]
+    [SerializeField] HP enemy_Hp;//敵のHP
 
     // Update is called once per frame
     void Update()
@@ -40,9 +46,14 @@ public class JudgeGameSet : MonoBehaviour
         GameSetCommonAction.Invoke();
         GameSetAction.Invoke(gameClear);
 
-        //シーン移行
-        string nextSceneName;
-        nextSceneName = gameClear ? "ClearScene" : "GameOverScene";
-        SceneManager.LoadScene(nextSceneName);
+        //ゲーム終了演出
+        if(gameClear)//ゲームクリア時
+        {
+            gameClearEffect.Trigger();
+        }
+        else//ゲームオーバー時
+        {
+            gameOverEffect.Trigger();
+        }
     }
 }
