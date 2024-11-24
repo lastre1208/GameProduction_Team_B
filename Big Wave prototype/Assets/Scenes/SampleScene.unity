@@ -22289,7 +22289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1294514542}
   source: {fileID: 1778482265}
-  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  clip_Critical: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  clip_Normal: {fileID: 8300000, guid: 5862928c9205849439683180dbc790e8, type: 3}
+  clip_Fever: {fileID: 8300000, guid: c24fd921ecf8d8c4699f285786bd3adf, type: 3}
   generate_AlongWay: {fileID: 1722094696}
 --- !u!114 &1722094696
 MonoBehaviour:
