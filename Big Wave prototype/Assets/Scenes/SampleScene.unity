@@ -12584,7 +12584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15837361, y: 0, z: 0, w: 0.9873793}
+  m_LocalRotation: {x: 0.15837362, y: 0, z: 0, w: 0.98737925}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14034,6 +14034,7 @@ GameObject:
   - component: {fileID: 1017912878}
   - component: {fileID: 1017912879}
   - component: {fileID: 1017912880}
+  - component: {fileID: 1017912881}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -14068,48 +14069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353484baabe99ee4ba2fcc6a95cd2892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startJumpEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  landEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814354297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   onCollisionActionEvent: {fileID: 1244729585}
 --- !u!114 &1017912877
 MonoBehaviour:
@@ -14175,6 +14134,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _judgeJumpNow: {fileID: 1017912876}
   _judgeTouchWave: {fileID: 119766255}
+--- !u!114 &1017912881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017912874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb2cbed61d93c84a9e383f3b31301c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _judgeJumpNow: {fileID: 1017912876}
+  _waterSplashEffect: {fileID: 1814354297}
+  _audioSource: {fileID: 1778482265}
+  _jumpSE: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
 --- !u!1 &1018656151
 GameObject:
   m_ObjectHideFlags: 0
@@ -18179,7 +18154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15837361, y: 0, z: 0, w: 0.9873793}
+  m_LocalRotation: {x: 0.15837362, y: 0, z: 0, w: 0.98737925}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
