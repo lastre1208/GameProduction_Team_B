@@ -2,40 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:桑原(後に杉山が改造)
+//最後に生成された建物の大きさ(BoxColliderから取得)と位置を参照して建物を生成する
 public class InstantiateBuildings : MonoBehaviour
 {
-    //☆作成者:桑原
-    //☆後に杉山が一部改良
-    [Header("生成させたいオブジェクトを入れてください")]
+    [Header("生成させたい建物(BoxColiderがついているもの限定)")]
     [SerializeField] RandomGet<GameObject> randomGetGameObject = new RandomGet<GameObject>();//登録したオブジェクトをランダムに取得する
-    //[SerializeField] GameObject buildingsPrefab;//生成する建物のプレハブ
-    [SerializeField] GameObject lastBuilding;//直前に生成された建物のプレハブ
+    [Header("直前に生成された建物(BoxColiderがついているもの限定)")]
+    [SerializeField] GameObject lastBuilding;//最後に生成された建物
+    private GameObject newBuilding;//新しく生成する建物
+    private Vector3 lastPosition;//最後に生成された位置
+    private float minimumNecessaryDistanceToGenerate;//生成するのに最低限必要な距離
 
-    private Vector3 lastPosition;
-    private float building_sizeX;//建物のx軸方向の大きさ
-    private float building_sizeZ;//建物のz軸方向の大きさ
-
-    // Start is called before the first frame update
     void Start()
     {
-        if (randomGetGameObject != null)
-        {
-            BoxCollider collider = randomGetGameObject[0].GetComponent<BoxCollider>();
-
-            if (collider != null)
-            {
-                building_sizeX = collider.size.x;
-                building_sizeZ = collider.size.z;
-            }
-        }
-
-        if (lastBuilding != null)
-        {
-            lastPosition = lastBuilding.transform.position;
-        }
+        DecideMinimumNecessaryDistanceToGenerate();//生成するのに最低限必要な距離を求める
+        lastPosition = lastBuilding.transform.position;//最後に生成された位置を記録
     }
 
-    // Update is called once per frame
     void Update()
     {
         InstantiateBuildingsPrefab();//建物の生成
@@ -43,19 +27,56 @@ public class InstantiateBuildings : MonoBehaviour
 
     void InstantiateBuildingsPrefab()//建物の生成
     {
-        Vector3 currentPosition = transform.position;
-        Vector3 direction = (currentPosition - lastPosition).normalized; //前回の位置から現在の位置への進行方向ベクトル
-        
-        float minGenerationDistance = Mathf.Max(building_sizeX, building_sizeZ);//建物のサイズに応じた生成間隔の設定
+        //現在の位置と最後に生成された位置との距離を測る
+        Vector3 currentPos = transform.position;
+        float distance = Vector3.Distance(currentPos, lastPosition);
 
-        if (Vector3.Distance(currentPosition, lastPosition) > minGenerationDistance)//指定された距離以上離れたときにのみ生成
-        {            
-            Vector3 newPosition = lastPosition + direction * minGenerationDistance;//進行方向に沿った新しい位置の計算
-            
-            GameObject newBuilding = Instantiate(randomGetGameObject.Get(), newPosition, transform.rotation);//新しい建物を生成
-            newBuilding.transform.Rotate(0,Random.Range(0, 4)*90,0);
+        //距離と生成するのに最低限必要な距離を比較して十分に距離が離れていれば建物を生成
+        if (distance > minimumNecessaryDistanceToGenerate)
+        {
+            lastBuilding = GenerateNewBuilding((currentPos - lastPosition).normalized);//建物の生成処理
 
-            lastPosition = newPosition;//最後に生成した建物の位置を更新
+            lastPosition = lastBuilding.transform.position;
+
+            DecideMinimumNecessaryDistanceToGenerate();//生成するのに最低限必要な距離を求める
         }
+    }
+
+    //建物の生成処理、directionは前回生成した位置から現在の位置への方向ベクトル
+    //最後に生成された建物を返す(BoxCollider型で)
+    GameObject GenerateNewBuilding(Vector3 direction)
+    {
+        //進行方向に沿って新しい建物を生成する位置を計算
+        Vector3 newPosition = lastPosition + direction * minimumNecessaryDistanceToGenerate;
+        //生成
+        GameObject newBuildingObject = Instantiate(newBuilding.gameObject, newPosition, transform.rotation);
+        //角度を調整？(ここがもともとマジックナンバーが使われていて意図がよく分からなかったby塩)
+        newBuildingObject.transform.Rotate(0, Random.Range(0, 4) * 90, 0);
+
+        return newBuildingObject;
+    }
+
+    //生成するのに最低限必要な距離を求める
+    void DecideMinimumNecessaryDistanceToGenerate()
+    {
+        newBuilding = randomGetGameObject.Get();//次に生成する建物を決める
+
+        //最後に生成された建物の大きさを測る
+        BoxCollider lastBuildingCollider = lastBuilding.GetComponent<BoxCollider>();
+        if (lastBuildingCollider == null) Debug.Log("BoxColliderがついていません！");
+
+        Vector3 lastBuildingSize = lastBuildingCollider.size;
+
+        //次に生成する建物の大きさを測る
+        BoxCollider newBuildingCollider=newBuilding.GetComponent<BoxCollider>();
+        if (newBuildingCollider == null) Debug.Log("BoxColliderがついていません！");
+
+        Vector3 newBuildingSize = newBuildingCollider.size;
+
+        //生成条件距離を決める(最後の建物の大きさ/2+次に生成する建物の大きさ/2)
+        //この時大きさは縦(z)と横(x)で大きい方を扱う(高さ(y)は測らない)
+        float last_d2 = Mathf.Max(lastBuildingSize.x, lastBuildingSize.z) / 2;//最後の建物の大きさ/2
+        float new_d2 = Mathf.Max(newBuildingSize.x, newBuildingSize.z) / 2;//次に生成する建物の大きさ/2
+        minimumNecessaryDistanceToGenerate = last_d2 + new_d2;
     }
 }

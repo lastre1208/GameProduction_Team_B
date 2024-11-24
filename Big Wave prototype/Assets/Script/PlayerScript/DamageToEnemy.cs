@@ -26,7 +26,7 @@ public class DamageToEnemy : MonoBehaviour
 
     void Start()
     {
-        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponentInChildren<HP>();
         generate_AlongWay.CriticalTrickEffect.LandAction += CauseDamage;
         generate_AlongWay.NormalTrickEffect.LandAction += CauseDamage;
         generate_AlongWay.CriticalFeverTrickEffect.LandAction += CauseDamage;

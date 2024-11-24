@@ -17,18 +17,14 @@ public class InstantiateWave : MonoBehaviour
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
     [Header("LineInstantiate")]
-   [SerializeField] LineInstantiate m_lineInstantiate;
-   
+    [SerializeField] LineInstantiate m_lineInstantiate;
+    [Header("ƒQ[ƒ€ŠJn‚ğ”»’f‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg")]
+    [SerializeField] JudgeGameStart judgeGameStart;
     private float m_waveTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
-    JudgeGameStart judgeGameStart;
-    //LineInstantiate line;
+    
 
-    // Start is called before the first frame update
     void Start()
     {
-        //line = GameObject.FindWithTag("LineManager").GetComponent<LineInstantiate>();
-        judgeGameStart=GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
-       
         //‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚é‚½‚ß‚É”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğ‚»‚Ì•ª‚¸‚ç‚·
         m_waveTime = 0 - (firstWaveInterval - waveInterval);
     }

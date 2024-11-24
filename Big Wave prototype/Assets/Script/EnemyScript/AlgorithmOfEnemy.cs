@@ -8,21 +8,19 @@ public class AlgorithmOfEnemy : MonoBehaviour
 {
     [Header("最初の行動パターン")]
     [SerializeField] ActionPattern firstActionPattern;//最初の行動パターン
+    [Header("行動選択")]
+    [SerializeField] SelectActionOfEnemyTypeBase selectAction;//行動選択
+    [Header("ゲーム開始を判断するコンポーネント")]
+    [SerializeField] JudgeGameStart judgeGameStart;
     private float currentActionTime = 0;//現在の行動時間
     private float actionTime;//行動時間、現在の行動時間(currentActionTime)がこれ以上になったら行動を変更する
     private ActionPattern currentActionPattern;//現在の行動パターン
-    SelectActionOfEnemy selectAction;
-    JudgeGameStart judgeGameStart;
-    // Start is called before the first frame update
+    
     void Start()
     {
-        selectAction=GetComponent<SelectActionOfEnemy>();
-        judgeGameStart = GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
-
         ChangeAction(firstActionPattern);//最初の行動を設定
     }
 
-    // Update is called once per frame
     void Update()
     {
         Algorithm();
@@ -76,8 +74,6 @@ public class AlgorithmOfEnemy : MonoBehaviour
                 nextActionPattern.Action[i].OnEnter(null);
             }
         }
-
-        
 
         //現在の行動を次の行動に変更
         currentActionPattern = nextActionPattern;

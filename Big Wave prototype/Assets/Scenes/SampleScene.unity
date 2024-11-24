@@ -759,15 +759,8 @@ GameObject:
   - component: {fileID: 98503821}
   - component: {fileID: 98503820}
   - component: {fileID: 98503819}
-  - component: {fileID: 98503836}
-  - component: {fileID: 98503826}
-  - component: {fileID: 98503835}
-  - component: {fileID: 98503834}
-  - component: {fileID: 98503833}
-  - component: {fileID: 98503837}
   - component: {fileID: 98503831}
   - component: {fileID: 98503830}
-  - component: {fileID: 98503838}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -845,26 +838,9 @@ Transform:
   - {fileID: 1565991088}
   - {fileID: 72910807}
   - {fileID: 238016000}
+  - {fileID: 1795400985}
   m_Father: {fileID: 1923540439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &98503826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabc5d4fab6e94d49b48f7eecaf7a2c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instantiateWavePos: {fileID: 1318383700}
-  wavePrefab: {fileID: 860120198557006581, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
-  waveInterval: 0.1
-  firstWaveInterval: 0.8
-  gamePos: {fileID: 1923540436}
-  m_lineInstantiate: {fileID: 843615354}
 --- !u!145 &98503830
 SpringJoint:
   m_ObjectHideFlags: 0
@@ -916,163 +892,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &98503833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f72c56e713e324fa4afc420dc646a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forms:
-  - elements:
-    - element:
-        action:
-        - {fileID: 1507679698}
-        actionTime: 5
-      probability: 40
-    - element:
-        action: []
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 1507679698}
-        - {fileID: 1343859083}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 1507679698}
-        - {fileID: 1415608679}
-        actionTime: 1.5
-      probability: 10
-    - element:
-        action:
-        - {fileID: 1343859083}
-        actionTime: 1.5
-      probability: 15
-    - element:
-        action:
-        - {fileID: 1415608679}
-        actionTime: 1.5
-      probability: 15
-    - element:
-        action:
-        - {fileID: 456875094}
-        actionTime: 1.5
-      probability: 10
-  - elements:
-    - element:
-        action:
-        - {fileID: 1931415814}
-        actionTime: 3
-      probability: 20
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 1084221215}
-        actionTime: 1
-      probability: 52
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 1562493071}
-        actionTime: 2
-      probability: 25
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 996687316}
-        actionTime: 5
-      probability: 3
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 143768134}
-        actionTime: 6
-      probability: 5
-  formOfEnemy: {fileID: 98503837}
---- !u!114 &98503834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c166104b17d09f45ae265cc1a78c2e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstActionPattern:
-    action:
-    - {fileID: 1507679698}
-    actionTime: 5
---- !u!114 &98503835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabc5d4fab6e94d49b48f7eecaf7a2c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instantiateWavePos: {fileID: 1658198234}
-  wavePrefab: {fileID: 1549828567137004416, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
-  waveInterval: 0.03
-  firstWaveInterval: 0.8
-  gamePos: {fileID: 1923540436}
-  m_lineInstantiate: {fileID: 101605285}
---- !u!114 &98503836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpMax: 12000
---- !u!114 &98503837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a35326c25ce34a4da1b58f7fcae802e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy_Hp: {fileID: 98503836}
-  formHp:
-  - 12000
-  - 6000
---- !u!114 &98503838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98503817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a7f36b39e336845be1ee1532645c4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1294514542}
 --- !u!1 &101605284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,7 +2000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164b3d5072aaf0f4db2397bff0541aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_bullet
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
@@ -5876,6 +5695,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time_UI: {fileID: 1513945115}
+--- !u!1 &418087149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418087150}
+  - component: {fileID: 418087151}
+  m_Layer: 0
+  m_Name: Status_Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418087150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418087149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1795400985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418087151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418087149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpMax: 12000
 --- !u!1 &432670862
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,7 +6017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_bullet
   shotType: {fileID: 456875093}
   actionEffect:
@@ -13901,7 +13765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_bullet
   shotType: {fileID: 996687315}
   actionEffect:
@@ -15465,7 +15329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_Slash_tate
   shotType: {fileID: 1084221216}
   actionEffect:
@@ -16524,6 +16388,77 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e72e37a53bf334db77fe06d8437d99, type: 3}
+--- !u!1 &1225758137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225758138}
+  - component: {fileID: 1225758140}
+  - component: {fileID: 1225758139}
+  m_Layer: 0
+  m_Name: InstantiateWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225758138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225758137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1795400985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225758139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225758137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabc5d4fab6e94d49b48f7eecaf7a2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateWavePos: {fileID: 1658198234}
+  wavePrefab: {fileID: 1549828567137004416, guid: ab33dedf95ab1d34f97a3a5dca30a42e, type: 3}
+  waveInterval: 0.03
+  firstWaveInterval: 0.8
+  gamePos: {fileID: 1923540436}
+  m_lineInstantiate: {fileID: 101605285}
+  judgeGameStart: {fileID: 1204178117}
+--- !u!114 &1225758140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225758137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabc5d4fab6e94d49b48f7eecaf7a2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiateWavePos: {fileID: 1318383700}
+  wavePrefab: {fileID: 860120198557006581, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
+  waveInterval: 0.1
+  firstWaveInterval: 0.8
+  gamePos: {fileID: 1923540436}
+  m_lineInstantiate: {fileID: 843615354}
+  judgeGameStart: {fileID: 1204178117}
 --- !u!1 &1229931524
 GameObject:
   m_ObjectHideFlags: 0
@@ -17292,7 +17227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1777186614}
-  enemy: {fileID: 98503836}
+  enemy: {fileID: 418087151}
   debug: {fileID: 854034728}
   actionPattern_a:
     action:
@@ -17306,7 +17241,7 @@ MonoBehaviour:
     action:
     - {fileID: 0}
     actionTime: 4
-  algorithm: {fileID: 98503834}
+  algorithm: {fileID: 1852493891}
 --- !u!114 &1244729584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18607,7 +18542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_bullet
   shotType: {fileID: 1343859084}
   actionEffect:
@@ -19185,7 +19120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_bullet
   shotType: {fileID: 1415608680}
   actionEffect:
@@ -20455,7 +20390,7 @@ MonoBehaviour:
   gameClearEffect: {fileID: 2004139850}
   gameOverEffect: {fileID: 108027590}
   player_Hp: {fileID: 1777186614}
-  enemy_Hp: {fileID: 98503836}
+  enemy_Hp: {fileID: 418087151}
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0
@@ -20927,7 +20862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 98503838}
+  animController: {fileID: 2066814295}
   animName: Attack_Slash_yoko
   shotType: {fileID: 1562493072}
   actionEffect:
@@ -28219,6 +28154,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793532974}
   m_CullTransparentMesh: 1
+--- !u!1 &1795400984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795400985}
+  m_Layer: 0
+  m_Name: Component(Category)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795400985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795400984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 418087150}
+  - {fileID: 1225758138}
+  - {fileID: 1852493890}
+  - {fileID: 2066814294}
+  m_Father: {fileID: 98503821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1800020627 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755090226515748358, guid: ae657e1e8bd6bb04f88607f578ccf59f, type: 3}
@@ -28721,6 +28691,155 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
+--- !u!1 &1852493889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852493890}
+  - component: {fileID: 1852493893}
+  - component: {fileID: 1852493892}
+  - component: {fileID: 1852493891}
+  m_Layer: 0
+  m_Name: Action_Algorithm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852493890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1795400985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852493891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c166104b17d09f45ae265cc1a78c2e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstActionPattern:
+    action:
+    - {fileID: 1507679698}
+    actionTime: 5
+  selectAction: {fileID: 1852493892}
+  judgeGameStart: {fileID: 1204178117}
+--- !u!114 &1852493892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f72c56e713e324fa4afc420dc646a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forms:
+  - elements:
+    - element:
+        action:
+        - {fileID: 1507679698}
+        actionTime: 5
+      probability: 40
+    - element:
+        action: []
+        actionTime: 3
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1507679698}
+        - {fileID: 1343859083}
+        actionTime: 3
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1507679698}
+        - {fileID: 1415608679}
+        actionTime: 1.5
+      probability: 10
+    - element:
+        action:
+        - {fileID: 1343859083}
+        actionTime: 1.5
+      probability: 15
+    - element:
+        action:
+        - {fileID: 1415608679}
+        actionTime: 1.5
+      probability: 15
+    - element:
+        action:
+        - {fileID: 456875094}
+        actionTime: 1.5
+      probability: 10
+  - elements:
+    - element:
+        action:
+        - {fileID: 1931415814}
+        actionTime: 3
+      probability: 20
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 1084221215}
+        actionTime: 1
+      probability: 52
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 1562493071}
+        actionTime: 2
+      probability: 25
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 996687316}
+        actionTime: 5
+      probability: 3
+    - element:
+        action:
+        - {fileID: 1931415814}
+        - {fileID: 143768134}
+        actionTime: 6
+      probability: 5
+  formOfEnemy: {fileID: 1852493893}
+--- !u!114 &1852493893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a35326c25ce34a4da1b58f7fcae802e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_Hp: {fileID: 418087151}
+  formHp:
+  - 12000
+  - 6000
 --- !u!1001 &1864928960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30301,7 +30420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpGauge: {fileID: 589254838}
-  objectDisplayHp: {fileID: 98503836}
+  objectDisplayHp: {fileID: 418087151}
 --- !u!1 &2057826623
 GameObject:
   m_ObjectHideFlags: 0
@@ -30443,6 +30562,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 804732948}
   m_LocalEulerAnglesHint: {x: -57.75, y: 90, z: 0}
+--- !u!1 &2066814293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066814294}
+  - component: {fileID: 2066814295}
+  m_Layer: 0
+  m_Name: Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066814294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066814293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1795400985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066814295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066814293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a7f36b39e336845be1ee1532645c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1294514542}
 --- !u!1001 &2069381230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40360,7 +40524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Hp: {fileID: 1777186614}
-  enemy_Hp: {fileID: 98503836}
+  enemy_Hp: {fileID: 418087151}
   startPoint: {fileID: 919132148156821028}
   endPoint: {fileID: 919132148536887225}
   vertices:
