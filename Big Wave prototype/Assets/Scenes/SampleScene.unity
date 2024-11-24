@@ -11490,7 +11490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15837362, y: 0, z: 0, w: 0.98737925}
+  m_LocalRotation: {x: 0.15837361, y: 0, z: 0, w: 0.9873793}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16511,7 +16511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308991645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15837362, y: 0, z: 0, w: 0.98737925}
+  m_LocalRotation: {x: 0.15837361, y: 0, z: 0, w: 0.9873793}
   m_LocalPosition: {x: 0, y: 9.26, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20288,7 +20288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1294514542}
   source: {fileID: 1778482265}
-  clip: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  clip_Critical: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
+  clip_Normal: {fileID: 8300000, guid: 5862928c9205849439683180dbc790e8, type: 3}
+  clip_Fever: {fileID: 8300000, guid: c24fd921ecf8d8c4699f285786bd3adf, type: 3}
   generate_AlongWay: {fileID: 1722094696}
 --- !u!114 &1722094696
 MonoBehaviour:
