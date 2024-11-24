@@ -22,15 +22,13 @@ public class JumpPower : MonoBehaviour
         get
         {
             float gap=_powerMax - _powerMin;//最大ジャンプ力と最小ジャンプ力の差
-
             return _powerMin+gap*_repetitiveValue.Value;
         }
     }
 
-    public float Ratio//ジャンプ力の割合(最小なら0、最大なら1)
-    {
-        get { return _repetitiveValue.Value; }
-    }
+    public float Ratio { get { return _repetitiveValue.Value; } }//ジャンプ力の割合(最小なら0、最大なら1)
+
+    public bool ChargeNow { get { return _judgeJumpable.Jumpable && _controllerOfJump.Pushing; } }//ジャンプ力チャージ条件、ジャンプできる時かつコントローラのジャンプボタンを押し続けている時
 
     public void ResetJumpPower()//ジャンプ力のリセット、ジャンプ(操作)直後もしくはジャンプが出来なくなった直後にする
     {
@@ -40,6 +38,7 @@ public class JumpPower : MonoBehaviour
     void Start()
     {
         _repetitiveValue.ResetCycle();
+        _judgeJumpable.ToNotJumpable += ResetJumpPower;
     }
 
     void Update()
@@ -47,12 +46,9 @@ public class JumpPower : MonoBehaviour
         Charge();
     }
 
-    void Charge()
+    void Charge()//ジャンプ力のチャージ
     {
-        //ジャンプ力チャージ条件はジャンプできる時かつコントローラのジャンプボタンを押し続けている時
-        bool chargeNow = _judgeJumpable.Jumpable && _controllerOfJump.Pushing;
-
-        if (chargeNow)
+        if (ChargeNow)
         {
             _repetitiveValue.UpdateValue();
         }    
