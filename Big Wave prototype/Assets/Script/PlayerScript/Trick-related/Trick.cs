@@ -26,7 +26,7 @@ public partial class Trick : MonoBehaviour
     
     void Start()
     {
-        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponent<HP>();
+        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponentInChildren<HP>();
     }
 
     //ƒgƒŠƒbƒN”­“®
