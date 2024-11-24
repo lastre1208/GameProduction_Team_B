@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 //作成者:杉山
 //現在ジャンプしているかの判定
 public class JudgeJumpNow : MonoBehaviour
 {
-    [Header("ジャンプし始めの時に呼ぶイベント")]
-    [SerializeField] UnityEvent startJumpEvent;
-    [Header("着地時に呼ぶイベント")]
-    [SerializeField] UnityEvent landEvent;
+    public event Action<bool> SwitchJumpNowAction;//ジャンプ開始直後にtrue、着地直後にfalseを入れてそれぞれ一回だけ呼び出す
     [SerializeField] OnCollisionActionEvent onCollisionActionEvent;
     private bool jumpNow = false;//現在ジャンプしているか
 
@@ -24,10 +22,10 @@ public class JudgeJumpNow : MonoBehaviour
         return jumpNow;
     }
 
-    public void StartJump()//現在のジャンプしている状態にする
+    public void StartJump()//ジャンプ開始
     {
         jumpNow = true;
-        startJumpEvent.Invoke();
+        SwitchJumpNowAction?.Invoke(true);
     }
 
     public void Landing(Collision collision)//着地
@@ -35,7 +33,7 @@ public class JudgeJumpNow : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))//触れているものが地面である
         {
             jumpNow = false;//現在ジャンプしているかの状態を変える
-            landEvent.Invoke();
+            SwitchJumpNowAction?.Invoke(false);
         }
     }
 }
