@@ -1013,6 +1013,8 @@ MonoBehaviour:
     action:
     - {fileID: 1507679698}
     actionTime: 5
+  selectAction: {fileID: 98503833}
+  judgeGameStart: {fileID: 1204178117}
 --- !u!114 &98503835
 MonoBehaviour:
   m_ObjectHideFlags: 0

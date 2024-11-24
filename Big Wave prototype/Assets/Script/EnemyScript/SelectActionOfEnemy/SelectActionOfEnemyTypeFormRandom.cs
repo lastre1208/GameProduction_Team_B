@@ -3,28 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//行動パターンを選んで返す
-
-[System.Serializable]
-public class ActionPattern//行動とその行動確率とその行動の次に行動を始めるまでの時間
-{
-    [Header("▼行動")]
-    [SerializeField] EnemyActionTypeBase[] action;//行動
-    [Header("▼行動時間")]
-    [SerializeField] float actionTime;//行動時間
-
-    public EnemyActionTypeBase[] Action
-    {
-        get { return action; }
-    }
-
-    public float ActionTime
-    {
-        get { return actionTime; }
-    }
-}
-
-public class SelectActionOfEnemy : MonoBehaviour
+//形態ごとにランダムで行動パターンを選ぶ
+public class SelectActionOfEnemyTypeFormRandom : SelectActionOfEnemyTypeBase
 {
     [Header("▼敵の形態ごとの行動")]
     [SerializeField] ProbabilityGet<ActionPattern>[] forms;//形態ごとの行動パターン
@@ -40,7 +20,7 @@ public class SelectActionOfEnemy : MonoBehaviour
         }
     }
 
-    public ActionPattern SelectAction()//行動変更
+    public override ActionPattern SelectAction()//次にやる行動を返す
     {
         int formNum = formOfEnemy.CurrentForm();//現在第何形態か、formsの要素番号値なのでに入れる要素例えば第二形態なら1が入る
 
