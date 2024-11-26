@@ -28816,7 +28816,7 @@ MonoBehaviour:
         - {fileID: 1931415814}
         - {fileID: 996687316}
         actionTime: 5
-      probability: 3
+      probability: 300
     - element:
         action:
         - {fileID: 1931415814}
