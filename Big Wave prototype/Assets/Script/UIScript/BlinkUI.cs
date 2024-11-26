@@ -17,8 +17,12 @@ public class BlinkUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Blink_UI();
+    }
+    void Blink_UI()
+    {
         time += Time.deltaTime;
-        if (time > cycle&&!jump.reached)
+        if (time > cycle && !jump.reached)
         {
             time = 0;
             T_Color.enabled = !T_Color.enabled;
@@ -28,4 +32,5 @@ public class BlinkUI : MonoBehaviour
             T_Color.enabled = true;
         }
     }
+   
 }
