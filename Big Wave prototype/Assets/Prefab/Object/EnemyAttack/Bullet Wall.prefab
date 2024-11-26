@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9121547420439137316}
   - component: {fileID: 4357502305593800692}
+  - component: {fileID: 2211245058127972275}
   - component: {fileID: -825754274727997070}
   m_Layer: 0
   m_Name: Bullet Wall
@@ -46,12 +47,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a260f14e78e7e02438606d5aad7173fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 80
+  destroyBullet: {fileID: 2211245058127972275}
+  playHitAudio:
+    audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
+    audioSource: {fileID: -825754274727997070}
+  damageToPlayer:
+    damage: 80
+  hitAnim_Player:
+    damageParaName: Damage
+  onTriggerEvent: {fileID: 1631872520037522334}
+--- !u!114 &2211245058127972275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281392124907197981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b95fd9b45416348b1065812736d19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ifHitDestroy: 0
   destroyObject: {fileID: 5728387354895952021}
-  audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
-  audioSource: {fileID: -825754274727997070}
-  onTriggerEvent: {fileID: 1631872520037522334}
 --- !u!82 &-825754274727997070
 AudioSource:
   m_ObjectHideFlags: 0
