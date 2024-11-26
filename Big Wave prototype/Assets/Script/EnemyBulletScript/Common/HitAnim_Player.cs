@@ -7,14 +7,10 @@ using UnityEngine;
 [System.Serializable]
 public class HitAnim_Player
 {
-    [Header("ダメージ条件の名前")]
-    [SerializeField] string damageParaName;//ダメージ条件の名前
-
-    public void DamageMotionTrigger(Collider p)//プレイヤーのダメージモーション
+    public void DamageMotionTrigger(Collider p)//プレイヤーのダメージモーションを再生
     {
-        Animator playerAnimator;
-        playerAnimator=p.GetComponentInChildren<Animator>();
-
-        playerAnimator.SetTrigger(damageParaName);
+        DamageMotion damageMotion_Player;
+        damageMotion_Player=p.GetComponentInChildren<DamageMotion>();
+        damageMotion_Player.DamageTrigger();
     }
 }
