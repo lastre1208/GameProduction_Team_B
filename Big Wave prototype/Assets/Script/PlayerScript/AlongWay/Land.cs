@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //着弾時の効果音と敵の被ダメモーションのセットの処理を一時的に避難させてます
 public class Land : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] DamageMotion damageMotion_Player;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip clip_Critical;
     [SerializeField] AudioClip clip_Normal;
@@ -27,13 +27,12 @@ public class Land : MonoBehaviour
     }
     public void LandEffect()//クリティカル時
     {
-        
-        animator.SetTrigger("Damage");
+        damageMotion_Player.DamageTrigger();
         source.PlayOneShot(clip_Critical);
     }
     public void LandEffect_Fever()//フィーバー時
     {
-        animator.SetTrigger("Damage");
+        damageMotion_Player.DamageTrigger();
         source.PlayOneShot(clip_Fever);
     }
    

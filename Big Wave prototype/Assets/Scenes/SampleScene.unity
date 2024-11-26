@@ -12737,6 +12737,7 @@ GameObject:
   - component: {fileID: 963624348}
   - component: {fileID: 963624350}
   - component: {fileID: 963624349}
+  - component: {fileID: 963624351}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -12788,6 +12789,22 @@ MonoBehaviour:
   animator: {fileID: 1450173098}
   controllerOfJump: {fileID: 1034766457}
   judgeJumpable: {fileID: 1017912880}
+--- !u!114 &963624351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963624347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286abad85db7ba48a900b842f50a4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1450173098}
+  damageTriggerName: Damage
+  damageBoolName: DamageBool
+  cancelDamagedTime: 0.2
 --- !u!224 &964903230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755090226515748358, guid: ae657e1e8bd6bb04f88607f578ccf59f, type: 3}
@@ -22342,7 +22359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfffe54b36bc8c458a333f4f338b4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1294514542}
+  damageMotion_Player: {fileID: 2066814296}
   source: {fileID: 1778482265}
   clip_Critical: {fileID: 8300000, guid: c7be4eecf233ec34a9c19f3bf668325e, type: 3}
   clip_Normal: {fileID: 8300000, guid: 5862928c9205849439683180dbc790e8, type: 3}
@@ -30723,6 +30740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066814294}
   - component: {fileID: 2066814295}
+  - component: {fileID: 2066814296}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -30758,6 +30776,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1294514542}
+--- !u!114 &2066814296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066814293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286abad85db7ba48a900b842f50a4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1294514542}
+  damageTriggerName: Damage
+  damageBoolName: DamageBool
+  cancelDamagedTime: 0.2
 --- !u!1001 &2069381230
 PrefabInstance:
   m_ObjectHideFlags: 0
