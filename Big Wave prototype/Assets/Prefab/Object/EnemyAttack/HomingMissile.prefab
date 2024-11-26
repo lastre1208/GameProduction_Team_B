@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 7849763675342871162}
   - component: {fileID: 362798383252631972}
   - component: {fileID: 3892380534150841544}
+  - component: {fileID: 470737337902373482}
   - component: {fileID: 1818647858197290469}
   m_Layer: 0
   m_Name: HomingMissile
@@ -650,12 +651,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a260f14e78e7e02438606d5aad7173fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  destroyBullet: {fileID: 470737337902373482}
+  playHitAudio:
+    audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
+    audioSource: {fileID: 1818647858197290469}
+  damageToPlayer:
+    damage: 20
+  hitAnim_Player:
+    damageParaName: Damage
+  onTriggerEvent: {fileID: 7853385620687972691}
+--- !u!114 &470737337902373482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613377540000614300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b95fd9b45416348b1065812736d19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ifHitDestroy: 1
   destroyObject: {fileID: 2689588328361841874}
-  audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
-  audioSource: {fileID: 1818647858197290469}
-  onTriggerEvent: {fileID: 7853385620687972691}
 --- !u!82 &1818647858197290469
 AudioSource:
   m_ObjectHideFlags: 0
