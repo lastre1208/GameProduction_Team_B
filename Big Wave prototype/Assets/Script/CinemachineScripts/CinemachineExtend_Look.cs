@@ -32,9 +32,6 @@ public class CinemachineExtend_Look : CinemachineExtension
         set { z = value; }
     }
 
-    [Header("これに入れたオブジェクトとy軸のみ常に同じ方向を向くようになる")]
-    [SerializeField] Transform lookObj;
-
     // カメラワーク処理
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
