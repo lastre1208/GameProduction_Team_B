@@ -5394,7 +5394,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.6000302, y: 0.14000025, z: -0.0000010850595}
+  m_ConnectedAnchor: {x: 0.24000148, y: 0.14000016, z: -3.6200085}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -12440,7 +12440,7 @@ GameObject:
   - component: {fileID: 963194233}
   - component: {fileID: 963194234}
   - component: {fileID: 963194235}
-  - component: {fileID: 963194236}
+  - component: {fileID: 963194237}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12765,7 +12765,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &963194236
+--- !u!114 &963194237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12774,13 +12774,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273c1f2327a4f614cb5b146b2b408b90, type: 3}
+  m_Script: {fileID: 11500000, guid: 5974b294b5f963242bc6e0baf7ef965e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  underCamera: {fileID: 1308991646}
-  range:
+  _underCamera: {fileID: 1308991646}
+  _upCamera: {fileID: 993304512}
+  _range_switchCamera:
     deadZoneHeight: 10
-  target: {fileID: 1244729529}
+  _target: {fileID: 1244729529}
 --- !u!1 &963624347
 GameObject:
   m_ObjectHideFlags: 0
@@ -13572,7 +13573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: 0.000000012168196, z: -0.0000000040496624, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13630,7 +13631,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 90
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 402787167}
   m_Follow: {fileID: 1923540439}
@@ -18265,7 +18266,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 15
+  m_Priority: 100
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1923540439}
   m_Follow: {fileID: 1923540439}
@@ -38108,7 +38109,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -12, y: 3.98, z: 50}
+  m_ConnectedAnchor: {x: 0.4, y: 3.98, z: 37.964}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:

@@ -1,29 +1,11 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CinemachineTest : MonoBehaviour
+//作成者:杉山
+//ゲーム中のカメラの切り替え条件
+public partial class CinemachineGameCamera
 {
-    [SerializeField] CinemachineVirtualCamera underCamera;
-    [SerializeField] Range range;
-    [SerializeField] Transform target;
-
-    void Update()
-    {
-        range.UpdateOutOfRange(target.localPosition);
-
-        if (range.GoOut)//範囲外に出た瞬間
-        {
-            underCamera.Priority = 8;
-        }
-        //範囲内に入った瞬間
-        if (range.GoIn)
-        {
-            underCamera.Priority = 15;
-        }
-    }
-
     [System.Serializable]
     class Range//範囲
     {
@@ -32,8 +14,8 @@ public class CinemachineTest : MonoBehaviour
         bool goOut = false;//範囲外に出た瞬間
         bool goIn = false;//範囲内に入った瞬間
 
-        public bool GoOut { get { return goOut; } }
-        public bool GoIn { get { return goIn; } }
+        public bool GoOut { get { return goOut; } }//範囲外に出た瞬間
+        public bool GoIn { get { return goIn; } }//範囲内に入った瞬間
 
         Range()//コンストラクタ
         {
