@@ -4902,9 +4902,7 @@ MonoBehaviour:
     criticalButtonDisplay: {fileID: 2007097937}
   - buttonNum: 5
     criticalButtonDisplay: {fileID: 652273326}
-  Guide:
-    Delay: 0.85
-    MoveSpeed: 0
+  delay: 0.25
   judgeJumpNow: {fileID: 1017912876}
   player_TrickPoint: {fileID: 1777186615}
   critical: {fileID: 1438732579}
