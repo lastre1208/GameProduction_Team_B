@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-//作成者:1杉山
+//作成者:杉山
 //カメラが指定の範囲外に出たらターゲットを追従し始める
 public partial class CameraChaseTargetOutOfRange : MonoBehaviour
 {
