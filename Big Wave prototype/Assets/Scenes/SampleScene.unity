@@ -5326,7 +5326,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_Targets:
   - target: {fileID: 1244729529}
-    weight: 1
+    weight: 3
     radius: 1
   - target: {fileID: 1838587516}
     weight: 1
@@ -5340,7 +5340,7 @@ Transform:
   m_GameObject: {fileID: 402787165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7660992, y: -0.798724, z: 4.418983}
+  m_LocalPosition: {x: 0.7660992, y: -0.5011953, z: 1.8070408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5394,7 +5394,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.6000302, y: 0.14000025, z: -0.0000010850595}
+  m_ConnectedAnchor: {x: 0.24000148, y: 0.14000016, z: -3.6200085}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -12440,7 +12440,7 @@ GameObject:
   - component: {fileID: 963194233}
   - component: {fileID: 963194234}
   - component: {fileID: 963194235}
-  - component: {fileID: 963194236}
+  - component: {fileID: 963194237}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12765,7 +12765,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &963194236
+--- !u!114 &963194237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12774,13 +12774,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273c1f2327a4f614cb5b146b2b408b90, type: 3}
+  m_Script: {fileID: 11500000, guid: 5974b294b5f963242bc6e0baf7ef965e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  underCamera: {fileID: 1308991646}
-  range:
+  _underCamera: {fileID: 1308991646}
+  _upCamera: {fileID: 993304512}
+  _range_switchCamera:
     deadZoneHeight: 10
-  target: {fileID: 1244729529}
+  _target: {fileID: 1244729529}
 --- !u!1 &963624347
 GameObject:
   m_ObjectHideFlags: 0
@@ -13572,8 +13573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2454564, y: -0.000000008339382, z: 0.0000000021115525, w: 0.9694076}
-  m_LocalPosition: {x: 0.7660992, y: 9.862456, z: -8.760218}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13630,7 +13631,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 90
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 402787167}
   m_Follow: {fileID: 1923540439}
@@ -18265,7 +18266,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 15
+  m_Priority: 100
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1923540439}
   m_Follow: {fileID: 1923540439}
@@ -21332,14 +21333,14 @@ MonoBehaviour:
   m_CenterOnActivate: 1
   m_GroupFramingSize: 0.6
   m_FramingMode: 2
-  m_FrameDamping: 1.5
-  m_AdjustmentMode: 1
+  m_FrameDamping: 1
+  m_AdjustmentMode: 2
   m_MaxDollyIn: 5000
   m_MaxDollyOut: 5000
-  m_MinimumDistance: 9.04
-  m_MaximumDistance: 18
-  m_MinimumFOV: 3
-  m_MaximumFOV: 60
+  m_MinimumDistance: 6.04
+  m_MaximumDistance: 6.83
+  m_MinimumFOV: 55
+  m_MaximumFOV: 86
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &1579827413
@@ -21355,7 +21356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 11.3, z: -11.73}
+  m_FollowOffset: {x: 0, y: 14.44, z: -11.73}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -29076,7 +29077,7 @@ Transform:
   m_GameObject: {fileID: 1838587515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.8}
+  m_LocalPosition: {x: 0, y: 0, z: 6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38108,7 +38109,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -12, y: 3.98, z: 50}
+  m_ConnectedAnchor: {x: 0.4, y: 3.98, z: 37.964}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
