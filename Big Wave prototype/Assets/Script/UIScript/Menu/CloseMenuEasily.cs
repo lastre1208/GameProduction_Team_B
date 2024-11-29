@@ -7,8 +7,8 @@ using UnityEngine.UI;
 //作成者:杉山
 //簡単にメニュー・サブメニューが閉じれるようにする
 //使い方
-//メニュー・サブメニューを開く時にOpenNewMenuを呼ぶ(引数には開くメニュー内の閉じるボタンを入れる、ボタンを押さないと閉じれないようにしたい時は何も入れなくてよい)
-//閉じるボタンにはCloseMenu_ButtonOnScreenを入れる
+//メニュー・サブメニューを開く時にOpenNewMenuを呼ぶ(引数には開くメニュー内の閉じるボタンを入れる
+//閉じるボタンを押すときにCloseMenu_ButtonOnScreenを呼び出すようにする
 //コントローラのボタンからすぐ閉じれるようにするには任意のAction(InputSystemの)にCloseMenu_InputActionを入れる
 public class CloseMenuEasily : MonoBehaviour
 {

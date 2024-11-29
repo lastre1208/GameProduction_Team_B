@@ -728,6 +728,7 @@ MonoBehaviour:
   m_scorePerSecond: 20
   score_TimeLimit: {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
   judgeGameSet: {fileID: 1511769283}
+  timeLimit: {fileID: 1114562919}
 --- !u!1 &97584434
 GameObject:
   m_ObjectHideFlags: 0
@@ -5780,6 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time_UI: {fileID: 1513945115}
+  timeLimit: {fileID: 1114562919}
 --- !u!1 &418087149
 GameObject:
   m_ObjectHideFlags: 0
@@ -9432,12 +9434,12 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 361539516}
-        m_TargetAssemblyTypeName: CloseMenu, Assembly-CSharp
-        m_MethodName: OpenNewMenu
-        m_Mode: 2
+        m_TargetAssemblyTypeName: CloseMenuEasily, Assembly-CSharp
+        m_MethodName: CloseMenu_ButtonOnScreen
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 125806455}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20860,6 +20862,7 @@ MonoBehaviour:
   gameOverEffect: {fileID: 108027590}
   player_Hp: {fileID: 1777186614}
   enemy_Hp: {fileID: 418087151}
+  timeLimit: {fileID: 1114562919}
 --- !u!1 &1513945112
 GameObject:
   m_ObjectHideFlags: 0

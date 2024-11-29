@@ -17,6 +17,8 @@ public class JudgeGameSet : MonoBehaviour
     [SerializeField] HP player_Hp;//プレイヤーのHP
     [Header("敵のHP")]
     [SerializeField] HP enemy_Hp;//敵のHP
+    [Header("時間")]
+    [SerializeField] TimeLimit timeLimit;
 
     // Update is called once per frame
     void Update()
@@ -35,7 +37,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void JudgeGameOver()
     {
-        if (player_Hp.Hp <= 0|| TimeLimit.RemainingTime <= 0)//プレイヤーが死んだらまたは時間切れになったら
+        if (player_Hp.Hp <= 0|| timeLimit.RemainingTime <= 0)//プレイヤーが死んだらまたは時間切れになったら
         {
             GameSetProcess(false);
         }

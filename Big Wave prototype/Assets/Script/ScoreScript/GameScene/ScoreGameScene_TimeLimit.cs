@@ -12,6 +12,8 @@ public class ScoreGameScene_TimeLimit : MonoBehaviour
     [SerializeField] Score_TimeLimit_ score_TimeLimit;//スコア反映
     [Header("ゲーム終了を判断するコンポーネント")]
     [SerializeField] JudgeGameSet judgeGameSet;
+    [Header("時間")]
+    [SerializeField] TimeLimit timeLimit;
     const float remainingTime_GameOver = 0;//ゲームオーバー時自動的に残り時間を0とする
 
     private void Start()
@@ -21,8 +23,8 @@ public class ScoreGameScene_TimeLimit : MonoBehaviour
 
     public void Reflect(bool gameClear)//スコア反映
     {
-        float score = (gameClear ? TimeLimit.RemainingTime : remainingTime_GameOver) * m_scorePerSecond;
+        float score = (gameClear ? timeLimit.RemainingTime : remainingTime_GameOver) * m_scorePerSecond;
 
-        score_TimeLimit.Rewrite(score, TimeLimit.RemainingTime, m_scorePerSecond);
+        score_TimeLimit.Rewrite(score, timeLimit.RemainingTime, m_scorePerSecond);
     }
 }
