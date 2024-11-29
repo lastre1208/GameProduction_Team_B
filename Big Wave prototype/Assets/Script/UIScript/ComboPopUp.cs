@@ -10,7 +10,7 @@ public class ComboPopUp : MonoBehaviour
 {
     public TMP_Text text_countPrefab;
     [SerializeField] RectTransform target;
-    [SerializeField] Canvas canvas;
+    [SerializeField] Transform parent;
     [SerializeField] CountTrickCombo countTrickCombo;
     [SerializeField] float ScaleLimit;
     [SerializeField] float StartSize;
@@ -31,7 +31,7 @@ public class ComboPopUp : MonoBehaviour
             }
                
                 text_countPrefab.text = (comboCount + ("COMBO!!"));
-                Instantiate(text_countPrefab, target.position, target.rotation, canvas.transform);// Canvas の子要素としてtargetの位置にインスタンスを生成
+                Instantiate(text_countPrefab, target.position, target.rotation, parent);// Canvas の子要素としてtargetの位置にインスタンスを生成
             
         }
         else
