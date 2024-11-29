@@ -19,6 +19,8 @@ TagManager:
   - VectorOfShot
   - ClickedWaveEffect
   - LineManager
+  - CloseTab
+  - CloseButton
   layers:
   - Default
   - TransparentFX
