@@ -2071,7 +2071,6 @@ MonoBehaviour:
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
   wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
-  ground: {fileID: 794894681774472066, guid: ee313d7d688fc1e43a6118091aabe1ba, type: 3}
   width: 3
   height: 3
   generationProbability: 0.5
@@ -5864,7 +5863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 24000
-  gameSet: {fileID: 1511769283}
 --- !u!1 &432670862
 GameObject:
   m_ObjectHideFlags: 0
@@ -7035,7 +7033,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403d07531b7955d448ba13f493828dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeTrickPoint: {fileID: 996376307}
+  _player_HP: {fileID: 1777186614}
+  _playerInput: {fileID: 1034766462}
+  _timeLimit: {fileID: 1114562919}
+  _algorithmOfEnemy: {fileID: 1852493891}
+  _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeSceneTime: 3
 --- !u!4 &507401952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -9731,7 +9736,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38deb9c127ef24e4cb3fa4e221dfc299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeTrickPoint: {fileID: 996376307}
+  _player_HP: {fileID: 1777186614}
+  _playerDeadMotion: {fileID: 1259596712}
+  _chargeTrickEffect: {fileID: 996376308}
+  _playerInput: {fileID: 1034766462}
+  _ropeEffect: {fileID: 7854742912463833795}
+  _timeLimit: {fileID: 1114562919}
+  _algorithmOfEnemy: {fileID: 1852493891}
+  _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeSceneTime: 3
 --- !u!1001 &646755478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13178,7 +13193,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1259596711}
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963624349
@@ -14033,6 +14049,7 @@ GameObject:
   - component: {fileID: 996376305}
   - component: {fileID: 996376304}
   - component: {fileID: 996376306}
+  - component: {fileID: 996376308}
   m_Layer: 0
   m_Name: ChargeTrickPoint
   m_TagString: Untagged
@@ -14085,50 +14102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargedBorderTime: 0.2
-  startChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1778482265}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  endChargeEvents:
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1722439556}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &996376305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14179,6 +14152,22 @@ MonoBehaviour:
   player_TrickPoint: {fileID: 1777186615}
   judgeChargeTrickPointNow: {fileID: 996376304}
   changeChargeRateTheSurfer: {fileID: 996376303}
+--- !u!114 &996376308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5f1ce222de279489b0e5b91dea47ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _judgeChargeTrickPointNow: {fileID: 996376304}
+  _chargeEffect: {fileID: 1722439556}
+  _chargeSE: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
+  _audioSource: {fileID: 1778482265}
 --- !u!1 &996687311
 GameObject:
   m_ObjectHideFlags: 0
@@ -16304,7 +16293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a4b9d0cf824e944be68170f2317675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 120
+  _timeLimit: 120
 --- !u!1 &1130388599
 GameObject:
   m_ObjectHideFlags: 0
@@ -18188,6 +18177,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1055092956111960930, guid: 311ab34bd913e814ea6c866b0df72418, type: 3}
   m_PrefabInstance: {fileID: 681700737}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1259596710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259596711}
+  - component: {fileID: 1259596712}
+  m_Layer: 0
+  m_Name: Dead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259596711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259596710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963624348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259596712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259596710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0db81cf7e854c4580d2a729dc4aa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player_animator: {fileID: 0}
+  _deadTriggerName: 
+  _player:
+    _hideObject: {fileID: 919132148156821028}
+    _hideTime: 2
 --- !u!1 &1262817979
 GameObject:
   m_ObjectHideFlags: 0
@@ -28729,7 +28767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 200
-  gameSet: {fileID: 1511769283}
 --- !u!114 &1777186615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30950,6 +30987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37618dac9bb647e4782454f75b70aff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeTrickPoint: {fileID: 996376307}
+  _player_HP: {fileID: 1777186614}
   _playerInput: {fileID: 1034766462}
   _enemyDeadMotion: {fileID: 718914403}
   inWave: {fileID: 2271336}
