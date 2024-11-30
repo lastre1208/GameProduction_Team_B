@@ -3,8 +3,11 @@ using UnityEngine.UI;
 
 public class TriangleWaveLine : MonoBehaviour
 {
-    [SerializeField] Image electricImage;  // 電流エフェクトのイメージ
-    [SerializeField] float speed = 1.0f;   // エフェクトの進行速度
+    [Header("電撃エフェクトの画像")]
+    [SerializeField] Image electricImage;
+    [Header("エフェクトの再生速度")]
+    [SerializeField] float speed = 1.0f;
+    [Header("再生完了時、再生処理を止めるか")]
     [SerializeField] bool isStop = true;
 
     private bool effectCompleted;
@@ -22,22 +25,18 @@ public class TriangleWaveLine : MonoBehaviour
 
     void Update()
     {
-        // Fill Amountを時間に応じて調整
-        electricImage.fillAmount += speed * Time.deltaTime;
+        electricImage.fillAmount += speed * Time.deltaTime;//FillAmountを時間に応じて調整
 
-        // Fill Amountが1になったら0に戻す
-        if (electricImage.fillAmount >= 1.0f)
+        if (electricImage.fillAmount >= 1.0f)//FillAmountが1になったら0に戻す
         {
             if (isStop)
             {
-                electricImage.fillAmount = 1.0f;
+                electricImage.fillAmount = 1.0f;//エフェクトの表示を固定
                 effectCompleted = true;
             }
 
             else
-            {
-                electricImage.fillAmount = 0.0f;
-            }
+                electricImage.fillAmount = 0.0f;//エフェクトの再生を繰り返す
         }
     }
 }
