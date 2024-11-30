@@ -18820,7 +18820,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1339336886}
   - component: {fileID: 1339336885}
-  - component: {fileID: 1339336887}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -18840,21 +18839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb5a3ae8e7140542b0d5a7712f67c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quitEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339336887}
-        m_TargetAssemblyTypeName: ControlTime, Assembly-CSharp
-        m_MethodName: ChangeTimeScale
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _sceneController: {fileID: 654474180}
 --- !u!4 &1339336886
 Transform:
@@ -18871,18 +18855,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493700425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1339336887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339336884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7fa8d21cf57904392054d17ec54259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1341016742
 GameObject:
   m_ObjectHideFlags: 0
@@ -20104,7 +20076,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1465078598}
   - component: {fileID: 1465078599}
-  - component: {fileID: 1465078600}
   m_Layer: 0
   m_Name: Restart
   m_TagString: Untagged
@@ -20137,33 +20108,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dd65932934ff5241939b0d1368f4bf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1465078600}
-        m_TargetAssemblyTypeName: ControlTime, Assembly-CSharp
-        m_MethodName: ChangeTimeScale
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1465078600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465078597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7fa8d21cf57904392054d17ec54259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1468454508
