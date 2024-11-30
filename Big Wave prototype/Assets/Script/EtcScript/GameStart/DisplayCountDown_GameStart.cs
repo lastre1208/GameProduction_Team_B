@@ -11,17 +11,11 @@ public class DisplayCountDown_GameStart : MonoBehaviour
     [SerializeField] TMP_Text countDownText;//表示させるテキスト
     [Header("残り秒数が変わるごとに出す効果音")]
     [SerializeField] AudioClip countDownSoundEffect;//残り秒数が変わるごとに出す効果音
-    private int remainingGameStartTimeBeforeFrame_Display;//前フレームのゲーム開始までの残り時間(整数のみ)
-    JudgeGameStart judgeGameStart;
+    [Header("ゲーム開始を判断するコンポーネント")]
+    [SerializeField] JudgeGameStart judgeGameStart;
     [SerializeField] AudioSource audioSource;
+    private int remainingGameStartTimeBeforeFrame_Display;//前フレームのゲーム開始までの残り時間(整数のみ)
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        judgeGameStart = GameObject.FindWithTag("GameStartManager").GetComponent<JudgeGameStart>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         DisplayCountDown();//カウントダウンの表示

@@ -12,7 +12,7 @@ public class AnimatorController_Enemy : MonoBehaviour
     {
         if(!(animName==""))
         {
-            anim.SetTrigger(animName);
+            anim?.SetTrigger(animName);
         }
     }
 
@@ -20,7 +20,7 @@ public class AnimatorController_Enemy : MonoBehaviour
     {
         if (!(animName == ""))
         {
-            anim.SetBool(animName, animBool);
+            anim?.SetBool(animName, animBool);
         }
     }
 }

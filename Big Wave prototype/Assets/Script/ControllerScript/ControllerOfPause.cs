@@ -11,7 +11,7 @@ public class ControllerOfPause : MonoBehaviour
 
     private void Start()
     {
-        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
+        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponentInChildren<JudgePauseNow>();
     }
 
     public void SwitchPause(InputAction.CallbackContext context)//É|Å[ÉYèÛë‘Ç…Ç∑ÇÈ

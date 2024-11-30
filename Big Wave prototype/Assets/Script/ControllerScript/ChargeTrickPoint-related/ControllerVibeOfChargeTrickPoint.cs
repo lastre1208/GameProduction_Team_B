@@ -17,7 +17,7 @@ public class ControllerVibeOfChargeTrickPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
+        judgePauseNow = GameObject.FindWithTag("PauseManager").GetComponentInChildren<JudgePauseNow>();
     }
 
     // Update is called once per frame

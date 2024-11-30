@@ -7,7 +7,7 @@ using UnityEngine;
 public class DamageMotion : MonoBehaviour
 {
     [Header("アニメーター")]
-    [SerializeField] Animator _animator;//アニメーター
+    [SerializeField] Animator _enemy_animator;//アニメーター
     [SerializeField] string damageTriggerName;
     [SerializeField] string damageBoolName;
     [Header("何秒経ったら被弾を取り消すか")]
@@ -18,7 +18,7 @@ public class DamageMotion : MonoBehaviour
 
     public void DamageTrigger()
     {
-        _animator.SetTrigger(damageTriggerName);
+        _enemy_animator?.SetTrigger(damageTriggerName);
         currentCancelDamagedTime = 0;
         damageMotion = true;
     }
@@ -37,7 +37,7 @@ public class DamageMotion : MonoBehaviour
             damageMotion = false;
         }
 
-        _animator.SetBool(damageBoolName, damageMotion);
+        _enemy_animator?.SetBool(damageBoolName, damageMotion);
     }
 
     
