@@ -7033,7 +7033,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403d07531b7955d448ba13f493828dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player_HP: {fileID: 1777186614}
+  _playerInput: {fileID: 1034766462}
+  _timeLimit: {fileID: 1114562919}
+  _algorithmOfEnemy: {fileID: 1852493891}
+  _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeSceneTime: 3
 --- !u!4 &507401952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
