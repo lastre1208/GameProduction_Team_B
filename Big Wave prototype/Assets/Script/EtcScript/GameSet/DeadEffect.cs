@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 //プレイヤーが死んだときの演出(シーン遷移も含めて)
 public class DeadEffect : MonoBehaviour
 {
+    [Header("トリックのチャージ")]
+    [SerializeField] ChargeTrickPoint _chargeTrickPoint;
     [Header("プレイヤーのHP")]
     [SerializeField] HP _player_HP;
     [Header("プレイヤーの死亡モーション")]
@@ -37,6 +39,7 @@ public class DeadEffect : MonoBehaviour
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
+        _chargeTrickPoint.Switch = false;//チャージしないようにする
         //死亡時のカメラの移動を開始(実装予定)
         _playerDeadMotion.Trigger();//プレイヤーの死亡モーションの再生
         _timeLimit.Switch = false;//制限時間を止める

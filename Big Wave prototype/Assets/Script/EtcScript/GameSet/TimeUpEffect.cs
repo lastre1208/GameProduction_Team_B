@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 //タイムアップ時の演出(シーン遷移も含めて)
 public class TimeUpEffect : MonoBehaviour
 {
+    [Header("トリックのチャージ")]
+    [SerializeField] ChargeTrickPoint _chargeTrickPoint;
     [Header("プレイヤーのHP")]
     [SerializeField] HP _player_HP;
     [Header("操作変更")]
@@ -29,6 +31,7 @@ public class TimeUpEffect : MonoBehaviour
         _startEffect = true;
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
+        _chargeTrickPoint.Switch = false;//チャージしないようにする
         _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
