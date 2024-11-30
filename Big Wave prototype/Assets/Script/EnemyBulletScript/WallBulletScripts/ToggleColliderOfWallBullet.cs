@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//çÏê¨é“ÅFåKå¥
+
 public class ToggleColliderOfWallBullet : MonoBehaviour
 {
     WallBullet wallBullet;

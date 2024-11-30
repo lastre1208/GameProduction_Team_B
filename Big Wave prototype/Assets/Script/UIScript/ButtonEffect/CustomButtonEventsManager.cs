@@ -24,7 +24,7 @@ public class CustomButtonEventsManager : MonoBehaviour
     {
         if (currentSelectedButton != null)
         {
-            menuEffectController.ButtonDeselectedProcess(buttonRect);
+            menuEffectController.ButtonDeselectedProcess();
             currentSelectedButton = null;
         }
     }
