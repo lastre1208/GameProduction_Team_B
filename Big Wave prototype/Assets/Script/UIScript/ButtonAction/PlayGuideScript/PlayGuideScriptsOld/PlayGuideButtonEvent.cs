@@ -139,7 +139,7 @@ public class PlayGuideButtonEvent : MonoBehaviour
         isPlayGuideButtonClicked = false;
         isSlidingOut = false;
         isImageDisplayed = false;
-        menuEffectController.ResetButtonClickEffect();//ボタンエフェクトの再設定
+        menuEffectController.ResetButtonEffects();//ボタンエフェクトの再設定
         playGuideInputModule.enabled = true;
         playGuideInputModule.EnableAllUIActions();//一部入力を有効化
         playGuideInputModule.enabled = false;
