@@ -9729,6 +9729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38deb9c127ef24e4cb3fa4e221dfc299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player_HP: {fileID: 1777186614}
   _playerDeadMotion: {fileID: 1259596712}
   _chargeTrickEffect: {fileID: 996376308}
   _playerInput: {fileID: 1034766462}
@@ -30978,6 +30979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37618dac9bb647e4782454f75b70aff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player_HP: {fileID: 1777186614}
   _playerInput: {fileID: 1034766462}
   _enemyDeadMotion: {fileID: 718914403}
   inWave: {fileID: 2271336}

@@ -26,6 +26,14 @@ public class ChargeTrickEffect : MonoBehaviour
         _judgeChargeTrickPointNow.SwitchChargeAction += Effect;
     }
 
+    void Update()
+    {
+        if(!_switch)
+        {
+            _chargeEffect.SetActive(false);
+        }
+    }
+
     void Effect(bool chargeNow)
     {
         _chargeEffect.SetActive(_switch ? chargeNow:false);//エフェクトの表示・非表示
