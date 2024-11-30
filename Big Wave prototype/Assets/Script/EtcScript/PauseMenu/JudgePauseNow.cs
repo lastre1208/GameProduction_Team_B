@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
+//作成者:杉山
+//ポーズの判断
 public class JudgePauseNow : MonoBehaviour
 {
     [SerializeField] UnityEvent pauseEvents;

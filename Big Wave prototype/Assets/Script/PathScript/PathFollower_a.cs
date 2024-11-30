@@ -18,7 +18,7 @@ public class PathFollower_a : MonoBehaviour
     void Awake()
     {
         startPoint = leadingObject.position.z;
-        judgePauseNow=GameObject.FindWithTag("PauseManager").GetComponent<JudgePauseNow>();
+        judgePauseNow=GameObject.FindWithTag("PauseManager").GetComponentInChildren<JudgePauseNow>();
     }
 
     void Update()
