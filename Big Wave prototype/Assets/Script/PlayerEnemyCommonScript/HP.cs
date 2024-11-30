@@ -9,6 +9,8 @@ public class HP : MonoBehaviour
 {
     [Header("Å‘å‘Ì—Í")]
     [SerializeField] float hpMax = 500;//Å‘å‘Ì—Í
+    [Header("ƒQ[ƒ€I—¹‚Ì”»’f")]
+    [SerializeField] JudgeGameSet gameSet;
     private float hp = 500;//Œ»İ‚Ì‘Ì—Í
     
 
@@ -17,6 +19,8 @@ public class HP : MonoBehaviour
         get { return hp; }
         set 
         {
+            if (gameSet.GameSet) return;//ƒQ[ƒ€‚ªI—¹‚µ‚½‚ç‘Ì—Í‚ª•Ï“®‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+
             hp = value;
             hp = Mathf.Clamp(hp, 0f, hpMax);//‘Ì—Í‚ªŒÀŠE“Ë”j‚µ‚È‚¢‚æ‚¤‚É
         }

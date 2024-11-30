@@ -9,18 +9,22 @@ public class JudgeGameSet : MonoBehaviour
 {
     public event Action<bool> GameSetAction;//trueならゲームクリア、falseならゲームオーバー
     public event Action GameSetCommonAction;//ゲーム終了時クリアでもゲームオーバーでもどちらでもやる共通イベント
-    [Header("ゲームクリアの演出")]
-    [SerializeField] GameClearEffect gameClearEffect;//ゲームクリアの演出
-    [Header("ゲームオーバーの演出")]
-    [SerializeField] GameOverEffect gameOverEffect;//ゲームオーバーの演出
+    [Header("敵を倒した時の演出")]
+    [SerializeField] DefeatEnemyEffect defeatEnemyEffect;//敵を倒した時の演出
+    [Header("死亡時の演出")]
+    [SerializeField] DeadEffect deadEffect;//死亡時の演出
+    [Header("タイムアップ時の演出")]
+    [SerializeField] TimeUpEffect timeUpEffect;//タイムアップ時のエフェクト
     [Header("プレイヤーのHP")]
     [SerializeField] HP player_Hp;//プレイヤーのHP
     [Header("敵のHP")]
     [SerializeField] HP enemy_Hp;//敵のHP
     [Header("時間")]
     [SerializeField] TimeLimit timeLimit;
+    bool gameSet = false;
 
-    // Update is called once per frame
+    public bool GameSet { get { return gameSet; } }
+
     void Update()
     {
         JudgeClear();
@@ -29,17 +33,31 @@ public class JudgeGameSet : MonoBehaviour
 
     void JudgeClear()
     {
-        if (enemy_Hp.Hp <= 0)//敵が死んだら
+        if (enemy_Hp.Hp <= 0&&!gameSet)//敵を倒したら
         {
             GameSetProcess(true);
+
+            defeatEnemyEffect.Trigger();
         }
     }
 
     void JudgeGameOver()
     {
-        if (player_Hp.Hp <= 0|| timeLimit.RemainingTime <= 0)//プレイヤーが死んだらまたは時間切れになったら
+        bool dead = player_Hp.Hp <= 0;//プレイヤーが死んだ
+        bool timeUp = timeLimit.RemainingTime <= 0;//時間切れになった
+
+        if ((dead||timeUp) && !gameSet)//プレイヤーが死んだらまたは時間切れになったら
         {
             GameSetProcess(false);
+
+            if(dead)//プレイヤー死亡時
+            {
+                deadEffect.Trigger();
+            }
+            else if(timeUp)//時間切れ時
+            {
+                timeUpEffect.Trigger();
+            }
         }
     }
 
@@ -47,15 +65,6 @@ public class JudgeGameSet : MonoBehaviour
     {
         GameSetCommonAction.Invoke();
         GameSetAction.Invoke(gameClear);
-
-        //ゲーム終了演出
-        if(gameClear)//ゲームクリア時
-        {
-            gameClearEffect.Trigger();
-        }
-        else//ゲームオーバー時
-        {
-            gameOverEffect.Trigger();
-        }
+        gameSet = true;
     }
 }

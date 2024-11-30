@@ -21,6 +21,6 @@ public class JumpAnim : MonoBehaviour
 
     void JumpBool()
     {
-        animator.SetBool("Onground", !judgeJumpNow.JumpNow());
+        animator?.SetBool("Onground", !judgeJumpNow.JumpNow());
     }
 }

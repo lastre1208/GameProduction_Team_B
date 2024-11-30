@@ -19,6 +19,6 @@ public class WaitingForJumpAnim : MonoBehaviour
     void WaitingForJumpBool()
     {
         //ジャンプできるかつジャンプのボタンを押してる時のみジャンプ準備モーションをする
-        animator.SetBool("WaitingForJump", judgeJumpable.Jumpable&&controllerOfJump.Pushing);
+        animator?.SetBool("WaitingForJump", judgeJumpable.Jumpable&&controllerOfJump.Pushing);
     }
 }

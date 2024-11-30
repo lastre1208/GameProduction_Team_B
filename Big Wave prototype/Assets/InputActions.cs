@@ -1542,6 +1542,161 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Win"",
+            ""id"": ""3b328f89-ae82-4a19-a347-78f1403f53e5"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""b95bbeba-6b80-484d-96a0-877a07c17322"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""72d05f89-92c9-423e-8fa1-abd1ee6c252e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""05ca6338-5310-4e44-9881-382955a60446"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""86e99de4-cf95-4119-8203-703350ba7ff8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""81639514-f764-4d83-b5cb-1207c5476952"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e201e9be-0eb6-48f4-9ef0-1dc5a376683f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9a42f0f6-6e77-46c5-b081-67f07034b0eb"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""87061658-1c3f-4ea3-af68-bdf457c1279c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1c2eabbb-2771-43cd-a334-ff7723a1200c"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""624a3013-422a-4491-89dd-7fae7eec863b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9c8c74b5-40a7-44a4-85ba-39b44d8d8863"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9441d352-5468-4bb3-b390-848dec3dee75"",
+                    ""path"": ""<XRController>/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b6f1882-4e1a-4c96-8744-1e0a2524c1bf"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Defeat"",
+            ""id"": ""31b78bec-e5e9-45e8-907e-b4f7c4deac7f"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -1635,6 +1790,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_PlayGuide = asset.FindActionMap("PlayGuide", throwIfNotFound: true);
         m_PlayGuide_Navigate = m_PlayGuide.FindAction("Navigate", throwIfNotFound: true);
         m_PlayGuide_Cancel = m_PlayGuide.FindAction("Cancel", throwIfNotFound: true);
+        // Win
+        m_Win = asset.FindActionMap("Win", throwIfNotFound: true);
+        m_Win_Move = m_Win.FindAction("Move", throwIfNotFound: true);
+        // Defeat
+        m_Defeat = asset.FindActionMap("Defeat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1982,6 +2142,90 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayGuideActions @PlayGuide => new PlayGuideActions(this);
+
+    // Win
+    private readonly InputActionMap m_Win;
+    private List<IWinActions> m_WinActionsCallbackInterfaces = new List<IWinActions>();
+    private readonly InputAction m_Win_Move;
+    public struct WinActions
+    {
+        private @InputActions m_Wrapper;
+        public WinActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Win_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Win; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WinActions set) { return set.Get(); }
+        public void AddCallbacks(IWinActions instance)
+        {
+            if (instance == null || m_Wrapper.m_WinActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WinActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(IWinActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(IWinActions instance)
+        {
+            if (m_Wrapper.m_WinActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IWinActions instance)
+        {
+            foreach (var item in m_Wrapper.m_WinActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_WinActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public WinActions @Win => new WinActions(this);
+
+    // Defeat
+    private readonly InputActionMap m_Defeat;
+    private List<IDefeatActions> m_DefeatActionsCallbackInterfaces = new List<IDefeatActions>();
+    public struct DefeatActions
+    {
+        private @InputActions m_Wrapper;
+        public DefeatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_Defeat; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DefeatActions set) { return set.Get(); }
+        public void AddCallbacks(IDefeatActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DefeatActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DefeatActionsCallbackInterfaces.Add(instance);
+        }
+
+        private void UnregisterCallbacks(IDefeatActions instance)
+        {
+        }
+
+        public void RemoveCallbacks(IDefeatActions instance)
+        {
+            if (m_Wrapper.m_DefeatActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDefeatActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DefeatActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DefeatActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DefeatActions @Defeat => new DefeatActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -2057,5 +2301,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+    }
+    public interface IWinActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDefeatActions
+    {
     }
 }

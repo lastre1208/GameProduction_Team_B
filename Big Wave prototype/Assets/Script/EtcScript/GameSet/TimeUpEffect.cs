@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //作成者:杉山
-//ゲームオーバー演出(シーン遷移も含めて)
-public class GameOverEffect : MonoBehaviour
+//タイムアップ時の演出(シーン遷移も含めて)
+public class TimeUpEffect : MonoBehaviour
 {
     [Header("シーン移行コンポーネント")]
     [SerializeField] SceneController _controller;
