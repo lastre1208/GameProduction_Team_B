@@ -36,8 +36,7 @@ public class DefeatEnemyEffect : MonoBehaviour
         _startEffect = true;
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap("Win");//操作の変更
-        Debug.Log(_playerInput.currentActionMap);
-        //クリア時のカメラの移動を開始
+        //クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
