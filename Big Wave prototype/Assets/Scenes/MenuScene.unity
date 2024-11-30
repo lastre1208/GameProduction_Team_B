@@ -689,8 +689,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 202901340}
-  - component: {fileID: 202901342}
-  - component: {fileID: 202901341}
+  - component: {fileID: 202901345}
+  - component: {fileID: 202901344}
+  - component: {fileID: 202901343}
   m_Layer: 0
   m_Name: PlayGuideEvent
   m_TagString: Untagged
@@ -713,7 +714,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1552875807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &202901341
+--- !u!114 &202901343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -722,19 +723,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 202901339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501a869d1ab7478498dbc10996b130f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f211d65e1b47714092f66e7c70b67ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuEffectController: {fileID: 2013484153}
-  playGuideInputModule: {fileID: 202901342}
   playGuideGroup: {fileID: 86869953}
-  playGuideImages:
-  - {fileID: 960489591}
-  - {fileID: 1329801552}
-  - {fileID: 2102213593}
-  displayImage: {fileID: 1329801552}
   slideSpeed: 5
---- !u!114 &202901342
+--- !u!114 &202901344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -743,18 +737,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 202901339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f64131a79dbd8843810f679d4fc51a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 84d06063ed91d244995c4fcec5e7744d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputModule: {fileID: 1289409833}
   leftRightActionReference: {fileID: 2299992622178471165, guid: 6b91f600ef0742a4e82d5eefcac48034, type: 3}
   cancelActionReference: {fileID: -3623052402393750084, guid: 6b91f600ef0742a4e82d5eefcac48034, type: 3}
   leftEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202901341}
-        m_TargetAssemblyTypeName: PlayGuideButtonEvent, Assembly-CSharp
-        m_MethodName: ShowPreviousImage
+      - m_Target: {fileID: 218881766}
+        m_TargetAssemblyTypeName: TransitionPages, Assembly-CSharp
+        m_MethodName: SetPreviousImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -769,7 +762,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: dc54b05fe467e1849bf3fd3592e52269, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: e3f6de8d02edc43439c9a6c97a961c8f, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -779,9 +772,9 @@ MonoBehaviour:
   rightEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202901341}
-        m_TargetAssemblyTypeName: PlayGuideButtonEvent, Assembly-CSharp
-        m_MethodName: ShowNextImage
+      - m_Target: {fileID: 218881766}
+        m_TargetAssemblyTypeName: TransitionPages, Assembly-CSharp
+        m_MethodName: SetNextImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -796,7 +789,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: dc54b05fe467e1849bf3fd3592e52269, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: e3f6de8d02edc43439c9a6c97a961c8f, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -806,9 +799,9 @@ MonoBehaviour:
   cancelEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202901341}
-        m_TargetAssemblyTypeName: PlayGuideButtonEvent, Assembly-CSharp
-        m_MethodName: CloseImage
+      - m_Target: {fileID: 202901345}
+        m_TargetAssemblyTypeName: PlayGuideController, Assembly-CSharp
+        m_MethodName: CloseGuide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -830,6 +823,71 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  inputModule: {fileID: 1289409833}
+--- !u!114 &202901345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202901339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444aaff3a6f53fe4181f5e2c7ef2e636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectControllerObject: {fileID: 2013484153}
+  playGuideInputHandlerObject: {fileID: 202901344}
+  transitionPagesObject: {fileID: 218881766}
+  playGuideSlider: {fileID: 202901343}
+  playGuideImages:
+  - {fileID: 960489591}
+  - {fileID: 1329801552}
+  - {fileID: 2102213593}
+--- !u!1 &218881765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218881767}
+  - component: {fileID: 218881766}
+  m_Layer: 0
+  m_Name: TransitionPages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &218881766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218881765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd38e062ca71204e815049bf971cec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &218881767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218881765}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1463.2769, y: 563.9923, z: 22.323267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2084449543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286550864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,8 +2544,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 202901341}
-        m_TargetAssemblyTypeName: PlayGuideButtonEvent, Assembly-CSharp
+      - m_Target: {fileID: 202901345}
+        m_TargetAssemblyTypeName: PlayGuideController, Assembly-CSharp
         m_MethodName: PlayGuideButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -5873,6 +5931,7 @@ Transform:
   - {fileID: 2045821039}
   - {fileID: 1559128478}
   - {fileID: 2043038851}
+  - {fileID: 218881767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102213592
