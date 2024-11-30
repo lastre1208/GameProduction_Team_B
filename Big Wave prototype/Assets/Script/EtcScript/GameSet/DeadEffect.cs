@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 //プレイヤーが死んだときの演出(シーン遷移も含めて)
 public class DeadEffect : MonoBehaviour
 {
+    [Header("プレイヤーのHP")]
+    [SerializeField] HP _player_HP;
     [Header("プレイヤーの死亡モーション")]
     [SerializeField] PlayerDeadMotion _playerDeadMotion;
     [Header("チャージのエフェクト")]
@@ -32,6 +34,7 @@ public class DeadEffect : MonoBehaviour
     public void Trigger()//演出開始
     {
         _startEffect = true;
+        _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
         //死亡時のカメラの移動を開始(実装予定)

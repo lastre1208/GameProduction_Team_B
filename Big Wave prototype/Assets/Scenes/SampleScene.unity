@@ -5863,7 +5863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 24000
-  gameSet: {fileID: 1511769283}
 --- !u!1 &432670862
 GameObject:
   m_ObjectHideFlags: 0
@@ -16285,7 +16284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a4b9d0cf824e944be68170f2317675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 120
+  _timeLimit: 120
 --- !u!1 &1130388599
 GameObject:
   m_ObjectHideFlags: 0
@@ -28758,8 +28757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d26110e1f4dbe240ac2caa7e101645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 2
-  gameSet: {fileID: 1511769283}
+  hpMax: 200
 --- !u!114 &1777186615
 MonoBehaviour:
   m_ObjectHideFlags: 0
