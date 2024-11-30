@@ -9,24 +9,19 @@ public class InstantiateWave : MonoBehaviour
     [SerializeField] GameObject instantiateWavePos;//”g‚Ì¶¬ˆÊ’u
     [Header("”g‚ÌƒvƒŒƒnƒu")]
     [SerializeField] LineWave wavePrefab;//”g‚ÌƒvƒŒƒnƒu
-    [Header("‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu")]
+    [Header("”g‚ÌoŒ»ŠÔŠu")]
     [SerializeField] float waveInterval;//‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu
-    [Header("‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu")]
-    [Tooltip("ƒQ[ƒ€ŠJn‚©‚ç1ŒÂ–Ú‚Ì”g‚ğoŒ»‚³‚¹‚é‚Ü‚Å‚ÌŠÔB1ŒÂ–Ú‚Ì”g‚ğ¶¬‚µ‚½‚ç‚»‚êˆÈ~‚Íã‚Ì‰ŠúˆÈ~‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚Ä”g‚ğ¶¬‚·‚é")]
-    [SerializeField] float firstWaveInterval;//‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu
     [Header("GamePos")]
     [SerializeField] GameObject gamePos;//GamePos
     [Header("LineInstantiate")]
     [SerializeField] LineInstantiate m_lineInstantiate;
-    [Header("ƒQ[ƒ€ŠJn‚ğ”»’f‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg")]
-    [SerializeField] JudgeGameStart judgeGameStart;
-    private float m_waveTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
-    
+    private float m_waveTime=0;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ(“à•””’l)
+    bool _switch = false;//‚±‚ê‚ªfalse‚É‚È‚Á‚Ä‚¢‚é‚Í”g‚ğ¶¬‚µ‚È‚¢Atrue‚Ì‚Í”g‚ğ¶¬‚·‚é
 
-    void Start()
+    public bool Switch
     {
-        //‰Šú‚Ì”g‚ÌoŒ»ŠÔŠu‚É‡‚í‚¹‚é‚½‚ß‚É”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğ‚»‚Ì•ª‚¸‚ç‚·
-        m_waveTime = 0 - (firstWaveInterval - waveInterval);
+        get { return _switch; }
+        set { _switch = value; }
     }
 
     // Update is called once per frame
@@ -38,7 +33,7 @@ public class InstantiateWave : MonoBehaviour
     //”g‚Ì¶¬AwaveIntervalTime‚ÌŠÔ‚²‚Æ‚É”g‚ğ¶¬‚·‚é
     void InstantiateWavePrefab()
     {
-        if (!judgeGameStart.IsStarted) return;//‚Ü‚¾ƒQ[ƒ€ŠJn‚³‚ê‚Ä‚È‚©‚Á‚½‚ç”g‚ğ¶¬‚µ‚È‚¢
+        if (!_switch) return;//‚Ü‚¾ƒQ[ƒ€ŠJn‚³‚ê‚Ä‚È‚©‚Á‚½‚ç”g‚ğ¶¬‚µ‚È‚¢
 
         m_waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ğŠÇ—‚·‚éŠÔ‚ğXV
         

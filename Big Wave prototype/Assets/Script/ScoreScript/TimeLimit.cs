@@ -9,7 +9,14 @@ public class TimeLimit : MonoBehaviour
     [Header("▼制限時間（秒）")]
     [SerializeField] float timeLimit = 120;//制限時間(秒)
     private float remainingTime;//残り時間
-    private bool startGame=false;
+    bool _switch=false;//これがfalseの時は時間が減らなくなる
+
+    public bool Switch
+    {
+        get { return _switch; }
+        set { _switch = value; }
+    }
+
     public float RemainingTime
     {
         get { return remainingTime; }
@@ -22,13 +29,13 @@ public class TimeLimit : MonoBehaviour
 
     void Update()
     {
-        if (startGame)
-        {
-            remainingTime -= Time.deltaTime;
-        }
+       UpdateTime();
     }
-    public void EnableStart()
+
+    void UpdateTime()//時間の更新(スイッチがオフの時は時間を止める)
     {
-        startGame = true;
+        if (!_switch) return;
+
+        remainingTime -= Time.deltaTime;
     }
 }
