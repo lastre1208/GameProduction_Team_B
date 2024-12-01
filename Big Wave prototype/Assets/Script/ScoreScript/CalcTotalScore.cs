@@ -21,6 +21,9 @@ public class CalcTotalScore : MonoBehaviour
             score += _addScores[i].Score;
         }
 
+        //小数点を切り捨て
+        score=Mathf.Floor(score);
+
         //合計スコアに反映
         _score_Total_.ReWrite(score);
         

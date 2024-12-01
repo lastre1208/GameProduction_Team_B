@@ -23,7 +23,6 @@ public class SaveHighScore : MonoBehaviour
     void UpdateHighScore()//ハイスコアの更新処理
     {
         //遊んだステージのハイスコアをセーブデータから取り出す
-        Debug.Log(_currentStageData.StageID);
         string stageNum = _currentStageData.StageID.ToString();
         string highScoreName = "HIGHSCORE_STAGE"+stageNum;
         float pastHighScore=PlayerPrefs.GetFloat(highScoreName,_defaultHighScore);

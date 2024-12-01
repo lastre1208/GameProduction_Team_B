@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score_Total_: {fileID: 11400000, guid: cbbacdb2b3802a642a31d817bcd7a0a1, type: 2}
-  _currentStageData: {fileID: 11400000, guid: a97d6df98217c814c926e7fa830e17b6, type: 2}
+  _currentStageData: {fileID: 1112961328}
 --- !u!1 &353407723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112961326}
   - component: {fileID: 1112961327}
+  - component: {fileID: 1112961328}
   m_Layer: 0
   m_Name: ButtonEventManager
   m_TagString: Untagged
@@ -2536,8 +2537,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07151c6d20b73314fbcfb53c049c62fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentStageData: {fileID: 11400000, guid: a97d6df98217c814c926e7fa830e17b6, type: 2}
+  _currentStageData: {fileID: 1112961328}
   _stageDataList: {fileID: 11400000, guid: 80351eab2243e5a459e72385f2c7f07d, type: 2}
+--- !u!114 &1112961328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112961324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc018ec2e0a1804aa383e090389df5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1245759030
 GameObject:
   m_ObjectHideFlags: 0

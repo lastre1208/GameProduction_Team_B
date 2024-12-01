@@ -39,13 +39,6 @@ public class SceneController : MonoBehaviour
 
         _currentStageData.Rewrite(_stageDataList.Get(stageID));
 
-        //データの取得に失敗しているなら警告し、無視する
-        if (!_currentStageData.NullCheck())
-        {
-            Debug.Log("データの取得に失敗しました");
-            return;
-        }
-
         SceneManager.LoadScene("ToMainLoadScene");//一度ロード画面(ToMainLoadScene)を経由させる
     }
 
