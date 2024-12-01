@@ -10057,7 +10057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07151c6d20b73314fbcfb53c049c62fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
+  _currentStageData: {fileID: 0}
+  _stageDataList: {fileID: 0}
 --- !u!4 &662323151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -10601,6 +10602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: Master
+  _saveDataAudioTypeName: AUDIOVOLUME_MASTER
   _slider: {fileID: 754636355}
 --- !u!224 &754636354
 RectTransform:
@@ -15493,6 +15495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: BGM
+  _saveDataAudioTypeName: AUDIOVOLUME_BGM
   _slider: {fileID: 1051503224}
 --- !u!224 &1051503226
 RectTransform:
@@ -31837,6 +31840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: SE
+  _saveDataAudioTypeName: AUDIOVOLUME_SE
   _slider: {fileID: 2073284689}
 --- !u!224 &2073284691
 RectTransform:

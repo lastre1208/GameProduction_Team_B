@@ -1548,6 +1548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: SE
+  _saveDataAudioTypeName: AUDIOVOLUME_SE
   _slider: {fileID: 613357516}
 --- !u!1 &614956420
 GameObject:
@@ -4349,6 +4350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: Master
+  _saveDataAudioTypeName: AUDIOVOLUME_MASTER
   _slider: {fileID: 1715464401}
 --- !u!114 &1715464401
 MonoBehaviour:
@@ -5743,6 +5745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: BGM
+  _saveDataAudioTypeName: AUDIOVOLUME_BGM
   _slider: {fileID: 2076560875}
 --- !u!1 &2077636000
 GameObject:
