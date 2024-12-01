@@ -10351,17 +10351,17 @@ MonoBehaviour:
   _defeatEffect:
     _defeatObject: {fileID: 543450652204768515}
     _expObject: {fileID: 72910807}
-    _defeatSmoke: {fileID: 3515200670689651601, guid: 9005da4bf6e7a984aa9c023325f459fb, type: 3}
-    _smokeInterval: 0.7
-    Smoke:
-      Max_x: 5
-      Max_y: 6
-      Min_x: -10
-      Min_y: 3.5
-    _smokeOffset: -5
-    _defeatBoom: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
+    _defeatBoom_S: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
+    _boom_s_Interval: 0
+    Boom:
+      Max_x: 0
+      Max_y: 0
+      Min_x: 0
+      Min_y: 0
+    _boom_s_Offset: 0
+    _defeatBoom_L: {fileID: 4355500775512203620, guid: a55d11bf870596f43932f8792d0eb841, type: 3}
     _boomTime: 4
-    _boomOffset: 5
+    _boom_l_Offset: 0
 --- !u!1001 &731156482
 PrefabInstance:
   m_ObjectHideFlags: 0
