@@ -63,8 +63,11 @@ public class EnemyDeadMotion : MonoBehaviour
         [SerializeField] Transform _defeatObject;
         [Header("爆発(大)を発生させる位置")]
         [SerializeField] Transform _expObject;
+        [SerializeField] AudioSource _audioSource;
         [Header("生成するエフェクト(小爆発)")]
         [SerializeField] GameObject _defeatBoom_S;
+        [Header("再生させる音(小爆発)")]
+        [SerializeField] AudioClip _boomSE_S;
         [Header("爆発(小)の生成間隔")]
         [SerializeField] float _boom_s_Interval;
         [Header("爆発(小)を生成する範囲")]
@@ -73,6 +76,8 @@ public class EnemyDeadMotion : MonoBehaviour
         [SerializeField] float _boom_s_Offset;
         [Header("生成するエフェクト(大爆発)")]
         [SerializeField] GameObject _defeatBoom_L;
+        [Header("再生させる音(大爆発)")]
+        [SerializeField] AudioClip _boomSE_L;
         [Header("何秒後に大爆発するか")]
         [SerializeField] float _boomTime;
         [Header("Y座標のズレ(大爆発)")]
@@ -95,14 +100,15 @@ public class EnemyDeadMotion : MonoBehaviour
             if (!judgeDefeat) return;
             
                 countTime += Time.deltaTime;
-                if (countTime > _boom_s_Interval * countSmoke )
+                if (countTime > _boom_s_Interval * countSmoke&&!boomed )
                 {
                     countSmoke += 1;
                     Vector3 randomPosition = new Vector3(_defeatObject.transform.position.x
                         +(Random.Range(Boom.Min_x, Boom.Max_x)),_defeatObject.transform.position.y
                         +(Random.Range(Boom.Min_y, Boom.Max_y)), _defeatObject.transform.position.z+_boom_s_Offset);
-
+                
                     GameObject Effect = Instantiate(_defeatBoom_S, randomPosition, Quaternion.identity, _defeatObject.transform);
+                _audioSource.PlayOneShot(_boomSE_S);
                 Effects.Add(Effect);
                 }
                 else if (countTime>_boomTime&&!boomed)//一回だけ呼ぶ
@@ -110,6 +116,7 @@ public class EnemyDeadMotion : MonoBehaviour
                 DestroySmoke();
                 Vector3 expPosition = new Vector3(_expObject.transform.position.x, _expObject.transform.position.y + _boom_l_Offset, _expObject.transform.position.z);
                 Instantiate(_defeatBoom_L, expPosition,Quaternion.identity,_expObject.transform);
+                _audioSource.PlayOneShot( _boomSE_L);
                    boomed = true;
                 }
             
