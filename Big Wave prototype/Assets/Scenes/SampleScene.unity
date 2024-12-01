@@ -10398,7 +10398,9 @@ MonoBehaviour:
   _defeatEffect:
     _defeatObject: {fileID: 543450652204768515}
     _expObject: {fileID: 72910807}
+    _audioSource: {fileID: 1778482265}
     _defeatBoom_S: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
+    _boomSE_S: {fileID: 8300000, guid: af35f2a3993ce4f49a5b580b84254b57, type: 3}
     _boom_s_Interval: 0.5
     Boom:
       Max_x: 5
@@ -10407,6 +10409,7 @@ MonoBehaviour:
       Min_y: 3.5
     _boom_s_Offset: -5
     _defeatBoom_L: {fileID: 4355500775512203620, guid: a55d11bf870596f43932f8792d0eb841, type: 3}
+    _boomSE_L: {fileID: 8300000, guid: 89ab8b2744023374fa3046994021f0b2, type: 3}
     _boomTime: 4
     _boom_l_Offset: 10
 --- !u!1001 &731156482
