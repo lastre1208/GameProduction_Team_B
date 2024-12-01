@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1555776837}
-  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
+  _currentStageData: {fileID: 11400000, guid: a97d6df98217c814c926e7fa830e17b6, type: 2}
 --- !u!4 &349642973
 Transform:
   m_ObjectHideFlags: 0

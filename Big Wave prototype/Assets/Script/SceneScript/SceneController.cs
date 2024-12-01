@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 //シーン遷移のメソッドを呼ぶ(シーン名が変わった時の変更のコストを減らすため)
 public class SceneController : MonoBehaviour
 {
-    [Header("ゲームシーンに移行するのに必要なオブジェクト")]
-    [Tooltip("ゲームシーンに移行しない場合は入れなくても問題ない")]
-    [SerializeField] GameSceneName _gameSceneName;
+    [Header("以下はゲームシーンに移行しないなら必要ない")]
+    [Header("ゲームシーンに移行するのに必要なステージデータ")]
+    [SerializeField] CurrentStageData _currentStageData;
+    [Header("ステージデータリスト")]
+    [SerializeField] StageDataList _stageDataList;
 
     public void MenuScene()//メニュー画面に移行
     {
@@ -26,9 +28,24 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("GameoverScene");
     }
 
-    public void GameScene_1()//ゲームシーン1へ移動
+    public void GameScene(int stageID)//ゲームシーン1へ移動
     {
-        _gameSceneName.NextGameScene = "SampleScene";
+        //必要なデータがアタッチされていなければ警告し無視する
+        if(_currentStageData==null||_stageDataList==null)
+        {
+            Debug.Log("必要なデータがそろっていません！");
+            return;
+        }
+
+        _currentStageData.Rewrite(_stageDataList.Get(stageID));
+
+        //データの取得に失敗しているなら警告し、無視する
+        if (!_currentStageData.NullCheck())
+        {
+            Debug.Log("データの取得に失敗しました");
+            return;
+        }
+
         SceneManager.LoadScene("ToMainLoadScene");//一度ロード画面(ToMainLoadScene)を経由させる
     }
 

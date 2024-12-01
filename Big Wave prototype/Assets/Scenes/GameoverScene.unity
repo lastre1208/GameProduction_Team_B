@@ -2312,7 +2312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07151c6d20b73314fbcfb53c049c62fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
+  _currentStageData: {fileID: 11400000, guid: a97d6df98217c814c926e7fa830e17b6, type: 2}
+  _stageDataList: {fileID: 11400000, guid: 80351eab2243e5a459e72385f2c7f07d, type: 2}
 --- !u!1 &1245759030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3045,7 @@ MonoBehaviour:
   isFadeOut: 1
   _selectScene:
     _scene: 3
+    _gameSceneStageID: 0
     _sceneController: {fileID: 1112961327}
   menuEffectController: {fileID: 1756324138}
   fadeOut: {fileID: 1756324137}
@@ -4289,6 +4291,7 @@ MonoBehaviour:
   isFadeOut: 0
   _selectScene:
     _scene: 0
+    _gameSceneStageID: 0
     _sceneController: {fileID: 1112961327}
   menuEffectController: {fileID: 1756324138}
   fadeOut: {fileID: 1756324137}
