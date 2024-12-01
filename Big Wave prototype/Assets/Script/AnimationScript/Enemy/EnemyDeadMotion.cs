@@ -59,22 +59,24 @@ public class EnemyDeadMotion : MonoBehaviour
     [System.Serializable]
     class DefeatEffect
     {
-        [Header("煙を発生させる位置")]
+        [Header("爆発(小)を発生させる位置")]
         [SerializeField] Transform _defeatObject;
-        [Header("爆発を発生させる位置")]
+        [Header("爆発(大)を発生させる位置")]
         [SerializeField] Transform _expObject;
-        [Header("生成するエフェクト(煙)")]
-        [SerializeField] GameObject _defeatSmoke;
-        [Header("煙の生成間隔")]
-        [SerializeField] float _smokeInterval;
-        [Header("煙を生成する範囲")]
-        [SerializeField] Limit Smoke;
-        [Header("生成するエフェクト(爆発)")]
-        [SerializeField] GameObject _defeatBoom;
-        [Header("何秒後に爆発するか")]
+        [Header("生成するエフェクト(小爆発)")]
+        [SerializeField] GameObject _defeatBoom_S;
+        [Header("爆発(小)の生成間隔")]
+        [SerializeField] float _boom_s_Interval;
+        [Header("爆発(小)を生成する範囲")]
+        [SerializeField] Limit Boom;
+        [Header("Z座標のズレ(小爆発)")]
+        [SerializeField] float _boom_s_Offset;
+        [Header("生成するエフェクト(大爆発)")]
+        [SerializeField] GameObject _defeatBoom_L;
+        [Header("何秒後に大爆発するか")]
         [SerializeField] float _boomTime;
-        [Header("Y座標のズレ")]
-        [SerializeField] float _boomOffset;
+        [Header("Y座標のズレ(大爆発)")]
+        [SerializeField] float _boom_l_Offset;
         bool judgeDefeat = false;
         bool boomed=false;
         float countTime;
@@ -93,19 +95,21 @@ public class EnemyDeadMotion : MonoBehaviour
             if (!judgeDefeat) return;
             
                 countTime += Time.deltaTime;
-                if (countTime > _smokeInterval * countSmoke )
+                if (countTime > _boom_s_Interval * countSmoke )
                 {
                     countSmoke += 1;
-                    Vector3 randomPosition = new Vector3(_defeatObject.transform.position.x+(Random.Range(Smoke.Min_x, Smoke.Max_x)),_defeatObject.transform.position.y+( Random.Range(Smoke.Min_y, Smoke.Max_y)), _defeatObject.transform.position.z);
+                    Vector3 randomPosition = new Vector3(_defeatObject.transform.position.x
+                        +(Random.Range(Boom.Min_x, Boom.Max_x)),_defeatObject.transform.position.y
+                        +(Random.Range(Boom.Min_y, Boom.Max_y)), _defeatObject.transform.position.z+_boom_s_Offset);
 
-                    GameObject Effect = Instantiate(_defeatSmoke, randomPosition, Quaternion.Euler(-90f, 0f, 0f), _defeatObject.transform);
+                    GameObject Effect = Instantiate(_defeatBoom_S, randomPosition, Quaternion.identity, _defeatObject.transform);
                 Effects.Add(Effect);
                 }
                 else if (countTime>_boomTime&&!boomed)//一回だけ呼ぶ
                 {
                 DestroySmoke();
-                Vector3 expPosition = new Vector3(_expObject.transform.position.x, _expObject.transform.position.y + _boomOffset, _expObject.transform.position.z);
-                Instantiate(_defeatBoom, expPosition,Quaternion.identity,_expObject.transform);
+                Vector3 expPosition = new Vector3(_expObject.transform.position.x, _expObject.transform.position.y + _boom_l_Offset, _expObject.transform.position.z);
+                Instantiate(_defeatBoom_L, expPosition,Quaternion.identity,_expObject.transform);
                    boomed = true;
                 }
             

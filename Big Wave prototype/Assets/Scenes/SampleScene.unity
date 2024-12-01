@@ -10351,12 +10351,13 @@ MonoBehaviour:
     _defeatObject: {fileID: 543450652204768515}
     _expObject: {fileID: 72910807}
     _defeatSmoke: {fileID: 3515200670689651601, guid: 9005da4bf6e7a984aa9c023325f459fb, type: 3}
-    _smokeInterval: 0.4
+    _smokeInterval: 0.7
     Smoke:
-      Max_x: 2
-      Max_y: 12
+      Max_x: 5
+      Max_y: 6
       Min_x: -10
       Min_y: 3.5
+    _smokeOffset: -5
     _defeatBoom: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
     _boomTime: 4
     _boomOffset: 5
@@ -13967,7 +13968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
