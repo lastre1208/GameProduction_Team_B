@@ -8,6 +8,7 @@ using UnityEngine;
 class SelectScene
 {
     [SerializeField] Scene _scene;
+    [SerializeField] int _gameSceneStageID;
     [SerializeField] SceneController _sceneController;
 
     //デフォルトコンストラクタ
@@ -26,7 +27,7 @@ class SelectScene
             case Scene.gameover: _sceneController.GameOverScene(); break;//ゲームオーバーシーンに移行
             case Scene.clear: _sceneController.ClearScene(); break;//クリアシーンに移行
             case Scene.menu: _sceneController.MenuScene(); break;//メニューシーンに移行
-            case Scene.game_1: _sceneController.GameScene_1(); break;//ゲームシーン(ステージ1)に移行
+            case Scene.game: _sceneController.GameScene(_gameSceneStageID); break;//ゲームシーンに移行
             case Scene.end: _sceneController.EndGame(); break;//ゲーム終了
         }
     }

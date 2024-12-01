@@ -1548,6 +1548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: SE
+  _saveDataAudioTypeName: AUDIOVOLUME_SE
   _slider: {fileID: 613357516}
 --- !u!1 &614956420
 GameObject:
@@ -2011,6 +2012,7 @@ MonoBehaviour:
   isFadeOut: 1
   _selectScene:
     _scene: 3
+    _gameSceneStageID: 0
     _sceneController: {fileID: 1552875808}
   menuEffectController: {fileID: 2013484153}
   fadeOut: {fileID: 2013484154}
@@ -3860,6 +3862,7 @@ MonoBehaviour:
   isFadeOut: 0
   _selectScene:
     _scene: 4
+    _gameSceneStageID: 0
     _sceneController: {fileID: 1552875808}
   menuEffectController: {fileID: 2013484153}
   fadeOut: {fileID: 2013484154}
@@ -3873,6 +3876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552875807}
   - component: {fileID: 1552875808}
+  - component: {fileID: 1552875809}
   m_Layer: 0
   m_Name: ButtonEventManager
   m_TagString: Untagged
@@ -3910,7 +3914,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07151c6d20b73314fbcfb53c049c62fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
+  _currentStageData: {fileID: 1552875809}
+  _stageDataList: {fileID: 11400000, guid: 80351eab2243e5a459e72385f2c7f07d, type: 2}
+--- !u!114 &1552875809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552875805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc018ec2e0a1804aa383e090389df5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1559128476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: Master
+  _saveDataAudioTypeName: AUDIOVOLUME_MASTER
   _slider: {fileID: 1715464401}
 --- !u!114 &1715464401
 MonoBehaviour:
@@ -5740,6 +5758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: BGM
+  _saveDataAudioTypeName: AUDIOVOLUME_BGM
   _slider: {fileID: 2076560875}
 --- !u!1 &2077636000
 GameObject:

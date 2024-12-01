@@ -326,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349642973}
   - component: {fileID: 349642972}
+  - component: {fileID: 349642974}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -346,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1555776837}
-  _gameSceneName: {fileID: 11400000, guid: b01ef9bee10b5db42a86e65340c565bf, type: 2}
+  _currentStageData: {fileID: 349642974}
 --- !u!4 &349642973
 Transform:
   m_ObjectHideFlags: 0
@@ -362,6 +363,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349642974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349642971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc018ec2e0a1804aa383e090389df5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439291315
 GameObject:
   m_ObjectHideFlags: 0
