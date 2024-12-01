@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.SceneManagement;
 //敵を倒したときの演出(シーン遷移も含めて)
 public class DefeatEnemyEffect : MonoBehaviour
 {
+    [Header("クリア時のカメラ")]
+    [SerializeField] CinemachineBlendListCamera _clearCamera;
     [Header("トリックのチャージ")]
     [SerializeField] ChargeTrickPoint _chargeTrickPoint;
     [Header("プレイヤーのHP")]
@@ -42,7 +45,7 @@ public class DefeatEnemyEffect : MonoBehaviour
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap("Win");//操作の変更
         _chargeTrickPoint.Switch = false;//チャージしないようにする
-        //クリア時のカメラの移動を開始(実装予定)
+        _clearCamera.enabled = true;//クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
