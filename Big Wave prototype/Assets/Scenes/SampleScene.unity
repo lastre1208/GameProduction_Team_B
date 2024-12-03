@@ -7026,7 +7026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9311,7 +9311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10734,7 +10734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: Master
-  _saveDataAudioTypeName: AUDIOVOLUME_MASTER
+  _audioType: 0
   _slider: {fileID: 754636355}
 --- !u!224 &754636354
 RectTransform:
@@ -14295,7 +14295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15929,7 +15929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: BGM
-  _saveDataAudioTypeName: AUDIOVOLUME_BGM
+  _audioType: 1
   _slider: {fileID: 1051503224}
 --- !u!224 &1051503226
 RectTransform:
@@ -23643,7 +23643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718578414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.073398516, y: 0.9265946, z: -0.26265088, w: 0.25893945}
+  m_LocalRotation: {x: 0.079458565, y: 0.9201717, z: -0.28433627, w: 0.2571445}
   m_LocalPosition: {x: -893.07715, y: -658.72943, z: -110.89083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32797,7 +32797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: SE
-  _saveDataAudioTypeName: AUDIOVOLUME_SE
+  _audioType: 2
   _slider: {fileID: 2073284689}
 --- !u!224 &2073284691
 RectTransform:
