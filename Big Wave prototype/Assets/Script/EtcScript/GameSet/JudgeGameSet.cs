@@ -14,6 +14,8 @@ public class JudgeGameSet : MonoBehaviour
     public event Action GameClearAction;//ゲームクリア時に呼ぶ
     public event Action DeadAction;//死亡時に呼ぶ
     public event Action TimeUpAction;//タイムアップ時に呼ぶ
+    public event Action LatedAction;//遅れて呼ぶ
+
     [Header("プレイヤーのHP")]
     [SerializeField] HP player_Hp;//プレイヤーのHP
     [Header("敵のHP")]
@@ -37,6 +39,7 @@ public class JudgeGameSet : MonoBehaviour
         {
             GameSetProcess(true);
             GameClearAction?.Invoke();
+            LatedAction?.Invoke();
         }
     }
 
@@ -48,6 +51,7 @@ public class JudgeGameSet : MonoBehaviour
         {
             GameSetProcess(false);
             DeadAction?.Invoke();
+            LatedAction?.Invoke();
         }
     }
 
@@ -59,6 +63,7 @@ public class JudgeGameSet : MonoBehaviour
         {
             GameSetProcess(false);
             TimeUpAction?.Invoke();
+            LatedAction?.Invoke();
         }
     }
 

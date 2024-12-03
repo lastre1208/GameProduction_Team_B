@@ -855,7 +855,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336947929}
-  - component: {fileID: 336947931}
   - component: {fileID: 336947930}
   m_Layer: 0
   m_Name: Total
@@ -894,26 +893,6 @@ MonoBehaviour:
   m_scoreText: {fileID: 290087275}
   m_showScores:
   - {fileID: 11400000, guid: cbbacdb2b3802a642a31d817bcd7a0a1, type: 2}
---- !u!114 &336947931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336947928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c485c6b242beab43be591b2471512b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _addScores:
-  - {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
-  - {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
-  - {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
-  - {fileID: 11400000, guid: c28a8180726eb524fb2e610be5b27ff0, type: 2}
-  - {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
-  - {fileID: 11400000, guid: 57e195387b8e0a04d9a691ea14c55a83, type: 2}
-  _score_Total_: {fileID: 11400000, guid: cbbacdb2b3802a642a31d817bcd7a0a1, type: 2}
 --- !u!1 &356736881
 GameObject:
   m_ObjectHideFlags: 0
