@@ -35,6 +35,7 @@ public class DefeatEnemyEffect : MonoBehaviour
     [SerializeField] SceneController _controller;
     [Header("“G‚ğ“|‚µ‚Ä‚©‚ç‰½•bŒã‚ÉƒV[ƒ“‘JˆÚ‚·‚é‚©")]
     [SerializeField] float _changeSceneTime;//‰½•bŒã‚ÉƒV[ƒ“‘JˆÚ‚·‚é‚©
+    [SerializeField] JudgeGameSet _judgeGameSet;
     float _currentChangeSceneTime=0;
     bool _startEffect=false;//‰‰o‚ÌŠJnó‹µ
 
@@ -53,6 +54,11 @@ public class DefeatEnemyEffect : MonoBehaviour
         //”g‚Ì¶¬‚ğ~‚ß‚é
         inWave.Switch = false;
         outWave.Switch = false;
+    }
+
+    void Start()
+    {
+        _judgeGameSet.GameClearAction += Trigger;
     }
 
     void Update()
