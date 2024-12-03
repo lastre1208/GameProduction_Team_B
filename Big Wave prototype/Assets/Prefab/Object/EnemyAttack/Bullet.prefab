@@ -248,6 +248,7 @@ MonoBehaviour:
   damageToPlayer:
     damage: 30
   onTriggerEvent: {fileID: 5213929333554075142}
+  damageEffect: {fileID: 9208433209055588105, guid: ce7e54742c9f5c54eb77d372d0426568, type: 3}
 --- !u!114 &990379232734329661
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,9 +53,8 @@ MonoBehaviour:
     audioSource: {fileID: -825754274727997070}
   damageToPlayer:
     damage: 80
-  hitAnim_Player:
-    damageParaName: Damage
   onTriggerEvent: {fileID: 1631872520037522334}
+  damageEffect: {fileID: 9208433209055588105, guid: ce7e54742c9f5c54eb77d372d0426568, type: 3}
 --- !u!114 &2211245058127972275
 MonoBehaviour:
   m_ObjectHideFlags: 0

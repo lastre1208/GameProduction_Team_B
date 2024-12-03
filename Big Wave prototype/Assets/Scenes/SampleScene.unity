@@ -7026,7 +7026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10475,7 +10475,7 @@ MonoBehaviour:
       Max_y: 6
       Min_x: -10
       Min_y: 3.5
-    _boom_s_Offset: -5
+    _boom_s_Offset: 0
     _defeatBoom_L: {fileID: 4355500775512203620, guid: a55d11bf870596f43932f8792d0eb841, type: 3}
     _boomSE_L: {fileID: 8300000, guid: 89ab8b2744023374fa3046994021f0b2, type: 3}
     _boomTime: 4
@@ -23643,7 +23643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718578414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.073398516, y: 0.9265946, z: -0.26265088, w: 0.25893945}
+  m_LocalRotation: {x: 0.079458565, y: 0.9201717, z: -0.28433627, w: 0.2571445}
   m_LocalPosition: {x: -893.07715, y: -658.72943, z: -110.89083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29551,7 +29551,7 @@ MonoBehaviour:
   - fullEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 238903304}
+        - m_Target: {fileID: 1778482265}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: PlayOneShot
           m_Mode: 2
