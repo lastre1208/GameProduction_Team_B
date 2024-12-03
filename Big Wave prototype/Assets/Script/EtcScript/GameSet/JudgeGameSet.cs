@@ -5,16 +5,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System;
 
+//作成者:杉山
+//ゲーム終了の判断
 public class JudgeGameSet : MonoBehaviour
 {
     public event Action<bool> GameSetAction;//trueならゲームクリア、falseならゲームオーバー
     public event Action GameSetCommonAction;//ゲーム終了時クリアでもゲームオーバーでもどちらでもやる共通イベント
-    [Header("敵を倒した時の演出")]
-    [SerializeField] DefeatEnemyEffect defeatEnemyEffect;//敵を倒した時の演出
-    [Header("死亡時の演出")]
-    [SerializeField] DeadEffect deadEffect;//死亡時の演出
-    [Header("タイムアップ時の演出")]
-    [SerializeField] TimeUpEffect timeUpEffect;//タイムアップ時のエフェクト
+    public event Action GameClearAction;//ゲームクリア時に呼ぶ
+    public event Action DeadAction;//死亡時に呼ぶ
+    public event Action TimeUpAction;//タイムアップ時に呼ぶ
+    public event Action LatedAction;//遅れて呼ぶ
+
     [Header("プレイヤーのHP")]
     [SerializeField] HP player_Hp;//プレイヤーのHP
     [Header("敵のHP")]
@@ -28,43 +29,48 @@ public class JudgeGameSet : MonoBehaviour
     void Update()
     {
         JudgeClear();
-        JudgeGameOver();
+        JudgeDead();
+        JudgeTimeUp();
     }
 
-    void JudgeClear()
+    void JudgeClear()//クリア判断
     {
         if (enemy_Hp.Hp <= 0&&!gameSet)//敵を倒したら
         {
             GameSetProcess(true);
-
-            defeatEnemyEffect.Trigger();
+            GameClearAction?.Invoke();
+            LatedAction?.Invoke();
         }
     }
 
-    void JudgeGameOver()
+    void JudgeDead()//プレイヤー死亡判断
     {
         bool dead = player_Hp.Hp <= 0;//プレイヤーが死んだ
-        bool timeUp = timeLimit.RemainingTime <= 0;//時間切れになった
 
-        if ((dead||timeUp) && !gameSet)//プレイヤーが死んだらまたは時間切れになったら
+        if (dead&& !gameSet)//プレイヤーが死んだら
         {
             GameSetProcess(false);
+            DeadAction?.Invoke();
+            LatedAction?.Invoke();
+        }
+    }
 
-            if(dead)//プレイヤー死亡時
-            {
-                deadEffect.Trigger();
-            }
-            else if(timeUp)//時間切れ時
-            {
-                timeUpEffect.Trigger();
-            }
+    void JudgeTimeUp()//時間切れ判断
+    {
+        bool timeUp = timeLimit.RemainingTime <= 0;//時間切れになった
+
+        if(timeUp&&!gameSet)//時間切れ時
+        {
+            GameSetProcess(false);
+            TimeUpAction?.Invoke();
+            LatedAction?.Invoke();
         }
     }
 
     void GameSetProcess(bool gameClear)//ゲーム終了しシーンに移行する直前に行う処理
     {
-        GameSetCommonAction.Invoke();
-        GameSetAction.Invoke(gameClear);
         gameSet = true;
+        GameSetCommonAction?.Invoke();
+        GameSetAction?.Invoke(gameClear);
     }
 }

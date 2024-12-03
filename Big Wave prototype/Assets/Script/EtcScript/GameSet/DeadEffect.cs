@@ -30,6 +30,7 @@ public class DeadEffect : MonoBehaviour
     [SerializeField] SceneController _controller;
     [Header("死んでから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
+    [SerializeField] JudgeGameSet _judgeGameSet;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
 
@@ -48,6 +49,10 @@ public class DeadEffect : MonoBehaviour
         _chargeTrickEffect.Switch = false;//チャージのエフェクトは出さないようにする
     }
 
+    void Start()
+    {
+        _judgeGameSet.DeadAction += Trigger;
+    }
     void Update()
     {
         UpdateChangeScene();

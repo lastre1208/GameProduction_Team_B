@@ -23,6 +23,7 @@ public class TimeUpEffect : MonoBehaviour
     [SerializeField] SceneController _controller;
     [Header("タイムアップしてから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
+    [SerializeField] JudgeGameSet _judgeGameSet;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
 
@@ -35,6 +36,11 @@ public class TimeUpEffect : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
+    }
+
+    void Start()
+    {
+        _judgeGameSet.TimeUpAction += Trigger;
     }
 
     void Update()

@@ -19,6 +19,8 @@ public class DefeatEnemyEffect : MonoBehaviour
     [SerializeField] PlayerInput _playerInput;
     [Header("敵の死亡モーション")]
     [SerializeField] EnemyDeadMotion _enemyDeadMotion;
+    [Header("プレイヤーの死亡モーション")]
+    [SerializeField] PlayerWinMotion _playerWinMotion;
     [Header("内側の波の生成")]
     [SerializeField] InstantiateWave inWave;
     [Header("外側の波の生成")]
@@ -35,6 +37,7 @@ public class DefeatEnemyEffect : MonoBehaviour
     [SerializeField] SceneController _controller;
     [Header("敵を倒してから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
+    [SerializeField] JudgeGameSet _judgeGameSet;
     float _currentChangeSceneTime=0;
     bool _startEffect=false;//演出の開始状況
 
@@ -47,12 +50,18 @@ public class DefeatEnemyEffect : MonoBehaviour
         _chargeTrickPoint.Switch = false;//チャージしないようにする
         _clearCamera.enabled = true;//クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
+        _playerWinMotion.Trigger();//プレイヤーの勝利モーションの再生
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
         _ropeEffect.Switch = false;//縄を消す
         //波の生成を止める
         inWave.Switch = false;
         outWave.Switch = false;
+    }
+
+    void Start()
+    {
+        _judgeGameSet.GameClearAction += Trigger;
     }
 
     void Update()
