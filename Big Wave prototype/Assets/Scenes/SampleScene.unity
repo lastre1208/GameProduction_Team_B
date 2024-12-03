@@ -7026,7 +7026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10457,12 +10457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy_animator: {fileID: 1076911876662031114}
   _deadTriggerName: Dead
-  _enemy:
-    _hideObject: {fileID: 6642095926385720506}
-    _hideTime: 4.3
-  _waterSplash:
-    _hideObject: {fileID: 238015999}
-    _hideTime: 2
   _defeatEffect:
     _defeatObject: {fileID: 528262038721238859}
     _expObject: {fileID: 72910807}
@@ -10480,6 +10474,13 @@ MonoBehaviour:
     _boomSE_L: {fileID: 8300000, guid: 89ab8b2744023374fa3046994021f0b2, type: 3}
     _boomTime: 4
     _boom_l_Offset: 10
+  _changeObjects:
+  - _object: {fileID: 6642095926385720506}
+    _active: 0
+    _changeTime: 4.3
+  - _object: {fileID: 238015999}
+    _active: 0
+    _changeTime: 2
 --- !u!1001 &731156482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18689,11 +18690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0db81cf7e854c4580d2a729dc4aa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player_animator: {fileID: 0}
-  _deadTriggerName: 
-  _player:
-    _hideObject: {fileID: 919132148156821028}
-    _hideTime: 2
+  _player_animator: {fileID: 1450173098}
+  _deadTriggerName: Dead
+  _changeObjects:
+  - _object: {fileID: 919132148156821028}
+    _active: 0
+    _changeTime: 2
 --- !u!1 &1262817979
 GameObject:
   m_ObjectHideFlags: 0

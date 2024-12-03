@@ -9,12 +9,10 @@ public class EnemyDeadMotion : MonoBehaviour
 {
     [SerializeField] Animator _enemy_animator;
     [SerializeField] string _deadTriggerName;
-    [Header("敵のモデル")]
-    [SerializeField] HideObject _enemy;
-    [Header("水しぶき")]
-    [SerializeField] HideObject _waterSplash;
     [Header("撃破時に生成するエフェクト")]
     [SerializeField] DefeatEffect _defeatEffect;
+    [Header("表示状態を切り替えるオブジェクト")]
+    [SerializeField] ChangeActiveObject[] _changeObjects;
     bool _startMotion = false;
 
     public void Trigger()
@@ -28,34 +26,20 @@ public class EnemyDeadMotion : MonoBehaviour
     void Update()
     { 
         _defeatEffect.GenerateDefeatEffect();
-        _enemy.UpdateDeleteTime(_startMotion);
-        _waterSplash.UpdateDeleteTime(_startMotion);
 
+        UpdateChangeActive();
     }
 
-
-
-    [System.Serializable]
-    class HideObject
+    void UpdateChangeActive()
     {
-        [SerializeField] GameObject _hideObject;
-        [Header("何秒後に消すか")]
-        [SerializeField] float _hideTime;
-        float _currentDeleteTime = 0;
+        if (!_startMotion) return;
 
-        public void UpdateDeleteTime(bool start)
+        for(int i=0; i<_changeObjects.Length;i++)
         {
-            if (!start) return;
-
-            _currentDeleteTime += Time.deltaTime;
-
-            if (_currentDeleteTime >= _hideTime)
-            {
-                _hideObject.SetActive(false);
-            }
+            _changeObjects[i].UpdateActive();
         }
-    } 
-   
+    }
+
     [System.Serializable]
     class DefeatEffect
     {
