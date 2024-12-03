@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  animName: Attack_Error
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
   wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
@@ -9363,7 +9363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9864,7 +9864,7 @@ MonoBehaviour:
   _algorithmOfEnemy: {fileID: 1852493891}
   _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
-  _changeSceneTime: 3
+  _changeSceneTime: 3.5
   _judgeGameSet: {fileID: 1511769283}
 --- !u!1001 &646755478
 PrefabInstance:
@@ -18768,7 +18768,10 @@ MonoBehaviour:
   _changeObjects:
   - _object: {fileID: 919132148156821028}
     _active: 0
-    _changeTime: 2
+    _changeTime: 3.5
+  - _object: {fileID: 1814354297}
+    _active: 0
+    _changeTime: 3.5
 --- !u!1 &1262817979
 GameObject:
   m_ObjectHideFlags: 0
@@ -30864,7 +30867,7 @@ MonoBehaviour:
         action:
         - {fileID: 996687316}
         actionTime: 1.5
-      probability: 1000
+      probability: 10
   - elements:
     - element:
         action:
@@ -30893,7 +30896,7 @@ MonoBehaviour:
         action:
         - {fileID: 1931415814}
         - {fileID: 143768134}
-        actionTime: 6
+        actionTime: 9
       probability: 5
   formOfEnemy: {fileID: 1852493893}
 --- !u!114 &1852493893
