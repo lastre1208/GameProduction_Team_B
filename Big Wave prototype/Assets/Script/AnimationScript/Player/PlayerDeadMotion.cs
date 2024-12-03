@@ -12,8 +12,7 @@ public class PlayerDeadMotion : MonoBehaviour
 
     public void Trigger()
     {
-        //_player_animator.SetTrigger(_deadTriggerName);
-        Debug.Log("うああぁぁぁっっっ！！！(断末魔)");//モーションが入るまでは代わりにデバッグログでサーフ君の断末魔でも書いておきます
+        _player_animator.SetTrigger(_deadTriggerName);
         _startMotion = true;
     }
 
