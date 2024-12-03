@@ -6,8 +6,8 @@ public class PlayerDeadMotion : MonoBehaviour
 {
     [SerializeField] Animator _player_animator;
     [SerializeField] string _deadTriggerName;
-    [Header("プレイヤー")]
-    [SerializeField] HideObject _player;
+    [Header("表示状態を切り替えるオブジェクト")]
+    [SerializeField] ChangeActiveObject[] _changeObjects;
     bool _startMotion = false;
 
     public void Trigger()
@@ -19,28 +19,16 @@ public class PlayerDeadMotion : MonoBehaviour
 
     void Update()
     {
-        _player.UpdateDeleteTime(_startMotion);
+        UpdateChangeActive();
     }
 
-
-    [System.Serializable]
-    class HideObject
+    void UpdateChangeActive()
     {
-        [SerializeField] GameObject _hideObject;
-        [Header("何秒後に消すか")]
-        [SerializeField] float _hideTime;
-        float _currentDeleteTime = 0;
+        if (!_startMotion) return;
 
-        public void UpdateDeleteTime(bool start)
+        for (int i = 0; i < _changeObjects.Length; i++)
         {
-            if (!start) return;
-
-            _currentDeleteTime += Time.deltaTime;
-
-            if (_currentDeleteTime >= _hideTime)
-            {
-                _hideObject.SetActive(false);
-            }
+            _changeObjects[i].UpdateActive();
         }
     }
 }
