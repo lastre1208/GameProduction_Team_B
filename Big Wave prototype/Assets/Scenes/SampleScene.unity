@@ -7026,7 +7026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9311,7 +9311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10421,6 +10421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 718914402}
   - component: {fileID: 718914403}
+  - component: {fileID: 718914404}
   m_Layer: 0
   m_Name: DeadMotion
   m_TagString: Untagged
@@ -10457,29 +10458,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy_animator: {fileID: 1076911876662031114}
   _deadTriggerName: Dead
-  _enemy:
-    _hideObject: {fileID: 6642095926385720506}
-    _hideTime: 4.3
-  _waterSplash:
-    _hideObject: {fileID: 238015999}
-    _hideTime: 2
-  _defeatEffect:
-    _defeatObject: {fileID: 528262038721238859}
-    _expObject: {fileID: 72910807}
-    _audioSource: {fileID: 1778482265}
-    _defeatBoom_S: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
-    _boomSE_S: {fileID: 8300000, guid: af35f2a3993ce4f49a5b580b84254b57, type: 3}
-    _boom_s_Interval: 0.5
-    Boom:
-      Max_x: 5
-      Max_y: 6
-      Min_x: -10
-      Min_y: 3.5
-    _boom_s_Offset: -5
-    _defeatBoom_L: {fileID: 4355500775512203620, guid: a55d11bf870596f43932f8792d0eb841, type: 3}
-    _boomSE_L: {fileID: 8300000, guid: 89ab8b2744023374fa3046994021f0b2, type: 3}
-    _boomTime: 4
-    _boom_l_Offset: 10
+  _defeatEffect: {fileID: 718914404}
+  _changeObjects:
+  - _object: {fileID: 6642095926385720506}
+    _active: 0
+    _changeTime: 4.3
+  - _object: {fileID: 238015999}
+    _active: 0
+    _changeTime: 2
+--- !u!114 &718914404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718914401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6036453c1b50606429501f11a56be0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1778482265}
+  _shortExp:
+    _genePos: {fileID: 528262038721238859}
+    _expObj: {fileID: 7875807899321773699, guid: f83ebf47429f4f445991e790d394629a, type: 3}
+    _boomSE: {fileID: 8300000, guid: af35f2a3993ce4f49a5b580b84254b57, type: 3}
+  _boom_s_Interval: 0.5
+  Boom:
+    Max_x: 5
+    Max_y: 6
+    Min_x: -10
+    Min_y: 3.5
+  _boom_s_Offset: -5
+  _largeExp:
+    _genePos: {fileID: 72910807}
+    _expObj: {fileID: 4355500775512203620, guid: a55d11bf870596f43932f8792d0eb841, type: 3}
+    _boomSE: {fileID: 8300000, guid: 89ab8b2744023374fa3046994021f0b2, type: 3}
+  _boomTime: 4
+  _boom_l_Offset: 10
 --- !u!1001 &731156482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10734,7 +10750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: Master
-  _saveDataAudioTypeName: AUDIOVOLUME_MASTER
+  _audioType: 0
   _slider: {fileID: 754636355}
 --- !u!224 &754636354
 RectTransform:
@@ -14295,7 +14311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15929,7 +15945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: BGM
-  _saveDataAudioTypeName: AUDIOVOLUME_BGM
+  _audioType: 1
   _slider: {fileID: 1051503224}
 --- !u!224 &1051503226
 RectTransform:
@@ -18689,11 +18705,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0db81cf7e854c4580d2a729dc4aa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player_animator: {fileID: 0}
-  _deadTriggerName: 
-  _player:
-    _hideObject: {fileID: 919132148156821028}
-    _hideTime: 2
+  _player_animator: {fileID: 1450173098}
+  _deadTriggerName: Dead
+  _changeObjects:
+  - _object: {fileID: 919132148156821028}
+    _active: 0
+    _changeTime: 2
 --- !u!1 &1262817979
 GameObject:
   m_ObjectHideFlags: 0
@@ -23643,7 +23660,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718578414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.073398516, y: 0.9265946, z: -0.26265088, w: 0.25893945}
+  m_LocalRotation: {x: 0.079458565, y: 0.9201717, z: -0.28433627, w: 0.2571445}
   m_LocalPosition: {x: -893.07715, y: -658.72943, z: -110.89083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32797,7 +32814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   _audioTypeName: SE
-  _saveDataAudioTypeName: AUDIOVOLUME_SE
+  _audioType: 2
   _slider: {fileID: 2073284689}
 --- !u!224 &2073284691
 RectTransform:
