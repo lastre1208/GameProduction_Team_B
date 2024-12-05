@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Max_Y: 5
-  Min_Y: -3
+  Min_Y: 0
