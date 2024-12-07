@@ -39,6 +39,6 @@ public class InstantiateBarrier : MonoBehaviour
     }
     private void GenerateBarrier()
     {
-        Instantiate(_barrierPrefab, _enemy.transform.position + _barrierPrefab.transform.position, _barrierPrefab.transform.rotation, _enemy.parent);
+        Instantiate(_barrierPrefab, _enemy.transform.position + _enemy.rotation * _barrierPrefab.transform.localPosition, _enemy.transform.rotation* _barrierPrefab.transform.rotation, _enemy.parent);
     }
 }
