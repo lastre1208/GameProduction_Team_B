@@ -4788,9 +4788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3
-
-'
+  m_text: START!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a69b714d5c8d699468497acc6255622f, type: 2}
   m_sharedMaterial: {fileID: -21385085090457684, guid: a69b714d5c8d699468497acc6255622f, type: 2}
@@ -9692,7 +9690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10424,7 +10422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeIn: {fileID: 667800873}
   _startFadeInTime: 1.5
-  _startGameTime: 3
+  _startGameTime: 2
   gameStart: {fileID: 1918109355}
 --- !u!1001 &681700737
 PrefabInstance:
@@ -14509,7 +14507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32483,11 +32481,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0530e233174f51f42b520026d5c582f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownText: {fileID: 341573099}
-  startText: START!
-  displayTime_GameStart: 1.5
-  gameStartSoundEffect: {fileID: 8300000, guid: 5abf7235e25eca84fb1b3c6501d6d130, type: 3}
-  audioSource: {fileID: 1778482265}
+  _sound:
+    _delayTime: 1
+    _audioSource: {fileID: 1778482265}
+    _sound: {fileID: 8300000, guid: 5abf7235e25eca84fb1b3c6501d6d130, type: 3}
+  _text:
+    _text: {fileID: 341573099}
+    _delayTime: 1
+    _displayTime: 1.5
 --- !u!4 &1918109358
 Transform:
   m_ObjectHideFlags: 0
