@@ -8,5 +8,6 @@ public enum State_Movie
 {
     off,//動いていない
     playing,//ムービー再生中
-    ending//ムービー終了中
+    ending,//ムービー終了中
+    completed//完了
 }

@@ -25,7 +25,7 @@ public class GameStartSequence : MonoBehaviour
     void Start()
     {
         _startMovieEvent.Trigger();//最初にムービーを流す
-        _duringGameUI?.SetActive(false);//ゲーム中のUIを隠す
+        if(_duringGameUI!=null) _duringGameUI.SetActive(false);//ゲーム中のUIを隠す
         _state = State_GameStartSequence.movie;
     }
 
@@ -43,10 +43,10 @@ public class GameStartSequence : MonoBehaviour
         {
             case State_GameStartSequence.movie:
 
-                if(_startMovieEvent.State==State_Movie.off)//ムービーを流し終わったらスタートの合図を出す
+                if(_startMovieEvent.State==State_Movie.completed)//ムービーを流し終わったらスタートの合図を出す
                 {
                     _startSignalEvent.Trigger();
-                    _duringGameUI?.SetActive(true);//ゲーム中のUIを表示状態にする
+                    if (_duringGameUI != null) _duringGameUI.SetActive(true);//ゲーム中のUIを表示状態にする
                     _state = State_GameStartSequence.signal;
                 }
 

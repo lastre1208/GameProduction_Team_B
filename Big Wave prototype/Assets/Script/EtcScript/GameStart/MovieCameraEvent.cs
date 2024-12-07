@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 //ムービーのカメラの処理
 public class MovieCameraEvent : MonoBehaviour
 {
+    [Header("ムービー中のUI")]
+    [SerializeField] GameObject _movieUI;
     [Header("操作")]
     [SerializeField] PlayerInput _playerInput;
     [Header("ムービーのカメラ")]
@@ -41,6 +43,7 @@ public class MovieCameraEvent : MonoBehaviour
         _currentMovieTime = _defaultCurrentMovieTime;
         _state = State_Movie.playing;//再生している状態にする
         _fadeIn.StartTrigger();//フェードインを開始
+        if(_movieUI!=null) _movieUI.SetActive(true);//ムービー中のUIを表示
         //操作をムービー用に変更(元の操作名も覚えておく)
         _actionMapName_Original = _playerInput.currentActionMap.name;
         _playerInput.SwitchCurrentActionMap(_actionMapName_Movie);
@@ -52,12 +55,11 @@ public class MovieCameraEvent : MonoBehaviour
         //ムービー再生中でなければ無視
         if (_state != State_Movie.playing) return;
 
-        //フェードインを中断し
-        //フェードアウトを開始(フェードアウトが完全に終わったらムービーが動いていない状態にする)
+        if (_movieUI != null) _movieUI.SetActive(false);//ムービー中のUIを非表示
         _state = State_Movie.ending;//終了している状態にする
-        _fadeIn.CancelTrigger();
+        _fadeIn.CancelTrigger();//フェードインを中断し
         _fadeIn.ReturnDefault();
-        _fadeOut.StartTrigger();
+        _fadeOut.StartTrigger();//フェードアウトを開始(フェードアウトが完全に終わったらムービーが動いていない状態にする)
     }
 
     void Update()
@@ -67,7 +69,7 @@ public class MovieCameraEvent : MonoBehaviour
 
     void UpdateState()//ムービーの再生状況の更新
     {
-        if (_state == State_Movie.off) return;//ムービーが動いていない時は特に更新はしない
+        if (_state == State_Movie.off|| _state == State_Movie.completed) return;//ムービーが動いていないまたは完了時は特に更新はしない
 
         switch(_state)
         {
@@ -92,7 +94,7 @@ public class MovieCameraEvent : MonoBehaviour
                     _fadeOut.ReturnDefault();
                     _movieCamera.enabled = false;//ムービーのカメラをオフにする
                     _playerInput.SwitchCurrentActionMap(_actionMapName_Original);//操作を元の操作に変更
-                    _state = State_Movie.off;
+                    _state = State_Movie.completed;
                 }
 
                 break;
