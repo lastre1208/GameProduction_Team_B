@@ -7,6 +7,8 @@ using UnityEngine;
 //ゲームのスタートの処理
 public class GameStartSequence : MonoBehaviour
 {
+    [Header("ゲーム中のUI")]
+    [SerializeField] GameObject _duringGameUI;
     [SerializeField] MovieCameraEvent _startMovieEvent;
     [SerializeField] StartSignalEvent _startSignalEvent;
     [SerializeField] JudgeGameStart _judgeGameStart;
@@ -23,6 +25,7 @@ public class GameStartSequence : MonoBehaviour
     void Start()
     {
         _startMovieEvent.Trigger();//最初にムービーを流す
+        _duringGameUI?.SetActive(false);//ゲーム中のUIを隠す
         _state = State_GameStartSequence.movie;
     }
 
@@ -43,6 +46,7 @@ public class GameStartSequence : MonoBehaviour
                 if(_startMovieEvent.State==State_Movie.off)//ムービーを流し終わったらスタートの合図を出す
                 {
                     _startSignalEvent.Trigger();
+                    _duringGameUI?.SetActive(true);//ゲーム中のUIを表示状態にする
                     _state = State_GameStartSequence.signal;
                 }
 

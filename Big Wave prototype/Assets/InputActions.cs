@@ -586,6 +586,120 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Movie"",
+            ""id"": ""4b8c7732-cf70-4cb1-b37f-90d64c63c303"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""bec198f5-be95-49d3-a5ac-ecf27d69c48c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""702f09c9-4a2d-4be3-a9fe-d55d847a1bc1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""db9a4b37-e0ea-4b87-91fb-998fefe03ef1"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6aa15a67-d599-4f92-b204-ce7d605ddddc"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1321672d-46e8-44ed-8d4e-1b70298bca4c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""226288dd-1309-4773-b605-4443ba7248c1"",
+                    ""path"": ""<SwitchProControllerHID>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a96f34ee-7ba3-499e-a105-8f0b90b3e0b9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85ca42a9-74b3-4400-bd3f-28ec64d9395f"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fe96b15-23d4-4768-8a79-b024115cd58e"",
+                    ""path"": ""<SwitchProControllerHID>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e7725f5-fd72-4263-b8ec-a67409a03f77"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""UI"",
             ""id"": ""23da3adc-3e1b-4c8d-8af4-71916e38c866"",
             ""actions"": [
@@ -1773,6 +1887,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_WestTrick = m_Player.FindAction("WestTrick", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
+        // Movie
+        m_Movie = asset.FindActionMap("Movie", throwIfNotFound: true);
+        m_Movie_Skip = m_Movie.FindAction("Skip", throwIfNotFound: true);
+        m_Movie_Pause = m_Movie.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1962,6 +2080,60 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Movie
+    private readonly InputActionMap m_Movie;
+    private List<IMovieActions> m_MovieActionsCallbackInterfaces = new List<IMovieActions>();
+    private readonly InputAction m_Movie_Skip;
+    private readonly InputAction m_Movie_Pause;
+    public struct MovieActions
+    {
+        private @InputActions m_Wrapper;
+        public MovieActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_Movie_Skip;
+        public InputAction @Pause => m_Wrapper.m_Movie_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Movie; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MovieActions set) { return set.Get(); }
+        public void AddCallbacks(IMovieActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MovieActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovieActionsCallbackInterfaces.Add(instance);
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IMovieActions instance)
+        {
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IMovieActions instance)
+        {
+            if (m_Wrapper.m_MovieActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovieActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovieActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovieActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovieActions @Movie => new MovieActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -2282,6 +2454,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnWestTrick(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnTest(InputAction.CallbackContext context);
+    }
+    public interface IMovieActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

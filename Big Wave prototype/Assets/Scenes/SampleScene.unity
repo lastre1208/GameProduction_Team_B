@@ -8336,156 +8336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b34436058922e748a089d181bde7fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 901799024}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1634400150}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 887843571}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: f95406bee135ce64a8658d5c97e6d9a0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 361539516}
-        m_TargetAssemblyTypeName: CloseMenu, Assembly-CSharp
-        m_MethodName: OpenNewMenu
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1634400152}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 569649928}
-        m_TargetAssemblyTypeName: ControlTime, Assembly-CSharp
-        m_MethodName: ChangeTimeScale
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2111325018}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1034766462}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
-        m_MethodName: SwitchCurrentActionMap
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: f95406bee135ce64a8658d5c97e6d9a0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI
-          m_BoolArgument: 0
-        m_CallState: 2
-  resumeEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 887843571}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 569649928}
-        m_TargetAssemblyTypeName: ControlTime, Assembly-CSharp
-        m_MethodName: ChangeTimeScale
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2111325018}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1034766462}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
-        m_MethodName: SwitchCurrentActionMap
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Player
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b62deba44a2f510478ed2fce7a16934c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Player
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &569649930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9715,7 +9565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10447,7 +10297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeIn: {fileID: 667800873}
   _startFadeInTime: 1.5
-  _startGameTime: 2
+  _startGameTime: 1
   gameStart: {fileID: 1918109355}
 --- !u!1001 &681700737
 PrefabInstance:
@@ -15483,6 +15333,7 @@ GameObject:
   - component: {fileID: 1034766459}
   - component: {fileID: 1034766461}
   - component: {fileID: 1034766463}
+  - component: {fileID: 1034766465}
   - component: {fileID: 1034766462}
   - component: {fileID: 1034766464}
   m_Layer: 0
@@ -15808,6 +15659,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b95bbeba-6b80-484d-96a0-877a07c17322
     m_ActionName: Win/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034766465}
+        m_TargetAssemblyTypeName: ControllerOfMovieSkip, Assembly-CSharp
+        m_MethodName: Skip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bec198f5-be95-49d3-a5ac-ecf27d69c48c
+    m_ActionName: Movie/Skip[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034766456}
+        m_TargetAssemblyTypeName: ControllerOfPause, Assembly-CSharp
+        m_MethodName: SwitchPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 702f09c9-4a2d-4be3-a9fe-d55d847a1bc1
+    m_ActionName: Movie/Pause[/Keyboard/escape,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -15839,6 +15722,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   judgeGameSet: {fileID: 1511769283}
+--- !u!114 &1034766465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034766454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb84f2a3dcd6f64fac78995b58378cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movieCameraEvent: {fileID: 1979714258}
 --- !u!1 &1041760308
 GameObject:
   m_ObjectHideFlags: 0
@@ -17462,6 +17358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8184c212b10d72428678995df6207e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _duringGameUI: {fileID: 2111325018}
   _startMovieEvent: {fileID: 1979714258}
   _startSignalEvent: {fileID: 667800874}
   _judgeGameStart: {fileID: 1204178117}
@@ -23942,11 +23839,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1634400150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5890107240016628500, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
-  m_PrefabInstance: {fileID: 1092795171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1634400151 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
@@ -23957,7 +23849,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
   m_PrefabInstance: {fileID: 1092795171}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634400150}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -33640,7 +33532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c7f16e983756649a6c8e7a5ee47fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duringGameUI: {fileID: 2111325018}
+  _playerInput: {fileID: 1034766462}
   _movieCamera: {fileID: 30364019}
   _movieTime: 5
   _fadeIn: {fileID: 1979714257}
@@ -34203,7 +34095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

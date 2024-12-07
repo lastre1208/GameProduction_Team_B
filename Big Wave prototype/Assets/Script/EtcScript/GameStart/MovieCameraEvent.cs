@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 //作成者:杉山
 //ムービーのカメラの処理
 public class MovieCameraEvent : MonoBehaviour
 {
-    [Header("ゲーム中のUI")]
-    [SerializeField] GameObject _duringGameUI;
+    [Header("操作")]
+    [SerializeField] PlayerInput _playerInput;
     [Header("ムービーのカメラ")]
     [Tooltip("カメラの優先度はゲーム時のカメラよりも高く設定して置いてください")]
     [SerializeField] CinemachineBlendListCamera _movieCamera;
@@ -20,6 +21,8 @@ public class MovieCameraEvent : MonoBehaviour
     [Header("フェードアウトの設定")]
     [SerializeField] FadeOut _fadeOut;
     float _currentMovieTime;//ムービーの現在の時間
+    const string _actionMapName_Movie = "Movie";//ムービー用の操作名
+    string _actionMapName_Original;//元の操作名
     const float _defaultCurrentMovieTime= 0;
     //ムービーの再生状況
     //基本はムービーが動いていない
@@ -35,14 +38,13 @@ public class MovieCameraEvent : MonoBehaviour
         //ムービーが動いていない状態でなければ無視
         if (_state!=State_Movie.off) return;
 
-        //フェードインを開始し、
-        //ゲーム中のUIを非表示にし、
-        //カメラをムービー用のものに切り替える
         _currentMovieTime = _defaultCurrentMovieTime;
         _state = State_Movie.playing;//再生している状態にする
-        _fadeIn.StartTrigger();
-        _duringGameUI.SetActive(false);
-        _movieCamera.enabled = true;
+        _fadeIn.StartTrigger();//フェードインを開始
+        //操作をムービー用に変更(元の操作名も覚えておく)
+        _actionMapName_Original = _playerInput.currentActionMap.name;
+        _playerInput.SwitchCurrentActionMap(_actionMapName_Movie);
+        _movieCamera.enabled = true;//カメラをムービー用のものに切り替える
     }
 
     public void End()//ムービーの終了(ムービースキップ時にこれを呼ぶ)
@@ -89,7 +91,7 @@ public class MovieCameraEvent : MonoBehaviour
                 {
                     _fadeOut.ReturnDefault();
                     _movieCamera.enabled = false;//ムービーのカメラをオフにする
-                    _duringGameUI.SetActive(true);//ゲーム中のUIを表示状態にする
+                    _playerInput.SwitchCurrentActionMap(_actionMapName_Original);//操作を元の操作に変更
                     _state = State_Movie.off;
                 }
 

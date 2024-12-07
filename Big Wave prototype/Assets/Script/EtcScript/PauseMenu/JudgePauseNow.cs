@@ -11,8 +11,6 @@ public class JudgePauseNow : MonoBehaviour
     public event Action PauseAction;
     public event Action ResumeAction;
     public event Action<bool> SwitchPauseAction;//ポーズ状態になる時にtrue、ポーズ解除するときにfalse
-    [SerializeField] UnityEvent pauseEvents;
-    [SerializeField] UnityEvent resumeEvents;
     bool pauseNow = false;
 
     public bool PauseNow
@@ -29,12 +27,10 @@ public class JudgePauseNow : MonoBehaviour
         if(pauseNow)//ポーズ時
         {
             PauseAction?.Invoke();
-            //pauseEvents.Invoke();
         }
         else//再会時
         {
             ResumeAction?.Invoke();
-            //resumeEvents.Invoke();
         }
     }
 }

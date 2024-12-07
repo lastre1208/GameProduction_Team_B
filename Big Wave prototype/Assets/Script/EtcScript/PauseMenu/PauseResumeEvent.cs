@@ -27,8 +27,8 @@ public class PauseResumeEvent : MonoBehaviour
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] CloseMenuEasily _closeMenuEasily;
-    const string _actionMapName_Game = "Player";
-    const string _actionMapName_Pause = "UI";
+    string _actionMapName_Original;//元の操作名
+    const string _actionMapName_Pause = "UI";//ポーズ用の操作名
 
     void Start()
     {
@@ -45,9 +45,19 @@ public class PauseResumeEvent : MonoBehaviour
 
         //ゲーム中UIの表示・非表示切り替え(スタートのムービーが終了していなかったら表示しない)
         _duringGameUI.SetActive(_gameStartSequence.FinishedStartMovie ? !pause : false);
-
         _pauseMenu.SetActive(pause);//ポーズメニューの表示・非表示切り替え
-        _playerInput.SwitchCurrentActionMap(pause ? _actionMapName_Pause : _actionMapName_Game);//操作の変更
+
+        //操作の変更(ポーズ状態に切り替えるなら、元の操作名を覚えておく、ポーズ状態解除時は元の操作に戻す)
+        if(pause)
+        {
+            _actionMapName_Original = _playerInput.currentActionMap.name;
+            _playerInput.SwitchCurrentActionMap(_actionMapName_Pause);
+        }
+        else
+        {
+            _playerInput.SwitchCurrentActionMap(_actionMapName_Original);
+        }
+
         _controlTime.ChangeTimeScale(pause);//時間のスピードの変更
         _audioSource.PlayOneShot(pause ? _pauseSE : _resumeSE);//効果音を流す
     }
