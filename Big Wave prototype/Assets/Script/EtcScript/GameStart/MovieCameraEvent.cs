@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 //ムービーのカメラの処理
 public class MovieCameraEvent : MonoBehaviour
 {
+    [Header("BGM")]
+    [SerializeField] AudioSource _bgm;
     [Header("ムービー中のUI")]
     [SerializeField] GameObject _movieUI;
     [Header("操作")]
@@ -44,6 +46,7 @@ public class MovieCameraEvent : MonoBehaviour
         _state = State_Movie.playing;//再生している状態にする
         _fadeIn.StartTrigger();//フェードインを開始
         if(_movieUI!=null) _movieUI.SetActive(true);//ムービー中のUIを表示
+        if (_bgm != null) _bgm.Play();//BGMを再生開始
         //操作をムービー用に変更(元の操作名も覚えておく)
         _actionMapName_Original = _playerInput.currentActionMap.name;
         _playerInput.SwitchCurrentActionMap(_actionMapName_Movie);
@@ -94,6 +97,7 @@ public class MovieCameraEvent : MonoBehaviour
                     _fadeOut.ReturnDefault();
                     _movieCamera.enabled = false;//ムービーのカメラをオフにする
                     _playerInput.SwitchCurrentActionMap(_actionMapName_Original);//操作を元の操作に変更
+                    if (_bgm != null) _bgm.Stop();//BGMを止める
                     _state = State_Movie.completed;
                 }
 
