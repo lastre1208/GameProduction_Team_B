@@ -9,7 +9,7 @@ public class CountTrickWhileJump : MonoBehaviour
     private int trickCount = 0;//一回のジャンプにしたトリックの回数
     [Header("必要なコンポーネント")]
     [SerializeField] JudgeJumpNow judgeJumpNow;
-
+    [SerializeField] Critical critical;
     public int TrickCount
     {
         get { return trickCount; }
@@ -30,6 +30,13 @@ public class CountTrickWhileJump : MonoBehaviour
 
     public void AddTrickCount()//トリック回数の加算(1回ずつ)、トリック時にトリック回数を1回加算するようにする
     {
-        trickCount++;
+        if (critical.CriticalNow)
+        {
+            trickCount++;
+        }
+        else
+        {
+            trickCount = 0;
+        }
     }
 }

@@ -13,17 +13,20 @@ public class ChargeFeverPointWhenTrick : MonoBehaviour
     [SerializeField] FeverPoint player_FeverPoint;
     [SerializeField] FeverMode feverMode;
     [SerializeField] CountTrickWhileJump countTrickWhileJump;
-
+    [SerializeField] Critical critical;
     //フィーバーポイントのチャージ
+    int count;
     public void Charge()
     {
-        if (!feverMode.FeverNow)//フィーバー状態でない時のみ溜まるようにする
+        if (!feverMode.FeverNow&&critical.CriticalNow)//フィーバー状態でない時トリックが成功した時のみ溜まるようにする
         {
-            int count = countTrickWhileJump.TrickCount;//トリックをした時のその1回のジャンプ中にしたトリック回数(1ジャンプ中のトリック回数の加算後にこの処理を入れるようにする)
+             count = countTrickWhileJump.TrickCount;//トリックをした時のその1回のジャンプ中にしたトリック回数(1ジャンプ中のトリック回数の加算後にこの処理を入れるようにする)
 
             if (count>chargeFeverPoint.Length) count = chargeFeverPoint.Length;//例外処理対策
 
-            player_FeverPoint.FeverPoint_ += chargeFeverPoint[count - 1];//フィーバーポイント加算(トリックするごとに加算するようにする)
+            player_FeverPoint.FeverPoint_ += chargeFeverPoint[count - 1];//フィーバーポイント加算(トリック成功するごとに加算するようにする)
+          
         }
+      
     }
 }
