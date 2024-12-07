@@ -12,6 +12,14 @@ public class GameStartSequence : MonoBehaviour
     [SerializeField] JudgeGameStart _judgeGameStart;
     State_GameStartSequence _state;//ゲームの開始処理の状態
 
+    public bool FinishedStartMovie
+    {
+        get
+        {
+            return _state > State_GameStartSequence.movie;
+        }
+    }
+
     void Start()
     {
         _startMovieEvent.Trigger();//最初にムービーを流す
