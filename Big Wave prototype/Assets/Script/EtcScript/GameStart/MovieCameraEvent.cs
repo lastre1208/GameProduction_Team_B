@@ -1,0 +1,99 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Cinemachine;
+
+//作成者:杉山
+//ムービーのカメラの処理
+public class MovieCameraEvent : MonoBehaviour
+{
+    [Header("ゲーム中のUI")]
+    [SerializeField] GameObject _duringGameUI;
+    [Header("ムービーのカメラ")]
+    [Tooltip("カメラの優先度はゲーム時のカメラよりも高く設定して置いてください")]
+    [SerializeField] CinemachineBlendListCamera _movieCamera;
+    [Header("ムービーの時間")]
+    [Tooltip("この時間分経ったらフェードアウトが始まります")]
+    [SerializeField] float _movieTime;
+    [Header("フェードインの設定")]
+    [SerializeField] FadeIn _fadeIn;
+    [Header("フェードアウトの設定")]
+    [SerializeField] FadeOut _fadeOut;
+    float _currentMovieTime;//ムービーの現在の時間
+    const float _defaultCurrentMovieTime= 0;
+    //ムービーの再生状況
+    //基本はムービーが動いていない
+    //->再生中(再生する命令があったら)->
+    //終了中(終了する命令があった、もしくは時間経過で自動的にそうなったか)
+    //->ムービーが動いていない(終了処理が終わったら)
+    State_Movie _state = State_Movie.off;
+
+    public State_Movie State { get { return _state; } }
+
+    public void Trigger()//ムービーの開始
+    {
+        //ムービーが動いていない状態でなければ無視
+        if (_state!=State_Movie.off) return;
+
+        //フェードインを開始し、
+        //ゲーム中のUIを非表示にし、
+        //カメラをムービー用のものに切り替える
+        _currentMovieTime = _defaultCurrentMovieTime;
+        _state = State_Movie.playing;//再生している状態にする
+        _fadeIn.StartTrigger();
+        _duringGameUI.SetActive(false);
+        _movieCamera.enabled = true;
+    }
+
+    public void End()//ムービーの終了(ムービースキップ時にこれを呼ぶ)
+    {
+        //ムービー再生中でなければ無視
+        if (_state != State_Movie.playing) return;
+
+        //フェードインを中断し
+        //フェードアウトを開始(フェードアウトが完全に終わったらムービーが動いていない状態にする)
+        _state = State_Movie.ending;//終了している状態にする
+        _fadeIn.CancelTrigger();
+        _fadeIn.ReturnDefault();
+        _fadeOut.StartTrigger();
+    }
+
+    void Update()
+    {
+       UpdateState();
+    }
+
+    void UpdateState()//ムービーの再生状況の更新
+    {
+        if (_state == State_Movie.off) return;//ムービーが動いていない時は特に更新はしない
+
+        switch(_state)
+        {
+            case State_Movie.playing://再生中
+
+                //ムービーの時間の更新(時間になったら終了状態に入る)
+                _currentMovieTime += Time.deltaTime;
+
+                if(_currentMovieTime>=_movieTime)
+                {
+                    End();
+                }
+
+                break;
+
+
+            case State_Movie.ending://終了中
+
+                //フェードアウトが終わったらムービーが動いていない状態(初期状態)に戻す
+                if (_fadeOut.FadeState == State_Fade.completed)
+                {
+                    _fadeOut.ReturnDefault();
+                    _movieCamera.enabled = false;//ムービーのカメラをオフにする
+                    _duringGameUI.SetActive(true);//ゲーム中のUIを表示状態にする
+                    _state = State_Movie.off;
+                }
+
+                break;
+        }
+    }
+}

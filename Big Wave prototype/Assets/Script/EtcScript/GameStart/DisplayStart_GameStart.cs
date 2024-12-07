@@ -15,8 +15,6 @@ public class DisplayStart_GameStart : MonoBehaviour
     [SerializeField] float displayTime_GameStart;//ゲーム開始の文字を出す時間
     [Header("ゲーム開始した瞬間に出す効果音")]
     [SerializeField] AudioClip gameStartSoundEffect;//ゲーム開始した瞬間に出す効果音
-    [Header("ゲーム開始を判断するコンポーネント")]
-    [SerializeField] JudgeGameStart judgeGameStart;
     [SerializeField] AudioSource audioSource;
     private float remainingdisplayTime_GameStart;//ゲーム開始の文字を出す残り時間
     bool displayStart = false;//スタートの文字を表示するフラグ

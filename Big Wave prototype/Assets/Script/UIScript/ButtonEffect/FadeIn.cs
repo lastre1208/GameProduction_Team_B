@@ -7,54 +7,67 @@ using UnityEngine.UI;
 //フェードイン
 public class FadeIn : MonoBehaviour
 {
-    [Header("▼完全に画面がフェードアウトするまでにかかる時間")]
+    [Header("▼完全に画面がフェードインするまでにかかる時間")]
     [SerializeField] float fadeDuration = 1.0f;
-    [Header("▼フェードアウトに使う画像")]
+    [Header("▼フェードインに使う画像")]
     [SerializeField] Image fadeImage;
-    private float fadeTimer = 0f;//フェードアウト時間の管理用
-    private bool fadeStart = false;//フェードアウトが開始されたか
-    private bool fadeCompleted = false;//フェードアウトが終わったか
+    private float fadeTimer = 0f;//フェードイン時間の管理用
     const float _maxAlpha = 1;
+    State_Fade _state = State_Fade.off;//フェードアウトの状況
 
-    public bool FadeStart
+    public State_Fade State { get { return _state; } }
+
+    public void ReturnDefault()//フェードし終わったら必ず呼ばなければいけない処理(これをしないとこのコンポーネントの再利用ができない)
     {
-        get { return fadeStart; }
+        _state = State_Fade.off;
     }
 
-    public bool FadeCompleted
+    public void StartTrigger()//フェードアウトを最初から開始したい時に呼ぶ
     {
-        get { return fadeCompleted; }
+        if (_state == State_Fade.completed) return;//既に完了している時は呼べない
+
+        fadeTimer = 0f;
+        _state = State_Fade.fading;
+    }
+
+    public void CancelTrigger()//フェードアウトを止めたい時に呼ぶ
+    {
+        if (_state != State_Fade.fading) return;//フェード中でなければ無視
+
+        _state = State_Fade.cancel;
+    }
+
+    public void ResumeTrigger()//フェードアウトを途中から再開したい時に呼ぶ
+    {
+        if (_state != State_Fade.cancel) return;//キャンセル状態でなければ無視
+
+        _state = State_Fade.fading;
     }
 
     void Update()
     {
-        FadeOutDisplay();
+        FadeInDisplay();
     }
 
-    public void FadeOutTrigger()//フェードアウト開始したい時に呼ぶ
+    private void FadeInDisplay()//フェードインの処理
     {
-        fadeStart = true;
-        fadeTimer = 0f;
-        fadeCompleted = false;
-    }
-
-    private void FadeOutDisplay()//フェードアウトの処理
-    {
-        if (!fadeStart || fadeCompleted) return;//フェードアウトがまだ始まってないもしくはフェードアウトが完了したなら、処理をしない
+        //フェードアウト中でないなら処理をしない
+        if (_state != State_Fade.fading) return;
 
         //経過時間をもとに透明度を計算
         fadeTimer += Time.deltaTime;
         float normalizedTime = fadeTimer / fadeDuration;
         float newAlpha = _maxAlpha - Mathf.Clamp01(normalizedTime);
 
-        //フェードアウト用の画像の透明度を更新
+        //フェードイン用の画像の透明度を更新
         Color currentColor = fadeImage.color;
         currentColor.a = newAlpha;
         fadeImage.color = currentColor;
 
         if (fadeTimer >= fadeDuration)
         {
-            fadeCompleted = true;//完全に画面が暗転した
+            //完全に画面が明転したら動いていない状態に
+            _state = State_Fade.completed;
         }
     }
 }

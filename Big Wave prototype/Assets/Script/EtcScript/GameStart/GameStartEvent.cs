@@ -16,8 +16,6 @@ public class GameStartEvent : MonoBehaviour
     [SerializeField] AlgorithmOfEnemy _algorithmOfEnemy;
     [Header("制限時間")]
     [SerializeField] TimeLimit _timeLimit;
-    [Header("ゲームスタートの文字を表示するコンポーネント")]
-    [SerializeField] DisplayStart_GameStart _displayStart;
     [Header("BGM")]
     [SerializeField] AudioSource _bgm;
     void Start()
@@ -34,8 +32,6 @@ public class GameStartEvent : MonoBehaviour
         _algorithmOfEnemy.Switch = true;
         //時間制限が減り始める
         _timeLimit.Switch = true;
-        //スタートの文字を表示
-        _displayStart.DisplayTrigger();
         //BGMを流し始める
         _bgm.Play();
     }

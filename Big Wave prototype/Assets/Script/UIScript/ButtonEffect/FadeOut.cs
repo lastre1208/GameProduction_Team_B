@@ -11,17 +11,35 @@ public class FadeOut : MonoBehaviour
     [Header("▼フェードアウトに使う画像")]
     [SerializeField] Image fadeImage;
     private float fadeTimer = 0f;//フェードアウト時間の管理用
-    private bool fadeStart=false;//フェードアウトが開始されたか
-    private bool fadeCompleted=false;//フェードアウトが終わったか
+    State_Fade _fadeState = State_Fade.off;//フェードアウトの状況
 
-    public bool FadeStart
+    public State_Fade FadeState { get { return _fadeState; } }  
+
+    public void ReturnDefault()//フェードし終わったら必ず呼ばなければいけない処理(これをしないとこのコンポーネントの再利用ができない)
     {
-        get { return fadeStart; }
+        _fadeState = State_Fade.off;
     }
 
-    public bool FadeCompleted
+    public void StartTrigger()//フェードアウトを最初から開始したい時に呼ぶ
     {
-        get { return fadeCompleted; }
+        if (_fadeState == State_Fade.completed) return;//既に完了している時は呼べない
+
+        fadeTimer = 0f;
+        _fadeState = State_Fade.fading;
+    }
+
+    public void CancelTrigger()//フェードアウトを止めたい時に呼ぶ
+    {
+        if (_fadeState != State_Fade.fading) return;//フェード中でなければ無視
+
+        _fadeState = State_Fade.cancel;
+    }
+
+    public void ResumeTrigger()//フェードアウトを途中から再開したい時に呼ぶ
+    {
+        if (_fadeState != State_Fade.cancel) return;//キャンセル状態でなければ無視
+
+        _fadeState = State_Fade.fading;
     }
 
     void Update()
@@ -29,16 +47,10 @@ public class FadeOut : MonoBehaviour
         FadeOutDisplay();
     }
 
-    public void FadeOutTrigger()//フェードアウト開始したい時に呼ぶ
-    {
-        fadeStart = true;
-        fadeTimer = 0f;
-        fadeCompleted = false;
-    }
-
     private void FadeOutDisplay()//フェードアウトの処理
     {
-        if (!fadeStart||fadeCompleted) return;//フェードアウトがまだ始まってないもしくはフェードアウトが完了したなら、処理をしない
+        //フェードアウト中でないなら処理をしない
+        if (_fadeState!=State_Fade.fading) return;
 
         //経過時間をもとに透明度を計算
         fadeTimer += Time.deltaTime;
@@ -52,7 +64,8 @@ public class FadeOut : MonoBehaviour
 
         if (fadeTimer >= fadeDuration)
         {
-            fadeCompleted = true;//完全に画面が暗転した
+            //完全に画面が暗転したら動いていない状態に
+            _fadeState=State_Fade.completed;
         }
     }
 }
