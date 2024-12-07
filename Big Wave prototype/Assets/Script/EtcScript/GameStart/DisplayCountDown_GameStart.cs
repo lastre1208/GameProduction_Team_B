@@ -16,25 +16,25 @@ public class DisplayCountDown_GameStart : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     private int remainingGameStartTimeBeforeFrame_Display;//前フレームのゲーム開始までの残り時間(整数のみ)
 
-    void Update()
-    {
-        DisplayCountDown();//カウントダウンの表示
-    }
+    //void Update()
+    //{
+    //    DisplayCountDown();//カウントダウンの表示
+    //}
 
-    void DisplayCountDown()//カウントダウンの表示
-    {
-        if (judgeGameStart.IsStarted) return;//ゲームが開始したらカウントダウンをしなくなる
+    //void DisplayCountDown()//カウントダウンの表示
+    //{
+    //    if (judgeGameStart.IsStarted) return;//ゲームが開始したらカウントダウンをしなくなる
 
-        int remainingGameStartTime_Display = (int)Mathf.Ceil(judgeGameStart.RemainingGameStartTime);//表示する残り時間(例えば3～2.00...1なら3、2～1.00...1なら2になる)
+    //    int remainingGameStartTime_Display = (int)Mathf.Ceil(judgeGameStart.RemainingGameStartTime);//表示する残り時間(例えば3～2.00...1なら3、2～1.00...1なら2になる)
 
-        //前フレームと表示する残り時間が違ったら(変わっていたら)効果音を出す
-        if (remainingGameStartTimeBeforeFrame_Display != remainingGameStartTime_Display)
-        {
-            audioSource.PlayOneShot(countDownSoundEffect);//ゲーム開始時の効果音を出す
-        }
+    //    //前フレームと表示する残り時間が違ったら(変わっていたら)効果音を出す
+    //    if (remainingGameStartTimeBeforeFrame_Display != remainingGameStartTime_Display)
+    //    {
+    //        audioSource.PlayOneShot(countDownSoundEffect);//ゲーム開始時の効果音を出す
+    //    }
 
-        countDownText.text = remainingGameStartTime_Display.ToString("0");
+    //    countDownText.text = remainingGameStartTime_Display.ToString("0");
 
-        remainingGameStartTimeBeforeFrame_Display = remainingGameStartTime_Display;
-    }
+    //    remainingGameStartTimeBeforeFrame_Display = remainingGameStartTime_Display;
+    //}
 }

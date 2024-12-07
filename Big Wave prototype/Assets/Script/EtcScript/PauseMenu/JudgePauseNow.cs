@@ -8,8 +8,9 @@ using System;
 //ポーズの判断
 public class JudgePauseNow : MonoBehaviour
 {
-    [SerializeField] UnityEvent pauseEvents;
-    [SerializeField] UnityEvent resumeEvents;
+    public event Action PauseAction;
+    public event Action ResumeAction;
+    public event Action<bool> SwitchPauseAction;//ポーズ状態になる時にtrue、ポーズ解除するときにfalse
     bool pauseNow = false;
 
     public bool PauseNow
@@ -21,13 +22,15 @@ public class JudgePauseNow : MonoBehaviour
     {
         pauseNow=!pauseNow;
 
+        SwitchPauseAction?.Invoke(pauseNow);
+
         if(pauseNow)//ポーズ時
         {
-            pauseEvents.Invoke();
+            PauseAction?.Invoke();
         }
         else//再会時
         {
-            resumeEvents.Invoke();
+            ResumeAction?.Invoke();
         }
     }
 }

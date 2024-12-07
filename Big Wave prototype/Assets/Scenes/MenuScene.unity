@@ -1441,7 +1441,6 @@ GameObject:
   m_Component:
   - component: {fileID: 613357517}
   - component: {fileID: 613357516}
-  - component: {fileID: 613357518}
   m_Layer: 5
   m_Name: SESlider
   m_TagString: Untagged
@@ -1500,7 +1499,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 613357518}
+      - m_Target: {fileID: 1166634476}
         m_TargetAssemblyTypeName: ChangeAudioVolume, Assembly-CSharp
         m_MethodName: SetAudioVolume
         m_Mode: 0
@@ -1534,22 +1533,6 @@ RectTransform:
   m_AnchoredPosition: {x: 222.5, y: -72}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &613357518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613357515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
-  _audioTypeName: SE
-  _audioType: 2
-  _slider: {fileID: 613357516}
 --- !u!1 &614956420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,6 +2676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166634474}
   - component: {fileID: 1166634475}
+  - component: {fileID: 1166634476}
   m_Layer: 0
   m_Name: SE
   m_TagString: Untagged
@@ -2811,6 +2795,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1166634476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166634473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
+  _audioTypeName: SE
+  _audioType: 2
+  _slider: {fileID: 613357516}
 --- !u!1 &1271038620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,6 +3866,54 @@ MonoBehaviour:
     _sceneController: {fileID: 1552875808}
   menuEffectController: {fileID: 2013484153}
   fadeOut: {fileID: 2013484154}
+--- !u!1 &1518276802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518276804}
+  - component: {fileID: 1518276803}
+  m_Layer: 0
+  m_Name: Master
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1518276803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518276802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
+  _audioTypeName: Master
+  _audioType: 0
+  _slider: {fileID: 1715464401}
+--- !u!4 &1518276804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518276802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045821039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552875805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,6 +4030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606233659}
   - component: {fileID: 1606233658}
+  - component: {fileID: 1606233660}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -4100,6 +4149,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2045821039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606233660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606233657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
+  _audioTypeName: BGM
+  _audioType: 1
+  _slider: {fileID: 2076560875}
 --- !u!1 &1627733263
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,7 +4384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1715464399}
   - component: {fileID: 1715464401}
-  - component: {fileID: 1715464400}
   m_Layer: 5
   m_Name: MasterSlider
   m_TagString: Untagged
@@ -4349,22 +4413,6 @@ RectTransform:
   m_AnchoredPosition: {x: 222.5, y: 233.51}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1715464400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715464398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
-  _audioTypeName: Master
-  _audioType: 0
-  _slider: {fileID: 1715464401}
 --- !u!114 &1715464401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4416,7 +4464,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715464400}
+      - m_Target: {fileID: 1518276803}
         m_TargetAssemblyTypeName: ChangeAudioVolume, Assembly-CSharp
         m_MethodName: SetAudioVolume
         m_Mode: 0
@@ -5600,6 +5648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1518276804}
   - {fileID: 1606233659}
   - {fileID: 1166634474}
   m_Father: {fileID: 2084449543}
@@ -5651,7 +5700,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2076560874}
   - component: {fileID: 2076560875}
-  - component: {fileID: 2076560876}
   m_Layer: 5
   m_Name: BGMSlider
   m_TagString: Untagged
@@ -5732,7 +5780,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076560876}
+      - m_Target: {fileID: 1606233660}
         m_TargetAssemblyTypeName: ChangeAudioVolume, Assembly-CSharp
         m_MethodName: SetAudioVolume
         m_Mode: 0
@@ -5744,22 +5792,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2076560876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076560873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b476e914602e548983117e5a27cf44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
-  _audioTypeName: BGM
-  _audioType: 1
-  _slider: {fileID: 2076560875}
 --- !u!1 &2077636000
 GameObject:
   m_ObjectHideFlags: 0

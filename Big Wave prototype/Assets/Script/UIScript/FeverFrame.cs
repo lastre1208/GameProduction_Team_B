@@ -9,11 +9,10 @@ public class FeverFrame : MonoBehaviour
     
     [SerializeField] FeverMode feverMode;
 
-    float a;
+    float alpha;
     private void Start()
     {
-        a = image.color.a;
-        Debug.Log(a);
+        alpha = image.color.a;
     }
     void Update()
     {
@@ -30,7 +29,7 @@ public class FeverFrame : MonoBehaviour
             Color.RGBToHSV(currentCulor, out float h, out float s, out float v);
             h = (Time.time * colorSpeed) % 1;
             currentCulor=Color.HSVToRGB(h, s, v);    
-            currentCulor.a = a;
+            currentCulor.a = alpha;
             image.color = currentCulor;
             
         }
