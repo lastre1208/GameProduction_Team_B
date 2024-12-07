@@ -39,7 +39,7 @@ public class AttackOfBullet : MonoBehaviour
             
             destroyBullet.Destroy();//’e‚ð”j‰ó‚·‚é
 
-            damageEffectPrefab=Instantiate(damageEffect,GameObject.Find("Player").transform.position,Quaternion.identity, GameObject.Find("Player").transform);
+            damageEffectPrefab=Instantiate(damageEffect,t.transform.position,t.transform.rotation, t.transform);
         }
     }
 }
