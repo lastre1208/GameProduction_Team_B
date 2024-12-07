@@ -1913,6 +1913,7 @@ MonoBehaviour:
   deleteEvents:
     m_PersistentCalls:
       m_Calls: []
+  deleteEffect: {fileID: 0}
 --- !u!1 &143768131
 GameObject:
   m_ObjectHideFlags: 0
@@ -9357,7 +9358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11015,6 +11016,7 @@ MonoBehaviour:
   deleteEvents:
     m_PersistentCalls:
       m_Calls: []
+  deleteEffect: {fileID: 0}
 --- !u!1001 &778645486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14015,7 +14017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16610,6 +16612,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1105820354}
         m_TargetAssemblyTypeName: HoverJump, Assembly-CSharp
         m_MethodName: HoverJumpTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1621591151}
+        m_TargetAssemblyTypeName: InstantiateBarrier, Assembly-CSharp
+        m_MethodName: SetBarrier
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23259,6 +23273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1621591150}
+  - component: {fileID: 1621591151}
   m_Layer: 0
   m_Name: Etc
   m_TagString: Untagged
@@ -23281,6 +23296,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1341016743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1621591151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621591149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1531d47ef399a9147a61a49ccd81084d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 72910807}
+  _critical: {fileID: 1438732579}
+  _barrierPrefab: {fileID: 4375858249386935575, guid: 093b95fbf9043f747a59b211f96139b5, type: 3}
+  _barrierTime: 1.1
 --- !u!1 &1630731724
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class DeleteObject : MonoBehaviour
     //™‰–‚ª‘‚¢‚½
     [SerializeField] float deleteTime = 4f;
     [SerializeField] UnityEvent deleteEvents;
+    [SerializeField] GameObject deleteEffect;
     private float currentDeleteTime = 0;
    
     void Start()
@@ -27,6 +28,10 @@ public class DeleteObject : MonoBehaviour
 
         if(currentDeleteTime>=deleteTime)
         {
+            if(deleteEffect != null)
+            {
+                Instantiate(deleteEffect, gameObject.transform.position,Quaternion.Euler(-90,0,0));
+            }
             deleteEvents.Invoke();
             Destroy(gameObject);
         }
