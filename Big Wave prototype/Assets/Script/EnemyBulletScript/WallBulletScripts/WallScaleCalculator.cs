@@ -17,6 +17,6 @@ public partial class WallBullet
         return new Vector3(
             size_WallArea.x / (enemyActionTypeShotWall.Width * size_Wall.x),
             size_WallArea.y / (enemyActionTypeShotWall.Height * size_Wall.y),
-            size_WallArea.z);
+            size_Wall.z);
     }
 }
