@@ -40,15 +40,27 @@ public class SmoothMovement
         _posBuffers[_nextBufferIndex]=nowPos;
 
         //現在バッファーに格納されている値の個数を更新
-        
+        if(_currentBufferNum<_bufferNum)
+        {
+            _currentBufferNum++;
+        }
 
         //次に値を入れるバッファの要素番号を更新
+        _nextBufferIndex++;
+        _nextBufferIndex %= _bufferNum;
 
         //バッファーに格納されている全ての値の平均をとる
         //現在バッファーに格納されている値の個数が、バッファー数に満たない場合は現在格納されている値の個数から平均をとる
+        Vector3 sum=new Vector3();
+
+        for(int i=0; i<_currentBufferNum; i++)
+        {
+            sum += _posBuffers[i];
+        }
+
+        Vector3 ret = sum / _currentBufferNum;
 
         //得られた値を返す
-
-        return Vector3.zero;
+        return ret;
     }
 }
