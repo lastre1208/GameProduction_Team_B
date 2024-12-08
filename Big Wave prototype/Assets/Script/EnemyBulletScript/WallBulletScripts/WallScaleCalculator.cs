@@ -12,11 +12,11 @@ public partial class WallBullet
         return new Vector3(screenWidth, screenHeight, 0);
     }
 
-    private Vector3 CalculateScaleFactor(Vector3 size_WallArea, Vector3 size_Wall)//壁プレハブのスケールを計算
+    private Vector3 CalculateScaleFactor(Vector3 size_WallArea, Vector3 size_Wall, GameObject wall)//壁プレハブのスケールを計算
     {
         return new Vector3(
             size_WallArea.x / (enemyActionTypeShotWall.Width * size_Wall.x),
             size_WallArea.y / (enemyActionTypeShotWall.Height * size_Wall.y),
-            size_WallArea.z);
+            size_Wall.z);
     }
 }

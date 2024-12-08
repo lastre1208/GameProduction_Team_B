@@ -20,10 +20,10 @@ public partial class WallBullet
 
     private void PositioningWalls()//壁プレハブの位置を調整
     {
-        Vector3 size_WallArea = enemyActionTypeShotWall.WallAreaInstance.GetComponent<Renderer>().bounds.size;//壁の生成範囲プレハブの大きさを取得
-        Vector3 size_Wall = walls[0, 0].GetComponentInChildren<Renderer>().bounds.size;
+        Vector3 size_WallArea = enemyActionTypeShotWall.WallAreaInstance.GetComponent<MeshFilter>().sharedMesh.bounds.size;//壁の生成範囲プレハブの大きさを取得
+        Vector3 size_Wall = walls[0, 0].GetComponentInChildren<MeshFilter>().sharedMesh.bounds.size;
 
-        Vector3 scaleFactor = CalculateScaleFactor(size_WallArea, size_Wall);//壁プレハブのスケールを計算
+        Vector3 scaleFactor = CalculateScaleFactor(size_WallArea, size_Wall, walls[0,0]);//壁プレハブのスケールを計算
         PositionAndScaleWalls(scaleFactor);//壁プレハブのスケールと位置を設定
     }
 
