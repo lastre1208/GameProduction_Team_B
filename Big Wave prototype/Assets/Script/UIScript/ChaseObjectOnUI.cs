@@ -10,6 +10,9 @@ public class ChaseObjectOnUI : MonoBehaviour
     [SerializeField] Camera _targetCamera;
     [Header("追いかける対象")]
     [SerializeField] private Transform _target;
+    [Header("滑らかにゲージが移動するようにする")]
+    [Tooltip("ゲージが振動するのをごまかすための処置")]
+    [SerializeField] SmoothMovement _smoothMovement;
     private RectTransform _parentUI;//親の位置
 
     void Start()
@@ -20,6 +23,8 @@ public class ChaseObjectOnUI : MonoBehaviour
 
         // 親UIのRectTransformを保持
         _parentUI = transform.parent.GetComponent<RectTransform>();
+
+        _smoothMovement.SecureBuffer();//バッファの確保
     }
 
     void Update()
@@ -46,7 +51,7 @@ public class ChaseObjectOnUI : MonoBehaviour
         );
 
         // RectTransformのローカル座標を更新
-        transform.localPosition = uiLocalPos;
+        transform.localPosition = _smoothMovement.Smooth(uiLocalPos);//動きも滑らかにする
     }
 
     bool TargetIsFront(Vector3 targetWorldPos)//ターゲットがカメラの前にいるか

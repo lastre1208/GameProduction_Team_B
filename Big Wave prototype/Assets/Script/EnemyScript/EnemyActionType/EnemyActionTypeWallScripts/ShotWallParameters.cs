@@ -1,11 +1,17 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
+    [Header("敵のモーションを動かすコンポーネント")]
     [SerializeField] AnimatorController_Enemy animController;
+    [Header("モーションをするトリガー名")]
     [SerializeField] string animName;
+
+    [Header("壁攻撃時のカメラ")]
+    [SerializeField] CinemachineVirtualCamera _wallCamera;
 
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ

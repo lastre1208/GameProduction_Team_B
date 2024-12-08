@@ -14,7 +14,7 @@ public class SaveHighScore : MonoBehaviour
 
     public bool Updated { get { return  _updated; } }
 
-    void Start()
+    void Awake()
     {
         UpdateHighScore();//ハイスコアの更新処理
     }

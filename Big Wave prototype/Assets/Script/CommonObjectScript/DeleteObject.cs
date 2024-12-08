@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//作成者:塩
+//オブジェクトを指定数秒後に破壊
 public class DeleteObject : MonoBehaviour
 {
-    //☆塩が書いた
     [SerializeField] float deleteTime = 4f;
     [SerializeField] UnityEvent deleteEvents;
-    [SerializeField] GameObject deleteEffect;
     private float currentDeleteTime = 0;
-   
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateDeleteTime();
@@ -28,10 +22,6 @@ public class DeleteObject : MonoBehaviour
 
         if(currentDeleteTime>=deleteTime)
         {
-            if(deleteEffect != null)
-            {
-                Instantiate(deleteEffect, gameObject.transform.position,Quaternion.Euler(-90,0,0));
-            }
             deleteEvents.Invoke();
             Destroy(gameObject);
         }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7799139186690011305}
   - component: {fileID: 287083785162103160}
   - component: {fileID: 8589015318052360283}
-  - component: {fileID: 479708902777195072}
   - component: {fileID: -3777796571631981427}
   - component: {fileID: 7435244416450707420}
   - component: {fileID: -7724257676906284637}
@@ -91,29 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &479708902777195072
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794894681774472066}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &-3777796571631981427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +118,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  deleteEffect: {fileID: 0}
 --- !u!114 &7435244416450707420
 MonoBehaviour:
   m_ObjectHideFlags: 0
