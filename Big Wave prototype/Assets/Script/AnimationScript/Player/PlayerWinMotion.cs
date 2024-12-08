@@ -11,7 +11,8 @@ public class PlayerWinMotion : MonoBehaviour
     [SerializeField] string _deadTriggerName;
     [Header("‰½•bŒã‚ÉŸ—˜ƒ‚[ƒVƒ‡ƒ“‚ðÄ¶‚·‚é‚©")]
     [SerializeField] float _startMotionTime;
-
+    [SerializeField] AudioClip _clearSound;
+    [SerializeField] AudioSource _audio;
     float _currentStartMotionTime = 0;
     bool _startMotion = false;
 
@@ -33,6 +34,7 @@ public class PlayerWinMotion : MonoBehaviour
 
         if (_currentStartMotionTime > _startMotionTime )
         {
+            _audio.PlayOneShot(_clearSound);
             _player_animator.SetTrigger(_deadTriggerName);
             _startMotion = false;
         }
