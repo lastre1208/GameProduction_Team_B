@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Events;
 //作成者:杉山
 //タイムアップ時の演出(シーン遷移も含めて)
 public class TimeUpEffect : MonoBehaviour
@@ -24,6 +24,7 @@ public class TimeUpEffect : MonoBehaviour
     [Header("タイムアップしてから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
+    [SerializeField] UnityEvent _timeupEvent;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
 
@@ -36,6 +37,7 @@ public class TimeUpEffect : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
+        _timeupEvent.Invoke();
     }
 
     void Start()

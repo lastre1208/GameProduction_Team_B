@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Events;
 //作成者:杉山
 //プレイヤーが死んだときの演出(シーン遷移も含めて)
 public class DeadEffect : MonoBehaviour
@@ -31,6 +31,7 @@ public class DeadEffect : MonoBehaviour
     [Header("死んでから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
+    [SerializeField] UnityEvent _deadEvent;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
 
@@ -47,6 +48,7 @@ public class DeadEffect : MonoBehaviour
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
         _ropeEffect.Switch = false;//縄を消す
         _chargeTrickEffect.Switch = false;//チャージのエフェクトは出さないようにする
+        _deadEvent.Invoke();
     }
 
     void Start()
