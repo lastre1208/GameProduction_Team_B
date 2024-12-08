@@ -2932,7 +2932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
+  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7149,7 +7149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9533,7 +9533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17191,6 +17191,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1105820351}
+        m_TargetAssemblyTypeName: TrickSoundEffect, Assembly-CSharp
+        m_MethodName: PlayTrickEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   judgeJumpNow: {fileID: 1017912876}
   player_TrickPoint: {fileID: 1777186615}
   pushedButton_TrickPattern: {fileID: 390091951}
@@ -17215,16 +17227,88 @@ MonoBehaviour:
   pitchUp: 0.1
   trickEvent_F:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4554923192265351962}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4554923192265351961}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   trickEvent_N:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3714777411848516666}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3714777411848516665}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   trickEvent_Fever:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7931033398991700494}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7931033398991700493}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   audioSource: {fileID: 1630731726}
   critical: {fileID: 1438732579}
-  feverMode: {fileID: 0}
+  feverMode: {fileID: 1663075736}
 --- !u!114 &1105820352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34767,7 +34851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
+  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40642,6 +40726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trick_N
       objectReference: {fileID: 0}
+    - target: {fileID: 2001818907851250093, guid: 9014a3191113d744fad2dbd07de93d98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40650,6 +40738,16 @@ PrefabInstance:
 --- !u!4 &3714777411848516664 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1450983596724986587, guid: 9014a3191113d744fad2dbd07de93d98, type: 3}
+  m_PrefabInstance: {fileID: 3714777411848516663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3714777411848516665 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7298227499480006923, guid: 9014a3191113d744fad2dbd07de93d98, type: 3}
+  m_PrefabInstance: {fileID: 3714777411848516663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3714777411848516666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2001818907851250093, guid: 9014a3191113d744fad2dbd07de93d98, type: 3}
   m_PrefabInstance: {fileID: 3714777411848516663}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &3716911880695565393
@@ -41914,6 +42012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trick_F
       objectReference: {fileID: 0}
+    - target: {fileID: 3079963033749397979, guid: 91a62de6e5af54345994e40df6ded7ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41922,6 +42024,16 @@ PrefabInstance:
 --- !u!4 &4554923192265351960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195636078612696354, guid: 91a62de6e5af54345994e40df6ded7ce, type: 3}
+  m_PrefabInstance: {fileID: 4554923192265351959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4554923192265351961 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3605391367043250875, guid: 91a62de6e5af54345994e40df6ded7ce, type: 3}
+  m_PrefabInstance: {fileID: 4554923192265351959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4554923192265351962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3079963033749397979, guid: 91a62de6e5af54345994e40df6ded7ce, type: 3}
   m_PrefabInstance: {fileID: 4554923192265351959}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &4590787128807412181
@@ -45597,6 +45709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trick_Fever
       objectReference: {fileID: 0}
+    - target: {fileID: 1807189325333696158, guid: 98899b235f1f2c740b04f68bd5fd516c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4150465500188991427, guid: 98899b235f1f2c740b04f68bd5fd516c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -45645,6 +45761,16 @@ PrefabInstance:
 --- !u!4 &7931033398991700492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4150465500188991427, guid: 98899b235f1f2c740b04f68bd5fd516c, type: 3}
+  m_PrefabInstance: {fileID: 7931033398991700491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7931033398991700493 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7278307049638186995, guid: 98899b235f1f2c740b04f68bd5fd516c, type: 3}
+  m_PrefabInstance: {fileID: 7931033398991700491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7931033398991700494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1807189325333696158, guid: 98899b235f1f2c740b04f68bd5fd516c, type: 3}
   m_PrefabInstance: {fileID: 7931033398991700491}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7947177968546594715
