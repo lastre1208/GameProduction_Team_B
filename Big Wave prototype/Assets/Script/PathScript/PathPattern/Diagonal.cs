@@ -24,7 +24,7 @@ public class Diagonal : PathBase
                 (rotationDirection < 0 && newYRotation <= diagonalLimit))
             {
                 canDiagonal = false;
-                Debug.Log("Reached diagonal limit");
+              //  Debug.Log("Reached diagonal limit");
             }
         }
     }

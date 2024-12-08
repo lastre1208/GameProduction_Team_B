@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class FeverMode : MonoBehaviour
 {
     [Header("フィーバー状態のエフェクト")]
-    [SerializeField] GameObject feverEffect;//フィーバー状態のエフェクト
+    [SerializeField] List<GameObject> feverEffect;//フィーバー状態のエフェクト
     [Header("フィーバー状態の効果時間")]
     [SerializeField] float feverTime=20f;//フィーバー状態の効果時間
     private float remainingFeverTime = 0f;//フィーバー状態の残り効果時間
@@ -28,7 +28,11 @@ public class FeverMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        feverEffect.SetActive(false);
+        for(int i = 0; i < feverEffect.Count; i++)
+        {
+  feverEffect[i].SetActive(false);
+        }
+      
         remainingFeverTime = 0f;
         feverNow = false;
     }
@@ -77,7 +81,10 @@ public class FeverMode : MonoBehaviour
             float ratio = remainingFeverTime / feverTime;
             player_FeverPoint.FeverPoint_ = player_FeverPoint.FeverPointMax * ratio;
         }
-
-        feverEffect.SetActive(feverNow);//フィーバー時エフェクトを表示
+        for (int i = 0; i < feverEffect.Count; i++)
+        {
+            feverEffect[i].SetActive(feverNow);//フィーバー時エフェクトを表示
+        }
+       
     }
 }

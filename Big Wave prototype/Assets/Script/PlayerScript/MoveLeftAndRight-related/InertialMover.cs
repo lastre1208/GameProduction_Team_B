@@ -85,4 +85,8 @@ public class InertialMover : MonoBehaviour
 
         target.localRotation = Quaternion.Slerp(target.localRotation, targetRotation, Time.deltaTime * rotateParameter.RotationReturnSpeed);//–Ú“I‚Ì‰ñ“]—Ê‚Ü‚Å‚È‚ß‚ç‚©‚É‰ñ“]‚³‚¹‚é
     }
+    public void SetTargetPositionPull()
+    {
+        isTargetPositionPullEnabled = true;
+    }
 }

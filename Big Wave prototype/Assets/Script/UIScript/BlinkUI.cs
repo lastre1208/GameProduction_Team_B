@@ -8,11 +8,13 @@ public class BlinkUI : MonoBehaviour
     private TMP_Text T_Color;
     [SerializeField] float cycle;
     [SerializeField] JumpUI jump;
+   
     private float time;
     private void Start()
     {
          T_Color=this.GetComponent<TMP_Text>();
         T_Color.enabled = true; 
+      
     }
     // Update is called once per frame
     void Update()
@@ -22,6 +24,7 @@ public class BlinkUI : MonoBehaviour
     void Blink_UI()
     {
         time += Time.deltaTime;
+       
         if (time > cycle && !jump.reached)
         {
             time = 0;
