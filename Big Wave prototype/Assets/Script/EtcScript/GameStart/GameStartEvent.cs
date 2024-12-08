@@ -6,6 +6,8 @@ using UnityEngine;
 //ゲーム開始時に呼ぶ処理をここで一括で登録する
 public class GameStartEvent : MonoBehaviour
 {
+    [Header("スタート時にアクティブにするオブジェクト")]
+    [SerializeField] GameObject[] _activeObjects;
     [Header("ゲームの開始を判断するコンポーネント")]
     [SerializeField] JudgeGameStart _judgeGameStart;
     [Header("内側の波の生成")]
@@ -25,6 +27,11 @@ public class GameStartEvent : MonoBehaviour
 
     public void Event()
     {
+        //登録されたオブジェクトをアクティブにする
+        for(int i=0;i<_activeObjects.Length ;i++)
+        {
+            _activeObjects[i].SetActive(true);
+        }
         //波を生成し始める
         _inWave.Switch = true;
         _outWave.Switch = true;
