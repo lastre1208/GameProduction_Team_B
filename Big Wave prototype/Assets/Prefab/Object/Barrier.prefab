@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1cc4d96b5e3be9409d39299b99e23ec, type: 3}
       propertyPath: m_Name
-      value: "\u30AF\u30ED\u30DE\u30AF\u30ED\u30D0\u30EA\u30A2"
+      value: Barrier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -413,6 +413,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1cc4d96b5e3be9409d39299b99e23ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2557765392810252870}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1cc4d96b5e3be9409d39299b99e23ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1026895641269433155}
   m_SourcePrefab: {fileID: 100100000, guid: d1cc4d96b5e3be9409d39299b99e23ec, type: 3}
 --- !u!4 &4031279428743700397 stripped
 Transform:
@@ -439,5 +442,29 @@ MonoBehaviour:
   deleteTime: 0.4
   deleteEvents:
     m_PersistentCalls:
-      m_Calls: []
-  deleteEffect: {fileID: 1172754413707545450, guid: 3755c871c0ee7d04e892dca2842807c3, type: 3}
+      m_Calls:
+      - m_Target: {fileID: -1026895641269433155}
+        m_TargetAssemblyTypeName: DestroyBarrierEffect, Assembly-CSharp
+        m_MethodName: Generate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-1026895641269433155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375858249386935575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f15153a2695c434faa3081d95bf0c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyBarrierEffect: {fileID: 1172754413707545450, guid: 3755c871c0ee7d04e892dca2842807c3, type: 3}
