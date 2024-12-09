@@ -34,7 +34,7 @@ public class DelayAnimationTypeTrigger
     {
         if (_played) return;
 
-        _currentTime += _delayTime;
+        _currentTime += Time.deltaTime;
 
         //まだ再生してないかつ時間になったらアニメーションを再生、
         if(_currentTime>=_delayTime&&!_played)
