@@ -2119,8 +2119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164b3d5072aaf0f4db2397bff0541aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_Error
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_Error
   _wallCamera: {fileID: 2118490022}
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
@@ -6397,8 +6399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 456875093}
   actionEffect:
     generate: 1
@@ -10181,7 +10185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10746,7 +10750,7 @@ MonoBehaviour:
   _targetCamera: {fileID: 963194227}
   _target: {fileID: 1244729529}
   _smoothMovement:
-    _bufferNum: 4
+    _bufferNum: 7
 --- !u!1 &651057535
 GameObject:
   m_ObjectHideFlags: 0
@@ -12715,8 +12719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 826460896}
   actionEffect:
     generate: 1
@@ -15653,8 +15659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 996687315}
   actionEffect:
     generate: 1
@@ -17515,8 +17523,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_Slash_tate
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_Slash_tate
   shotType: {fileID: 1084221216}
   actionEffect:
     generate: 1
@@ -22102,8 +22112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 1343859084}
   actionEffect:
     generate: 1
@@ -22838,8 +22850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 1415608680}
   actionEffect:
     generate: 1
@@ -24618,8 +24632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_Slash_yoko
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_Slash_yoko
   shotType: {fileID: 1562493072}
   actionEffect:
     generate: 1
@@ -26261,8 +26277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_Slash_yoko
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_Slash_yoko
   shotType: {fileID: 1663983657}
   actionEffect:
     generate: 1
@@ -36703,8 +36721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3d095bf9caa5e4f8688157b9ad4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animController: {fileID: 2066814295}
-  animName: Attack_bullet
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_bullet
   shotType: {fileID: 2051850880}
   actionEffect:
     generate: 1
