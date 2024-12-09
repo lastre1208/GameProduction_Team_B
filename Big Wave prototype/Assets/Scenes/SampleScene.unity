@@ -2135,7 +2135,7 @@ MonoBehaviour:
   matchCameraSize: 1
   shotPower: 90
   shotPosObject: {fileID: 1058489860}
-  delayTime: 1.5
+  delayTime: 3
   gamePos: {fileID: 1923540436}
   actionEffect:
     generate: 0
@@ -7143,7 +7143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0811714, y: -0.00000001204094, z: 9.806158e-10, w: 0.99670017}
+  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21235,7 +21235,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 6
+    delayTime: 3
     shotType: 0
     speed: 30
 --- !u!114 &1301719832
@@ -21267,14 +21267,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 2.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 1301719831}
   actionEffect:
     generate: 1
     generateEffect: {fileID: 1301719832}
-    delayTime: 6
+    delayTime: 2
 --- !u!1001 &1307992900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26332,7 +26332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePos: {fileID: 1923540436}
   bullets:
-  - bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
+  - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1979061060}
     delayTime: 0.4
     shotType: 0
@@ -34384,7 +34384,7 @@ MonoBehaviour:
     action:
     - {fileID: 1507679698}
     - {fileID: 1301719833}
-    actionTime: 8
+    actionTime: 5
   selectAction: {fileID: 1852493892}
 --- !u!114 &1852493892
 MonoBehaviour:
@@ -34468,14 +34468,14 @@ MonoBehaviour:
         action:
         - {fileID: 1931415814}
         - {fileID: 143768134}
-        actionTime: 5
-      probability: 800
+        actionTime: 6
+      probability: 11
     - element:
         action:
         - {fileID: 1931415814}
         - {fileID: 1663983659}
         actionTime: 5
-      probability: 20
+      probability: 10000
     - element:
         action:
         - {fileID: 1084221215}
@@ -36001,13 +36001,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979061059}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9990483, z: 0.043619405, w: 0}
+  m_LocalRotation: {x: 0, y: 0.99813485, z: 0.061048605, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 804732948}
-  m_LocalEulerAnglesHint: {x: -5, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -7, y: 180, z: 0}
 --- !u!1 &1979714254
 GameObject:
   m_ObjectHideFlags: 0
@@ -36754,7 +36754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

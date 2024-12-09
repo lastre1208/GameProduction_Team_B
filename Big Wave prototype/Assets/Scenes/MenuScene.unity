@@ -190,6 +190,7 @@ RectTransform:
   - {fileID: 960489590}
   - {fileID: 1329801550}
   - {fileID: 2102213595}
+  - {fileID: 1018065185}
   - {fileID: 1884058794}
   - {fileID: 461821308}
   - {fileID: 823458452}
@@ -844,6 +845,7 @@ MonoBehaviour:
   - {fileID: 960489591}
   - {fileID: 1329801552}
   - {fileID: 2102213593}
+  - {fileID: 1018065186}
 --- !u!1 &218881765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -483.2976, y: -257.2}
+  m_AnchoredPosition: {x: -600, y: -257.2}
   m_SizeDelta: {x: 433.4047, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461821309
@@ -2304,7 +2306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 526, y: -257.2}
+  m_AnchoredPosition: {x: 600, y: -257.2}
   m_SizeDelta: {x: 342.1297, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823458453
@@ -2575,7 +2577,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 1500, y: 800}
+  m_SizeDelta: {x: 1020, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960489591
 MonoBehaviour:
@@ -2597,7 +2599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31eb9d538e572264bb89fd912a046104, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 467665623f3d2464eaa9bc6a754d0254, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2614,6 +2616,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960489589}
+  m_CullTransparentMesh: 1
+--- !u!1 &1018065184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018065185}
+  - component: {fileID: 1018065187}
+  - component: {fileID: 1018065186}
+  m_Layer: 5
+  m_Name: PlayGuideImage (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1018065185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018065184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86869953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 140}
+  m_SizeDelta: {x: 1020, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1018065186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018065184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5c6cfb039c664774b92ffb6e0e832e90, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1018065187
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018065184}
   m_CullTransparentMesh: 1
 --- !u!1 &1042826005
 GameObject:
@@ -3729,7 +3806,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 1500, y: 800}
+  m_SizeDelta: {x: 1020, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1329801551
 CanvasRenderer:
@@ -3759,7 +3836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ffec6e665322504a9b6a4daad194bde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 206516f2ecb875c48a0f870aa3fefcc8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5873,6 +5950,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4a063227-a3bd-4783-9e9c-fbb29459b605
     m_ActionName: PlayGuide/Cancel[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bec198f5-be95-49d3-a5ac-ecf27d69c48c
+    m_ActionName: Movie/Skip[/XInputControllerWindows/buttonWest,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 702f09c9-4a2d-4be3-a9fe-d55d847a1bc1
+    m_ActionName: Movie/Pause[/Keyboard/escape,/Keyboard/p,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b95bbeba-6b80-484d-96a0-877a07c17322
+    m_ActionName: Win/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6296,7 +6385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 151347fb85c14984aa1bf1c3e9400ad9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36d8cbc75c1508949b4088b273632983, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6331,7 +6420,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 1500, y: 800}
+  m_SizeDelta: {x: 1020, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2104282413
 GameObject:

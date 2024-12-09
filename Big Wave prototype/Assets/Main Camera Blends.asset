@@ -28,7 +28,7 @@ MonoBehaviour:
     m_To: UpGameCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1.5
+      m_Time: 0.75
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -50,7 +50,7 @@ MonoBehaviour:
     m_To: UnderGameCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1.5
+      m_Time: 0.75
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -61,7 +61,7 @@ MonoBehaviour:
     m_To: WallCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1.5
+      m_Time: 0.75
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
