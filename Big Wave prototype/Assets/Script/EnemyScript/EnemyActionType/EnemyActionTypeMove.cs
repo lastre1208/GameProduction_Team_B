@@ -6,7 +6,6 @@ using UnityEngine;
 //敵の横移動
 public class EnemyActionTypeMove : EnemyActionTypeBase
 {
-    //☆塩が書いた
     [Header("▼動かしたいオブジェクト")]
     [SerializeField] GameObject moveObject;//動かしたいオブジェクト(敵)
     [Header("▼動く最小スピード")]
