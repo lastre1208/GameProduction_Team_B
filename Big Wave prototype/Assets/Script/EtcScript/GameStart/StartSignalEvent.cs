@@ -13,6 +13,7 @@ public class StartSignalEvent : MonoBehaviour
     [Header("フェードインが完了してからゲーム開始までの時間")]
     [SerializeField] float _startGameTime;
     [SerializeField] DisplayStart_GameStart gameStart;
+   
     float _currentStartGameTime = 0;
     float _currentStartFadeInTime=0;
     State_GameStartSignal _state = State_GameStartSignal.off;//合図の状況
@@ -66,6 +67,7 @@ public class StartSignalEvent : MonoBehaviour
                 if(_currentStartGameTime>=_startGameTime)//合図が終わったら合図完了状態にする
                 {
                     _state = State_GameStartSignal.completed;
+                   
                 }
 
                 break;

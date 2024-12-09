@@ -10,7 +10,7 @@ public class DisplayStart_GameStart : MonoBehaviour
     [Header("効果音の設定")]
     [SerializeField] DelayPlaySound _sound;
     [Header("文字の設定")]
-    [SerializeField] DisplayHideText _text;
+    [SerializeField] List　<DisplayHideText> _text;
     bool displayStart = false;//スタートの文字を表示するフラグ
 
     void Update()
@@ -28,6 +28,10 @@ public class DisplayStart_GameStart : MonoBehaviour
         if (!displayStart) return;//スタートの文字を表示しない間は無視
 
         _sound.Update();
-        _text.Update();
+        for(int i=0;i<_text.Count;i++)
+        {
+            _text[i].Update();
+        }
+        
     }
 }

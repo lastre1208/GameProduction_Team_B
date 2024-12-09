@@ -12,6 +12,8 @@ public class GameStartSequence : MonoBehaviour
     [SerializeField] MovieCameraEvent _startMovieEvent;
     [SerializeField] StartSignalEvent _startSignalEvent;
     [SerializeField] JudgeGameStart _judgeGameStart;
+
+    [SerializeField] DelayText _delayText;
     State_GameStartSequence _state;//ゲームの開始処理の状態
 
     public bool FinishedStartMovie
@@ -48,6 +50,7 @@ public class GameStartSequence : MonoBehaviour
                     _startSignalEvent.Trigger();
                     if (_duringGameUI != null) _duringGameUI.SetActive(true);//ゲーム中のUIを表示状態にする
                     _state = State_GameStartSequence.signal;
+                    _delayText._StartDisplay = true ;
                 }
 
                 break;
