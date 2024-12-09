@@ -16,7 +16,7 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
         actionEffect.Generate();//エフェクト生成
 
-        animController.AnimControl_Trigger(animName);//モーションの再生
+        _animTrigger.Start();//モーションの再生処理の初期化
 
         if(_wallCamera!=null) _wallCamera.enabled = true;//壁攻撃のカメラを起動
     }
@@ -35,6 +35,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
                 Shot();
             }
         }
+
+        _animTrigger.Update();//モーションの再生処理の更新
     }
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)

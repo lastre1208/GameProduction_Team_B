@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyActionTypeShot : EnemyActionTypeBase
 {
-    [SerializeField] AnimatorController_Enemy animController;
-    [SerializeField] string animName;
-
+    [Header("アニメーションの設定")]
+    [SerializeField] DelayAnimationTypeTrigger _animTrigger;
     [Header("射撃設定")]
     [SerializeField] ShotTypeBase shotType;
     [Header("行動時のエフェクト")]
@@ -17,12 +16,13 @@ public class EnemyActionTypeShot : EnemyActionTypeBase
     {
         shotType.InitShotTiming();
         actionEffect.Generate();//エフェクト生成
-        animController.AnimControl_Trigger(animName);
+        _animTrigger.Start();//モーションの再生処理の初期化
     }
 
     public override void OnUpdate()
     {
         shotType.UpdateShotTiming();
+        _animTrigger.Update();//モーションの再生処理の更新
     }
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)

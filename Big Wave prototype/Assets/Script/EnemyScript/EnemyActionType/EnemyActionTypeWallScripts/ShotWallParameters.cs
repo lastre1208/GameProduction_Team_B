@@ -5,10 +5,8 @@ using UnityEngine;
 
 public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 {
-    [Header("敵のモーションを動かすコンポーネント")]
-    [SerializeField] AnimatorController_Enemy animController;
-    [Header("モーションをするトリガー名")]
-    [SerializeField] string animName;
+    [Header("アニメーションの設定")]
+    [SerializeField] DelayAnimationTypeTrigger _animTrigger;
 
     [Header("壁攻撃時のカメラ")]
     [SerializeField] CinemachineVirtualCamera _wallCamera;
