@@ -23,7 +23,7 @@ public partial class ProbabilityGet<T>
 
     }
 
-    public void Start()//Get使用前に1回は必ず呼ぶ
+    public void CalcSum()//Get使用前に1回は必ず呼ぶ、確率の合計を算出する
     {
         //確率の合計を算出
         for(int i=0; i<elements.Length;i++)
