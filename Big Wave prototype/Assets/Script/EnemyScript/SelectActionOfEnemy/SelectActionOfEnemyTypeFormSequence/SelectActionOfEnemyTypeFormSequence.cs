@@ -19,6 +19,12 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
     void Start()
     {
         _beforeFormNum = _formOfEnemy.DefaultForm();//前(に呼ばれた時)の形態番号の初期値を最初の形態番号に設定
+
+        //全ての形態の行動確率の合計を算出
+        for (int i = 0; i < _forms.Length; i++)
+        {
+            _forms[i].CalcSum();
+        }
     }
 
     public override ActionPattern SelectAction()//次にやる行動を返す
@@ -49,6 +55,7 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
             //最初の行動をする設定になっていたら現在の行動内容を最初の行動内容に設定
             if(_forms[currentFormNum].ActFirst)
             {
+                Debug.Log("最初の行動");
                 _currentAction = _forms[currentFormNum].FirstAction;
             }
         }
@@ -68,6 +75,7 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
         //現在の行動番号の行動を返す
         int currentActionIndex = _actionIndex;//現在の行動番号
         _actionIndex++;//行動内容の次の行動に設定
+        Debug.Log(currentActionIndex);
         return _currentAction[currentActionIndex];
     }
 }

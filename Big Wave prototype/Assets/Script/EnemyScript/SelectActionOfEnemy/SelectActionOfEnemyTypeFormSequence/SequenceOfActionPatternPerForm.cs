@@ -16,6 +16,12 @@ public class SequenceOfActionPatternPerForm
 
     public bool ActFirst { get { return _actFirst; } }//最初の行動をするか
     public SequenceOfActionPattern FirstAction { get { return _firstAction; } }//最初の行動内容
+
+    public void CalcSum()//確率合計を計算
+    {
+        _afterAction.CalcSum();
+    }
+
     public SequenceOfActionPattern SelectAfterAction()//最初以降の行動をランダムで抽選して返す
     {
         return _afterAction.Get();
