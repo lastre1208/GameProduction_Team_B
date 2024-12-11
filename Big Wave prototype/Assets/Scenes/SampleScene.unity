@@ -3000,7 +3000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
+  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19967,14 +19967,17 @@ MonoBehaviour:
   enemy: {fileID: 418087151}
   debug: {fileID: 854034728}
   actionPattern_a:
+    _actionName: 
     action:
     - {fileID: 0}
     actionTime: 2
   actionPattern_b:
+    _actionName: 
     action:
     - {fileID: 143768134}
     actionTime: 3
   actionPattern_c:
+    _actionName: 
     action:
     - {fileID: 0}
     actionTime: 4
@@ -34343,7 +34346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1852493890}
   - component: {fileID: 1852493893}
-  - component: {fileID: 1852493892}
+  - component: {fileID: 1852493894}
   - component: {fileID: 1852493891}
   m_Layer: 0
   m_Name: Action_Algorithm
@@ -34380,124 +34383,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstActionPattern:
+    _actionName: 
     action:
     - {fileID: 1507679698}
     - {fileID: 1301719833}
     actionTime: 5
-  selectAction: {fileID: 1852493892}
---- !u!114 &1852493892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852493889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f72c56e713e324fa4afc420dc646a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forms:
-  - elements:
-    - element:
-        action:
-        - {fileID: 1507679698}
-        actionTime: 4
-      probability: 12
-    - element:
-        action:
-        - {fileID: 1343859083}
-        - {fileID: 1507679698}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 2051850878}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 996687316}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 1415608679}
-        - {fileID: 1507679698}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 456875094}
-        - {fileID: 1507679698}
-        actionTime: 3
-      probability: 10
-    - element:
-        action:
-        - {fileID: 456875094}
-        - {fileID: 1343859083}
-        actionTime: 3
-      probability: 10
-  - elements:
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 2051850878}
-        actionTime: 4
-      probability: 20
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 1084221215}
-        actionTime: 2.5
-      probability: 30
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 1562493071}
-        actionTime: 3
-      probability: 25
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 996687316}
-        actionTime: 5
-      probability: 20
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 143768134}
-        actionTime: 6
-      probability: 11
-    - element:
-        action:
-        - {fileID: 1931415814}
-        - {fileID: 1663983659}
-        actionTime: 5
-      probability: 20
-    - element:
-        action:
-        - {fileID: 1084221215}
-        - {fileID: 1663983659}
-        - {fileID: 1507679698}
-        actionTime: 5
-      probability: 15
-    - element:
-        action:
-        - {fileID: 826460898}
-        - {fileID: 1507679698}
-        actionTime: 5
-      probability: 15
-    - element:
-        action:
-        - {fileID: 456875094}
-        - {fileID: 456875094}
-        - {fileID: 456875094}
-        - {fileID: 1343859083}
-        - {fileID: 1507679698}
-        actionTime: 5
-      probability: 15
-  formOfEnemy: {fileID: 1852493893}
+  selectAction: {fileID: 1852493894}
 --- !u!114 &1852493893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34514,6 +34405,177 @@ MonoBehaviour:
   formHp:
   - 24000
   - 12000
+--- !u!114 &1852493894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379fd87ec462d2e4e8e7e08eeb0bc210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forms:
+  - _actFirst: 0
+    _firstAction:
+      _actionName: 
+      _actionPatterns: []
+    _afterAction:
+      elements:
+      - element:
+          _actionName: "\u79FB\u52D5"
+          _actionPatterns:
+          - _actionName: Move
+            action:
+            - {fileID: 1507679698}
+            actionTime: 4
+        probability: 12
+      - element:
+          _actionName: "\u79FB\u52D5\u6483\u3061"
+          _actionPatterns:
+          - _actionName: MoveShotNormal
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1343859083}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "3Way\u901F\u5C04"
+          _actionPatterns:
+          - _actionName: Shot3Way
+            action:
+            - {fileID: 2051850878}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+          _actionPatterns:
+          - _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+            action:
+            - {fileID: 996687316}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1415608679}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1343859083}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+  - _actFirst: 0
+    _firstAction:
+      _actionName: 
+      _actionPatterns: []
+    _afterAction:
+      elements:
+      - element:
+          _actionName: "\u79FB\u52D53Way\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D53Way\u6483\u3061"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 2051850878}
+            actionTime: 4
+        probability: 20
+      - element:
+          _actionName: "\u79FB\u52D5\u7E26\u65AC\u6483"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u7E26\u65AC\u6483"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 1084221215}
+            actionTime: 2.5
+        probability: 30
+      - element:
+          _actionName: "\u79FB\u52D5\u6A2A\u65AC\u6483"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u6A2A\u65AC\u6483"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 1562493071}
+            actionTime: 3
+        probability: 25
+      - element:
+          _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 996687316}
+            actionTime: 5
+        probability: 20
+      - element:
+          _actionName: "\u58C1\u653B\u6483"
+          _actionPatterns:
+          - _actionName: "\u58C1\u653B\u6483"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 143768134}
+            actionTime: 6
+        probability: 11
+      - element:
+          _actionName: "\u79FB\u52D5\u4E0A\u6607\u6A2A\u65AC\u6483"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u4E0A\u6607\u6A2A\u65AC\u6483"
+            action:
+            - {fileID: 1931415814}
+            - {fileID: 1663983659}
+            actionTime: 5
+        probability: 20
+      - element:
+          _actionName: "\u79FB\u52D5\u7E26\u4E0A\u6607\u6A2A\u65AC\u6483\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u7E26\u4E0A\u6607\u6A2A\u65AC\u6483\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1084221215}
+            - {fileID: 1663983659}
+            - {fileID: 1507679698}
+            actionTime: 5
+        probability: 15
+      - element:
+          _actionName: "\u79FB\u52D55Way\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D55Way\u6483\u3061"
+            action:
+            - {fileID: 826460898}
+            - {fileID: 1507679698}
+            actionTime: 5
+        probability: 15
+      - element:
+          _actionName: "\u30D5\u30EB\u30D0\u30FC\u30B9\u30C8"
+          _actionPatterns:
+          - _actionName: "\u30D5\u30EB\u30D0\u30FC\u30B9\u30C8"
+            action:
+            - {fileID: 456875094}
+            - {fileID: 456875094}
+            - {fileID: 456875094}
+            - {fileID: 1343859083}
+            - {fileID: 1507679698}
+            actionTime: 5
+        probability: 15
+  _formOfEnemy: {fileID: 1852493893}
 --- !u!1 &1860822259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5890107240016628500, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}

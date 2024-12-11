@@ -16,7 +16,7 @@ public class SelectActionOfEnemyTypeFormRandom : SelectActionOfEnemyTypeBase
         //全ての形態の行動確率の合計を算出
         for (int i = 0; i < forms.Length; i++)
         {
-            forms[i].Start();
+            forms[i].CalcSum();
         }
     }
 
