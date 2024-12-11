@@ -7142,7 +7142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
+  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7839,7 +7839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15357,7 +15357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19967,14 +19967,17 @@ MonoBehaviour:
   enemy: {fileID: 418087151}
   debug: {fileID: 854034728}
   actionPattern_a:
+    _actionName: 
     action:
     - {fileID: 0}
     actionTime: 2
   actionPattern_b:
+    _actionName: 
     action:
     - {fileID: 143768134}
     actionTime: 3
   actionPattern_c:
+    _actionName: 
     action:
     - {fileID: 0}
     actionTime: 4
@@ -34344,6 +34347,7 @@ GameObject:
   - component: {fileID: 1852493890}
   - component: {fileID: 1852493893}
   - component: {fileID: 1852493892}
+  - component: {fileID: 1852493894}
   - component: {fileID: 1852493891}
   m_Layer: 0
   m_Name: Action_Algorithm
@@ -34380,11 +34384,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstActionPattern:
+    _actionName: 
     action:
     - {fileID: 1507679698}
     - {fileID: 1301719833}
     actionTime: 5
-  selectAction: {fileID: 1852493892}
+  selectAction: {fileID: 1852493894}
 --- !u!114 &1852493892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34400,39 +34405,46 @@ MonoBehaviour:
   forms:
   - elements:
     - element:
+        _actionName: 
         action:
         - {fileID: 1507679698}
         actionTime: 4
       probability: 12
     - element:
+        _actionName: 
         action:
         - {fileID: 1343859083}
         - {fileID: 1507679698}
         actionTime: 3
       probability: 10
     - element:
+        _actionName: 
         action:
         - {fileID: 2051850878}
         actionTime: 3
       probability: 10
     - element:
+        _actionName: 
         action:
         - {fileID: 996687316}
         actionTime: 3
       probability: 10
     - element:
+        _actionName: 
         action:
         - {fileID: 1415608679}
         - {fileID: 1507679698}
         actionTime: 3
       probability: 10
     - element:
+        _actionName: 
         action:
         - {fileID: 456875094}
         - {fileID: 1507679698}
         actionTime: 3
       probability: 10
     - element:
+        _actionName: 
         action:
         - {fileID: 456875094}
         - {fileID: 1343859083}
@@ -34440,42 +34452,49 @@ MonoBehaviour:
       probability: 10
   - elements:
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 2051850878}
         actionTime: 4
       probability: 20
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 1084221215}
         actionTime: 2.5
       probability: 30
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 1562493071}
         actionTime: 3
       probability: 25
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 996687316}
         actionTime: 5
       probability: 20
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 143768134}
         actionTime: 6
       probability: 11
     - element:
+        _actionName: 
         action:
         - {fileID: 1931415814}
         - {fileID: 1663983659}
         actionTime: 5
       probability: 20
     - element:
+        _actionName: 
         action:
         - {fileID: 1084221215}
         - {fileID: 1663983659}
@@ -34483,12 +34502,14 @@ MonoBehaviour:
         actionTime: 5
       probability: 15
     - element:
+        _actionName: 
         action:
         - {fileID: 826460898}
         - {fileID: 1507679698}
         actionTime: 5
       probability: 15
     - element:
+        _actionName: 
         action:
         - {fileID: 456875094}
         - {fileID: 456875094}
@@ -34514,6 +34535,171 @@ MonoBehaviour:
   formHp:
   - 24000
   - 12000
+--- !u!114 &1852493894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852493889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379fd87ec462d2e4e8e7e08eeb0bc210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forms:
+  - _actFirst: 0
+    _firstAction:
+      _actionName: 
+      _actionPatterns: []
+    _afterAction:
+      elements:
+      - element:
+          _actionName: "\u79FB\u52D5"
+          _actionPatterns:
+          - _actionName: Move
+            action:
+            - {fileID: 1507679698}
+            actionTime: 4
+        probability: 12
+      - element:
+          _actionName: "\u79FB\u52D5\u6483\u3061"
+          _actionPatterns:
+          - _actionName: MoveShotNormal
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1343859083}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "3Way\u901F\u5C04"
+          _actionPatterns:
+          - _actionName: Shot3Way
+            action:
+            - {fileID: 2051850878}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+          _actionPatterns:
+          - _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+            action:
+            - {fileID: 996687316}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1415608679}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1343859083}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+  - _actFirst: 0
+    _firstAction:
+      _actionName: 
+      _actionPatterns: []
+    _afterAction:
+      elements:
+      - element:
+          _actionName: "\u79FB\u52D53Way\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D53Way\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 2051850878}
+            actionTime: 4
+        probability: 20
+      - element:
+          _actionName: "\u79FB\u52D5\u6483\u3061"
+          _actionPatterns:
+          - _actionName: MoveShotNormal
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1343859083}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "3Way\u901F\u5C04"
+          _actionPatterns:
+          - _actionName: Shot3Way
+            action:
+            - {fileID: 2051850878}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+          _actionPatterns:
+          - _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+            action:
+            - {fileID: 996687316}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 1415608679}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+            action:
+            - {fileID: 1507679698}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1343859083}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1343859083}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+      - element:
+          _actionName: "\u540C\u6642\u6483\u3061"
+          _actionPatterns:
+          - _actionName: "\u540C\u6642\u6483\u3061"
+            action:
+            - {fileID: 1343859083}
+            - {fileID: 456875094}
+            actionTime: 3
+        probability: 10
+  _formOfEnemy: {fileID: 1852493893}
 --- !u!1 &1860822259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5890107240016628500, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
