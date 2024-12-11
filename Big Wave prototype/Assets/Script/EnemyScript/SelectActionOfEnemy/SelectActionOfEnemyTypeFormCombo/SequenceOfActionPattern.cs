@@ -14,7 +14,7 @@ public class SequenceOfActionPattern
     [Tooltip("要素を追加すれば一連の動作として設定可能")]
     [SerializeField] ActionPattern[] _actionPatterns;//行動内容(要素を追加すれば一連の動作として設定可能)
 
-    public ActionPattern[] ActionPatterns { get { return _actionPatterns; } }
-    //行動の要素数
+    public ActionPattern this[int i] { get { return _actionPatterns[i]; } }//行動内容を取得
+    public int ActionNum { get { return _actionPatterns.Length; } }//行動内容の行動数(何個の動作があるか)
 
 }
