@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//遅延して音を出す
 [System.Serializable]
 public class DelayPlaySound
 {
@@ -14,13 +16,18 @@ public class DelayPlaySound
 
     public void Update()
     {
-        if(_played) return;
+       UpdatePlayTiming();
+    }
+
+    void UpdatePlayTiming()//音を出すタイミングの更新
+    {
+        if (_played) return;
 
         _currentTime += Time.deltaTime;
 
-        if(_currentTime>=_delayTime)
+        if (_currentTime >= _delayTime)
         {
-            _audioSource.PlayOneShot(_sound);
+            if(_audioSource!=null&&_sound!=null) _audioSource.PlayOneShot(_sound);
             _played = true;
         }
     }

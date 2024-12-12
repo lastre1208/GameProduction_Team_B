@@ -24,17 +24,6 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: WallCamera
-    m_To: UpGameCamera
-    m_Blend:
-      m_Style: 1
-      m_Time: 0.75
-      m_CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
   - m_From: UpGameCamera
     m_To: UnderGameCamera
     m_Blend:
@@ -47,7 +36,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: WallCamera
-    m_To: UnderGameCamera
+    m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 1
       m_Time: 0.75
@@ -91,7 +80,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: 'StartMovie Blend List Camera '
-    m_To: UnderGameCamera
+    m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 0
       m_Time: 2
