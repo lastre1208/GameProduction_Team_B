@@ -15341,7 +15341,6 @@ GameObject:
   - component: {fileID: 993304509}
   - component: {fileID: 993304512}
   - component: {fileID: 993304511}
-  - component: {fileID: 993304510}
   m_Layer: 0
   m_Name: UpGameCamera
   m_TagString: Untagged
@@ -15365,24 +15364,6 @@ Transform:
   - {fileID: 1579827411}
   m_Father: {fileID: 574104011}
   m_LocalEulerAnglesHint: {x: 17.9, y: 0, z: 0}
---- !u!114 &993304510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993304508}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2175519347471974f927b358df126d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TargetGroup: {fileID: 402787166}
-  weight: 1.2
-  radius: 1
-  target: {fileID: 1244729529}
-  range:
-    deadZoneHeight: 10
 --- !u!114 &993304511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21364,8 +21345,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1308991647}
   - component: {fileID: 1308991646}
-  - component: {fileID: 1308991648}
-  - component: {fileID: 1308991649}
   m_Layer: 0
   m_Name: UnderGameCamera
   m_TagString: Untagged
@@ -21428,40 +21407,6 @@ Transform:
   - {fileID: 537903381}
   m_Father: {fileID: 574104011}
   m_LocalEulerAnglesHint: {x: 17.9, y: 0, z: 0}
---- !u!114 &1308991648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308991645}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e5dd0d50579e543ba3277c0ffe2b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1923540439}
-  x: 0
-  y: 1
-  z: 1
---- !u!114 &1308991649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308991645}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2175519347471974f927b358df126d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TargetGroup: {fileID: 402787166}
-  weight: 1.2
-  radius: 1
-  target: {fileID: 1244729529}
-  range:
-    deadZoneHeight: 10
 --- !u!1 &1310763094
 GameObject:
   m_ObjectHideFlags: 0
@@ -34421,7 +34366,10 @@ MonoBehaviour:
   - _actFirst: 0
     _firstAction:
       _actionName: 
-      _actionPatterns: []
+      _actionPatterns:
+      - _actionName: 
+        action: []
+        actionTime: 0
     _afterAction:
       elements:
       - element:
@@ -38046,8 +37994,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2118490019}
   - component: {fileID: 2118490022}
-  - component: {fileID: 2118490021}
-  - component: {fileID: 2118490020}
   m_Layer: 0
   m_Name: WallCamera
   m_TagString: Untagged
@@ -38071,40 +38017,6 @@ Transform:
   - {fileID: 623997145}
   m_Father: {fileID: 574104011}
   m_LocalEulerAnglesHint: {x: 17.9, y: 0, z: 0}
---- !u!114 &2118490020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118490018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2175519347471974f927b358df126d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TargetGroup: {fileID: 402787166}
-  weight: 1.2
-  radius: 1
-  target: {fileID: 1244729529}
-  range:
-    deadZoneHeight: 10
---- !u!114 &2118490021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118490018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e5dd0d50579e543ba3277c0ffe2b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1923540439}
-  x: 0
-  y: 1
-  z: 1
 --- !u!114 &2118490022
 MonoBehaviour:
   m_ObjectHideFlags: 0
