@@ -21,7 +21,6 @@ public class DelayDisplayTextSoundComp : MonoBehaviour
     public void DisplayTrigger()//ゲーム開始した瞬間に一度だけ呼ばれる処理
     {
         displayStart = true;//フラグをONにする
-        Debug.Log(name);
     }
 
     void UpdateDisplay()//ゲームが開始してからしばらくゲームスタートの文字を画面に表示する
