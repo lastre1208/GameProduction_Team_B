@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-//作成者:杉山詩恩
+//作成者:杉山
 //ゲームスタート時のスタートの瞬間の演出
 public class DisplayStart_GameStart : MonoBehaviour
 {

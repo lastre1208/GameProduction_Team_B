@@ -28,18 +28,13 @@ public class MovieCameraEvent : MonoBehaviour
     const string _actionMapName_Movie = "Movie";//ムービー用の操作名
     string _actionMapName_Original;//元の操作名
     const float _defaultCurrentMovieTime= 0;
-    //ムービーの再生状況
-    //基本はムービーが動いていない
-    //->再生中(再生する命令があったら)->
-    //終了中(終了する命令があった、もしくは時間経過で自動的にそうなったか)
-    //->ムービーが動いていない(終了処理が終わったら)
-    State_Movie _state = State_Movie.off;
+    State_Movie _state = State_Movie.off;//ムービーの再生状況、初期状態はムービーを動かしていない状態
 
     public State_Movie State { get { return _state; } }
 
     public void Trigger()//ムービーの開始
     {
-        //ムービーが動いていない状態でなければ無視
+        //ムービーが動いていない(初期)状態でなければ無視
         if (_state!=State_Movie.off) return;
 
         _currentMovieTime = _defaultCurrentMovieTime;
@@ -53,7 +48,7 @@ public class MovieCameraEvent : MonoBehaviour
         _movieCamera.enabled = true;//カメラをムービー用のものに切り替える
     }
 
-    public void End()//ムービーの終了(ムービースキップ時にこれを呼ぶ)
+    public void End()//ムービーの終了準備処理(ムービースキップ時にこれを呼ぶ)
     {
         //ムービー再生中でなければ無視
         if (_state != State_Movie.playing) return;
@@ -91,7 +86,7 @@ public class MovieCameraEvent : MonoBehaviour
 
             case State_Movie.ending://終了中
 
-                //フェードアウトが終わったらムービーが動いていない状態(初期状態)に戻す
+                //フェードアウトが終わったらムービー完了状態に遷移
                 if (_fadeOut.FadeState == State_Fade.completed)
                 {
                     _fadeOut.ReturnDefault();

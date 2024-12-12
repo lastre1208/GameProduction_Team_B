@@ -12,17 +12,10 @@ public class GameStartSequence : MonoBehaviour
     [SerializeField] MovieCameraEvent _startMovieEvent;
     [SerializeField] StartSignalEvent _startSignalEvent;
     [SerializeField] JudgeGameStart _judgeGameStart;
-
     [SerializeField] DelayText _delayText;
     State_GameStartSequence _state;//ゲームの開始処理の状態
 
-    public bool FinishedStartMovie
-    {
-        get
-        {
-            return _state > State_GameStartSequence.movie;
-        }
-    }
+    public bool FinishedStartMovie { get { return _state > State_GameStartSequence.movie; } }//スタート時のムービーが終わっているか
 
     void Start()
     {
@@ -31,7 +24,6 @@ public class GameStartSequence : MonoBehaviour
         _state = State_GameStartSequence.movie;
     }
 
-    // Update is called once per frame
     void Update()
     {
        UpdateSequebce();

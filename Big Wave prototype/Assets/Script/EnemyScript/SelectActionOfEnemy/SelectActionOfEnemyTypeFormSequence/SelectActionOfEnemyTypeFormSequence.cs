@@ -55,7 +55,6 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
             //最初の行動をする設定になっていたら現在の行動内容を最初の行動内容に設定
             if(_forms[currentFormNum].ActFirst)
             {
-                Debug.Log("最初の行動");
                 _currentAction = _forms[currentFormNum].FirstAction;
             }
         }
@@ -75,7 +74,6 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
         //現在の行動番号の行動を返す
         int currentActionIndex = _actionIndex;//現在の行動番号
         _actionIndex++;//行動内容の次の行動に設定
-        Debug.Log(currentActionIndex);
         return _currentAction[currentActionIndex];
     }
 }
