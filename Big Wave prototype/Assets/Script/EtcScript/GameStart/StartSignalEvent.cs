@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 //作成者:杉山
 //スタートの合図
@@ -12,9 +13,9 @@ public class StartSignalEvent : MonoBehaviour
     [SerializeField] float _startFadeInTime;
     [Header("フェードインが完了してからゲーム開始までの時間")]
     [SerializeField] float _startGameTime;
-    [SerializeField] DisplayStart_GameStart gameStart;
-    //フェードイン完了時に呼ぶイベント
-   
+    public event Action StartFadeInAction;//スタートの合図(フェードイン)が始まった瞬間に呼ぶイベント
+    public event Action CompleteFadeInAction;//フェードイン完了時に呼ぶイベント
+
     float _currentStartGameTime = 0;
     float _currentStartFadeInTime=0;
     State_GameStartSignal _state = State_GameStartSignal.off;//合図の状況
@@ -27,6 +28,7 @@ public class StartSignalEvent : MonoBehaviour
         if (_state != State_GameStartSignal.off) return;
 
         _state = State_GameStartSignal.fadeIn;
+        StartFadeInAction?.Invoke();//スタートの合図(フェードイン)が始まった瞬間に呼ぶイベントを呼ぶ
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class StartSignalEvent : MonoBehaviour
                 {
                     _fadeIn.ReturnDefault();
                     _state = State_GameStartSignal.playing;
-                    gameStart.DisplayTrigger();
+                    CompleteFadeInAction?.Invoke();//フェードイン完了時に呼ぶイベントを呼ぶ
                 }
 
                 break;

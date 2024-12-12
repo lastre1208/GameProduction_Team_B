@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//作成者:杉山
+//遅延して文字を表示する
 [System.Serializable]
-public class DisplayHideText
+public class DelayDisplayText
 {
     [Header("表示する文字")]
     [SerializeField] TMP_Text _text;
@@ -23,7 +25,7 @@ public class DisplayHideText
         UpdateHideTiming();
     }
 
-    void UpdateDisplayTiming()
+    void UpdateDisplayTiming()//表示するタイミングの更新
     {
         if (_displayed) return;
 
@@ -32,11 +34,11 @@ public class DisplayHideText
         if(_currentDelayTime>=_delayTime)
         {
             _displayed = true;
-            _text.enabled = true;
+            if (_text != null) _text.enabled = true;
         }
     }
 
-    void UpdateHideTiming()
+    void UpdateHideTiming()//表示してから文字を隠すタイミングの更新
     {
         if (_hided||!_displayed) return;
 
@@ -44,7 +46,8 @@ public class DisplayHideText
 
         if(_currentDisplayTime>=_displayTime)
         {
-            _text.enabled = false;
+            _hided = true;
+            if (_text != null) _text.enabled = false;
         }
     }
 }
