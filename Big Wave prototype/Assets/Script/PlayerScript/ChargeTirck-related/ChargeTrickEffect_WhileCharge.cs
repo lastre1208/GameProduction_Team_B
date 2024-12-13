@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//チャージのエフェクト
-public class ChargeTrickEffect : MonoBehaviour
+//チャージ中はずっと出すエフェクト
+public class ChargeTrickEffect_WhileCharge : MonoBehaviour
 {
     [Header("チャージ判定")]
     [SerializeField] JudgeChargeTrickPointNow _judgeChargeTrickPointNow;

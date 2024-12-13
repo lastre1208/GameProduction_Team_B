@@ -15,7 +15,7 @@ public class DeadEffect : MonoBehaviour
     [Header("プレイヤーの死亡モーション")]
     [SerializeField] PlayerDeadMotion _playerDeadMotion;
     [Header("チャージのエフェクト")]
-    [SerializeField] ChargeTrickEffect _chargeTrickEffect;
+    [SerializeField] ChargeTrickEffect_WhileCharge _chargeTrickEffect;
     [Header("操作変更")]
     [SerializeField] PlayerInput _playerInput;
     [Header("ロープ")]
