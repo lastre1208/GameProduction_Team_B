@@ -47,12 +47,10 @@ public class GenerateEffect:MonoBehaviour
             if (instantiateInOtherObject)//子オブジェクトとして生成するなら
             {
                 Instantiate(effect, instantiatePos.transform.position, transform.rotation, parent.transform);//子オブジェクトとしてエフェクトを置く
-                Debug.Log(name);
             }
             else//そうでないなら
             {
                 Instantiate(effect, instantiatePos.transform.position, transform.rotation);//直にエフェクトを置く
-                Debug.Log(name);
             }
         }
     }
