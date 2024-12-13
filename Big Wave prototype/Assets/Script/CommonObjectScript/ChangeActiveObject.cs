@@ -13,14 +13,18 @@ public class ChangeActiveObject
     [Header("‰½•bŒã‚É•\Ž¦ó‘Ô‚ðØ‚è‘Ö‚¦‚é‚©")]
     [SerializeField] float _changeTime;
     float _currentchangeTime = 0;
+    bool _changed = false;//•ÏX‚µ‚½‚©
 
     public void UpdateActive()
     {
+        if(_changed) return;
+
         _currentchangeTime += Time.deltaTime;
 
         if(_currentchangeTime>=_changeTime)
         {
             _object.SetActive(_active);
+            _changed = true;
         }
     }
 }

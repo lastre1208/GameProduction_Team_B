@@ -28,19 +28,22 @@ public class DeadEffect : MonoBehaviour
     [SerializeField] GameObject _duringGame_UI;
     [Header("シーン移行コンポーネント")]
     [SerializeField] SceneController _controller;
+    [Header("表示状態を切り替えるオブジェクト")]
+    [SerializeField] ChangeActiveObject[] _changeObjects;
     [Header("死んでから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
     [SerializeField] UnityEvent _deadEvent;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
+    const string _actionMapName = "Defeat";//プレイヤー死亡時にこのアクションマップに変更する
 
     public void Trigger()//演出開始
     {
         _startEffect = true;
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
-        _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
+        _playerInput.SwitchCurrentActionMap(_actionMapName);//操作の変更
         _chargeTrickPoint.Switch = false;//チャージしないようにする
         //死亡時のカメラの移動を開始(実装予定)
         _playerDeadMotion.Trigger();//プレイヤーの死亡モーションの再生
@@ -58,16 +61,28 @@ public class DeadEffect : MonoBehaviour
     void Update()
     {
         UpdateChangeScene();
+        UpdateChangeActive();
     }
 
     void UpdateChangeScene()//シーン移行の処理
     {
         if (!_startEffect) return;
+
         _currentChangeSceneTime += Time.deltaTime;
 
         if (_currentChangeSceneTime >= _changeSceneTime)
         {
             _controller.GameOverScene();//クリアシーンに移行する
+        }
+    }
+
+    void UpdateChangeActive()//オブジェクトのアクティブ状態を変更する時間の更新
+    {
+        if (!_startEffect) return;
+
+        for (int i = 0; i < _changeObjects.Length; i++)
+        {
+            _changeObjects[i].UpdateActive();
         }
     }
 }
