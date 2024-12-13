@@ -41,7 +41,6 @@ public class DefeatEnemyEffect : MonoBehaviour
     [Header("敵を倒してから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
-    [SerializeField] UnityEvent _clearEvent;
     float _currentChangeSceneTime=0;
     bool _startEffect=false;//演出の開始状況
     const string _actionMapName = "Win";//敵を倒したときにこのアクションマップに変更する
@@ -62,7 +61,6 @@ public class DefeatEnemyEffect : MonoBehaviour
         //波の生成を止める
         inWave.Switch = false;
         outWave.Switch = false;
-        _clearEvent.Invoke();
     }
 
     void Start()

@@ -15,6 +15,20 @@ public class ChangeActiveObject
     float _currentchangeTime = 0;
     bool _changed = false;//変更したか
 
+    public ChangeActiveObject(GameObject gameObject,bool active,float changeTime)//コンストラクタ
+    {
+        _object = gameObject;
+        _active = active;
+        _changeTime = changeTime;
+    }
+
+    public ChangeActiveObject()//デフォルトコンストラクタ
+    {
+        _object = null;
+        _active = false;
+        _changeTime=0;
+    }
+
     public void UpdateActive()
     {
         if(_changed) return;

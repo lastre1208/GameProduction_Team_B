@@ -33,7 +33,6 @@ public class DeadEffect : MonoBehaviour
     [Header("死んでから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
-    [SerializeField] UnityEvent _deadEvent;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
     const string _actionMapName = "Defeat";//プレイヤー死亡時にこのアクションマップに変更する
@@ -51,7 +50,6 @@ public class DeadEffect : MonoBehaviour
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
         _ropeEffect.Switch = false;//縄を消す
         _chargeTrickEffect.Switch = false;//チャージのエフェクトは出さないようにする
-        _deadEvent.Invoke();
     }
 
     void Start()

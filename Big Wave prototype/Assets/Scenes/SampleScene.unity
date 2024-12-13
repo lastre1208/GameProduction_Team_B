@@ -3000,7 +3000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
+  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7633,9 +7633,6 @@ MonoBehaviour:
     _changeTime: 0
   _changeSceneTime: 3
   _judgeGameSet: {fileID: 1511769283}
-  _timeupEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &503087858
 GameObject:
   m_ObjectHideFlags: 0
@@ -7700,7 +7697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10562,9 +10559,6 @@ MonoBehaviour:
     _changeTime: 0
   _changeSceneTime: 3.5
   _judgeGameSet: {fileID: 1511769283}
-  _deadEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &646755478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19032,11 +19026,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229931524}
   m_CullTransparentMesh: 1
---- !u!1 &1232021149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3497263098836309720, guid: bfb560f8b8bb94f44971277130a11407, type: 3}
-  m_PrefabInstance: {fileID: 1426949591}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1232021150 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4624655738775933871, guid: bfb560f8b8bb94f44971277130a11407, type: 3}
@@ -25971,6 +25960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663075735}
   - component: {fileID: 1663075736}
+  - component: {fileID: 1663075737}
   m_Layer: 0
   m_Name: FeverMode
   m_TagString: Untagged
@@ -26005,50 +25995,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverEffect:
+  feverTime: 20
+  player_FeverPoint: {fileID: 1777186616}
+--- !u!114 &1663075737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9c5afd7960d8a42a227d3ce74a33cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _feverSE: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
+  _audioSource: {fileID: 1778482265}
+  _feverEffect: {fileID: 1232021150}
+  _feverNowEffect:
   - {fileID: 907902183}
   - {fileID: 1450010173}
-  feverTime: 20
-  feverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1232021149}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1232021150}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  player_FeverPoint: {fileID: 1777186616}
+  _feverMode: {fileID: 1663075736}
 --- !u!1 &1663983655
 GameObject:
   m_ObjectHideFlags: 0
@@ -36092,9 +36059,6 @@ MonoBehaviour:
     _changeTime: 0
   _changeSceneTime: 7
   _judgeGameSet: {fileID: 1511769283}
-  _clearEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &2004139851
 Transform:
   m_ObjectHideFlags: 0
@@ -36554,7 +36518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
+  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
