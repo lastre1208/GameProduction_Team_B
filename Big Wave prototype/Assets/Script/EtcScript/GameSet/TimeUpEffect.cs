@@ -21,12 +21,14 @@ public class TimeUpEffect : MonoBehaviour
     [SerializeField] GameObject _duringGame_UI;
     [Header("シーン移行コンポーネント")]
     [SerializeField] SceneController _controller;
+    [Header("表示状態を切り替えるオブジェクト")]
+    [SerializeField] ChangeActiveObject[] _changeObjects;
     [Header("タイムアップしてから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
-    [SerializeField] UnityEvent _timeupEvent;
     float _currentChangeSceneTime = 0;
     bool _startEffect = false;//演出の開始状況
+    const string _actionMapName = "Defeat";//タイムアップ時にこのアクションマップに変更する
 
     public void Trigger()//演出開始
     {
@@ -34,10 +36,9 @@ public class TimeUpEffect : MonoBehaviour
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _chargeTrickPoint.Switch = false;//チャージしないようにする
-        _playerInput.SwitchCurrentActionMap("Defeat");//操作の変更
+        _playerInput.SwitchCurrentActionMap(_actionMapName);//操作の変更
         _timeLimit.Switch = false;//制限時間を止める
         _algorithmOfEnemy.Switch = false;//敵の行動を止める
-        _timeupEvent.Invoke();
     }
 
     void Start()
@@ -48,16 +49,28 @@ public class TimeUpEffect : MonoBehaviour
     void Update()
     {
         UpdateChangeScene();
+        UpdateChangeActive();
     }
 
     void UpdateChangeScene()//シーン移行の処理
     {
         if (!_startEffect) return;
+
         _currentChangeSceneTime += Time.deltaTime;
 
         if (_currentChangeSceneTime >= _changeSceneTime)
         {
             _controller.GameOverScene();//クリアシーンに移行する
+        }
+    }
+
+    void UpdateChangeActive()//オブジェクトのアクティブ状態を変更する時間の更新
+    {
+        if (!_startEffect) return;
+
+        for (int i=0; i<_changeObjects.Length;i++)
+        {
+            _changeObjects[i].UpdateActive();
         }
     }
 }

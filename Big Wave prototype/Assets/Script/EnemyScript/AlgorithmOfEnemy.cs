@@ -14,6 +14,7 @@ public class AlgorithmOfEnemy : MonoBehaviour
     private float actionTime;//行動時間、現在の行動時間(currentActionTime)がこれ以上になったら行動を変更する
     private ActionPattern currentActionPattern;//現在の行動パターン
     bool _switch = false;//これがfalseになっている時は行動しない、trueの時は行動する
+    bool _setFirstAction = false;//最初の行動をセットしたか、セットするまでは行動のアルゴリズムを動かさない
 
     public bool Switch
     {
@@ -21,19 +22,23 @@ public class AlgorithmOfEnemy : MonoBehaviour
         set { _switch = value; }
     }
 
-    void Start()
-    {
-        ChangeAction(firstActionPattern);//最初の行動を設定
-    }
-
     void Update()
     {
+        SetFirstAction();
         Algorithm();
+    }
+
+    void SetFirstAction()//最初の行動の設定
+    {
+        if (_setFirstAction||!_switch) return;//最初の行動をセット済みまたはスイッチがOFFの時はしない
+
+        ChangeAction(firstActionPattern);//最初の行動を設定
+        _setFirstAction=true;
     }
 
     void Algorithm()//行動アルゴリズムの処理
     {
-        if (!_switch) return;//まだゲーム開始されてなかったら波を生成しない
+        if (!_setFirstAction || !_switch) return;//最初の行動が未セットセットまたはスイッチがOFFの時は動かさない
 
         currentActionTime += Time.deltaTime;
 

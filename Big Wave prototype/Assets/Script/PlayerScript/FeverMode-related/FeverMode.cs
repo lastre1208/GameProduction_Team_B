@@ -2,42 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 //作成者:杉山
 //フィーバー状態の効果
 public class FeverMode : MonoBehaviour
 {
-    [Header("フィーバー状態のエフェクト")]
-    [SerializeField] List<GameObject> feverEffect;//フィーバー状態のエフェクト
     [Header("フィーバー状態の効果時間")]
     [SerializeField] float feverTime=20f;//フィーバー状態の効果時間
-    private float remainingFeverTime = 0f;//フィーバー状態の残り効果時間
-    [Header("フィーバー状態移行時に起こすイベント")]
-    [SerializeField] UnityEvent feverEvent;//フィーバー状態移行時に起こすイベント
-
     [Header("必要なコンポーネント")]
     [SerializeField] FeverPoint player_FeverPoint;
-
+    public event Action TransitToFeverAction;//フィーバー状態遷移時に呼ぶイベント
+    public event Action CancelFeverAction;//フィーバー状態解除時に呼ぶイベント
     private bool feverNow=false;//今フィーバー状態か
+    private float remainingFeverTime = 0f;//フィーバー状態の残り効果時間
 
     public bool FeverNow
     {
         get { return feverNow; }
     }
 
-    // Start is called before the first frame update
     void Start()
-    {
-        for(int i = 0; i < feverEffect.Count; i++)
-        {
-  feverEffect[i].SetActive(false);
-        }
-      
+    { 
         remainingFeverTime = 0f;
         feverNow = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         ChangeFeverMode();//フィーバー状態に移行
@@ -54,17 +44,20 @@ public class FeverMode : MonoBehaviour
         {
             feverNow = true;
             remainingFeverTime = feverTime;
-            feverEvent.Invoke();
+            TransitToFeverAction?.Invoke();
         }
     }
 
     //フィーバー状態の残り時間を更新
     void UpdateFeverTime()
     {
+        if (!feverNow) return;
+
         remainingFeverTime -= Time.deltaTime;
 
         if(remainingFeverTime<=0f)//フィーバー状態の残り時間が0になったらフィーバー状態を解除
         {
+            CancelFeverAction?.Invoke();
             remainingFeverTime=0f;
             feverNow = false;
         }
@@ -81,10 +74,5 @@ public class FeverMode : MonoBehaviour
             float ratio = remainingFeverTime / feverTime;
             player_FeverPoint.FeverPoint_ = player_FeverPoint.FeverPointMax * ratio;
         }
-        for (int i = 0; i < feverEffect.Count; i++)
-        {
-            feverEffect[i].SetActive(feverNow);//フィーバー時エフェクトを表示
-        }
-       
     }
 }

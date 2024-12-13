@@ -13,14 +13,32 @@ public class ChangeActiveObject
     [Header("何秒後に表示状態を切り替えるか")]
     [SerializeField] float _changeTime;
     float _currentchangeTime = 0;
+    bool _changed = false;//変更したか
+
+    public ChangeActiveObject(GameObject gameObject,bool active,float changeTime)//コンストラクタ
+    {
+        _object = gameObject;
+        _active = active;
+        _changeTime = changeTime;
+    }
+
+    public ChangeActiveObject()//デフォルトコンストラクタ
+    {
+        _object = null;
+        _active = false;
+        _changeTime=0;
+    }
 
     public void UpdateActive()
     {
+        if(_changed) return;
+
         _currentchangeTime += Time.deltaTime;
 
         if(_currentchangeTime>=_changeTime)
         {
             _object.SetActive(_active);
+            _changed = true;
         }
     }
 }

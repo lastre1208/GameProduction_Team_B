@@ -3000,7 +3000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
+  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7011,7 +7011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
+  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7627,23 +7627,12 @@ MonoBehaviour:
   _algorithmOfEnemy: {fileID: 1852493891}
   _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeObjects:
+  - _object: {fileID: 1622314984}
+    _active: 1
+    _changeTime: 0
   _changeSceneTime: 3
   _judgeGameSet: {fileID: 1511769283}
-  _timeupEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1622314984}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &503087858
 GameObject:
   m_ObjectHideFlags: 0
@@ -7708,7 +7697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10125,7 +10114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10564,23 +10553,12 @@ MonoBehaviour:
   _algorithmOfEnemy: {fileID: 1852493891}
   _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeObjects:
+  - _object: {fileID: 1816335604}
+    _active: 1
+    _changeTime: 0
   _changeSceneTime: 3.5
   _judgeGameSet: {fileID: 1511769283}
-  _deadEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1816335604}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1001 &646755478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11318,9 +11296,6 @@ MonoBehaviour:
   - _object: {fileID: 238015999}
     _active: 0
     _changeTime: 2
-  _defeatEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &718914404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12197,11 +12172,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe75b0618de275f47b6f3d37ef27c970, type: 3}
---- !u!1 &790952274 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5564718769595072280, guid: a5196e5210a892a4e9c86118dd712e28, type: 3}
-  m_PrefabInstance: {fileID: 1307992900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &790952276 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 919552116583244825, guid: a5196e5210a892a4e9c86118dd712e28, type: 3}
@@ -15193,7 +15163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15271,6 +15241,7 @@ GameObject:
   - component: {fileID: 996376304}
   - component: {fileID: 996376306}
   - component: {fileID: 996376308}
+  - component: {fileID: 996376309}
   m_Layer: 0
   m_Name: ChargeTrickPoint
   m_TagString: Untagged
@@ -15389,6 +15360,28 @@ MonoBehaviour:
   _chargeEffect: {fileID: 1611172971}
   _chargeSE: {fileID: 8300000, guid: b93087cbdc63c7c42ba2a2f475c5d751, type: 3}
   _audioSource: {fileID: 1778482265}
+--- !u!114 &996376309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996376301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff44016fbd2080e43b1a29709c2de823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trickPoint: {fileID: 1777186615}
+  _fullSE: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
+  _audioSource: {fileID: 238903304}
+  _chargeEffect:
+  - {fileID: 1999775720}
+  - {fileID: 1816201933}
+  - {fileID: 1154599132}
+  - {fileID: 790952276}
+  - {fileID: 1150884089}
+  - {fileID: 1118973395}
 --- !u!1 &996687311
 GameObject:
   m_ObjectHideFlags: 0
@@ -18177,11 +18170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeLimit: 180
---- !u!1 &1118973393 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1295604034135354268, guid: 27d51f7868267424a9612e6422f203e4, type: 3}
-  m_PrefabInstance: {fileID: 2008932560}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1118973395 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5765123172479135901, guid: 27d51f7868267424a9612e6422f203e4, type: 3}
@@ -18228,11 +18216,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1150884087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2017035463659465317, guid: 09546a6d8fc770645b2b1f66b4bfe559, type: 3}
-  m_PrefabInstance: {fileID: 1916845307}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1150884089 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6487099820023951716, guid: 09546a6d8fc770645b2b1f66b4bfe559, type: 3}
@@ -18242,11 +18225,6 @@ ParticleSystem:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4975944517630434449, guid: 09546a6d8fc770645b2b1f66b4bfe559, type: 3}
   m_PrefabInstance: {fileID: 1916845307}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1154599130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 555353211938235514, guid: f83970a5696d14744a8c02dcad1ce414, type: 3}
-  m_PrefabInstance: {fileID: 1397984889}
   m_PrefabAsset: {fileID: 0}
 --- !u!198 &1154599132 stripped
 ParticleSystem:
@@ -19051,11 +19029,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229931524}
   m_CullTransparentMesh: 1
---- !u!1 &1232021149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3497263098836309720, guid: bfb560f8b8bb94f44971277130a11407, type: 3}
-  m_PrefabInstance: {fileID: 1426949591}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1232021150 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4624655738775933871, guid: bfb560f8b8bb94f44971277130a11407, type: 3}
@@ -25990,6 +25963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663075735}
   - component: {fileID: 1663075736}
+  - component: {fileID: 1663075737}
   m_Layer: 0
   m_Name: FeverMode
   m_TagString: Untagged
@@ -26024,50 +25998,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dbc35f72bc6714891a14433ab6dea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverEffect:
+  feverTime: 20
+  player_FeverPoint: {fileID: 1777186616}
+--- !u!114 &1663075737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663075734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9c5afd7960d8a42a227d3ce74a33cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _feverSE: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
+  _audioSource: {fileID: 1778482265}
+  _feverEffect: {fileID: 1232021150}
+  _feverNowEffect:
   - {fileID: 907902183}
   - {fileID: 1450010173}
-  feverTime: 20
-  feverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778482265}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: caba575153fc3514aa8a33a6c8fe5cd8, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1232021149}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1232021150}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  player_FeverPoint: {fileID: 1777186616}
+  _feverMode: {fileID: 1663075736}
 --- !u!1 &1663983655
 GameObject:
   m_ObjectHideFlags: 0
@@ -32950,181 +32901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trickPointMax: 100
-  trickPoint:
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1999775718}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1999775720}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1816201931}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1816201933}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1154599130}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1154599132}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 790952274}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 790952276}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1150884087}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1150884089}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - fullEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 238903304}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: fa9864f9da38e684fb7e84a301161afc, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1118973393}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1118973395}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  _trickGaugeNum: 6
 --- !u!114 &1777186616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33483,11 +33260,6 @@ Transform:
   - {fileID: 439121819}
   m_Father: {fileID: 1244729529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1816201931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3152273227426055680, guid: 17aec22382580cc41aa2d2009669d2ba, type: 3}
-  m_PrefabInstance: {fileID: 1274044323}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1816201933 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7657282887371906305, guid: 17aec22382580cc41aa2d2009669d2ba, type: 3}
@@ -36048,11 +35820,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
---- !u!1 &1999775718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1515824130668314861, guid: 4f49de1d96bfd6b489ad690b353c4aa4, type: 3}
-  m_PrefabInstance: {fileID: 1017156930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1999775720 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6121086784135617516, guid: 4f49de1d96bfd6b489ad690b353c4aa4, type: 3}
@@ -36105,23 +35872,12 @@ MonoBehaviour:
   _algorithmOfEnemy: {fileID: 1852493891}
   _duringGame_UI: {fileID: 2111325018}
   _controller: {fileID: 654474180}
+  _changeObjects:
+  - _object: {fileID: 497776821}
+    _active: 1
+    _changeTime: 0
   _changeSceneTime: 7
   _judgeGameSet: {fileID: 1511769283}
-  _clearEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 497776821}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!4 &2004139851
 Transform:
   m_ObjectHideFlags: 0

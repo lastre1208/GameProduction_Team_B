@@ -13,16 +13,12 @@ public class EnemyDeadMotion : MonoBehaviour
     [SerializeField] DefeatEffect _defeatEffect;
     [Header("表示状態を切り替えるオブジェクト")]
     [SerializeField] ChangeActiveObject[] _changeObjects;
-    [SerializeField] UnityEvent _defeatEvent;
-        bool _startMotion = false;
+    bool _startMotion = false;
 
     public void Trigger()
     {
-        
         _enemy_animator.SetTrigger(_deadTriggerName);
-        _startMotion = true;
-        _defeatEvent.Invoke();
-       
+        _startMotion = true;  
     }
 
     void Update()
