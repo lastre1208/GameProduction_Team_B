@@ -16,10 +16,10 @@ public class AttackOfBullet : MonoBehaviour
     [SerializeField] HitAnim_Player hitAnim_Player;//プレイヤー被弾時のダメージモーションの設定
     [Header("接触判定のコンポーネント")]
     [SerializeField] OnTriggerActionEvent onTriggerEvent;//接触判定のコンポーネント
-    bool hit=false;//当たったか
     [Header("被弾時に発生させるエフェクト")]
     [SerializeField] GameObject damageEffect;
-    GameObject damageEffectPrefab;
+    bool hit = false;//当たったか
+
     void Start()
     {
         onTriggerEvent.EnterAction += HitTrigger;//当たった時の処理を登録
@@ -39,7 +39,7 @@ public class AttackOfBullet : MonoBehaviour
             
             destroyBullet.Destroy();//弾を破壊する
 
-            damageEffectPrefab=Instantiate(damageEffect,t.transform.position,t.transform.rotation, t.transform);
+            Instantiate(damageEffect,t.transform.position,t.transform.rotation, t.transform);
         }
     }
 }
