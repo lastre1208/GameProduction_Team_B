@@ -16,6 +16,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
         _animTrigger.Start();//モーションの再生処理の初期化
 
+        _generateEffect.OnEnter();
+
         if(_wallCamera!=null) _wallCamera.enabled = true;//壁攻撃のカメラを起動
     }
 
@@ -33,6 +35,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
                 Shot();
             }
         }
+
+        _generateEffect.OnUpdate();
 
         _animTrigger.Update();//モーションの再生処理の更新
     }
