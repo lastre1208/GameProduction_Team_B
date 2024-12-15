@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//作成者:杉山
+//敵の行動の抽象クラス
 public abstract class EnemyActionTypeBase : MonoBehaviour
 {
     /// <summary>
@@ -21,25 +23,4 @@ public abstract class EnemyActionTypeBase : MonoBehaviour
     /// beforeActionTypeは次の行動パターンでする行動
     /// </summary>
     public virtual void OnExit(EnemyActionTypeBase[] nextActionType) { }
-}
-
-
-//行動時のエフェクト
-[System.Serializable]
-class ActionEffect
-{
-    [Header("エフェクトを生成するか")]
-    [SerializeField] bool generate = true;
-    [Header("GenerateEffect(エフェクト生成)コンポーネント")]
-    [SerializeField] GenerateEffect generateEffect;
-    [Header("遅延生成時間")]
-    [SerializeField] float delayTime;
-
-    public void Generate()
-    {
-        if(generate)//生成するなら
-        {
-            generateEffect.Generate(delayTime);//delayTime遅延してエフェクトを生成
-        }
-    }
 }

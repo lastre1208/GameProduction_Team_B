@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//非推奨
+//作成者:杉山
+//通常弾(Rigidbody)を撃つ
 public class ShotTypeRigidBullet : ShotTypeBase
 {
+    [Header("▼GamePos")]
+    [SerializeField] Transform gamePos;//GamePos、弾をこれの子オブジェクトとして配置する
     [Header("注:弾には必ずRigidbodyをつけたオブジェクトを入れること")]
     [SerializeField] BulletSettingTypeRigid[] bullets;//弾の設定
     VectorOfShotType vectorOfShotType;
+    float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
 
     void Start()
     {
@@ -16,42 +20,51 @@ public class ShotTypeRigidBullet : ShotTypeBase
 
     public override void InitShotTiming()//撃つタイミングの初期化
     {
-        base.InitShotTiming();
-        ResetShoted(bullets);
+        currentDelayTime = 0;
+
+        for (int i = 0; i < bullets.Length; i++)//撃った判定の初期化
+        {
+            bullets[i].Shoted = false;
+        }
     }
 
     public override void UpdateShotTiming()//撃つタイミングの更新
     {
-        base.UpdateShotTiming();
+        currentDelayTime += Time.deltaTime;
+
         for (int i = 0; i < bullets.Length; i++)
         {
-            if (NotifyShotTiming(bullets[i]))
+            BulletSettingTypeRigid bullet = bullets[i];
+
+            if (currentDelayTime >= bullet.DelayTime && !bullet.Shoted)
             {
-                Shot(bullets[i]);
+                Shot(bullet);
             }
         }
     }
 
-    void Shot(BulletSettingTypeRigid bulletSetting)
+    void Shot(BulletSettingTypeRigid bullet)
     {
-        GameObject bulletObject = GenerateBullet(bulletSetting);
-       
-        Rigidbody bulletObjectRb = bulletObject.GetComponent<Rigidbody>();
+        bullet.Shoted = true;//撃った判定にする
 
-        //弾を撃ちだすための設定(RigidBodyを取得出来ていなかったらエラーメッセージを出す)
-        if(bulletObjectRb==null)
+        //攻撃を撃ちだす位置と角度を取得
+        Vector3 shotPos = bullet.ShotPos.transform.position;//位置
+        Quaternion shotRot = bullet.ShotPos.transform.rotation;//角度
+
+        GameObject bulletObject = Instantiate(bullet.BulletPrefab, shotPos, shotRot, gamePos);//弾の生成
+
+        Rigidbody rb = bulletObject.GetComponentInChildren<Rigidbody>();//RigidBodyを取得
+
+        if(rb==null)//取得に失敗した場合エラーメッセージを出す
         {
-            Debug.Log("弾プレハブにRigidBody入ってません！");
+            Debug.Log(name + "Rigidbodyがアタッチされた弾をセットしてください");
             return;
         }
 
-        //撃つ向きを決める
-        Vector3 shotVec=vectorOfShotType.ShotVec(bulletSetting.ShotType,bulletSetting.ShotPos);
-        //攻撃の向きを撃つ方向に変更
-        bulletObject.transform.rotation = Quaternion.LookRotation(shotVec, Vector3.up);
-        //弾を撃ちだす
-        bulletObjectRb.AddForce(shotVec * bulletSetting.ShotPower, ForceMode.Impulse);
-    }
+        Vector3 shotVec=vectorOfShotType.ShotVec(bullet.ShotType,bullet.ShotPos);//撃つ向きを決める
 
-    
+        bulletObject.transform.rotation = Quaternion.LookRotation(shotVec, Vector3.up);//攻撃の向きを撃つ方向に変更
+
+        rb.AddForce(shotVec * bullet.ShotPower, ForceMode.Impulse);//弾を撃ちだす
+    }
 }

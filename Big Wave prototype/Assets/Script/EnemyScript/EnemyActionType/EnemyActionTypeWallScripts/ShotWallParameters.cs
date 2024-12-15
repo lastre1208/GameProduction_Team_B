@@ -11,6 +11,9 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
     [Header("壁攻撃時のカメラ")]
     [SerializeField] CinemachineVirtualCamera _wallCamera;
 
+    [Header("行動時のエフェクト")]
+    [SerializeField] GenerateEffect_Action _generateEffect;
+
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ
     [Header("▼壁の生成範囲")]
@@ -46,9 +49,6 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
     [Header("▼GamePos")]
     [SerializeField] protected GameObject gamePos;//GamePos
-
-    [Header("行動時のエフェクト")]
-    [SerializeField] ActionEffect actionEffect;
 
     GameObject wallAreaInstance;
     Rigidbody bulletRb;
