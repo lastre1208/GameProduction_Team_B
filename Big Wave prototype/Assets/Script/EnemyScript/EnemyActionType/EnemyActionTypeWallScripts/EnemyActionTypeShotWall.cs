@@ -14,8 +14,6 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
         currentDelayTime = 0;
 
-        actionEffect.Generate();//エフェクト生成
-
         _animTrigger.Start();//モーションの再生処理の初期化
 
         if(_wallCamera!=null) _wallCamera.enabled = true;//壁攻撃のカメラを起動

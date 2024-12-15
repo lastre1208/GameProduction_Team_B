@@ -47,9 +47,6 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
     [Header("▼GamePos")]
     [SerializeField] protected GameObject gamePos;//GamePos
 
-    [Header("行動時のエフェクト")]
-    [SerializeField] ActionEffect actionEffect;
-
     GameObject wallAreaInstance;
     Rigidbody bulletRb;
 
