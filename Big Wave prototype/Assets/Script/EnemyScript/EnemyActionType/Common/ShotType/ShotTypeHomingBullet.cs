@@ -1,42 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+//作成者:杉山
+//ホーミング弾を撃つ
 public class ShotTypeHomingBullet : ShotTypeBase
 {
+    [Header("▼GamePos")]
+    [SerializeField] Transform gamePos;//GamePos、弾をこれの子オブジェクトとして配置する
     [Header("注:弾には必ずHomingBulletをつけたオブジェクトを入れること")]
     [SerializeField] BulletSettingTypeHoming[] bullets;//弾の設定
+    float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
+
     public override void InitShotTiming()//撃つタイミングの初期化
     {
-        base.InitShotTiming();
-        ResetShoted(bullets);
+        currentDelayTime = 0;
+
+        for(int i=0;i<bullets.Length ;i++)//撃った判定の初期化
+        {
+            bullets[i].Shoted = false;
+        }
     }
 
     public override void UpdateShotTiming()//撃つタイミングの更新
     {
-        base.UpdateShotTiming();
-        for(int i=0; i<bullets.Length;i++)
+        currentDelayTime += Time.deltaTime;
+
+        for (int i=0; i<bullets.Length;i++)
         {
-            if (NotifyShotTiming(bullets[i]))
+            BulletSettingTypeHoming bullet = bullets[i];
+
+            if (currentDelayTime >= bullet.DelayTime && !bullet.Shoted)
             {
-                Shot(bullets[i]);
+                Shot(bullet);
             }
         }
     }
 
-    void Shot(BulletSettingTypeHoming bulletSetting)
+    void Shot(BulletSettingTypeHoming bullet)
     {
-        GameObject bulletObject = GenerateBullet(bulletSetting);
+        bullet.Shoted = true;//撃った判定にする
 
-        HomingBullet homingBulletObject=bulletObject.GetComponentInChildren<HomingBullet>();
+        //攻撃を撃ちだす位置と角度を取得
+        Vector3 shotPos = bullet.ShotPos.transform.position;//位置
+        Quaternion shotRot = bullet.ShotPos.transform.rotation;//角度
 
-        //配置したホーミング弾の設定(HomingBulletを取得出来てなかったらエラーメッセージを出す)
-        if(homingBulletObject==null)
+        GameObject homingBulletObject=Instantiate(bullet.BulletPrefab,shotPos,shotRot, gamePos);//弾の生成
+
+        HomingBullet homing = homingBulletObject.GetComponentInChildren<HomingBullet>();//HomingBulletを取得
+
+        if(homing==null)//取得に失敗した場合エラーメッセージを出す
         {
-            Debug.Log("弾プレハブにHomingBullet入ってません！");
+            Debug.Log(name+"HomingBulletがアタッチされた弾をセットしてください");
             return;
         }
 
-        homingBulletObject.SetBullet(bulletSetting.StartHomingTime, bulletSetting.HomingTime, bulletSetting.HomingSpeed, bulletSetting.Speed);
+        homing.SetBullet(bullet.StartHomingTime, bullet.HomingTime, bullet.HomingSpeed, bullet.Speed);//弾の設定を決定
     }
 }

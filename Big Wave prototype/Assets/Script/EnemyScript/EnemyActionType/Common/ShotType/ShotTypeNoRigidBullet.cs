@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//通常弾(NoRigidBullet)を撃つ
 public class ShotTypeNoRigidBullet : ShotTypeBase
 {
+    [Header("▼GamePos")]
+    [SerializeField] Transform gamePos;//GamePos、弾をこれの子オブジェクトとして配置する
     [Header("注:弾には必ずNoRigidBulletをつけたオブジェクトを入れること")]
     [SerializeField] BulletSettingTypeNoRigid[] bullets;//弾の設定
     VectorOfShotType vectorOfShotType;
+    float currentDelayTime;//現在の遅延時間、これがdelayTimeに達した時弾が撃たれる
 
-    // Start is called before the first frame update
     void Start()
     {
         vectorOfShotType = GameObject.FindWithTag("VectorOfShot").GetComponent<VectorOfShotType>();
@@ -16,37 +20,49 @@ public class ShotTypeNoRigidBullet : ShotTypeBase
 
     public override void InitShotTiming()//撃つタイミングの初期化
     {
-        base.InitShotTiming();
-        ResetShoted(bullets);
+        currentDelayTime = 0;
+
+        for (int i = 0; i < bullets.Length; i++)//撃った判定の初期化
+        {
+            bullets[i].Shoted = false;
+        }
     }
 
     public override void UpdateShotTiming()//撃つタイミングの更新
     {
-        base.UpdateShotTiming();
+        currentDelayTime += Time.deltaTime;
+
         for (int i = 0; i < bullets.Length; i++)
         {
-            if (NotifyShotTiming(bullets[i]))
+            BulletSettingTypeNoRigid bullet = bullets[i];
+
+            if (currentDelayTime >= bullet.DelayTime && !bullet.Shoted)
             {
-                Shot(bullets[i]);
+                Shot(bullet);
             }
         }
     }
 
-    void Shot(BulletSettingTypeNoRigid bulletSetting)
+    void Shot(BulletSettingTypeNoRigid bullet)
     {
-        GameObject bulletObject = GenerateBullet(bulletSetting);
-        //撃つ向きを決める
-        Vector3 shotVec = vectorOfShotType.ShotVec(bulletSetting.ShotType, bulletSetting.ShotPos);
+        bullet.Shoted = true;//撃った判定にする
 
-        NoRigidBullet noRigidBullet=bulletObject.GetComponentInChildren<NoRigidBullet>();
+        //攻撃を撃ちだす位置と角度を取得
+        Vector3 shotPos = bullet.ShotPos.transform.position;//位置
+        Quaternion shotRot = bullet.ShotPos.transform.rotation;//角度
 
-        //弾の設定をする(NoRigidBulletを取得出来てなかったらエラーメッセージを出す)
-        if(noRigidBullet==null)
+        GameObject bulletObject = Instantiate(bullet.BulletPrefab, shotPos, shotRot, gamePos);//弾の生成
+
+        NoRigidBullet noRigidBullet=bulletObject.GetComponentInChildren<NoRigidBullet>();//NoRigidBulletを取得
+
+        if (noRigidBullet==null)//取得に失敗した場合エラーメッセージを出す
         {
-            Debug.Log("弾プレハブにNoRigidBullet入ってません！");
+            Debug.Log(name + "NoRigidBulletがアタッチされた弾をセットしてください");
             return;
         }
 
-        noRigidBullet.SetBullet(bulletSetting.Speed, shotVec);
+        Vector3 shotVec = vectorOfShotType.ShotVec(bullet.ShotType, bullet.ShotPos);//撃つ向きを決める
+
+        noRigidBullet.SetBullet(bullet.Speed, shotVec);//弾の設定を決定
     }
 }
