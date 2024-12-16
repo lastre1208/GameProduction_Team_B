@@ -28,16 +28,20 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("GameoverScene");
     }
 
-    public void GameScene(int stageID)//ゲームシーン1へ移動
+    public void RetryGameScene()//先ほどプレイした番号のゲームシーンをリトライする
     {
-        //必要なデータがアタッチされていなければ警告し無視する
-        if(_currentStageData==null||_stageDataList==null)
-        {
-            Debug.Log("必要なデータがそろっていません！");
-            return;
-        }
+        //不備があれば無視する
+        if (!CheckError(_currentStageData.StageID)) return;
 
-        _currentStageData.Rewrite(_stageDataList.Get(stageID));
+        SceneManager.LoadScene("ToMainLoadScene");//一度ロード画面(ToMainLoadScene)を経由させる
+    }
+
+    public void GameScene(int stageID)//指定の番号のゲームシーンへ移動
+    {
+        //不備があれば無視する
+        if (!CheckError(stageID)) return;
+
+        _currentStageData.Rewrite(stageID);//現在プレイしているステージデータの更新
 
         SceneManager.LoadScene("ToMainLoadScene");//一度ロード画面(ToMainLoadScene)を経由させる
     }
@@ -49,5 +53,24 @@ public class SceneController : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    bool CheckError(int stageID)//ゲームシーン移動時の不備チェック
+    {
+        //必要なデータがアタッチされていなければ警告する
+        if (_currentStageData == null || _stageDataList == null)
+        {
+            Debug.Log("必要なデータがそろっていません！");
+            return false;
+        }
+
+        //指定されたIDのステージデータが存在しなければ警告する
+        if (!_stageDataList.ExistStageData(stageID))
+        {
+            Debug.Log(stageID + "というIDのステージデータは存在しません");
+            return false;
+        }
+
+        return true;
     }
 }

@@ -37,12 +37,12 @@ public class GameStartEvent : MonoBehaviour
         //スタート時の文字の表示と効果音の再生
         _startEffect.DisplayTrigger();
         //波を生成し始める
-        _inWave.Switch = true;
-        _outWave.Switch = true;
+        _inWave.enabled = true;
+        _outWave.enabled = true;
         //敵が行動し始める
-        _algorithmOfEnemy.Switch = true;
+        _algorithmOfEnemy.enabled = true;
         //時間制限が減り始める
-        _timeLimit.Switch = true;
+        _timeLimit.enabled = true;
         //BGMを流し始める
         _bgm.Play();
     }

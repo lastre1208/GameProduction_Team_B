@@ -6,9 +6,9 @@ using UnityEngine;
 //現在プレイしているステージデータ
 public class CurrentStageData : MonoBehaviour
 {
+    [Header("ステージデータリスト")]
+    [SerializeField] StageDataList _stageDataList;
     const string _stageID_Name = "STAGE_ID";//ステージIDを保存しているデータ名
-    const string _level_Name = "STAGE_LEVEL";//レベルを保存しているデータ名
-    const string _stageSceneName_Name = "STAGE_SCENENAME";//ステージシーン名を保存しているデータ名
 
     public int StageID
     {
@@ -17,19 +17,17 @@ public class CurrentStageData : MonoBehaviour
 
     public int Level
     {
-        get { return PlayerPrefs.GetInt(_level_Name); }
+        get { return _stageDataList.GetLevel(StageID); }
     }
 
     public string StageSceneName
     {
-        get { return PlayerPrefs.GetString(_stageSceneName_Name); }
+        get { return _stageDataList.GetStageSceneName(StageID); }
     }
 
-    public void Rewrite(StageData stageData)//書き換え
+    public void Rewrite(int dataID)//現在プレイ中のステージデータのIDの書き換え
     {
-        PlayerPrefs.SetInt(_stageID_Name,stageData.StageID);//ステージIDの保存
-        PlayerPrefs.SetInt(_level_Name,stageData.Level);//レベルの保存
-        PlayerPrefs.SetString(_stageSceneName_Name,stageData.StageSceneName);//ステージシーン名の保存
+        PlayerPrefs.SetInt(_stageID_Name,dataID);//ステージIDの保存
         PlayerPrefs.Save();
     }
 }

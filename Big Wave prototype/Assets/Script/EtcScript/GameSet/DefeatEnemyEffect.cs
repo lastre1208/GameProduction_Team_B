@@ -51,16 +51,16 @@ public class DefeatEnemyEffect : MonoBehaviour
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap(_actionMapName);//操作の変更
-        _chargeTrickPoint.Switch = false;//チャージしないようにする
+        _chargeTrickPoint.enabled = false;//チャージしないようにする
         _clearCamera.enabled = true;//クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
         _playerWinMotion.Trigger();//プレイヤーの勝利モーションの再生
-        _timeLimit.Switch = false;//制限時間を止める
-        _algorithmOfEnemy.Switch = false;//敵の行動を止める
-        _ropeEffect.Switch = false;//縄を消す
+        _timeLimit.enabled = false;//制限時間を止める
+        _algorithmOfEnemy.enabled = false;//敵の行動を止める
+        _ropeEffect.enabled = false;//縄を消す
         //波の生成を止める
-        inWave.Switch = false;
-        outWave.Switch = false;
+        inWave.enabled = false;
+        outWave.enabled = false;
     }
 
     void Start()

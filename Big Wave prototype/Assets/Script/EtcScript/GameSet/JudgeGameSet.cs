@@ -57,9 +57,7 @@ public class JudgeGameSet : MonoBehaviour
 
     void JudgeTimeUp()//ŠÔØ‚ê”»’f
     {
-        bool timeUp = timeLimit.RemainingTime <= 0;//ŠÔØ‚ê‚É‚È‚Á‚½
-
-        if(timeUp&&!gameSet)//ŠÔØ‚ê
+        if(timeLimit.TimeUp&& !gameSet)//ŠÔØ‚ê
         {
             GameSetProcess(false);
             TimeUpAction?.Invoke();
