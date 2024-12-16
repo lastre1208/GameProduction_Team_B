@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+
 //作成者:杉山
 //選んだシーンに移行する
+[System.Serializable]
 class SelectScene
 {
     [SerializeField] Scene _scene;

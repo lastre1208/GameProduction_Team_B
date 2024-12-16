@@ -18,12 +18,9 @@ public class StageData
     public int Level { get { return _level; } }//ステージのレベル
     public string StageSceneName { get { return _stageSceneName; } }//ステージシーン名
 
-    public StageData()//コンストラクタ
-    {
+    public StageData() { }//デフォルトコンストラクタ
 
-    }
-
-    public StageData(int stageID,int level,string stageSceneName)//デフォルトコンストラクタ
+    public StageData(int stageID,int level,string stageSceneName)//コンストラクタ
     {
         _stageID = stageID;
         _level = level;
