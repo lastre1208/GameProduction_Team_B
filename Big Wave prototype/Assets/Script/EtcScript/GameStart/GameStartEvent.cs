@@ -40,9 +40,9 @@ public class GameStartEvent : MonoBehaviour
         _inWave.Switch = true;
         _outWave.Switch = true;
         //敵が行動し始める
-        _algorithmOfEnemy.Switch = true;
+        _algorithmOfEnemy.enabled = true;
         //時間制限が減り始める
-        _timeLimit.Switch = true;
+        _timeLimit.enabled = true;
         //BGMを流し始める
         _bgm.Play();
     }

@@ -46,8 +46,8 @@ public class DeadEffect : MonoBehaviour
         _chargeTrickPoint.Switch = false;//チャージしないようにする
         //死亡時のカメラの移動を開始(実装予定)
         _playerDeadMotion.Trigger();//プレイヤーの死亡モーションの再生
-        _timeLimit.Switch = false;//制限時間を止める
-        _algorithmOfEnemy.Switch = false;//敵の行動を止める
+        _timeLimit.enabled = false;//制限時間を止める
+        _algorithmOfEnemy.enabled = false;//敵の行動を止める
         _ropeEffect.Switch = false;//縄を消す
         _chargeTrickEffect.Switch = false;//チャージのエフェクトは出さないようにする
     }

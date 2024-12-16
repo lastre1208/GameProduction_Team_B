@@ -55,8 +55,8 @@ public class DefeatEnemyEffect : MonoBehaviour
         _clearCamera.enabled = true;//クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
         _playerWinMotion.Trigger();//プレイヤーの勝利モーションの再生
-        _timeLimit.Switch = false;//制限時間を止める
-        _algorithmOfEnemy.Switch = false;//敵の行動を止める
+        _timeLimit.enabled = false;//制限時間を止める
+        _algorithmOfEnemy.enabled = false;//敵の行動を止める
         _ropeEffect.Switch = false;//縄を消す
         //波の生成を止める
         inWave.Switch = false;

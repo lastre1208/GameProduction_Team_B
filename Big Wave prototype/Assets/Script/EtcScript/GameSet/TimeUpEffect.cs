@@ -37,8 +37,8 @@ public class TimeUpEffect : MonoBehaviour
         _duringGame_UI.SetActive(false);//ƒQ[ƒ€‚ÌUI‚Ì”ñ•\¦
         _chargeTrickPoint.Switch = false;//ƒ`ƒƒ[ƒW‚µ‚È‚¢‚æ‚¤‚É‚·‚é
         _playerInput.SwitchCurrentActionMap(_actionMapName);//‘€ì‚Ì•ÏX
-        _timeLimit.Switch = false;//§ŒÀŠÔ‚ğ~‚ß‚é
-        _algorithmOfEnemy.Switch = false;//“G‚Ìs“®‚ğ~‚ß‚é
+        _timeLimit.enabled = false;//§ŒÀŠÔ‚ğ~‚ß‚é
+        _algorithmOfEnemy.enabled = false;//“G‚Ìs“®‚ğ~‚ß‚é
     }
 
     void Start()
