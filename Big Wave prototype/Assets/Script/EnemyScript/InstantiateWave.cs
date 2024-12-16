@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ì¬ŽÒ:™ŽR
+//”g‚Ì¶¬
 public class InstantiateWave : MonoBehaviour
 {
-    //™ì¬ŽÒ:™ŽR
     [Header("”g‚Ì¶¬ˆÊ’u")]
     [SerializeField] GameObject instantiateWavePos;//”g‚Ì¶¬ˆÊ’u
     [Header("”g‚ÌƒvƒŒƒnƒu")]
@@ -16,15 +17,7 @@ public class InstantiateWave : MonoBehaviour
     [Header("LineInstantiate")]
     [SerializeField] LineInstantiate m_lineInstantiate;
     private float m_waveTime=0;//”g‚ÌoŒ»ŠÔŠu‚ðŠÇ—‚·‚éŽžŠÔ(“à•””’l)
-    bool _switch = false;//‚±‚ê‚ªfalse‚É‚È‚Á‚Ä‚¢‚éŽž‚Í”g‚ð¶¬‚µ‚È‚¢Atrue‚ÌŽž‚Í”g‚ð¶¬‚·‚é
 
-    public bool Switch
-    {
-        get { return _switch; }
-        set { _switch = value; }
-    }
-
-    // Update is called once per frame
     void Update()
     {
         InstantiateWavePrefab();//”g‚Ì¶¬
@@ -33,8 +26,6 @@ public class InstantiateWave : MonoBehaviour
     //”g‚Ì¶¬AwaveIntervalTime‚ÌŽžŠÔ‚²‚Æ‚É”g‚ð¶¬‚·‚é
     void InstantiateWavePrefab()
     {
-        if (!_switch) return;//‚Ü‚¾ƒQ[ƒ€ŠJŽn‚³‚ê‚Ä‚È‚©‚Á‚½‚ç”g‚ð¶¬‚µ‚È‚¢
-
         m_waveTime += Time.deltaTime;//”g‚ÌoŒ»ŠÔŠu‚ðŠÇ—‚·‚éŽžŠÔ‚ðXV
         
         if (m_waveTime > waveInterval)

@@ -12,13 +12,6 @@ public class RopeEffect : MonoBehaviour
     [SerializeField] GameObject startPoint;//ロープの始点
     [SerializeField] GameObject endPoint;//ロープの終点
     [SerializeField] GameObject[] vertices = new GameObject[20];//ロープの質点
-    bool _switch = true;
-
-    public bool Switch
-    {
-        get { return _switch; } 
-        set {  _switch = value; } 
-    }
 
     void Start()
     {   
@@ -34,14 +27,12 @@ public class RopeEffect : MonoBehaviour
 
     void Update()
     {
-        if (_switch)
-        {
-            DrawRope();
-        }
-        else
-        {
-            lineRenderer.positionCount = 0;//ロープの描写をなくす
-        }
+        DrawRope();
+    }
+
+    void OnDisable()
+    {
+        lineRenderer.positionCount = 0;//ロープの描写をなくす
     }
 
     void DrawRope()

@@ -35,7 +35,7 @@ public class TimeUpEffect : MonoBehaviour
         _startEffect = true;
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
-        _chargeTrickPoint.Switch = false;//チャージしないようにする
+        _chargeTrickPoint.enabled = false;//チャージしないようにする
         _playerInput.SwitchCurrentActionMap(_actionMapName);//操作の変更
         _timeLimit.enabled = false;//制限時間を止める
         _algorithmOfEnemy.enabled = false;//敵の行動を止める
