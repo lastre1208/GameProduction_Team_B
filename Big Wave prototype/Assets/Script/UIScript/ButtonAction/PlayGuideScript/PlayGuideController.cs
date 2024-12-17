@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class PlayGuideController : MonoBehaviour
 {
+    [Header("必要なコンポーネント")]
     [SerializeField] MenuEffectController effectControllerObject;
     [SerializeField] PlayGuideInputHandler playGuideInputHandlerObject;
     [SerializeField] TransitionPages transitionPagesObject;
     [SerializeField] PlayGuideSlider playGuideSlider;
+    [Header("操作したい画像")]
     [SerializeField] List<Image> playGuideImages;
 
     private MenuEffectController effectController;
