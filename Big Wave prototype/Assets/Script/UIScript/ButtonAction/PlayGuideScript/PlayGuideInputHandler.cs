@@ -23,6 +23,7 @@ public partial class PlayGuideInputHandler : MonoBehaviour
     private InputAction leftRightAction;
     private InputAction cancelAction;
     private float inputThreshould = 0.2f;
+    private bool isHolding = false;
 
     private void Awake()
     {
@@ -57,12 +58,20 @@ public partial class PlayGuideInputHandler : MonoBehaviour
 
         if (Mathf.Abs(xValue) > inputThreshould)
         {
+            if (isHolding)
+                return;
+
+            isHolding = true;
+
             if (xValue < 0)
                 leftEvent.Invoke();
 
             else if (xValue > 0)
                 rightEvent.Invoke();
         }
+
+        else
+            isHolding = false;
     }
 
     public void OnCancelInput(InputAction.CallbackContext context)//ƒLƒƒƒ“ƒZƒ‹“ü—Í‚Ìˆ—
