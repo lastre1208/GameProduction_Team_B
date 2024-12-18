@@ -2374,14 +2374,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 1
+  isFadeOut: 0
   _clickEvents:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1552875808}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: GameScene
-        m_Mode: 3
+        m_MethodName: StageSelectScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
