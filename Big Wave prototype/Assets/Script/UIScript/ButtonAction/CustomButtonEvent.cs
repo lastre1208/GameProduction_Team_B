@@ -32,7 +32,7 @@ public class CustomButtonEvent : MonoBehaviour
     private void ButtonAction()
     {
 
-        if (!menuEffectController.EffectColorChanged) return;//ボタンの色が変わり切ってから
+        if (menuEffectController!=null && !menuEffectController.EffectColorChanged) return;//ボタンの色が変わり切ってから
 
         if (isFadeOut && fadeOut.FadeState == State_Fade.off) fadeOut.StartTrigger();//フェードアウトする場合はフェードアウトさせる
         if (isFadeOut && fadeOut.FadeState != State_Fade.completed) return;//また、フェードアウトが終わるのを待ってからシーン移行させる(フェードアウトしない場合はそのままシーン移行)

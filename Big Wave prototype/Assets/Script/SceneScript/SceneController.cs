@@ -18,6 +18,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("MenuScene");
     }
 
+    public void StageSelectScene()//ステージ選択画面に移行
+    {
+        SceneManager.LoadScene("StageSelectScene");
+    }
+
     public void ClearScene()//クリアシーンに移行
     {
         SceneManager.LoadScene("ClearScene");
