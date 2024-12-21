@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
+  isFadeOut: 1
   _clickEvents:
     m_PersistentCalls:
       m_Calls:
@@ -4466,6 +4466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559128478}
   - component: {fileID: 1559128477}
+  - component: {fileID: 1559128479}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -4500,6 +4501,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2084449543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1559128479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559128476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404c384fb12d9fd45b7ba028f8281674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetButton: {fileID: 1294400628}
+  _closeMenuEasily: {fileID: 1559128477}
 --- !u!1 &1606233657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,7 +5902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0818c63a7cae3684c97c31b4aae55c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
+  fadeDuration: 0.6
   fadeImage: {fileID: 614956422}
 --- !u!1 &2040119928
 GameObject:
@@ -5935,7 +5950,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2043038851}
   - component: {fileID: 2043038852}
-  - component: {fileID: 2043038853}
   m_Layer: 0
   m_Name: ControllerManager
   m_TagString: Untagged
@@ -6097,23 +6111,9 @@ MonoBehaviour:
     m_ActionName: Win/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2043038853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043038850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff1e2aeb503818468e4bbcd905e445e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionMapName: UI
-  _playerInput: {fileID: 2043038852}
 --- !u!1 &2045821038
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//作成者:杉山
 //フェードアウトする
 public class FadeOut : MonoBehaviour
 {
