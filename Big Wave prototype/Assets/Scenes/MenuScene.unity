@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69e10935199ab54093b1a69c7456fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
+  isFadeOut: 1
   _clickEvents:
     m_PersistentCalls:
       m_Calls:
@@ -5887,7 +5887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0818c63a7cae3684c97c31b4aae55c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
+  fadeDuration: 0.6
   fadeImage: {fileID: 614956422}
 --- !u!1 &2040119928
 GameObject:
