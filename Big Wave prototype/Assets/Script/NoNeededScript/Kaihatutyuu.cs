@@ -6,6 +6,6 @@ public class Kaihatutyuu : MonoBehaviour
 {
     public void Trigger()
     {
-        Debug.Log("ŠJ”­’†");
+        Debug.Log("Œ»İŠJ”­’†‚Å‚·");
     }
 }

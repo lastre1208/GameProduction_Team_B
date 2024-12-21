@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 //作成者:杉山
-////ゲームをリスタートする時に呼ぶ処理
+//ゲームをリスタートする時に呼ぶ処理
 public class QuitGameEvent : MonoBehaviour
 {
     [Header("シーン移行コンポーネント")]
