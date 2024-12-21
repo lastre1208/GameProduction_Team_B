@@ -1367,28 +1367,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""eb78b9c0-cd90-453d-82df-75b7b717f092"",
-                    ""path"": ""<SwitchProControllerHID>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Close"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d2456703-9d96-4317-9fd3-f02332989efd"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Close"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""47abfed5-c1c2-4cf9-9977-1f9d252ac3d3"",
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
