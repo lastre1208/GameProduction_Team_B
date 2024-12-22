@@ -11,6 +11,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
     [Header("行動時のエフェクト")]
     [SerializeField] GenerateEffect_Action _generateEffect;
+    [Header("行動時の効果音")]
+    [SerializeField] PlayAudio_Action _playAudio;
 
     [Header("▼各パラメータ")]
     [Header("壁の生成に関するパラメータ")]
