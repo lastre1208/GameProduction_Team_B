@@ -1,61 +1,78 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+//生成確立の高精度化
 
 //作成者：桑原
 
 public partial class WallBullet
 {
+    private Stack<GameObject> wallActivationStack;
+    private Stack<GameObject> wallShotStack;
+
     void GenerateWalls()//壁の生成
     {
-        walls = new GameObject[enemyActionTypeShotWall.Height, enemyActionTypeShotWall.Width];//壁のプレハブを管理する配列を初期化
+        wallActivationStack = new Stack<GameObject>();
+        wallShotStack = new Stack<GameObject>();
 
-        for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+        int maxStackCount = generationParams.GenerateWallsNum;
+
+        for (int i = 0; i < generationParams.Height; i++)
         {
             wallsCount = 0;
 
-            for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+            for (int j = 0; j < generationParams.Width; j++)
             {
+                if (walls[i, j] != null) return;
+
                 //壁のプレハブを生成し、壁の生成範囲プレハブの子オブジェクトに設定
-                GameObject wallInstance = Instantiate(enemyActionTypeShotWall.WallPrefab, enemyActionTypeShotWall.WallAreaInstance.transform);
+                GameObject wallInstance = Instantiate(_enemyShotWall.WallPrefab, _enemyShotWall.WallAreaInstance.transform);
 
                 if (wallInstance != null)
                 {
                     walls[i, j] = wallInstance;//生成された壁のプレハブを配列に格納
+                    walls[i, j].SetActive(false);
 
-                    if (Random.value < enemyActionTypeShotWall.GenerationProbability && wallsCount < enemyActionTypeShotWall.Width - 1)
+                    float stackRatio = (float)wallsCount / maxStackCount;
+                    float addProbabilityRatio = 1f - stackRatio;
+                    
+
+                    if (wallActivationStack.Count < maxStackCount && Random.value < generationParams.GenerationProbability && wallsCount < generationParams.Width - 1)
                     {
-                        walls[i, j].SetActive(true);//壁のプレハブを有効化
-
-                        //ToggleColliderOfWallBulletスクリプトを有効化した壁のプレハブに追加
-                        ToggleColliderOfWallBullet toggleColliderScript = wallInstance.AddComponent<ToggleColliderOfWallBullet>();
-
-                        //ToggleColliderOfWallBulletにwallBulletの参照を設定
-                        toggleColliderScript.SetWallBullet(this);
-
+                        wallActivationStack.Push(walls[i, j]);
+                        wallShotStack.Push(walls[i, j]);
                         wallsCount++;
-                    }
-
-                    else
-                    {
-                        walls[i, j].SetActive(false);//壁のプレハブを無効化
                     }
                 }
             }
         }
     }
 
+    void ActiveWall()
+    {
+        currentDelayActiveTime += Time.deltaTime;
+
+        if (currentDelayActiveTime > generationParams.IntervalActiveTime)
+        {
+            GameObject wallToActive = wallActivationStack.Pop();
+
+            if (wallToActive != null)
+                wallToActive.SetActive(true);
+
+            currentDelayActiveTime = 0f;
+        }
+    }
+
     void GenerateWallsPreview()//攻撃範囲の予告表示の生成
     {
-        wallsPreview = new GameObject[enemyActionTypeShotWall.Height, enemyActionTypeShotWall.Width];//攻撃範囲の予告表示用プレハブを管理する配列を初期化
-
-        for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+        for (int i = 0; i < generationParams.Height; i++)
         {
-            for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+            for (int j = 0; j < generationParams.Width; j++)
             {
-                if (walls[i, j].activeSelf)//壁プレハブが有効なら
-                {
-                    wallsPreview[i, j] = Instantiate(enemyActionTypeShotWall.WallPreviewPrefab, enemyActionTypeShotWall.WallAreaInstance.transform);
-                    wallsPreview[i, j].SetActive(true);//攻撃範囲予告プレハブを有効化
-                }
+                if (wallsPreview[i, j] != null) return;
+
+                if (walls[i, j] != null && walls[i, j].activeSelf)
+                    wallsPreview[i, j] = Instantiate(_enemyShotWall.WallPreviewPrefab, _enemyShotWall.WallAreaInstance.transform);
             }
         }
     }

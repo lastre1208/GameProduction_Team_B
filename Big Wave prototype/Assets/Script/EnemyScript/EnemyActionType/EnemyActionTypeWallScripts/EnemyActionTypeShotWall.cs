@@ -1,7 +1,3 @@
-using Microsoft.Win32.SafeHandles;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 //ì¬ŽÒFŒKŒ´
@@ -26,14 +22,10 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
         if (!shoted)
         {
             if (wallAreaInstance == null)
-            {
                 GenerateWallArea();
-            }
 
             else
-            {
                 Shot();
-            }
         }
 
         _generateEffect.OnUpdate();
@@ -72,10 +64,10 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
     {
         currentDelayTime += Time.deltaTime;
 
-        if (currentDelayTime > delayTime)
+        if (currentDelayTime > _shootingParameters.DelayTime)
         {
             //’e‚ðŒ‚‚¿‚¾‚·
-            bulletRb.AddForce(-transform.forward * shotPower, ForceMode.Impulse);
+            bulletRb.AddForce(-transform.forward * _shootingParameters.ShotPower, ForceMode.Impulse);
 
             shoted = true;
         }
