@@ -13,6 +13,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
 
     [Header("行動時のエフェクト")]
     [SerializeField] GenerateEffect_Action _generateEffect;
+    [Header("行動時の効果音")]
+    [SerializeField] PlayAudio_Action _playAudio;
 
     [Header("▼壁")]
     [SerializeField] GameObject wallPrefab;//壁のプレハブ

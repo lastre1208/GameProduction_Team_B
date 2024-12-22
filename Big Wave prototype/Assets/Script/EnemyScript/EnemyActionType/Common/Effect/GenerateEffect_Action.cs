@@ -11,7 +11,7 @@ public class GenerateEffect_Action : MonoBehaviour
     [SerializeField] Effects_GenerateEffect_Action[] _effects;//エフェクトの設定
     float _currentDelayTime;//現在の遅延時間
 
-    public void OnEnter()//行動開始時に呼ぶ
+    public void OnEnter()//行動開始時に呼ぶ(初期化処理)
     {
         _currentDelayTime = 0;//現在の遅延時間をリセット
 
@@ -21,7 +21,7 @@ public class GenerateEffect_Action : MonoBehaviour
         }
     }
 
-    public void OnUpdate()//行動中舞フレーム呼ぶ
+    public void OnUpdate()//行動中舞フレーム呼ぶ(更新処理)
     {
         _currentDelayTime += Time.deltaTime;
 
