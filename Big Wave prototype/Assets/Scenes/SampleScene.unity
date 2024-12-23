@@ -2142,18 +2142,25 @@ MonoBehaviour:
   _wallCamera: {fileID: 2118490022}
   _generateEffect: {fileID: 143768135}
   _playAudio: {fileID: 0}
+  _generationParameters:
+    width: 3
+    height: 3
+    generateWallsNum: 6
+    generationProbability: 1
+    intervalActiveTime: 0.2
+    matchCameraSize: 1
+  _shootingParameters:
+    shotPower: 90
+    delayTime: 3
+    isShotAllAtOnce: 0
+    intervalShotTime: 0.25
+  _previewTransparencyParameters:
+    transparencyCycleDuration: 0.5
   wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
   wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
   wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
-  width: 3
-  height: 3
-  generationProbability: 0.5
-  transparencyCycleDuration: 0.5
   spawnPosOfWallPreview: {fileID: 523200429}
-  matchCameraSize: 1
-  shotPower: 90
   shotPosObject: {fileID: 1058489860}
-  delayTime: 3
   gamePos: {fileID: 1923540436}
 --- !u!114 &143768135
 MonoBehaviour:
@@ -7725,7 +7732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20090,7 +20097,7 @@ MonoBehaviour:
   actionPattern_b:
     _actionName: 
     action:
-    - {fileID: 143768134}
+    - {fileID: 0}
     actionTime: 3
   actionPattern_c:
     _actionName: 

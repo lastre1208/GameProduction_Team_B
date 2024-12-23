@@ -41,6 +41,8 @@ public partial class EnemyActionTypeShotWall : EnemyActionTypeBase
     {
         shoted = false;
 
+        wallAreaInstance = null;
+
         if (_wallCamera != null) _wallCamera.enabled = false;//•ÇUŒ‚‚ÌƒJƒƒ‰‚ğI—¹
     }
 

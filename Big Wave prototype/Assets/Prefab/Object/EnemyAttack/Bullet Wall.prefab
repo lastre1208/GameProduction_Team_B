@@ -5151,6 +5151,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8168985459271235414}
     m_Modifications:
+    - target: {fileID: 1287214952507374660, guid: e94d252a4849d694b96463527f30ad55, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5647244653360789208, guid: e94d252a4849d694b96463527f30ad55, type: 3}
       propertyPath: looping
       value: 1

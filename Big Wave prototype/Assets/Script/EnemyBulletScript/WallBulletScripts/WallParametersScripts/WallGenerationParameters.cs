@@ -12,7 +12,7 @@ public class WallGenerationParameters
     [Header("•Ç‚ÌÅ‘å¶¬–‡”")]
     [SerializeField] int generateWallsNum = 6;
     [Header("‚»‚ê‚¼‚ê‚Ì•Ç‚ª¶¬‚³‚ê‚éŠm—¦")]
-    [SerializeField] float generationProbability = 0.8f;
+    [SerializeField] float generationProbability = 1f;
     [Header("•Çˆê–‡‚²‚Æ‚ÌoŒ»ŠÔŠu")]
     [SerializeField] float intervalActiveTime = 0.2f;
     [Header("¶¬”ÍˆÍ‚ğƒQ[ƒ€‰æ–Ê‚É‡‚í‚¹‚é‚©‚Ç‚¤‚©")]

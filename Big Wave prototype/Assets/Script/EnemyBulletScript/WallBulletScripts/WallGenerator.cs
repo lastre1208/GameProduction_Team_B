@@ -10,12 +10,14 @@ public partial class WallBullet
     private Stack<GameObject> wallActivationStack;
     private Stack<GameObject> wallShotStack;
 
+    private float adjustProbability;
+
     void GenerateWalls()//壁の生成
     {
         wallActivationStack = new Stack<GameObject>();
         wallShotStack = new Stack<GameObject>();
 
-        int maxStackCount = generationParams.GenerateWallsNum;
+        int maxStackCount = generationParams.GenerateWallsNum;//最大スタック数
 
         for (int i = 0; i < generationParams.Height; i++)
         {
@@ -33,11 +35,13 @@ public partial class WallBullet
                     walls[i, j] = wallInstance;//生成された壁のプレハブを配列に格納
                     walls[i, j].SetActive(false);
 
-                    float stackRatio = (float)wallsCount / maxStackCount;
-                    float addProbabilityRatio = 1f - stackRatio;
-                    
+                    adjustProbability = Mathf.Clamp(
+                        generationParams.GenerationProbability * (1f - (wallActivationStack.Count / (float)maxStackCount)),
+                        0.1f,
+                        generationParams.GenerationProbability
+                        );
 
-                    if (wallActivationStack.Count < maxStackCount && Random.value < generationParams.GenerationProbability && wallsCount < generationParams.Width - 1)
+                    if (wallActivationStack.Count < maxStackCount && Random.value < adjustProbability /*&& wallsCount < generationParams.Width - 1*/)
                     {
                         wallActivationStack.Push(walls[i, j]);
                         wallShotStack.Push(walls[i, j]);
