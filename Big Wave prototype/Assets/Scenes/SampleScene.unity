@@ -7518,7 +7518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
+  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8204,7 +8204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11163,7 +11163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16909,7 +16909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36712,7 +36712,8 @@ MonoBehaviour:
         actionTime: 0
     _afterAction:
       elements:
-      - element:
+      - name: "0_\u79FB\u52D5"
+        element:
           _actionName: "\u79FB\u52D5"
           _actionPatterns:
           - _actionName: Move
@@ -36720,7 +36721,8 @@ MonoBehaviour:
             - {fileID: 2075293490}
             actionTime: 4
         probability: 12
-      - element:
+      - name: "1_\u79FB\u52D5\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D5\u6483\u3061"
           _actionPatterns:
           - _actionName: MoveShotNormal
@@ -36729,7 +36731,8 @@ MonoBehaviour:
             - {fileID: 1814356720}
             actionTime: 3
         probability: 10
-      - element:
+      - name: "2_3Way\u9023\u5C04"
+        element:
           _actionName: "3Way\u901F\u5C04"
           _actionPatterns:
           - _actionName: Shot3Way
@@ -36737,7 +36740,8 @@ MonoBehaviour:
             - {fileID: 1244829668}
             actionTime: 3
         probability: 10
-      - element:
+      - name: "3_\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+        element:
           _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
           _actionPatterns:
           - _actionName: "\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
@@ -36745,7 +36749,8 @@ MonoBehaviour:
             - {fileID: 1220125250}
             actionTime: 3
         probability: 10
-      - element:
+      - name: "4_\u79FB\u52D5\u72D9\u3044\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u72D9\u3044\u6483\u3061"
@@ -36754,7 +36759,8 @@ MonoBehaviour:
             - {fileID: 850480197}
             actionTime: 3
         probability: 10
-      - element:
+      - name: "5_\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u6483\u3061"
@@ -36763,7 +36769,8 @@ MonoBehaviour:
             - {fileID: 296393746}
             actionTime: 3
         probability: 10
-      - element:
+      - name: "6_\u540C\u6642\u6483\u3061"
+        element:
           _actionName: "\u540C\u6642\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u540C\u6642\u6483\u3061"
@@ -36778,7 +36785,8 @@ MonoBehaviour:
       _actionPatterns: []
     _afterAction:
       elements:
-      - element:
+      - name: "0_\u79FB\u52D53Way\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D53Way\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u79FB\u52D53Way\u6483\u3061"
@@ -36787,7 +36795,8 @@ MonoBehaviour:
             - {fileID: 2098575999}
             actionTime: 4
         probability: 20
-      - element:
+      - name: "1_\u79FB\u52D5\u7E26\u65AC\u6483"
+        element:
           _actionName: "\u79FB\u52D5\u7E26\u65AC\u6483"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u7E26\u65AC\u6483"
@@ -36796,7 +36805,8 @@ MonoBehaviour:
             - {fileID: 1444360371}
             actionTime: 2.5
         probability: 30
-      - element:
+      - name: "2_\u79FB\u52D5\u6A2A\u65AC\u6483"
+        element:
           _actionName: "\u79FB\u52D5\u6A2A\u65AC\u6483"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u6A2A\u65AC\u6483"
@@ -36805,7 +36815,8 @@ MonoBehaviour:
             - {fileID: 1161273095}
             actionTime: 3
         probability: 25
-      - element:
+      - name: "3_\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
+        element:
           _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u30DB\u30FC\u30DF\u30F3\u30B0\u30DF\u30B5\u30A4\u30EB\u9023\u5C04"
@@ -36814,7 +36825,8 @@ MonoBehaviour:
             - {fileID: 546155624}
             actionTime: 5
         probability: 20
-      - element:
+      - name: "4_\u58C1\u653B\u6483"
+        element:
           _actionName: "\u58C1\u653B\u6483"
           _actionPatterns:
           - _actionName: "\u58C1\u653B\u6483"
@@ -36823,7 +36835,8 @@ MonoBehaviour:
             - {fileID: 747408426}
             actionTime: 6
         probability: 11
-      - element:
+      - name: "5_\u79FB\u52D5\u4E0A\u6607\u6A2A\u65AC\u6483"
+        element:
           _actionName: "\u79FB\u52D5\u4E0A\u6607\u6A2A\u65AC\u6483"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u4E0A\u6607\u6A2A\u65AC\u6483"
@@ -36832,7 +36845,8 @@ MonoBehaviour:
             - {fileID: 1031831868}
             actionTime: 5
         probability: 20
-      - element:
+      - name: "6_\u79FB\u52D5\u7E26\u4E0A\u6607\u6A2A\u65AC\u6483\u540C\u6642\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D5\u7E26\u4E0A\u6607\u6A2A\u65AC\u6483\u540C\u6642\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u79FB\u52D5\u7E26\u4E0A\u6607\u6A2A\u65AC\u6483\u540C\u6642\u6483\u3061"
@@ -36842,7 +36856,8 @@ MonoBehaviour:
             - {fileID: 1772405957}
             actionTime: 5
         probability: 15
-      - element:
+      - name: "7_\u79FB\u52D55Way\u6483\u3061"
+        element:
           _actionName: "\u79FB\u52D55Way\u6483\u3061"
           _actionPatterns:
           - _actionName: "\u79FB\u52D55Way\u6483\u3061"
@@ -36851,7 +36866,8 @@ MonoBehaviour:
             - {fileID: 1799105522}
             actionTime: 5
         probability: 15
-      - element:
+      - name: "8_\u30D5\u30EB\u30D0\u30FC\u30B9\u30C8"
+        element:
           _actionName: "\u30D5\u30EB\u30D0\u30FC\u30B9\u30C8"
           _actionPatterns:
           - _actionName: "\u30D5\u30EB\u30D0\u30FC\u30B9\u30C8"

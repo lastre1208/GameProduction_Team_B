@@ -10,6 +10,9 @@ public partial class ProbabilityGet<T>
     [System.Serializable]
     class Element_ProbabilityGet
     {
+        [Header("要素名")]
+        [Header("処理には全く関係ないが、インスペクターを見やすくするため")]
+        [SerializeField] string name;
         [Header("要素")]
         [SerializeField] T element;//要素
         [Header("確率")]
