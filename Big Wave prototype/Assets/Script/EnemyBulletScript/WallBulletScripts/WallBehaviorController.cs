@@ -6,9 +6,9 @@ public partial class WallBullet
 {
     void DisableWallsPreview()//攻撃範囲の予告の無効化処理
     {
-        for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+        for (int i = 0; i < generationParams.Height; i++)
         {
-            for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+            for (int j = 0; j < generationParams.Width; j++)
             {
                 if (wallsPreview[i, j] != null)
                 {
@@ -20,11 +20,11 @@ public partial class WallBullet
 
     void SetPreviewTransparency(float alpha)//攻撃範囲の予告の透明度を設定
     {
-        for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+        for (int i = 0; i < generationParams.Height; i++)
         {
-            for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+            for (int j = 0; j < generationParams.Width; j++)
             {
-                if (wallsPreview[i, j] != null)//攻撃範囲の予告プレハブが存在するなら
+                if (wallsPreview[i, j] != null && wallsPreview[i, j].activeSelf)//攻撃範囲の予告プレハブが存在するなら
                 {
                     //攻撃範囲の予告プレハブのRendererを取得
                     Renderer renderer = wallsPreview[i, j].GetComponent<Renderer>();
@@ -46,9 +46,9 @@ public partial class WallBullet
         {
             Vector3 velocity = wallAreaRigidbody.velocity;//壁の生成範囲プレハブの速度を取得
 
-            for (int i = 0; i < enemyActionTypeShotWall.Height; i++)
+            for (int i = 0; i < generationParams.Height; i++)
             {
-                for (int j = 0; j < enemyActionTypeShotWall.Width; j++)
+                for (int j = 0; j < generationParams.Width; j++)
                 {
                     if (walls[i, j] != null)
                     {
@@ -56,11 +56,34 @@ public partial class WallBullet
                         Rigidbody wallRigidbody = walls[i, j].GetComponentInChildren<Rigidbody>();
 
                         if (wallRigidbody != null)
-                        {
                             wallRigidbody.velocity = velocity;//それぞれの壁プレハブに速度を設定
-                        }
                     }
                 }
+            }
+        }
+    }
+
+    void AddForceToWallsOnebyOne()//一定時間経過ごとに各プレハブ一つずつに力を加える
+    {
+        if (wallAreaRigidbody != null)
+        {
+            currentDelayShotTime += Time.deltaTime;
+
+            Vector3 velocity = wallAreaRigidbody.velocity;//壁の生成範囲プレハブの速度を取得
+
+            if (wallShotStack.Count > 0 && currentDelayShotTime > shootingParams.IntervalShotTime)
+            {
+                GameObject wallToShot = wallShotStack.Pop();
+
+                if (wallToShot != null)
+                {
+                    Rigidbody wallRigidbody = wallToShot.GetComponentInChildren<Rigidbody>();
+
+                    if (wallRigidbody != null)
+                        wallRigidbody.velocity = velocity;//壁プレハブに速度を設定
+                }
+
+                currentDelayShotTime = 0;
             }
         }
     }
