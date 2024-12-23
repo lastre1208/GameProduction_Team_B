@@ -15,8 +15,8 @@ public partial class WallBullet
     private Vector3 CalculateScaleFactor(Vector3 size_WallArea, Vector3 size_Wall)//壁プレハブのスケールを計算
     {
         return new Vector3(
-            size_WallArea.x / (enemyActionTypeShotWall.Width * size_Wall.x),
-            size_WallArea.y / (enemyActionTypeShotWall.Height * size_Wall.y),
+            size_WallArea.x / (generationParams.Width * size_Wall.x),
+            size_WallArea.y / (generationParams.Height * size_Wall.y),
             size_Wall.z);
     }
 }
