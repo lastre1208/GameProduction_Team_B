@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ using UnityEngine;
 //形態変化
 public class EnemyActionTypeMetamorphosis : EnemyActionTypeBase
 {
+    [Header("形態変化時のカメラ")]
+    [Header("カメラを動かしたくなければ空にしてください")]
+    [SerializeField] CinemachineVirtualCamera _metamorCamera;
     [Header("オブジェクトの表示状態を切り替える設定")]
     [Header("オーラの表示切替に使ってください")]
     [SerializeField] ChangeActiveOfObject _changeActive;
@@ -22,6 +26,7 @@ public class EnemyActionTypeMetamorphosis : EnemyActionTypeBase
         if (_generateEffect != null) _generateEffect.OnEnter();//エフェクトの初期化処理
         if (_playAudio != null) _playAudio.OnEnter();//効果音の初期化処理
         _animTrigger.Start();//モーションの再生処理の初期化
+        if (_metamorCamera != null) _metamorCamera.enabled = true;//形態変化時のカメラを起動
     }
 
     public override void OnUpdate()
@@ -34,6 +39,6 @@ public class EnemyActionTypeMetamorphosis : EnemyActionTypeBase
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)
     {
-
+        if (_metamorCamera != null) _metamorCamera.enabled = false;//形態変化時のカメラを終了
     }
 }
