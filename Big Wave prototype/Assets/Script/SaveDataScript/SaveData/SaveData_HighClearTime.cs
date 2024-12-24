@@ -10,7 +10,16 @@ public static partial class SaveData
     const string _saveDataName_HighClearTime = "HIGHCLEARTIME_STAGE";//最速クリアタイムのセーブデータ名
     const float _defaultHighClearTime = 0;//最速クリアタイムの初期状態(秒)
 
-    //最速クリアタイムの取得
+    public static float GetHighClearTime(int stageID)//最速クリアタイムの取得
+    {
+        string str_stageID = stageID.ToString();
+        return PlayerPrefs.GetFloat(_saveDataName_HighClearTime + str_stageID, _defaultHighClearTime);
+    }
 
-    //最速クリアタイムのセーブ
+    public static void SaveHighClearTime(int stageID,float clearTime)//最速クリアタイムのセーブ
+    {
+        string str_stageID = stageID.ToString();
+        PlayerPrefs.SetFloat(_saveDataName_HighClearTime + str_stageID, clearTime);
+        PlayerPrefs.Save();
+    }
 }
