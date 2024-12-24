@@ -12,7 +12,7 @@ public class EnemyDeadMotion : MonoBehaviour
     [Header("撃破時に生成するエフェクト")]
     [SerializeField] DefeatEffect _defeatEffect;
     [Header("表示状態を切り替えるオブジェクト")]
-    [SerializeField] ChangeActiveObject[] _changeObjects;
+    [SerializeField] ChangeActiveOfObject _changeObjects;
     bool _startMotion = false;
 
     public void Trigger()
@@ -34,10 +34,7 @@ public class EnemyDeadMotion : MonoBehaviour
         _defeatEffect.GenerateDefeatEffect();
 
         //表示状態を切り替えるオブジェクト
-        for (int i = 0; i < _changeObjects.Length; i++)
-        {
-            _changeObjects[i].UpdateActive();
-        }
+        _changeObjects.UpdateActive();
     }
 
    

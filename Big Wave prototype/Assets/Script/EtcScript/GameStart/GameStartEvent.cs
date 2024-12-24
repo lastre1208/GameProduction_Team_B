@@ -6,8 +6,6 @@ using UnityEngine;
 //ゲーム開始時に呼ぶ処理をここで一括で登録する
 public class GameStartEvent : MonoBehaviour
 {
-    [Header("スタート時にアクティブにするオブジェクト")]
-    [SerializeField] GameObject[] _activeObjects;
     [Header("スタート時の文字と効果音の演出")]
     [SerializeField] DelayDisplayTextSoundComp _startEffect;
     [Header("ゲームの開始を判断するコンポーネント")]
@@ -29,11 +27,6 @@ public class GameStartEvent : MonoBehaviour
 
     public void Event()
     {
-        //登録されたオブジェクトをアクティブにする
-        for(int i=0;i<_activeObjects.Length ;i++)
-        {
-            _activeObjects[i].SetActive(true);
-        }
         //スタート時の文字の表示と効果音の再生
         _startEffect.DisplayTrigger();
         //波を生成し始める
