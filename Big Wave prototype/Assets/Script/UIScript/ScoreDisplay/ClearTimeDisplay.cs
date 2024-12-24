@@ -16,17 +16,22 @@ public class ClearTimeDisplay : MonoBehaviour
 
     void Update()
     {
-        float clearTime=_score_timeLimit.ClearTime;//クリアタイムを取得
+        Display();
+    }
 
-        int minute=(int)(clearTime/_seconds_1minute);//分
-        int second=(int)(clearTime%_seconds_1minute);//秒
+    void Display()
+    {
+        float clearTime = _score_timeLimit.ClearTime;//クリアタイムを取得
+
+        int minute = (int)(clearTime / _seconds_1minute);//分
+        int second = (int)(clearTime % _seconds_1minute);//秒
 
         string text_minute = minute.ToString("00");//テキストに書く分の部分
         string text_second = second.ToString("00");//テキストに書く秒の部分
 
-        string str_clearTime = clearTime.ToString("F"+_displayDigit_BelowPoint.ToString());
-        string text_pointSecond=str_clearTime.Split('.')[_displayDigit_BelowPoint-1];//テキストに書く0.秒の部分
+        string str_clearTime = clearTime.ToString("F" + _displayDigit_BelowPoint.ToString());
+        string text_pointSecond = str_clearTime.Split('.')[_displayDigit_BelowPoint - 1];//テキストに書く0.秒の部分
 
-        _clearTimeText.text = text_minute+":"+text_second+":"+text_pointSecond;//テキスト更新
+        _clearTimeText.text = text_minute + ":" + text_second + ":" + text_pointSecond;//テキスト更新
     }
 }
