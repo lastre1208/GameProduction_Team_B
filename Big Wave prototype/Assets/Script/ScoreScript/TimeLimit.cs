@@ -13,12 +13,11 @@ public class TimeLimit : MonoBehaviour
     bool _timeUp=false;//ŠÔØ‚ê‚©
     const float _timeUpRemainingTime = 0;//ŠÔØ‚êğŒc‚èŠÔ
 
-    public bool TimeUp { get { return _timeUp; } }
+    public bool TimeUp { get { return _timeUp; } }//ŠÔØ‚ê‚©
 
-    public float RemainingTime
-    {
-        get { return _remainingTime; }
-    }
+    public float RemainingTime { get { return _remainingTime; } }//c‚èŠÔ
+
+    public float ElapsedTime { get { return _timeLimit - _remainingTime; } }//Œo‰ßŠÔ
 
     void Awake()
     {

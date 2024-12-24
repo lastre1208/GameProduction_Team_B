@@ -11,6 +11,8 @@ public class HighScore_StageNumDisplay : MonoBehaviour
     [SerializeField] TMP_Text _highScoreText;
     [Header("クリア回数を表示するテキスト")]
     [SerializeField] TMP_Text _clearCountScoreText;
+    [Header("最速クリア時間を表示するテキスト")]
+    [SerializeField] TMP_Text _highClearTimeText;
 
     public void Display(int stageID)
     {
@@ -30,5 +32,10 @@ public class HighScore_StageNumDisplay : MonoBehaviour
         int clearCount=SaveData.GetClearCount(stageID);
 
         _clearCountScoreText.text = clearCount.ToString("0");
+    }
+
+    void DisplayHighClearCount(int stageID)
+    {
+
     }
 }
