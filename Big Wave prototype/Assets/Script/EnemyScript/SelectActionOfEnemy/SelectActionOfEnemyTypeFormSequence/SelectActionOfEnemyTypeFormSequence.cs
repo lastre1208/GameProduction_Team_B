@@ -32,6 +32,12 @@ public class SelectActionOfEnemyTypeFormSequence : SelectActionOfEnemyTypeBase
         //〇形態を確認
         int currentFormNum=_formOfEnemy.CurrentForm();//現在の形態番号
 
+        //現在の形態番号が設定されてないものであれば警告メッセージを出しておく
+        if(currentFormNum>=_forms.Length)
+        {
+            Debug.Log("現在の形態番号の行動は設定されておりません！");
+        }
+
         //形態が変わっていたら
         //最初の行動をした判定をリセット(してない状態に戻す)、現在の行動内容を空にする、行動番号をリセット
         if(currentFormNum!=_beforeFormNum)

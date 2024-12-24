@@ -10,6 +10,7 @@ public class DelayAnimationTypeTrigger
     [Header("何秒後に再生するか")]
     [SerializeField] float _delayTime;//(初期化してから)何秒後に再生するか
     [Header("アニメーションコントローラ")]
+    [Header("アニメーションを再生させたくない時はここを空にしてください")]
     [SerializeField] Animator _anim;//動かしたいオブジェクトのアニメーションコントローラ
     [Header("トリガー名")]
     [SerializeField] string _triggerName;//トリガー名
@@ -39,7 +40,7 @@ public class DelayAnimationTypeTrigger
         if(_currentTime>=_delayTime&&!_played)
         {
             _played=true;
-            _anim.SetTrigger(_triggerName);
+            if(_anim!=null) _anim.SetTrigger(_triggerName);
         }
     }
 }
