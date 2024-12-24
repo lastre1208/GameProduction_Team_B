@@ -37,7 +37,7 @@ public class DefeatEnemyEffect : MonoBehaviour
     [Header("シーン移行コンポーネント")]
     [SerializeField] SceneController _controller;
     [Header("表示状態を切り替えるオブジェクト")]
-    [SerializeField] ChangeActiveObject[] _changeObjects;
+    [SerializeField] ChangeActiveOfObject _changeObjects;
     [Header("敵を倒してから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
@@ -90,9 +90,6 @@ public class DefeatEnemyEffect : MonoBehaviour
     {
         if (!_startEffect) return;
 
-        for (int i = 0; i < _changeObjects.Length; i++)
-        {
-            _changeObjects[i].UpdateActive();
-        }
+        _changeObjects.UpdateActive();
     }
 }
