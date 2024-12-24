@@ -22,13 +22,13 @@ public class HighScore_StageNumDisplay : MonoBehaviour
     {
         float highScore = SaveData.GetHighScore(stageID);
 
-        _highScoreText.text = highScore.ToString("00000");
+        _highScoreText.text = highScore.ToString("0");
     }
 
     void DisplayClearCount(int stageID)//ÉNÉäÉAâÒêîÇÃï\é¶
     {
         int clearCount=SaveData.GetClearCount(stageID);
 
-        _clearCountScoreText.text = clearCount.ToString("0000");
+        _clearCountScoreText.text = clearCount.ToString("0");
     }
 }

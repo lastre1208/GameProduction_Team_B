@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//プレイヤーのクリア状況(クリアレベル・ステージごとのクリア回数)をセーブ・更新する、初クリアであれば知らせる
+//クリア時にのみセーブするもの
+//クリアレベル・ステージごとのクリア回数・最速クリアタイムをセーブ・更新する、初クリアであれば知らせる
 public class SaveClear : MonoBehaviour
 {
     [Header("ステージデータ")]
