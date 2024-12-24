@@ -25,6 +25,6 @@ public class ScoreGameScene_TimeLimit : MonoBehaviour
     {
         float score = (gameClear ? timeLimit.RemainingTime : remainingTime_GameOver) * m_scorePerSecond;
 
-        score_TimeLimit.Rewrite(score, timeLimit.RemainingTime, m_scorePerSecond);
+        score_TimeLimit.Rewrite(score, timeLimit.RemainingTime,timeLimit.ElapsedTime, m_scorePerSecond);
     }
 }

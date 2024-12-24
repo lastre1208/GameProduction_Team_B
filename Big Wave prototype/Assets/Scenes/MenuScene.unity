@@ -534,7 +534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1559128477}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CloseMenuEasily, Assembly-CSharp
         m_MethodName: OpenNewMenu
         m_Mode: 2
@@ -4465,8 +4465,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559128478}
-  - component: {fileID: 1559128477}
-  - component: {fileID: 1559128479}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -4474,18 +4472,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1559128477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559128476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58469386303406348b6845170cd7e227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1559128478
 Transform:
   m_ObjectHideFlags: 0
@@ -4501,20 +4487,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2084449543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1559128479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559128476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404c384fb12d9fd45b7ba028f8281674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetButton: {fileID: 1294400628}
-  _closeMenuEasily: {fileID: 1559128477}
 --- !u!1 &1606233657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6019,7 @@ MonoBehaviour:
     m_ActionName: UI/Cancel[/Keyboard/p,/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559128477}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CloseMenuEasily, Assembly-CSharp
         m_MethodName: CloseMenu_InputAction
         m_Mode: 0
@@ -6394,7 +6366,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1559128477}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CloseMenuEasily, Assembly-CSharp
         m_MethodName: CloseMenu_ButtonOnScreen
         m_Mode: 1
