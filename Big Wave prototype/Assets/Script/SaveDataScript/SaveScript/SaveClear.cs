@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//クリア状況(クリアレベル)をセーブする
+//プレイヤーのクリア状況(クリアレベル・ステージごとのクリア回数)をセーブ・更新する、初クリアであれば知らせる
 public class SaveClear : MonoBehaviour
 {
     [Header("ステージデータ")]
@@ -12,9 +12,10 @@ public class SaveClear : MonoBehaviour
 
     public bool IsFirstClear { get { return _isFirstClear; } }
 
-    void Start()
+    void Awake()
     {
         UpdateClearLevel();
+        UpdateClearCount();
     }
 
     void UpdateClearLevel()//クリアレベルの更新
@@ -22,13 +23,18 @@ public class SaveClear : MonoBehaviour
         //現在のクリアレベルをセーブデータから取り出す
         int pastClearLevel=SaveData.GetClearLevel();
         //現在のクリアレベルと遊んだステージのレベルを比較する
-        //遊んだステージのレベルの方が高かったらクリアレベルを更新(同時に初クリアということ)
+        //遊んだステージのレベルの方が高かったらクリアレベルを更新
         if(_currentStageData.Level>pastClearLevel)
         {
             _isFirstClear = true;
             SaveData.SaveClearLevel(_currentStageData.Level);
             Debug.Log("初クリアおめでとうございます！現在のクリアレベルは"+ SaveData.GetClearLevel() +"です！");
         }
+    }
 
+    void UpdateClearCount()//クリア回数の更新
+    {
+        //現在のステージのクリア回数を増やす
+        SaveData.AddClearCount(_currentStageData.StageID);
     }
 }

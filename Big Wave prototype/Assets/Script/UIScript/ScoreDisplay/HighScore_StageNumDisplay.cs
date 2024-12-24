@@ -9,11 +9,26 @@ public class HighScore_StageNumDisplay : MonoBehaviour
 {
     [Header("ハイスコア時に表示するテキスト")]
     [SerializeField] TMP_Text _highScoreText;
+    [Header("クリア回数を表示するテキスト")]
+    [SerializeField] TMP_Text _clearCountScoreText;
 
     public void Display(int stageID)
     {
-        float highScore= SaveData.GetHighScore(stageID);
+        DisplayHighScore(stageID);
+        DisplayClearCount(stageID);
+    }
 
-        _highScoreText.text=highScore.ToString("00000");
+    void DisplayHighScore(int stageID)//ハイスコアの表示
+    {
+        float highScore = SaveData.GetHighScore(stageID);
+
+        _highScoreText.text = highScore.ToString("00000");
+    }
+
+    void DisplayClearCount(int stageID)//クリア回数の表示
+    {
+        int clearCount=SaveData.GetClearCount(stageID);
+
+        _clearCountScoreText.text = clearCount.ToString("0000");
     }
 }
