@@ -25,8 +25,6 @@ public class JudgeFirstClear : MonoBehaviour
         _isFirstClear = (clearCount_BeforeUpdate == _judgeFirstClear_ClearCount);
 
         Action_FirstClear?.Invoke(_isFirstClear);
-
-        if (_isFirstClear) Debug.Log("‰ƒNƒŠƒA‚¨‚ß‚Å‚Æ‚¤‚²‚´‚¢‚Ü‚·I");
     }
 
 }

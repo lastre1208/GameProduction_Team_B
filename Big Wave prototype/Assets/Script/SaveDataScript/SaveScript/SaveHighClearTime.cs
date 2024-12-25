@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class SaveHighClearTime : MonoBehaviour
     [SerializeField] CurrentStageData _currentStageData;
     [Header("クリアタイムを取得するためのコンポーネント")]
     [SerializeField] Score_TimeLimit _score_timelimit;
+    public event Action<bool> Action_NewRecord;//最速クリアタイム更新の判定後に呼ぶ処理、最速クリアタイム更新であれば、trueが入る
+    bool _updated = false;//最速クリアタイムを更新したか
+
+    public bool Updated { get { return  _updated; } }
 
     private void Awake()
     {
@@ -29,6 +34,9 @@ public class SaveHighClearTime : MonoBehaviour
         if (isFirstClear || fasterThis)
         {
             SaveData.SaveHighClearTime(_currentStageData.StageID, thisClearTime);
+            _updated = true;
         }
+
+        Action_NewRecord?.Invoke(_updated);
     }
 }
