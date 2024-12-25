@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1621686, g: 0, b: 0.5849056, a: 0.392}
+  m_Color: {r: 0.09864511, g: 0, b: 0.3584906, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3508,8 +3508,8 @@ RectTransform:
   - {fileID: 16428481}
   - {fileID: 1660735321}
   - {fileID: 224593585}
-  - {fileID: 614956421}
   - {fileID: 725695482}
+  - {fileID: 614956421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
