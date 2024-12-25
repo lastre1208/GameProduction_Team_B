@@ -1,20 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 //作成者：桑原
 
 public class PlayGuideController : MonoBehaviour
 {
+    [Header("プレイガイドを出すボタン")]
+    [SerializeField] GameObject _playGuidebutton;
     [Header("必要なコンポーネント")]
-    [SerializeField] MenuEffectController effectControllerObject;
+    [SerializeField] EventSystem _eventSystem;
     [SerializeField] PlayGuideInputHandler playGuideInputHandlerObject;
     [SerializeField] TransitionPages transitionPagesObject;
     [SerializeField] PlayGuideSlider playGuideSlider;
     [Header("操作したい画像")]
     [SerializeField] List<Image> playGuideImages;
 
-    private MenuEffectController effectController;
     private PlayGuideInputHandler playGuideInputHandler;
     private TransitionPages transitionPages;
     private int currentIndex = 0;
@@ -22,7 +24,6 @@ public class PlayGuideController : MonoBehaviour
 
     private void Start()
     {
-        effectController = effectControllerObject.GetComponent<MenuEffectController>();
         playGuideInputHandler = playGuideInputHandlerObject.GetComponent<PlayGuideInputHandler>();
         transitionPages = transitionPagesObject.GetComponent<TransitionPages>();
 
@@ -38,14 +39,12 @@ public class PlayGuideController : MonoBehaviour
         if (isOpenGuide)
         {
             playGuideInputHandler.DisableAllUIActions();//全ての操作を無効化
-            if (effectController.EffectColorChanged)
-            {
-                OpenGuide();
 
-                if (!playGuideSlider.IsSliding && playGuideSlider.IsDisplay)
-                {
-                    playGuideInputHandler.EnableSpecificUIActions();
-                }//操作を有効にする、エフェクトの初期化処理・・・スライドアウト完了を待ってから                
+            OpenGuide();
+
+            if (!playGuideSlider.IsSliding && playGuideSlider.IsDisplay)//操作を有効にする、スライドアウト完了を待ってから
+            {
+                playGuideInputHandler.EnableSpecificUIActions();
             }
         }
 
@@ -55,7 +54,7 @@ public class PlayGuideController : MonoBehaviour
             if (playGuideSlider.CompletedSlideOut)//画像のスライドが完了していたら
             {
                 transitionPages.HideImage(currentIndex);
-                effectController.ResetButtonEffects();
+                _eventSystem.SetSelectedGameObject(_playGuidebutton);//プレイガイドのボタンを選択状態にする
                 playGuideSlider.CompletedSlideOut = false;
             }
         }
