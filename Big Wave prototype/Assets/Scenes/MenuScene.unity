@@ -889,6 +889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444aaff3a6f53fe4181f5e2c7ef2e636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playGuidebutton: {fileID: 1498524784}
+  _eventSystem: {fileID: 1289409829}
   playGuideInputHandlerObject: {fileID: 202901344}
   transitionPagesObject: {fileID: 218881766}
   playGuideSlider: {fileID: 202901343}
@@ -4248,6 +4250,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _preventMash: 1
+--- !u!1 &1498524784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5890107240016628500, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
+  m_PrefabInstance: {fileID: 310400962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1518276802
 GameObject:
   m_ObjectHideFlags: 0

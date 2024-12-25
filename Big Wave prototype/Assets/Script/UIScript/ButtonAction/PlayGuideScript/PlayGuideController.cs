@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 //作成者：桑原
 
 public class PlayGuideController : MonoBehaviour
 {
+    [Header("プレイガイドを出すボタン")]
+    [SerializeField] GameObject _playGuidebutton;
     [Header("必要なコンポーネント")]
+    [SerializeField] EventSystem _eventSystem;
     [SerializeField] PlayGuideInputHandler playGuideInputHandlerObject;
     [SerializeField] TransitionPages transitionPagesObject;
     [SerializeField] PlayGuideSlider playGuideSlider;
@@ -50,6 +54,7 @@ public class PlayGuideController : MonoBehaviour
             if (playGuideSlider.CompletedSlideOut)//画像のスライドが完了していたら
             {
                 transitionPages.HideImage(currentIndex);
+                _eventSystem.SetSelectedGameObject(_playGuidebutton);//プレイガイドのボタンを選択状態にする
                 playGuideSlider.CompletedSlideOut = false;
             }
         }
