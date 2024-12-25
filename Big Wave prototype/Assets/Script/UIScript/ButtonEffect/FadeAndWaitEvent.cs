@@ -54,7 +54,7 @@ public class FadeAndWaitEvent : MonoBehaviour
 
     IEnumerator DelayEventCoroutine()
     {
-        yield return new WaitForSeconds(_waitTime);
+        yield return new WaitForSecondsRealtime(_waitTime);
         //時間分待った後にイベントを起こす
 
         _switch = false;
