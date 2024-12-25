@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 1.1
+  - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -2636,7 +2636,7 @@ MonoBehaviour:
     startHomingTime: 0.1
     homingTime: 1
     homingSpeed: 140
-    speed: 40
+    speed: 30
 --- !u!4 &155328719
 Transform:
   m_ObjectHideFlags: 0
@@ -4920,7 +4920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 1.1
+  - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -4946,7 +4946,7 @@ MonoBehaviour:
     startHomingTime: 0.1
     homingTime: 1
     homingSpeed: 140
-    speed: 40
+    speed: 30
 --- !u!114 &296393746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7621,7 +7621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
+  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11268,7 +11268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14808,7 +14808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 1.1
+  - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -18389,7 +18389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _repetitiveValue:
-    _cycle: 3
+    _cycle: 2.5
     _timeReset: 0
   _controllerOfJump: {fileID: 1034766457}
   _powerMax: 30
@@ -21470,7 +21470,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 679228820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22761,13 +22761,13 @@ MonoBehaviour:
   - _delayTime: 0
     _effect: {fileID: 2787677570423539606, guid: 3f235ab1a3703ec41aa2a7bd7ce7ad42, type: 3}
     _effectPos: {fileID: 72910807}
+  - _delayTime: 1
+    _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
+    _effectPos: {fileID: 72910807}
   - _delayTime: 1.1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 1.2
-    _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
-    _effectPos: {fileID: 72910807}
-  - _delayTime: 1.3
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1244829667
@@ -22791,12 +22791,12 @@ MonoBehaviour:
     speed: 60
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 188742188}
-    delayTime: 1.3
+    delayTime: 1.2
     shotType: 0
     speed: 60
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 1.2
+    delayTime: 1.1
     shotType: 0
     speed: 60
 --- !u!114 &1244829668
@@ -28271,7 +28271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 1.1
+  - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -35306,12 +35306,12 @@ MonoBehaviour:
     speed: 60
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 188742188}
-    delayTime: 1.3
+    delayTime: 1.2
     shotType: 0
     speed: 60
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 1.2
+    delayTime: 1.1
     shotType: 0
     speed: 60
 --- !u!114 &1750542297
@@ -37119,7 +37119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 1.1
+  - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -37960,6 +37960,7 @@ MonoBehaviour:
         action:
         - {fileID: 834670716}
         - {fileID: 747408426}
+        - {fileID: 1220125250}
         actionTime: 7
     _afterAction:
       elements:
@@ -38106,9 +38107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 2.5
-    _effect: {fileID: 2787677570423539606, guid: 3f235ab1a3703ec41aa2a7bd7ce7ad42, type: 3}
-    _effectPos: {fileID: 72910807}
   - _delayTime: 3.5
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
@@ -38165,9 +38163,6 @@ MonoBehaviour:
   _audios:
   - _delayTime: 3.5
     _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
-    _audioSource: {fileID: 947124529}
-  - _delayTime: 0
-    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
     _audioSource: {fileID: 947124529}
 --- !u!1 &1860822259 stripped
 GameObject:
