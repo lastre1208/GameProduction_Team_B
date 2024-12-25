@@ -5,7 +5,7 @@ using UnityEngine;
 //作成者:杉山
 //チャージのスコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/ChargeTime")]
-public class Score_ChargeTime_ : Score_Base
+public class Score_ChargeTime : Score_Base
 {
     float m_chargeTime;//チャージ秒数
     float m_scorePerSecond;//1秒あたりのスコア

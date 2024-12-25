@@ -10,7 +10,7 @@ public class ClearTimeDisplay : MonoBehaviour
     [Header("00:00:00(分:秒:0.秒)の形式で表示")]
     [Header("クリアタイムを表示するテキスト")]
     [SerializeField] TMP_Text _clearTimeText;//クリアタイムを表示するテキスト
-    [SerializeField] Score_TimeLimit_ _score_timeLimit;//クリアタイムを取得するためのコンポーネント
+    [SerializeField] Score_TimeLimit _score_timeLimit;//クリアタイムを取得するためのコンポーネント
     const float _seconds_1minute=60;//1分を秒に直したときの値
     const int _displayDigit_BelowPoint = 2;//0.秒の表示する(小数第一位から)桁数
 

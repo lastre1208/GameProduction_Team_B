@@ -5,7 +5,7 @@ using UnityEngine;
 //作成者:杉山
 //時間制限のスコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/TimeLimit")]
-public class Score_TimeLimit_ : Score_Base
+public class Score_TimeLimit : Score_Base
 {
     float m_remainingTime;//残り時間
     float m_clearTime;//クリアタイム

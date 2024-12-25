@@ -11,7 +11,7 @@ public class ScoreGameScene_HP : MonoBehaviour
     [Header("プレイヤーのHP")]
     [SerializeField] HP player_HP;//プレイヤーのHP
     [Header("スコア反映に使うコンポーネント")]
-    [SerializeField] Score_HP_ score_HP;//スコア反映
+    [SerializeField] Score_HP score_HP;//スコア反映
     [Header("ゲーム終了を判断するコンポーネント")]
     [SerializeField] JudgeGameSet judgeGameSet;
     const float ratioToPercent = 100;//割合から％に変換する係数

@@ -9,7 +9,7 @@ public class ScoreGameScene_ChargeTime : MonoBehaviour
     [Header("残り時間(1秒)ごとのスコア量")]
     [SerializeField] float m_scorePerSecond;//残り時間(1秒)ごとのスコア量
     [Header("スコア反映に使うコンポーネント")]
-    [SerializeField] Score_ChargeTime_ score_ChargeTime;//スコア反映
+    [SerializeField] Score_ChargeTime score_ChargeTime;//スコア反映
     [Header("チャージ時間を計測するコンポーネント")]
     [SerializeField] CountChargeTime countChargeTime;
     [Header("ゲーム終了を判断するコンポーネント")]

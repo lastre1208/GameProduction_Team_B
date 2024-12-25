@@ -9,7 +9,7 @@ public class ScoreGameScene_TimeLimit : MonoBehaviour
     [Header("残り時間(1秒)ごとのスコア量")]
     [SerializeField] float m_scorePerSecond;//残り時間(1秒)ごとのスコア量
     [Header("スコア反映に使うコンポーネント")]
-    [SerializeField] Score_TimeLimit_ score_TimeLimit;//スコア反映
+    [SerializeField] Score_TimeLimit score_TimeLimit;//スコア反映
     [Header("ゲーム終了を判断するコンポーネント")]
     [SerializeField] JudgeGameSet judgeGameSet;
     [Header("時間")]

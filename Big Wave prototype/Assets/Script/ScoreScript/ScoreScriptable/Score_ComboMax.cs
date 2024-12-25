@@ -5,7 +5,7 @@ using UnityEngine;
 //作成者:杉山
 //最大コンボ回数のスコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/ComboMax")]
-public class Score_ComboMax_ : Score_Base
+public class Score_ComboMax : Score_Base
 {
     int m_comboMax;//最大コンボ回数
     float m_scorePerCombo;//1回ごとのスコア
