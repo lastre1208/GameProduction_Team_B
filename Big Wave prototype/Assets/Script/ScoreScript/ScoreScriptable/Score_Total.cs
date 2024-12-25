@@ -5,7 +5,7 @@ using UnityEngine;
 //作成者:杉山
 //合計スコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/Total")]
-public class Score_Total_ : Score_Base
+public class Score_Total : Score_Base
 {
     public void ReWrite(float totalScore)
     {

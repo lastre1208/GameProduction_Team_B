@@ -7,7 +7,7 @@ using UnityEngine;
 public class SaveHighScore : MonoBehaviour
 {
     [Header("スコア合計")]
-    [SerializeField] Score_Total_ _score_Total_;
+    [SerializeField] Score_Total _score_Total_;
     [Header("ステージデータ")]
     [SerializeField] CurrentStageData _currentStageData;
     bool _updated = false;//ハイスコアを更新したか

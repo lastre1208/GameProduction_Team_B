@@ -9,7 +9,7 @@ public class CalcTotalScore : MonoBehaviour
     [Header("合算するスコア")]
     [SerializeField] Score_Base[] _addScores;//合算するスコア
     [Header("合計スコア")]
-    [SerializeField] Score_Total_ _score_Total_;//合計スコア
+    [SerializeField] Score_Total _score_Total_;//合計スコア
     [Header("ゲーム終了を判断")]
     [SerializeField] JudgeGameSet _judgeGameSet;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 //ゲームクリアのスコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/GameClear")]
 
-public class Score_GameClear_ : Score_Base
+public class Score_GameClear : Score_Base
 {
     bool m_gameCleared=false;//ゲームをクリアしたか
 

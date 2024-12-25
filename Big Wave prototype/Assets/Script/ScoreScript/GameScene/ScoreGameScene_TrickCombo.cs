@@ -14,7 +14,7 @@ public class ScoreGameScene_TrickCombo : MonoBehaviour
     [Header("スコア増加最大コンボ回数")]
     [SerializeField] int m_maxAddComboCount;//スコア増加最大コンボ回数
     [Header("スコア反映に使うコンポーネント")]
-    [SerializeField] Score_TrickCombo_ score_TrickCombo;//スコア反映
+    [SerializeField] Score_TrickCombo score_TrickCombo;//スコア反映
     [Header("コンボ回数を数えるコンポーネント")]
     [SerializeField] CountTrickCombo countTrickCombo;
     [Header("ゲーム終了を判断するコンポーネント")]

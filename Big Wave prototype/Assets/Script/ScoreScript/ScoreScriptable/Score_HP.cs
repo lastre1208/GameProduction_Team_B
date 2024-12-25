@@ -5,7 +5,7 @@ using UnityEngine;
 //作成者:杉山
 //HPのスコア
 [CreateAssetMenu(menuName = "ScriptableObjects/Score/Hp")]
-public class Score_HP_ : Score_Base
+public class Score_HP : Score_Base
 {
     float m_remainingHpPercent;//残りHP割合
     float m_scorePerOnePercent;//最大HPに対しての残りHPの1%ごとのスコア量

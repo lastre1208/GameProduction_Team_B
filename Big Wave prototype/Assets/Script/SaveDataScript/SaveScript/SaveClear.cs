@@ -10,7 +10,7 @@ public class SaveClear : MonoBehaviour
     [Header("ステージデータ")]
     [SerializeField] CurrentStageData _currentStageData;
     [Header("クリアタイムを取得するためのコンポーネント")]
-    [SerializeField] Score_TimeLimit_ _score_timelimit;
+    [SerializeField] Score_TimeLimit _score_timelimit;
     const int _judgeFirstClear_ClearCount = 0;//初クリアと判定するクリア回数(0回であれば、初クリアとなる)
     bool _isFirstClear = false;
 
