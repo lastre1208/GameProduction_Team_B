@@ -22,7 +22,7 @@ public class Jump : MonoBehaviour
         controllerOfJump.ExitAction += JumpTrigger;
     }
 
-    public void JumpTrigger()//ジャンプ発動
+    void JumpTrigger()//ジャンプ発動
     {
         if (judgeJumpable.Jumpable)//ジャンプできるか判定
         {
@@ -34,6 +34,5 @@ public class Jump : MonoBehaviour
 
         //ジャンプに成功しても失敗してもジャンプ力はリセットさせる
         jumpPower.ResetJumpPower();
-
     }
 }

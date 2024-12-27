@@ -18,8 +18,6 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
 
     private const float normalChargeRate = 1;//“™”{
     private float currentChargeRate = normalChargeRate;//Œ»İ‚Ì”{—¦
-    private float changeRatePerSecond;//1•b‚²‚Æ‚É‘‚¦‚é”{—¦—Ê
-    
 
     public float ChargeRateMax//Å‘åƒ`ƒƒ[ƒW”{—¦
     {
@@ -36,13 +34,6 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
         return currentChargeRate;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        changeRatePerSecond = (chargeRateMax - normalChargeRate) / byMaxRateTime;//1•b‚²‚Æ‚É‘‚¦‚é”{—¦—Ê‚ğİ’è
-    }
-
-    // Update is called once per frame
     void Update()
     {
         ChangeChargeRate();
@@ -51,6 +42,8 @@ public class ChangeChargeRateTheSurfer : MonoBehaviour
     //ƒ`ƒƒ[ƒW”{—¦‚ğ•Ï‰»‚³‚¹‚é
     void ChangeChargeRate()
     {
+        float changeRatePerSecond = (chargeRateMax - normalChargeRate) / byMaxRateTime;//1•b‚²‚Æ‚É‘‚¦‚é”{—¦—Ê
+
         //”g‚ÉG‚ê‚Ä‚¢‚é‚©ƒWƒƒƒ“ƒv‚µ‚Ä‚¢‚éAbyRateMaxTime‚©‚¯‚Ä‚¾‚ñ‚¾‚ñ”{—¦‚ª1”{‚©‚çchargeRateMax”{‚Ü‚Å•Ï‰»‚·‚é
         if (ChangeChargeRateNow())
         {
