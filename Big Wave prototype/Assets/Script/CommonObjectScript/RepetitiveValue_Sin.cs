@@ -16,17 +16,13 @@ public class RepetitiveValue_Sin
     [Tooltip("0または1に設定すると値は0からのスタート、0.5に設定すれば値が1からのスタート")]
     [SerializeField] float _timeReset;//リセット時の時間、0または1に設定すると値が0からのスタート、0.5に設定すれば値が1からのスタート
     float _time;//現在の時間
-    bool _isMaxValueReached = false;
     const float _correctedValue=3*Mathf.PI/2;//補正値、値にこれを足すことで0.5->1->0->0.5になるのを防ぎ、0->1->0にすることが出来る
     const float _timeResetMin = 0f;
     const float _timeResetMax = 1f;
 
     public float Value//値の取得
     {
-        get {
-            if (_isMaxValueReached)  return 1f;
-            
-            return MathfExtend.Sin01((2 * Mathf.PI * _time / _cycle) + _correctedValue); }
+        get { return MathfExtend.Sin01((2 * Mathf.PI * _time / _cycle) + _correctedValue); }
     }
 
     public float Cycle//周期の取得、変更
@@ -59,20 +55,10 @@ public class RepetitiveValue_Sin
     public void ResetCycle()//周期を初期化させる
     {
         _time = _timeReset*_cycle;
-        _isMaxValueReached = false;
     }
 
     public void UpdateValue()//値の更新
     {
-        if (_isMaxValueReached) return;
-
-        
         _time += Time.deltaTime;
-        if (Value >= 0.99f)//Sinの仕様上1の値を取る事が殆どない(0.99~までしかいかない場合が多い)ので近似値で代用
-        {
-            _isMaxValueReached = true;
-        }
     }
-
-
 }
