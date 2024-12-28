@@ -6,8 +6,10 @@ using UnityEngine;
 //クリティカルの状況によって、ガイドの矢印のアニメーションを動かす
 public class GuideAnim_Critical : MonoBehaviour
 {
-    [Header("失敗時のトリガー名")]
-    [SerializeField] string _failTriggerName;
+    [Header("アニメーションの成功判定のbool名")]
+    [SerializeField] string _successBoolName;
+    [Header("アニメーションの失敗のtrigger名")]
+    [SerializeField] string _failTriggerName; 
 
     [Header("ガイドの矢印ごとのアニメーター")]
     [Header("東")]
@@ -32,14 +34,13 @@ public class GuideAnim_Critical : MonoBehaviour
 
     void OrderAnim()
     {
-        //失敗時に指されている方向の矢印が失敗のアニメーションを流すようにする
-        if(!_critical.CriticalNow)
-        {
-            TrickButton currentButton = _critical.CriticalButton[currentCriticalButtonIndex];//現在の(クリティカルの)ボタン
-            Animator guideAnimator = GuideAnimator(currentButton);
+        bool criticalNow = _critical.CriticalNow;//クリティカルだったか
+        TrickButton currentButton = _critical.CriticalButton[currentCriticalButtonIndex];//現在の(クリティカルの)ボタン
+        Animator guideAnimator = GuideAnimator(currentButton);
 
-            guideAnimator.SetTrigger(_failTriggerName);
-        }
+        //クリティカル失敗の時のみtriggerを出す
+        guideAnimator.SetBool(_successBoolName,criticalNow);
+        if (!criticalNow) guideAnimator.SetTrigger(_failTriggerName);
     }
 
     //入れたトリックのボタンの種類に対応したアニメーションを返す
