@@ -29,6 +29,7 @@ public class Critical : MonoBehaviour
     public void SetCriticalNow()//クリティカルが発生したかを設定(押されたボタンからクリティカルの判定)
     {
         criticalNow = (pushedButton_CurrentTrickPattern.PushedButton == criticalButton[0]);
+
         //入力したボタンが指定されていたボタンだった時(クリティカルの時)
         if(criticalNow)
         {
