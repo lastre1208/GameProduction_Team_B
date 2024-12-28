@@ -519,6 +519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2013484152}
     m_Modifications:
+    - target: {fileID: 3418981016245580705, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_text
+      value: STAGE1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418981016245580705, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 2
@@ -1397,9 +1405,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3418981016245580705, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_text
-      value: 'STAGE2
-
-'
+      value: STAGE2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418981016245580705, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3418981016245580705, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1508,6 +1518,18 @@ PrefabInstance:
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622939254353568299, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -6.7799788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622939254353568299, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.390007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622939254353568299, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.4499989
       objectReference: {fileID: 0}
     - target: {fileID: 4729426630194271082, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_Name

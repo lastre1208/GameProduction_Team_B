@@ -21,13 +21,7 @@ public partial class Trick : MonoBehaviour
     [SerializeField] Critical critical;
     [SerializeField] CountTrickCombo countTrickCombo;
     [SerializeField] CountTrickWhileJump countTrickWhileJump;
-
-    HP enemy_Hp;
-    
-    void Start()
-    {
-        enemy_Hp = GameObject.FindWithTag("Enemy").GetComponentInChildren<HP>();
-    }
+    public event Action TrickAction;//トリック時に呼ぶイベント
 
     //トリック発動
     public void TrickTrigger(TrickButton button)
@@ -40,7 +34,9 @@ public partial class Trick : MonoBehaviour
             countTrickWhileJump.AddTrickCount();//ジャンプ中のトリック回数の加算
             countTrickCombo.Count();//トリックコンボ回数の加算
 
-            eventsWhenTrick.Invoke();//登録された全イベントを呼ぶ
+            //登録された全イベントを呼ぶ
+            eventsWhenTrick.Invoke();
+            TrickAction?.Invoke();
         }
     }
 
@@ -48,13 +44,11 @@ public partial class Trick : MonoBehaviour
     {
         int trickCost = pushedButton_TrickPattern.TrickCost;//トリック消費量、押されたボタンに対応したトリックパターンのトリック消費量
 
-        //ジャンプしている＆敵がいる時のみ攻撃可能＆消費トリックが足りる(ここでトリック消費の処理をする)
-        if (judgeJumpNow.JumpNow() == true && enemy_Hp != null && player_TrickPoint.Consume(trickCost))
-        {
-            return true;//トリック成功
-        }
+        //ジャンプしている＆消費トリックが足りる(ここでトリック消費の処理をする)
+        //以上の条件を満たせばトリック成功
+        bool trickIsSuccess = judgeJumpNow.JumpNow() == true && player_TrickPoint.Consume(trickCost);
 
-        return false;//トリック失敗
+        return trickIsSuccess;
     }
 
     //作成者:桑原
