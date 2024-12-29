@@ -3,30 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//ボタンアイコンの表示の切り替え
 public class ButtonIconDisplay : MonoBehaviour
 {
-    [Header("下ボタンのアイコン")]
-    [SerializeField] GameObject icon_SouthButton;//下ボタンのアイコン
-    [Header("右ボタンのアイコン")]
-    [SerializeField] GameObject icon_EastButton;//右ボタンのアイコン
-    [Header("左ボタンのアイコン")]
-    [SerializeField] GameObject icon_WestButton;//左ボタンのアイコン
-    [Header("上ボタンのアイコン")]
-    [SerializeField] GameObject icon_NorthButton;//上ボタンのアイコン
+    [Header("ボタンのアイコン")]
+    [SerializeField] GetTrickButton<GameObject> icon_Button;//ボタンのアイコン
 
     public void DisplayButton(TrickButton buttonDisplayed)//ボタン表示、何の(色の)ボタンを表示するかを引数に入れる
     {
         //指定されているボタンを表示
         for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            if ((TrickButton)i == buttonDisplayed)
-            {
-                ButtonIcon((TrickButton)i).SetActive(true);
-            }
-            else
-            {
-                ButtonIcon((TrickButton)i).SetActive(false);
-            }
+            bool display = (TrickButton)i == buttonDisplayed;//ボタンを表示するか
+
+            GameObject icon = icon_Button.Get((TrickButton)i);//表示の切り替えをするボタンのアイコン
+
+            icon.SetActive(display);
         }
     }
 
@@ -35,20 +28,9 @@ public class ButtonIconDisplay : MonoBehaviour
         //全てのボタンを非表示
         for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            ButtonIcon((TrickButton)i).SetActive(false);
-        }
-    }
+            GameObject icon = icon_Button.Get((TrickButton)i);//表示の切り替えをするボタンのアイコン
 
-
-    GameObject ButtonIcon(TrickButton button)
-    {
-        switch (button)
-        {
-            case TrickButton.south: return icon_SouthButton;
-            case TrickButton.east: return icon_EastButton;
-            case TrickButton.north: return icon_NorthButton;
-            case TrickButton.west: return icon_WestButton;
+            icon.SetActive(false);
         }
-        return null;
     }
 }
