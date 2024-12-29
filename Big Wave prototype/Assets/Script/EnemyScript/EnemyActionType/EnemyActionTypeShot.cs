@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class EnemyActionTypeShot : EnemyActionTypeBase
     [SerializeField] GenerateEffect_Action _generateEffect;
     [Header("行動時の効果音")]
     [SerializeField] PlayAudio_Action _playAudio;
-
+    [SerializeField] CinemachineVirtualCamera _shotCamera;
 
     public override void OnEnter(EnemyActionTypeBase[] beforeActionType)
     {
@@ -20,6 +21,7 @@ public class EnemyActionTypeShot : EnemyActionTypeBase
         if (_generateEffect != null) _generateEffect.OnEnter();//エフェクトの初期化処理
         if(_playAudio!=null) _playAudio.OnEnter();//効果音の初期化処理
         _animTrigger.Start();//モーションの再生処理の初期化
+        if (_shotCamera != null) _shotCamera.enabled = true;
     }
 
     public override void OnUpdate()
@@ -32,6 +34,6 @@ public class EnemyActionTypeShot : EnemyActionTypeBase
 
     public override void OnExit(EnemyActionTypeBase[] nextActionType)
     {
-
+        if(_shotCamera!=null) _shotCamera.enabled = false;
     }
 }

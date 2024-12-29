@@ -12,7 +12,7 @@ public class ShotTypeRigidBullet : ShotTypeBase
     [SerializeField] BulletSettingTypeRigid[] bullets;//’e‚Ìİ’è
     VectorOfShotType vectorOfShotType;
     float currentDelayTime;//Œ»İ‚Ì’x‰„ŠÔA‚±‚ê‚ªdelayTime‚É’B‚µ‚½’e‚ªŒ‚‚½‚ê‚é
-
+   [SerializeField] float torquePower;//‰ñ“]‚·‚é—ÍB
     void Start()
     {
         vectorOfShotType=GameObject.FindWithTag("VectorOfShot").GetComponent<VectorOfShotType>();
@@ -66,5 +66,6 @@ public class ShotTypeRigidBullet : ShotTypeBase
         bulletObject.transform.rotation = Quaternion.LookRotation(shotVec, Vector3.up);//UŒ‚‚ÌŒü‚«‚ğŒ‚‚Â•ûŒü‚É•ÏX
 
         rb.AddForce(shotVec * bullet.ShotPower, ForceMode.Impulse);//’e‚ğŒ‚‚¿‚¾‚·
+        rb.AddTorque(-transform.right*torquePower, ForceMode.Impulse);
     }
 }
