@@ -3244,7 +3244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
+  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9001,7 +9001,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11595,7 +11595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44377,7 +44377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -55579,12 +55579,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be97acb5eb11af2418d14aa47dcc0bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: {fileID: 6403493079828815970, guid: d99aa14c58d502649a578124e46abf5e, type: 3}
   _guideAnim:
     _east: {fileID: 960513760}
     _west: {fileID: 1978966028}
     _south: {fileID: 1633868857}
     _north: {fileID: 1970037171}
+  _guideEffect:
+    _east: {fileID: 6403493079828815970, guid: d99aa14c58d502649a578124e46abf5e, type: 3}
+    _west: {fileID: 6403493079828815970, guid: d99aa14c58d502649a578124e46abf5e, type: 3}
+    _south: {fileID: 6403493079828815970, guid: 0f837c8f8810af3468b669632d0cffcc, type: 3}
+    _north: {fileID: 6403493079828815970, guid: 0f837c8f8810af3468b669632d0cffcc, type: 3}
   _trick: {fileID: 1105820350}
   _pushedButton: {fileID: 390091951}
   _critical: {fileID: 1438732579}
