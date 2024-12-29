@@ -9,18 +9,10 @@ public class GuideArrowAnim : MonoBehaviour
     [Header("アニメーションの成功判定のbool名")]
     [SerializeField] string _successBoolName;
     [Header("アニメーションの失敗のtrigger名")]
-    [SerializeField] string _failTriggerName; 
+    [SerializeField] string _failTriggerName;
 
     [Header("ガイドの矢印")]
-    [Header("アニメータコンポーネントを入れてください")]
-    [Header("東")]
-    [SerializeField] Animator _eastGuide;
-    [Header("西")]
-    [SerializeField] Animator _westGuide;
-    [Header("南")]
-    [SerializeField] Animator _southGuide;
-    [Header("北")]
-    [SerializeField] Animator _northGuide;
+    [SerializeField] GetTrickButton<Animator> _guideAnim;
 
     [Header("必要なコンポーネント")]
     [SerializeField] Trick _trick;
@@ -37,25 +29,10 @@ public class GuideArrowAnim : MonoBehaviour
     {
         bool criticalNow = _critical.CriticalNow;//クリティカルだったか
         TrickButton currentButton = _critical.CriticalButton[currentCriticalButtonIndex];//現在の(クリティカルの)ボタン
-        Animator guideAnimator = GuideAnimator(currentButton);
+        Animator guideAnimator = _guideAnim.Get(currentButton);
 
         //クリティカル失敗の時のみtriggerを出す
         guideAnimator.SetBool(_successBoolName,criticalNow);
         if (!criticalNow) guideAnimator.SetTrigger(_failTriggerName);
-    }
-
-    //入れたトリックのボタンの種類に対応したアニメーションを返す
-    Animator GuideAnimator(TrickButton trickButton)
-    {
-        switch(trickButton)
-        {
-            case TrickButton.east: return _eastGuide;
-            case TrickButton.west: return _westGuide;
-            case TrickButton.south: return _southGuide;
-            case TrickButton.north: return _northGuide;
-        }
-
-        //例外
-        return null;
     }
 }

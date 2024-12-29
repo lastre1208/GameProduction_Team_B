@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//作成者:杉山
+//ボタンアイコンの表示の切り替え
 public class ButtonIconDisplay : MonoBehaviour
 {
     [Header("ボタンのアイコン")]
@@ -13,14 +15,11 @@ public class ButtonIconDisplay : MonoBehaviour
         //指定されているボタンを表示
         for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            if ((TrickButton)i == buttonDisplayed)
-            {
-                icon_Button.Get((TrickButton)i).SetActive(true);
-            }
-            else
-            {
-                icon_Button.Get((TrickButton)i).SetActive(false);
-            }
+            bool display = (TrickButton)i == buttonDisplayed;//ボタンを表示するか
+
+            GameObject icon = icon_Button.Get((TrickButton)i);//表示の切り替えをするボタンのアイコン
+
+            icon.SetActive(display);
         }
     }
 
@@ -29,7 +28,9 @@ public class ButtonIconDisplay : MonoBehaviour
         //全てのボタンを非表示
         for (int i = 0; i < Enum.GetNames(typeof(TrickButton)).Length; i++)
         {
-            icon_Button.Get((TrickButton)i).SetActive(false);
+            GameObject icon = icon_Button.Get((TrickButton)i);//表示の切り替えをするボタンのアイコン
+
+            icon.SetActive(false);
         }
     }
 }
