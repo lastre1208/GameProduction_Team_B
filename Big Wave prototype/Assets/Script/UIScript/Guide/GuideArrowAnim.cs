@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //作成者:杉山
-//クリティカルの状況によって、ガイドの矢印のアニメーションを動かす
-public class GuideAnim_Critical : MonoBehaviour
+//ガイドの矢印のアニメーションの動き
+public class GuideArrowAnim : MonoBehaviour
 {
     [Header("アニメーションの成功判定のbool名")]
     [SerializeField] string _successBoolName;
     [Header("アニメーションの失敗のtrigger名")]
     [SerializeField] string _failTriggerName; 
 
-    [Header("ガイドの矢印ごとのアニメーター")]
+    [Header("ガイドの矢印")]
+    [Header("アニメータコンポーネントを入れてください")]
     [Header("東")]
     [SerializeField] Animator _eastGuide;
     [Header("西")]
@@ -27,12 +28,12 @@ public class GuideAnim_Critical : MonoBehaviour
 
     const int currentCriticalButtonIndex = 0;//現在のクリティカルのボタンが見れる要素番号
 
-    void Start()
+    void Awake()
     {
-        _trick.TrickAction += OrderAnim;
+        _trick.TrickAction += RunAnim;
     }
 
-    void OrderAnim()
+    void RunAnim()
     {
         bool criticalNow = _critical.CriticalNow;//クリティカルだったか
         TrickButton currentButton = _critical.CriticalButton[currentCriticalButtonIndex];//現在の(クリティカルの)ボタン

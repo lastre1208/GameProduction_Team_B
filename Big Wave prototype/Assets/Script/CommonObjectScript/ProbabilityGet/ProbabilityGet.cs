@@ -18,10 +18,8 @@ public partial class ProbabilityGet<T>
 
     public int ElementsNum { get { return elements.Length; } }//要素数を返す
 
-    public ProbabilityGet()//コンストラクタ
-    {
-
-    }
+    public ProbabilityGet() { }//デフォルトコンストラクタ
+    
 
     public void CalcSum()//Get使用前に1回は必ず呼ぶ、確率の合計を算出する
     {
