@@ -30,6 +30,10 @@ public class DeadEffect : MonoBehaviour
     [SerializeField] SceneController _controller;
     [Header("表示状態を切り替えるオブジェクト")]
     [SerializeField] ChangeActiveOfObject _changeObjects;
+    [Header("鳴らす効果音")]
+    [SerializeField]AudioClip _audioClip;
+    [Header("オーディオソース")]
+    [SerializeField] AudioSource _source;
     [Header("死んでから何秒後にシーン遷移するか")]
     [SerializeField] float _changeSceneTime;//何秒後にシーン遷移するか
     [SerializeField] JudgeGameSet _judgeGameSet;
@@ -50,6 +54,7 @@ public class DeadEffect : MonoBehaviour
         _algorithmOfEnemy.enabled = false;//敵の行動を止める
         _ropeEffect.enabled = false;//縄を消す
         _chargeTrickEffect.Switch = false;//チャージのエフェクトは出さないようにする
+        _source.PlayOneShot(_audioClip);
     }
 
     void Start()
