@@ -17,10 +17,9 @@ public class JumpPower : MonoBehaviour
     [Header("必要なコンポーネント")]
     [SerializeField] JudgeJumpable _judgeJumpable;
     float _currentPowerRatio;//現在のジャンプ力(最大倍率に対しての割合)
-    float _onceRatio;
-    bool enableOnce = true;
     const float _maxPowerRatio = 1;
     const float _minPowerRatio = 0;
+    float _powerRatioLastJump;//最後にジャンプした時のジャンプ力(最大倍率に対しての割合)
 
     public float Power//ジャンプ力
     {
@@ -30,32 +29,39 @@ public class JumpPower : MonoBehaviour
             return _powerMin+gap*_currentPowerRatio;
         }
     }
-    public bool EnableOnce
-    {
-        get { return enableOnce; }
-        set { enableOnce = value; }
-    }
+
     public float Ratio { get { return _currentPowerRatio; } }//ジャンプ力の割合(最小なら0、最大なら1)
 
-    public float OnceRatio { set { _onceRatio=value; } get { return _onceRatio; } }//ジャンプ中(トリック時)に参照するジャンプ力の割合
+    public float PowerLastJump//最後にジャンプした時のジャンプ力
+    {
+        get
+        {
+            float gap = _powerMax - _powerMin;//最大ジャンプ力と最小ジャンプ力の差
+            return _powerMin + gap * _powerRatioLastJump;
+        }
+    }
+
+    public float RatioLastJump { get { return _powerRatioLastJump; } }//最後にジャンプした時のジャンプ力の割合(最小なら0、最大なら1)
+
     public bool ChargeNow { get { return _judgeJumpable.Jumpable && _controllerOfJump.Pushing; } }//ジャンプ力チャージ条件、ジャンプできる時かつコントローラのジャンプボタンを押し続けている時
 
-    public void ResetJumpPower()//ジャンプ力のリセット、ジャンプ(操作)直後もしくはジャンプが出来なくなった直後にする
+    //ジャンプ力のリセット、ジャンプが出来なくなった直後にする
+    //
+    public void ResetJumpPower()
     {
-        if (EnableOnce)
-        {
-            OnceRatio = Ratio;
-            EnableOnce = false;
-        }
-       
         _currentPowerRatio = _minPowerRatio;
+    }
+
+    public void MemorizeJumpPowerLastJump()//最後に飛んだ時のジャンプ力を記録
+    {
+        _powerRatioLastJump = _currentPowerRatio;
     }
 
     void Start()
     {
         ResetJumpPower();
+        MemorizeJumpPowerLastJump();
         _judgeJumpable.ToNotJumpable += ResetJumpPower;
-        _judgeJumpable.ToJumpable +=ResetOnce;
     }
 
     void Update()
@@ -67,17 +73,11 @@ public class JumpPower : MonoBehaviour
     {
         if (ChargeNow)
         {
-          
             //ジャンプ力を増加させる
             float chargeAmount=Time.deltaTime/_maxTime;//増加量
             _currentPowerRatio += chargeAmount;
             //限界突破しないようにする
             _currentPowerRatio = Mathf.Clamp(_currentPowerRatio, _minPowerRatio, _maxPowerRatio);
         }    
-    }
-    void ResetOnce()
-    {
-        
-        EnableOnce=true;
     }
 }

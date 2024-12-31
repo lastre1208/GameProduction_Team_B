@@ -9,6 +9,8 @@ using System;
 public class JudgeJumpNow : MonoBehaviour
 {
     public event Action<bool> SwitchJumpNowAction;//ジャンプ開始直後にtrue、着地直後にfalseを入れてそれぞれ一回だけ呼び出す
+    public event Action LandAction;//着地時に呼ぶ
+    public event Action StartJumpAction;//ジャンプ開始時に呼ぶ
     [SerializeField] OnCollisionActionEvent onCollisionActionEvent;
     private bool jumpNow = false;//現在ジャンプしているか
 
@@ -26,6 +28,7 @@ public class JudgeJumpNow : MonoBehaviour
     {
         jumpNow = true;
         SwitchJumpNowAction?.Invoke(true);
+        StartJumpAction?.Invoke();
     }
 
     public void Landing(Collision collision)//着地
@@ -34,6 +37,7 @@ public class JudgeJumpNow : MonoBehaviour
         {
             jumpNow = false;//現在ジャンプしているかの状態を変える
             SwitchJumpNowAction?.Invoke(false);
+            LandAction?.Invoke();
         }
     }
 }
