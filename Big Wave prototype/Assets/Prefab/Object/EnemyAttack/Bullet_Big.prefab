@@ -9973,7 +9973,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 230e527163193d84f8b54c87d3e58d4f, type: 3}
     audioSource: {fileID: 3041956256626675364}
   damageToPlayer:
-    damage: 30
+    damage: 80
   onTriggerEvent: {fileID: 5213929333554075142}
   damageEffect: {fileID: 9208433209055588105, guid: ce7e54742c9f5c54eb77d372d0426568, type: 3}
 --- !u!114 &990379232734329661

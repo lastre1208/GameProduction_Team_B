@@ -1016,7 +1016,7 @@ MonoBehaviour:
     _se: {fileID: 8300000, guid: 574d220c400b3f94580b7e51a59df215, type: 3}
     _audioSource: {fileID: 513178352}
   - _delayTime: 0
-    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _se: {fileID: 8300000, guid: 73c81d45aa9ca9b46bbdc968ec7dd434, type: 3}
     _audioSource: {fileID: 513178352}
 --- !u!114 &65516992
 MonoBehaviour:
@@ -1064,12 +1064,12 @@ MonoBehaviour:
   - _delayTime: 2.1
     _effect: {fileID: 7614939072665094763, guid: e85ea1f2c5a1ef8459a7b06cd5f31cb0, type: 3}
     _effectPos: {fileID: 33639776}
-  - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
-    _effectPos: {fileID: 72910807}
   - _delayTime: 2.2
     _effect: {fileID: 7614939072665094763, guid: e85ea1f2c5a1ef8459a7b06cd5f31cb0, type: 3}
     _effectPos: {fileID: 1945199499}
+  - _delayTime: 0
+    _effect: {fileID: 2787677570423539606, guid: ac6bb9279160a78499efb09895a09f2d, type: 3}
+    _effectPos: {fileID: 72910807}
 --- !u!114 &65516993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audios:
   - _delayTime: 1.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _se: {fileID: 8300000, guid: 66824f9deb8708342bd2ebeeb582a4f1, type: 3}
     _audioSource: {fileID: 1459853537}
   - _delayTime: 0
     _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
@@ -4424,6 +4424,7 @@ GameObject:
   - component: {fileID: 247909968}
   - component: {fileID: 247909967}
   - component: {fileID: 247909966}
+  - component: {fileID: 247909969}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -4459,11 +4460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &247909967
 MonoBehaviour:
@@ -4481,7 +4482,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 45
 --- !u!114 &247909968
@@ -4497,13 +4498,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 247909967}
   _generateEffect: {fileID: 247909966}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 247909969}
   _shotCamera: {fileID: 0}
+--- !u!114 &247909969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247909964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &249885711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7821,6 +7841,7 @@ GameObject:
   - component: {fileID: 416847092}
   - component: {fileID: 416847094}
   - component: {fileID: 416847093}
+  - component: {fileID: 416847095}
   m_Layer: 0
   m_Name: ShotWall
   m_TagString: Untagged
@@ -7859,9 +7880,12 @@ MonoBehaviour:
   - _delayTime: 0
     _effect: {fileID: 2787677570423539606, guid: dc3969a0648c64c4c9cbb026d607eeaf, type: 3}
     _effectPos: {fileID: 72910807}
-  - _delayTime: 3.5
+  - _delayTime: 3
     _effect: {fileID: 3497263098836309720, guid: 0a44369b9aa9e204fb878277623337b4, type: 3}
     _effectPos: {fileID: 618297623}
+  - _delayTime: 0
+    _effect: {fileID: 5286849294236564644, guid: 1809f1fd3a17ce947901ed78a838d95e, type: 3}
+    _effectPos: {fileID: 651057539}
 --- !u!114 &416847094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7880,7 +7904,7 @@ MonoBehaviour:
     _triggerName: Attack_Error
   _wallCamera: {fileID: 2118490022}
   _generateEffect: {fileID: 416847093}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 416847095}
   _generationParameters:
     width: 3
     height: 3
@@ -7901,6 +7925,28 @@ MonoBehaviour:
   spawnPosOfWallPreview: {fileID: 523200429}
   shotPosObject: {fileID: 1058489860}
   gamePos: {fileID: 1923540436}
+--- !u!114 &416847095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416847091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: 583c92bb3f715794bb1a6861038d84e1, type: 3}
+    _audioSource: {fileID: 1647213130}
+  - _delayTime: 3
+    _se: {fileID: 8300000, guid: b9f0f74510f2b7c4096c2b095b9b1e7f, type: 3}
+    _audioSource: {fileID: 1647213130}
+  - _delayTime: 3
+    _se: {fileID: 8300000, guid: 64f9b0c9690647047ad472a52aed0d13, type: 3}
+    _audioSource: {fileID: 1647213130}
 --- !u!1 &418087149
 GameObject:
   m_ObjectHideFlags: 0
@@ -9257,7 +9303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
+  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9277,6 +9323,7 @@ GameObject:
   - component: {fileID: 483326499}
   - component: {fileID: 483326498}
   - component: {fileID: 483326497}
+  - component: {fileID: 483326500}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -9312,11 +9359,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &483326498
 MonoBehaviour:
@@ -9334,7 +9381,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 45
 --- !u!114 &483326499
@@ -9350,13 +9397,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 483326498}
   _generateEffect: {fileID: 483326497}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 483326500}
   _shotCamera: {fileID: 0}
+--- !u!114 &483326500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483326495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &484791780
 GameObject:
   m_ObjectHideFlags: 0
@@ -10650,6 +10716,7 @@ GameObject:
   - component: {fileID: 542032966}
   - component: {fileID: 542032965}
   - component: {fileID: 542032964}
+  - component: {fileID: 542032967}
   m_Layer: 0
   m_Name: ShotWaveUp
   m_TagString: Untagged
@@ -10685,7 +10752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -10707,7 +10774,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1979061060}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 40
 --- !u!114 &542032966
@@ -10723,13 +10790,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 542032965}
   _generateEffect: {fileID: 542032964}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 542032967}
   _shotCamera: {fileID: 0}
+--- !u!114 &542032967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542032962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &544838414
 GameObject:
   m_ObjectHideFlags: 0
@@ -10851,6 +10937,9 @@ MonoBehaviour:
   - _delayTime: 3.1
     _se: {fileID: 8300000, guid: 574d220c400b3f94580b7e51a59df215, type: 3}
     _audioSource: {fileID: 513178352}
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 513178352}
 --- !u!114 &546155622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10900,6 +10989,9 @@ MonoBehaviour:
   - _delayTime: 3
     _effect: {fileID: 7614939072665094763, guid: e85ea1f2c5a1ef8459a7b06cd5f31cb0, type: 3}
     _effectPos: {fileID: 1877154515}
+  - _delayTime: 0
+    _effect: {fileID: 2787677570423539606, guid: ac6bb9279160a78499efb09895a09f2d, type: 3}
+    _effectPos: {fileID: 1877154515}
 --- !u!114 &546155623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10920,84 +11012,84 @@ MonoBehaviour:
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 748622345}
     delayTime: 1
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 372255247}
     delayTime: 1
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 2063366178}
     delayTime: 1
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 2063366178}
     delayTime: 2
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 372255247}
     delayTime: 2
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 1218187263}
     delayTime: 2
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 748622345}
     delayTime: 2
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 748622345}
     delayTime: 3
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 1218187263}
     delayTime: 3
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 372255247}
     delayTime: 3
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
   - bulletPrefab: {fileID: 8613377540000614300, guid: 25d20b0eb08293c429781bad31eea604, type: 3}
     shotPos: {fileID: 2063366178}
     delayTime: 3
     startHomingTime: 0.1
     homingTime: 1.1
     homingSpeed: 140
-    speed: 60
+    speed: 40
 --- !u!114 &546155624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11030,6 +11122,7 @@ GameObject:
   - component: {fileID: 555370360}
   - component: {fileID: 555370359}
   - component: {fileID: 555370358}
+  - component: {fileID: 555370361}
   m_Layer: 0
   m_Name: ShotWaveUp
   m_TagString: Untagged
@@ -11065,7 +11158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -11087,7 +11180,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1979061060}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 40
 --- !u!114 &555370360
@@ -11103,13 +11196,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 555370359}
   _generateEffect: {fileID: 555370358}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 555370361}
   _shotCamera: {fileID: 0}
+--- !u!114 &555370361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555370356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &555907124
 GameObject:
   m_ObjectHideFlags: 0
@@ -12529,6 +12641,7 @@ GameObject:
   - component: {fileID: 607550556}
   - component: {fileID: 607550555}
   - component: {fileID: 607550554}
+  - component: {fileID: 607550557}
   m_Layer: 0
   m_Name: TargetShotSlash
   m_TagString: Untagged
@@ -12564,7 +12677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -12586,7 +12699,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 1
     speed: 35
 --- !u!114 &607550556
@@ -12602,13 +12715,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 607550555}
   _generateEffect: {fileID: 607550554}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 607550557}
   _shotCamera: {fileID: 0}
+--- !u!114 &607550557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607550552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.3
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &609340864
 GameObject:
   m_ObjectHideFlags: 0
@@ -14854,6 +14986,7 @@ Transform:
   - {fileID: 1459853538}
   - {fileID: 947124530}
   - {fileID: 732853642}
+  - {fileID: 1647213131}
   - {fileID: 980378845}
   m_Father: {fileID: 1975517323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15572,6 +15705,7 @@ GameObject:
   - component: {fileID: 772848704}
   - component: {fileID: 772848703}
   - component: {fileID: 772848702}
+  - component: {fileID: 772848705}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -15607,11 +15741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &772848703
 MonoBehaviour:
@@ -15629,9 +15763,9 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
-    speed: 30
+    speed: 40
 --- !u!114 &772848704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15645,13 +15779,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 772848703}
   _generateEffect: {fileID: 772848702}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 772848705}
   _shotCamera: {fileID: 0}
+--- !u!114 &772848705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772848700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &776145227
 GameObject:
   m_ObjectHideFlags: 0
@@ -16189,6 +16342,7 @@ GameObject:
   - component: {fileID: 795092212}
   - component: {fileID: 795092211}
   - component: {fileID: 795092210}
+  - component: {fileID: 795092213}
   m_Layer: 0
   m_Name: Shot5Way_delay
   m_TagString: Untagged
@@ -16254,27 +16408,27 @@ MonoBehaviour:
     shotPos: {fileID: 499007966}
     delayTime: 1.6
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 188742188}
     delayTime: 1.6
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 485184559}
     delayTime: 1.3
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1238740876}
     delayTime: 1.3
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
     delayTime: 1
     shotType: 0
-    speed: 60
+    speed: 45
 --- !u!114 &795092212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16293,8 +16447,33 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 795092211}
   _generateEffect: {fileID: 795092210}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 795092213}
   _shotCamera: {fileID: 0}
+--- !u!114 &795092213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795092208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.4
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.7
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!4 &798102399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6810745853276082199, guid: 35f99413f0a97664385bdafaf2a1e5a2, type: 3}
@@ -16942,7 +17121,7 @@ MonoBehaviour:
   _changeActive:
     _objects:
     - _object: {fileID: 630833545}
-      _active: 0
+      _active: 1
       _changeTime: 3
   _animTrigger:
     _delayTime: 1
@@ -17982,6 +18161,7 @@ GameObject:
   - component: {fileID: 883052157}
   - component: {fileID: 883052156}
   - component: {fileID: 883052155}
+  - component: {fileID: 883052158}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -18017,7 +18197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -18039,7 +18219,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 0
     speed: 35
 --- !u!114 &883052157
@@ -18055,13 +18235,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 883052156}
   _generateEffect: {fileID: 883052155}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 883052158}
   _shotCamera: {fileID: 0}
+--- !u!114 &883052158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883052153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &887843571
 GameObject:
   m_ObjectHideFlags: 0
@@ -18277,6 +18476,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
   m_PrefabInstance: {fileID: 646755478}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &918938729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918938730}
+  - component: {fileID: 918938732}
+  - component: {fileID: 918938731}
+  - component: {fileID: 918938733}
+  m_Layer: 0
+  m_Name: ShotWall_Meta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &918938730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918938729}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2007796758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &918938731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918938729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5668f8b3fd7811f49a65a0c81673e9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - _delayTime: 0
+    _effect: {fileID: 2787677570423539606, guid: dc3969a0648c64c4c9cbb026d607eeaf, type: 3}
+    _effectPos: {fileID: 72910807}
+  - _delayTime: 3.5
+    _effect: {fileID: 3497263098836309720, guid: 0a44369b9aa9e204fb878277623337b4, type: 3}
+    _effectPos: {fileID: 618297623}
+  - _delayTime: 0
+    _effect: {fileID: 5286849294236564644, guid: 1809f1fd3a17ce947901ed78a838d95e, type: 3}
+    _effectPos: {fileID: 651057539}
+--- !u!114 &918938732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918938729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164b3d5072aaf0f4db2397bff0541aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animTrigger:
+    _delayTime: 0
+    _anim: {fileID: 1076911876662031114}
+    _triggerName: Attack_Error
+  _wallCamera: {fileID: 2118490022}
+  _generateEffect: {fileID: 918938731}
+  _playAudio: {fileID: 918938733}
+  _generationParameters:
+    width: 3
+    height: 3
+    generateWallsNum: 6
+    generationProbability: 1
+    intervalActiveTime: 0.2
+    matchCameraSize: 1
+  _shootingParameters:
+    shotPower: 90
+    delayTime: 3
+    isShotAllAtOnce: 1
+    intervalShotTime: 0.25
+  _previewTransparencyParameters:
+    transparencyCycleDuration: 0.5
+  wallPrefab: {fileID: 4281392124907197981, guid: 4556f1fa50caa914b9b3753d1b29a371, type: 3}
+  wallAreaPrefab: {fileID: 4281392124907197981, guid: 7f392537abf13e747ac6753962fe6275, type: 3}
+  wallPreviewPrefab: {fileID: 4281392124907197981, guid: e8e8b0d339195f746ae24772866e3162, type: 3}
+  spawnPosOfWallPreview: {fileID: 523200429}
+  shotPosObject: {fileID: 1058489860}
+  gamePos: {fileID: 1923540436}
+--- !u!114 &918938733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918938729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: 583c92bb3f715794bb1a6861038d84e1, type: 3}
+    _audioSource: {fileID: 1647213130}
+  - _delayTime: 3.5
+    _se: {fileID: 8300000, guid: b9f0f74510f2b7c4096c2b095b9b1e7f, type: 3}
+    _audioSource: {fileID: 1647213130}
+  - _delayTime: 3.5
+    _se: {fileID: 8300000, guid: 64f9b0c9690647047ad472a52aed0d13, type: 3}
+    _audioSource: {fileID: 1647213130}
 --- !u!1 &920719737
 GameObject:
   m_ObjectHideFlags: 0
@@ -18454,6 +18770,7 @@ GameObject:
   - component: {fileID: 935444263}
   - component: {fileID: 935444262}
   - component: {fileID: 935444261}
+  - component: {fileID: 935444264}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -18489,7 +18806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -18511,7 +18828,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 45
 --- !u!114 &935444263
@@ -18527,13 +18844,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 935444262}
   _generateEffect: {fileID: 935444261}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 935444264}
   _shotCamera: {fileID: 0}
+--- !u!114 &935444264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935444259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &937865937
 GameObject:
   m_ObjectHideFlags: 0
@@ -18678,6 +19014,7 @@ GameObject:
   - component: {fileID: 943075338}
   - component: {fileID: 943075337}
   - component: {fileID: 943075336}
+  - component: {fileID: 943075339}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -18713,11 +19050,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &943075337
 MonoBehaviour:
@@ -18735,7 +19072,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 45
 --- !u!114 &943075338
@@ -18751,13 +19088,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 943075337}
   _generateEffect: {fileID: 943075336}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 943075339}
   _shotCamera: {fileID: 0}
+--- !u!114 &943075339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943075334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &943367018
 GameObject:
   m_ObjectHideFlags: 0
@@ -18896,7 +19252,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8159401926849947737, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20328,6 +20684,7 @@ GameObject:
   - component: {fileID: 990509987}
   - component: {fileID: 990509986}
   - component: {fileID: 990509985}
+  - component: {fileID: 990509988}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -20363,8 +20720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
-    _effect: {fileID: 8347497826155398544, guid: 1f7ff4602c13b514fb385024e50424a6, type: 3}
+  - _delayTime: 0.9
+    _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &990509986
 MonoBehaviour:
@@ -20382,7 +20739,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 0
     speed: 35
 --- !u!114 &990509987
@@ -20398,13 +20755,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 990509986}
   _generateEffect: {fileID: 990509985}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 990509988}
   _shotCamera: {fileID: 0}
+--- !u!114 &990509988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990509983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &991254475
 GameObject:
   m_ObjectHideFlags: 0
@@ -22556,6 +22929,7 @@ GameObject:
   - component: {fileID: 1046486806}
   - component: {fileID: 1046486805}
   - component: {fileID: 1046486804}
+  - component: {fileID: 1046486807}
   m_Layer: 0
   m_Name: TargetShotSlash
   m_TagString: Untagged
@@ -22591,7 +22965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -22613,7 +22987,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 1
     speed: 35
 --- !u!114 &1046486806
@@ -22629,13 +23003,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1046486805}
   _generateEffect: {fileID: 1046486804}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1046486807}
   _shotCamera: {fileID: 0}
+--- !u!114 &1046486807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046486802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.3
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1051401562
 GameObject:
   m_ObjectHideFlags: 0
@@ -23385,6 +23778,7 @@ GameObject:
   - component: {fileID: 1088872571}
   - component: {fileID: 1088872570}
   - component: {fileID: 1088872569}
+  - component: {fileID: 1088872572}
   m_Layer: 0
   m_Name: ShotToPlayer_3delay
   m_TagString: Untagged
@@ -23479,8 +23873,33 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1088872570}
   _generateEffect: {fileID: 1088872569}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1088872572}
   _shotCamera: {fileID: 0}
+--- !u!114 &1088872572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088872567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.75
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 2.5
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!224 &1089622731 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
@@ -23579,6 +23998,7 @@ GameObject:
   - component: {fileID: 1089835497}
   - component: {fileID: 1089835496}
   - component: {fileID: 1089835495}
+  - component: {fileID: 1089835498}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -23614,11 +24034,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1089835496
 MonoBehaviour:
@@ -23636,7 +24056,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 807c1ec159526754fbf0481219732f4f, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
     speed: 45
 --- !u!114 &1089835497
@@ -23652,13 +24072,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 1089835496}
   _generateEffect: {fileID: 1089835495}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 1089835498}
   _shotCamera: {fileID: 0}
+--- !u!114 &1089835498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089835493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1001 &1092795171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25165,6 +25604,9 @@ MonoBehaviour:
   - _delayTime: 5.5
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
+  - _delayTime: 0
+    _effect: {fileID: 5286849294236564644, guid: 1809f1fd3a17ce947901ed78a838d95e, type: 3}
+    _effectPos: {fileID: 651057539}
 --- !u!114 &1181603401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25785,6 +26227,7 @@ GameObject:
   - component: {fileID: 1213923235}
   - component: {fileID: 1213923234}
   - component: {fileID: 1213923233}
+  - component: {fileID: 1213923236}
   m_Layer: 0
   m_Name: ShotWave
   m_TagString: Untagged
@@ -25820,11 +26263,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.4
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1213923234
 MonoBehaviour:
@@ -25842,9 +26285,9 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 359ad749ff9955643aa7aa00ec9ea3cf, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.4
+    delayTime: 0.9
     shotType: 0
-    speed: 30
+    speed: 40
 --- !u!114 &1213923235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25858,13 +26301,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_yoko
   shotType: {fileID: 1213923234}
   _generateEffect: {fileID: 1213923233}
-  _playAudio: {fileID: 1859175148}
+  _playAudio: {fileID: 1213923236}
   _shotCamera: {fileID: 0}
+--- !u!114 &1213923236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213923231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 947124529}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
+    _audioSource: {fileID: 947124529}
 --- !u!1 &1217077220
 GameObject:
   m_ObjectHideFlags: 0
@@ -27268,6 +27730,7 @@ GameObject:
   - component: {fileID: 1267516537}
   - component: {fileID: 1267516536}
   - component: {fileID: 1267516535}
+  - component: {fileID: 1267516538}
   m_Layer: 0
   m_Name: Shot5Way_delay
   m_TagString: Untagged
@@ -27372,8 +27835,33 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1267516536}
   _generateEffect: {fileID: 1267516535}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1267516538}
   _shotCamera: {fileID: 0}
+--- !u!114 &1267516538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267516533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.4
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.7
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!4 &1268162158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -28497,6 +28985,7 @@ GameObject:
   - component: {fileID: 1312325498}
   - component: {fileID: 1312325497}
   - component: {fileID: 1312325496}
+  - component: {fileID: 1312325499}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -28532,7 +29021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1312325497
@@ -28551,7 +29040,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 0
     speed: 35
 --- !u!114 &1312325498
@@ -28567,13 +29056,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1312325497}
   _generateEffect: {fileID: 1312325496}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1312325499}
   _shotCamera: {fileID: 0}
+--- !u!114 &1312325499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312325494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1314792688
 GameObject:
   m_ObjectHideFlags: 0
@@ -29315,7 +29823,7 @@ GameObject:
   - component: {fileID: 1340687741}
   - component: {fileID: 1340687740}
   - component: {fileID: 1340687739}
-  - component: {fileID: 1340687738}
+  - component: {fileID: 1340687742}
   m_Layer: 0
   m_Name: ShotShock_2
   m_TagString: Untagged
@@ -29338,28 +29846,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 136016329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1340687738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340687736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audios:
-  - _delayTime: 0
-    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
-    _audioSource: {fileID: 1459853537}
-  - _delayTime: 1.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
-    _audioSource: {fileID: 1459853537}
-  - _delayTime: 2.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
-    _audioSource: {fileID: 1459853537}
 --- !u!114 &1340687739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29424,8 +29910,30 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1340687739}
   _generateEffect: {fileID: 1340687740}
-  _playAudio: {fileID: 1340687738}
+  _playAudio: {fileID: 1340687742}
   _shotCamera: {fileID: 0}
+--- !u!114 &1340687742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340687736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1.1
+    _se: {fileID: 8300000, guid: 66824f9deb8708342bd2ebeeb582a4f1, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 2.1
+    _se: {fileID: 8300000, guid: 66824f9deb8708342bd2ebeeb582a4f1, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!1 &1341016742
 GameObject:
   m_ObjectHideFlags: 0
@@ -30145,6 +30653,7 @@ GameObject:
   - component: {fileID: 1380146082}
   - component: {fileID: 1380146081}
   - component: {fileID: 1380146080}
+  - component: {fileID: 1380146083}
   m_Layer: 0
   m_Name: ShotToPlayer_2delay
   m_TagString: Untagged
@@ -30231,8 +30740,30 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1380146081}
   _generateEffect: {fileID: 1380146080}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1380146083}
   _shotCamera: {fileID: 0}
+--- !u!114 &1380146083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380146078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 2
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!1 &1382399083
 GameObject:
   m_ObjectHideFlags: 0
@@ -30560,6 +31091,7 @@ GameObject:
   - component: {fileID: 1402738854}
   - component: {fileID: 1402738853}
   - component: {fileID: 1402738852}
+  - component: {fileID: 1402738855}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -30595,8 +31127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
-    _effect: {fileID: 8347497826155398544, guid: 1f7ff4602c13b514fb385024e50424a6, type: 3}
+  - _delayTime: 0.9
+    _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1402738853
 MonoBehaviour:
@@ -30614,7 +31146,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 0
     speed: 35
 --- !u!114 &1402738854
@@ -30630,13 +31162,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1402738853}
   _generateEffect: {fileID: 1402738852}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1402738855}
   _shotCamera: {fileID: 0}
+--- !u!114 &1402738855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402738850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1408874644
 GameObject:
   m_ObjectHideFlags: 0
@@ -30649,6 +31197,7 @@ GameObject:
   - component: {fileID: 1408874648}
   - component: {fileID: 1408874647}
   - component: {fileID: 1408874646}
+  - component: {fileID: 1408874649}
   m_Layer: 0
   m_Name: ShotSlash
   m_TagString: Untagged
@@ -30684,11 +31233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1408874647
 MonoBehaviour:
@@ -30706,7 +31255,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 0
     speed: 35
 --- !u!114 &1408874648
@@ -30722,13 +31271,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1408874647}
   _generateEffect: {fileID: 1408874646}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1408874649}
   _shotCamera: {fileID: 0}
+--- !u!114 &1408874649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408874644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1410381828 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3515200670689651601, guid: 9005da4bf6e7a984aa9c023325f459fb, type: 3}
@@ -31413,6 +31981,7 @@ GameObject:
   - component: {fileID: 1444360371}
   - component: {fileID: 1444360370}
   - component: {fileID: 1444360369}
+  - component: {fileID: 1444360372}
   m_Layer: 0
   m_Name: TargetShotSlash
   m_TagString: Untagged
@@ -31448,7 +32017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
+  - _delayTime: 0.9
     _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 0
@@ -31470,7 +32039,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 1
     speed: 35
 --- !u!114 &1444360371
@@ -31486,13 +32055,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1444360370}
   _generateEffect: {fileID: 1444360369}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1444360372}
   _shotCamera: {fileID: 0}
+--- !u!114 &1444360372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444360367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
+    _audioSource: {fileID: 732853643}
+  - _delayTime: 0.3
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1450010173
 GameObject:
   m_ObjectHideFlags: 0
@@ -32862,7 +33450,7 @@ MonoBehaviour:
     _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
     _audioSource: {fileID: 1459853537}
   - _delayTime: 1.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _se: {fileID: 8300000, guid: 220b8e9d4e387b347b34597c5c01264a, type: 3}
     _audioSource: {fileID: 1459853537}
 --- !u!114 &1521721544
 MonoBehaviour:
@@ -32878,7 +33466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effects:
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: 3f235ab1a3703ec41aa2a7bd7ce7ad42, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 1
     _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
@@ -34822,6 +35410,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 1638052419}
   colorSpeed: 1
+--- !u!1 &1647213129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647213131}
+  - component: {fileID: 1647213130}
+  m_Layer: 0
+  m_Name: Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1647213130
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647213129}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8159401926849947737, guid: dea4ff98720a3b545a1166c787cf2700, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1647213131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647213129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 743717565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647231779
 GameObject:
   m_ObjectHideFlags: 0
@@ -35425,17 +36141,17 @@ MonoBehaviour:
     shotPos: {fileID: 499007966}
     delayTime: 1
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 188742188}
     delayTime: 1
     shotType: 0
-    speed: 60
+    speed: 45
   - bulletPrefab: {fileID: 4063902687851226836, guid: 4a81023ee286c7a4f942d6714c61e6c2, type: 3}
     shotPos: {fileID: 1110614297}
     delayTime: 1
     shotType: 0
-    speed: 60
+    speed: 45
 --- !u!114 &1678515779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42071,6 +42787,7 @@ GameObject:
   - component: {fileID: 1772405957}
   - component: {fileID: 1772405956}
   - component: {fileID: 1772405955}
+  - component: {fileID: 1772405958}
   m_Layer: 0
   m_Name: TargetShotSlash
   m_TagString: Untagged
@@ -42106,8 +42823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - _delayTime: 0.3
-    _effect: {fileID: 8347497826155398544, guid: 1f7ff4602c13b514fb385024e50424a6, type: 3}
+  - _delayTime: 0.9
+    _effect: {fileID: 7614939072665094763, guid: c184b2ec341b76d48876884a4ec84f1d, type: 3}
+    _effectPos: {fileID: 72910807}
+  - _delayTime: 0
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1772405956
 MonoBehaviour:
@@ -42125,7 +42845,7 @@ MonoBehaviour:
   bullets:
   - bulletPrefab: {fileID: 7524258651142115283, guid: 67c2e9163f13e1644951281aa63cb2a9, type: 3}
     shotPos: {fileID: 1110614297}
-    delayTime: 0.3
+    delayTime: 0.9
     shotType: 1
     speed: 35
 --- !u!114 &1772405957
@@ -42141,13 +42861,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTrigger:
-    _delayTime: 0
+    _delayTime: 0.5
     _anim: {fileID: 1076911876662031114}
     _triggerName: Attack_Slash_tate
   shotType: {fileID: 1772405956}
   _generateEffect: {fileID: 1772405955}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1772405958}
   _shotCamera: {fileID: 0}
+--- !u!114 &1772405958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772405953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0.9
+    _se: {fileID: 8300000, guid: afe8df87ce150484da3145b289e082a1, type: 3}
+    _audioSource: {fileID: 732853643}
 --- !u!1 &1773625696
 GameObject:
   m_ObjectHideFlags: 0
@@ -43978,12 +44714,12 @@ MonoBehaviour:
         probability: 10
   - _actFirst: 1
     _firstAction:
-      _actionName: "\u5F62\u614B\u5909\u5316\uFF06\u30D5\u30A1\u30A4\u30A2\u30FC\u30A6\u30A9\u30FC\u30EB"
+      _actionName: "\u30E1\u30BF\u30E2\u30F4\u30A3\u30EC\u30AA\u30B9"
       _actionPatterns:
-      - _actionName: "\u5F62\u614B\u5909\u5316"
+      - _actionName: "\u5F62\u614B\u5909\u5316\uFF06\u30A2\u30F3\u30C1\u30D5\u30A1\u30A4\u30A2\u30FC\u30A6\u30A9\u30FC\u30EB"
         action:
         - {fileID: 834670716}
-        - {fileID: 416847094}
+        - {fileID: 918938732}
         actionTime: 7
     _afterAction:
       elements:
@@ -44004,15 +44740,15 @@ MonoBehaviour:
             action:
             - {fileID: 1408874648}
             - {fileID: 1171761356}
-            actionTime: 1
+            actionTime: 1.5
           - _actionName: "\u7E26\u6CE2"
             action:
             - {fileID: 1408874648}
-            actionTime: 1
+            actionTime: 1.5
           - _actionName: "\u3073\u3063\u304F\u308A\u5F3E"
             action:
             - {fileID: 94961487}
-            actionTime: 2
+            actionTime: 2.5
         probability: 10
       - name: "DDoS\u30D0\u30FC\u30B9\u30C8"
         element:
@@ -44161,6 +44897,7 @@ GameObject:
   - component: {fileID: 1853522591}
   - component: {fileID: 1853522590}
   - component: {fileID: 1853522589}
+  - component: {fileID: 1853522592}
   m_Layer: 0
   m_Name: ShotHoming
   m_TagString: Untagged
@@ -44197,7 +44934,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effects:
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 751c53630c5809944856288b09192530, type: 3}
+    _effectPos: {fileID: 72910807}
+  - _delayTime: 1
+    _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1853522590
 MonoBehaviour:
@@ -44238,8 +44978,27 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1853522590}
   _generateEffect: {fileID: 1853522589}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1853522592}
   _shotCamera: {fileID: 0}
+--- !u!114 &1853522592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853522587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!1 &1858997872
 GameObject:
   m_ObjectHideFlags: 0
@@ -44323,7 +45082,7 @@ MonoBehaviour:
     _effect: {fileID: 7614939072665094763, guid: e8a49112f6a41eb46bbf5413a7d42ae2, type: 3}
     _effectPos: {fileID: 72910807}
   - _delayTime: 2
-    _effect: {fileID: 2787677570423539606, guid: ac6bb9279160a78499efb09895a09f2d, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 0e6afc9e5a86d6c479b233154a7e1b8d, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1859175146
 MonoBehaviour:
@@ -44381,7 +45140,7 @@ MonoBehaviour:
     _se: {fileID: 8300000, guid: 21566ae9606a39a46a88daea2afd7543, type: 3}
     _audioSource: {fileID: 947124529}
   - _delayTime: 2
-    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _se: {fileID: 8300000, guid: f5f26e87601bc154a87324c876492dc9, type: 3}
     _audioSource: {fileID: 947124529}
 --- !u!1 &1860822259 stripped
 GameObject:
@@ -44680,7 +45439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audios:
   - _delayTime: 1.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _se: {fileID: 8300000, guid: 66824f9deb8708342bd2ebeeb582a4f1, type: 3}
     _audioSource: {fileID: 1459853537}
   - _delayTime: 0
     _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
@@ -45377,6 +46136,7 @@ GameObject:
   - component: {fileID: 1922911652}
   - component: {fileID: 1922911651}
   - component: {fileID: 1922911650}
+  - component: {fileID: 1922911653}
   m_Layer: 0
   m_Name: ShotHoming
   m_TagString: Untagged
@@ -45413,7 +46173,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effects:
   - _delayTime: 0
-    _effect: {fileID: 2787677570423539606, guid: de4ceb880361f4f4985169c681b14b86, type: 3}
+    _effect: {fileID: 2787677570423539606, guid: 751c53630c5809944856288b09192530, type: 3}
+    _effectPos: {fileID: 72910807}
+  - _delayTime: 1
+    _effect: {fileID: 7614939072665094763, guid: 21ae763dbedfe2e42a5b3697958737a4, type: 3}
     _effectPos: {fileID: 72910807}
 --- !u!114 &1922911651
 MonoBehaviour:
@@ -45454,8 +46217,27 @@ MonoBehaviour:
     _triggerName: Attack_bullet
   shotType: {fileID: 1922911651}
   _generateEffect: {fileID: 1922911650}
-  _playAudio: {fileID: 0}
+  _playAudio: {fileID: 1922911653}
   _shotCamera: {fileID: 0}
+--- !u!114 &1922911653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922911648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e74bb7c3dde2b46a01fac4264f46b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _delayTime: 0
+    _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
+    _audioSource: {fileID: 1459853537}
+  - _delayTime: 1
+    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _audioSource: {fileID: 1459853537}
 --- !u!1 &1923540436
 GameObject:
   m_ObjectHideFlags: 0
@@ -47159,6 +47941,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 834670713}
+  - {fileID: 918938730}
   m_Father: {fileID: 1747714165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2008932560
@@ -47867,7 +48650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47974,10 +48757,10 @@ MonoBehaviour:
     _se: {fileID: 8300000, guid: dcb6df6ff0f221649a710a14f96815b9, type: 3}
     _audioSource: {fileID: 1459853537}
   - _delayTime: 1.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _se: {fileID: 8300000, guid: 220b8e9d4e387b347b34597c5c01264a, type: 3}
     _audioSource: {fileID: 1459853537}
   - _delayTime: 2.1
-    _se: {fileID: 8300000, guid: 8dc9cf677b83a1744ba87d21bca83ae6, type: 3}
+    _se: {fileID: 8300000, guid: 220b8e9d4e387b347b34597c5c01264a, type: 3}
     _audioSource: {fileID: 1459853537}
 --- !u!114 &2049661254
 MonoBehaviour:
