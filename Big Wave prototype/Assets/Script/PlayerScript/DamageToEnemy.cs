@@ -13,13 +13,14 @@ public class DamageToEnemy : MonoBehaviour
     [SerializeField] float criticalDamageAmount;//クリティカルダメージ量
     [Header("フィーバーモード時のダメージの増加率")]
     [SerializeField] float damageGrowthRate_Fever;//フィーバーモード時のダメージ増加率
-
+    [Header("ジャンプ力依存で加算されるダメージ量(最大まで溜めた時に加算されるダメージ)")]
+    [SerializeField] float damageAffectJumpPower;
     [Header("必要なコンポーネント")]
     [SerializeField] FeverMode feverMode;
     [SerializeField] Critical critical;
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_CurrentTrickPattern;
     [SerializeField] Generate_AlongWay generate_AlongWay;
-
+    [SerializeField]JumpPower jumpPower;
     const float damageGrowthRate_Normal=1;//等倍(ダメージ増加率)
     HP enemy_Hp;
     Queue<float> damageQueue = new Queue<float>();
@@ -37,6 +38,8 @@ public class DamageToEnemy : MonoBehaviour
         //ダメージ計算
         float damage = critical.CriticalNow ? criticalDamageAmount : normalDamageAmount;//ダメージ量
         damage *= feverMode.FeverNow ? damageGrowthRate_Fever : damageGrowthRate_Normal;//フィーバーモードのダメージ加算
+        damage += critical.CriticalNow ? jumpPower.OnceRatio * damageAffectJumpPower : normalDamageAmount;//ジャンプ量に応じたダメージ加算
+        Debug.Log(jumpPower.OnceRatio);
         //キューにダメージを登録
         damageQueue.Enqueue(damage);
     }

@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5c9a79fc125754eb90a955ab40ed06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scorePerSecond: 20
+  m_scorePerSecond: 40
   score_TimeLimit: {fileID: 11400000, guid: 4acf89f4d8912a84d823f4bca37b5321, type: 2}
   judgeGameSet: {fileID: 1511769283}
   timeLimit: {fileID: 1114562919}
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ecaac6b7e9f2444a6d95736d8dd6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scorePerSecond: 20
+  m_scorePerSecond: 30
   score_ChargeTime: {fileID: 11400000, guid: 2f9ff52bbc8f3d04ca4631501be619c0, type: 2}
   countChargeTime: {fileID: 996376306}
   judgeGameSet: {fileID: 1511769283}
@@ -5819,7 +5819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7c018252507cf47919c34668ecf1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scoreGameClear: 2000
+  m_scoreGameClear: 2500
   score_GameClear: {fileID: 11400000, guid: c28a8180726eb524fb2e610be5b27ff0, type: 2}
   judgeGameSet: {fileID: 1511769283}
 --- !u!1 &296756003
@@ -9966,7 +9966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12916,7 +12916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20450,12 +20450,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalDamageAmount: 0
-  criticalDamageAmount: 400
+  criticalDamageAmount: 300
   damageGrowthRate_Fever: 2
+  damageAffectJumpPower: 250
   feverMode: {fileID: 1663075736}
   critical: {fileID: 1438732579}
   pushedButton_CurrentTrickPattern: {fileID: 390091951}
   generate_AlongWay: {fileID: 1722094696}
+  jumpPower: {fileID: 1017912879}
 --- !u!1 &992347426
 GameObject:
   m_ObjectHideFlags: 3
@@ -43934,14 +43936,14 @@ MonoBehaviour:
             - {fileID: 1181603402}
             - {fileID: 1553601270}
             actionTime: 8
-          - _actionName: "\u79FB\u52D5"
-            action:
-            - {fileID: 1553601270}
-            actionTime: 2
           - _actionName: "\u540C\u6642\u30DF\u30B5\u30A4\u30EB6"
             action:
             - {fileID: 667415814}
             actionTime: 3
+          - _actionName: "\u79FB\u52D5"
+            action:
+            - {fileID: 1121228573}
+            actionTime: 1
         probability: 10
       - name: "\u30B3\u30F3\u30D1\u30AF\u30C8\u30B7\u30E7\u30C3\u30C8"
         element:

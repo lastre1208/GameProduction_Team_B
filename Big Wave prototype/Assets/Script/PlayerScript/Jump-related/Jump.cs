@@ -20,6 +20,7 @@ public class Jump : MonoBehaviour
     void Start()
     {
         controllerOfJump.ExitAction += JumpTrigger;
+       
     }
 
     void JumpTrigger()//ジャンプ発動
@@ -35,4 +36,5 @@ public class Jump : MonoBehaviour
         //ジャンプに成功しても失敗してもジャンプ力はリセットさせる
         jumpPower.ResetJumpPower();
     }
+    
 }
