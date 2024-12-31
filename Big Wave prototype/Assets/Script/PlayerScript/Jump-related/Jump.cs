@@ -31,10 +31,8 @@ public class Jump : MonoBehaviour
             judgeJumpNow.StartJump();
             judgeOnceReachedHighestPoint_Jumping.StartJump();
             rb.AddForce(transform.up * jumpPower.Power, ForceMode.Impulse);
+            jumpPower.MemorizeJumpPowerLastJump();//今回のジャンプ力を記録
         }
-
-        //ジャンプに成功しても失敗してもジャンプ力はリセットさせる
-        jumpPower.ResetJumpPower();
     }
     
 }

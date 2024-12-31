@@ -38,10 +38,11 @@ public class DamageToEnemy : MonoBehaviour
         //ダメージ計算
         float damage = critical.CriticalNow ? criticalDamageAmount : normalDamageAmount;//ダメージ量
         damage *= feverMode.FeverNow ? damageGrowthRate_Fever : damageGrowthRate_Normal;//フィーバーモードのダメージ加算
-        damage += critical.CriticalNow ? jumpPower.OnceRatio * damageAffectJumpPower : normalDamageAmount;//ジャンプ量に応じたダメージ加算
-        Debug.Log(jumpPower.OnceRatio);
+        damage += jumpPower.RatioLastJump * damageAffectJumpPower;//ジャンプ量に応じたダメージ加算
+        Debug.Log(jumpPower.RatioLastJump);
         //キューにダメージを登録
         damageQueue.Enqueue(damage);
+        Debug.Log(damage);
     }
 
     public void CauseDamage()//敵にダメージを与える
