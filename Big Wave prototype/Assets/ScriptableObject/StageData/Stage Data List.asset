@@ -15,4 +15,7 @@ MonoBehaviour:
   _stageDatas:
   - _stageID: 0
     _level: 1
-    _stageSceneName: SampleScene
+    _stageSceneName: GameSceneStage1
+  - _stageID: 1
+    _level: 2
+    _stageSceneName: GameSceneStage2

@@ -1458,11 +1458,11 @@ PrefabInstance:
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1484966819}
+      objectReference: {fileID: 1484966818}
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1484966819}
+      objectReference: {fileID: 0}
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1493,7 +1493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Kaihatutyuu, Assembly-CSharp
+      value: FadeAndWaitEvent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4430816518367927544, guid: 637544183ee624f43998b06bce2a6d1e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -2531,7 +2531,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1484966816}
   - component: {fileID: 1484966818}
-  - component: {fileID: 1484966819}
   - component: {fileID: 1484966820}
   m_Layer: 0
   m_Name: Stage2Event
@@ -2568,35 +2567,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeOut: {fileID: 168251506}
-  _waitTime: 1
+  _waitTime: 0.5
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1484966819}
-        m_TargetAssemblyTypeName: Kaihatutyuu, Assembly-CSharp
-        m_MethodName: Trigger
-        m_Mode: 1
+      - m_Target: {fileID: 1552875808}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: GameScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   _preventMash: 1
---- !u!114 &1484966819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484966815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e743156d0733d42870a40dcd533dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1484966820
 MonoBehaviour:
   m_ObjectHideFlags: 0
