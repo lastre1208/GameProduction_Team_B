@@ -4,10 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-//作成者
+//作成者:杉山
 public class TrickPointDisplay : MonoBehaviour
 {
-
     [Header("プレイヤーのトリックゲージ")]
     [Header("注意点:トリックゲージの本数分入れてください")]
     [SerializeField] Image[] trickGauges;
@@ -26,11 +25,11 @@ public class TrickPointDisplay : MonoBehaviour
         if (player_TrickPoint.TrickGaugeNum != trickGauges.Length) Debug.Log("トリックゲージの本数分登録してください");
     }
 
-    // Update is called once per frame
     void Update()
     {
         TRICKGaugeOfPlayer();//プレイヤーのトリックゲージの処理
     }
+
     void TRICKGaugeOfPlayer()//プレイヤーのトリックゲージの処理
     {
         for (int i = 0; i < trickGauges.Length; i++)

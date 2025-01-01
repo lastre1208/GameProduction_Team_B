@@ -48,7 +48,6 @@ public partial class DamageToEnemy : MonoBehaviour
 
         damage += _jumpPowerDamage.Damage(critical);//ジャンプ力(割合)に応じたダメージ加算
 
-        Debug.Log(damage);
         return damage;
     }
 
