@@ -17,7 +17,7 @@ public class Slant
     {
         ratio = Mathf.Clamp(ratio,0,1);
 
-        float xPosition = Mathf.Lerp(0, -368, 1 - ratio);
+        float xPosition = Mathf.Lerp(0, -387, 1 - ratio);
         gauge.anchoredPosition = new Vector2(xPosition, gauge.anchoredPosition.y);
     }
 }
