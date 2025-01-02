@@ -16,6 +16,14 @@ public class FeverPointDisplay : MonoBehaviour
     [SerializeField] FeverPoint player_FeverPoint;
     [Header("フィーバーモードのコンポーネント")]
     [SerializeField] FeverMode processFeverPoint;
+    [SerializeField] GameObject FeverLogo;
+    private void Start()
+    {
+        processFeverPoint.TransitToFeverAction += EnableLogo;
+        processFeverPoint.CancelFeverAction += DisableLogo;
+    }
+
+    
 
     void Update()
     {
@@ -28,5 +36,13 @@ public class FeverPointDisplay : MonoBehaviour
         feverGaugeOfPlayer.fillAmount = feverRatio;
         //ゲージの色の変更
         feverGaugeOfPlayer.color = processFeverPoint.FeverNow ? feverGaugeFeverModeColor : feverGaugeNormalColor;
+    }
+    void EnableLogo()
+    {
+        FeverLogo.SetActive(true);
+    }
+    void DisableLogo()
+    {
+        FeverLogo.SetActive(false);
     }
 }

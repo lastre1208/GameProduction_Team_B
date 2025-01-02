@@ -23,10 +23,13 @@ public class FeverMode : MonoBehaviour
     }
 
     void Start()
-    { 
+    {
+       
         remainingFeverTime = 0f;
         feverNow = false;
     }
+
+   
 
     void Update()
     {
