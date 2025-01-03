@@ -8,6 +8,7 @@ using UnityEngine.Video;
 public class MovieFadeOut : MonoBehaviour
 {
     [SerializeField] GameObject fadeInObject;//動画再生後アクティブにするオブジェクト
+    [SerializeField] GameObject _activeDuringMovieObject;//動画再生中にのみアクティブにするオブジェクト
     [SerializeField] GameObject fadeInAudio;
     [SerializeField] VideoPlayer videoPlayer;
     [SerializeField] RawImage videoImage;
@@ -22,6 +23,7 @@ public class MovieFadeOut : MonoBehaviour
     {
         nowValue = videoImage.color.a;
         fadeInObject.SetActive(false);
+        _activeDuringMovieObject.SetActive(true);
         fadeInAudio.SetActive(false);
         videoPlayer.Play();
         videoPlayer.loopPointReached += VideoPlayer_loopPointReached;
@@ -31,6 +33,7 @@ public class MovieFadeOut : MonoBehaviour
     private void VideoPlayer_loopPointReached(VideoPlayer vb)
     {
         fadeInObject.SetActive(true);
+        _activeDuringMovieObject.SetActive(false);
         Isfade = true;
         AudioSource.PlayClipAtPoint(clip,new(0,0,0));
     }
