@@ -104,8 +104,9 @@ GameObject:
   - component: {fileID: -644923674235814764}
   - component: {fileID: 9161401611444294944}
   - component: {fileID: -3483843851783838564}
+  - component: {fileID: 8182808946724950935}
   m_Layer: 0
-  m_Name: Bullet Slash
+  m_Name: Bullet Slash_Accelarate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,6 +274,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8182808946724950935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524258651142115283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f437709f2204ca14db484e9b935c9ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 1
+  delayScale: 1
 --- !u!1 &8882892203054351565
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,11 +5194,11 @@ PrefabInstance:
     - target: {fileID: -6067185528594298527, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0a1e8ebacbfbf8c44972e003e3b43d41, type: 2}
+      objectReference: {fileID: 2100000, guid: 6c4c027960733004a8087d46c90d75af, type: 2}
     - target: {fileID: -6067185528594298527, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 0a1e8ebacbfbf8c44972e003e3b43d41, type: 2}
+      objectReference: {fileID: 2100000, guid: 212db9eea1ce89043abf85b0005b4f39, type: 2}
     - target: {fileID: 919132149155446097, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Name
       value: WaveModel
@@ -5269,11 +5284,11 @@ PrefabInstance:
     - target: {fileID: -6067185528594298527, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0a1e8ebacbfbf8c44972e003e3b43d41, type: 2}
+      objectReference: {fileID: 2100000, guid: 6c4c027960733004a8087d46c90d75af, type: 2}
     - target: {fileID: -6067185528594298527, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 0a1e8ebacbfbf8c44972e003e3b43d41, type: 2}
+      objectReference: {fileID: 2100000, guid: 212db9eea1ce89043abf85b0005b4f39, type: 2}
     - target: {fileID: 919132149155446097, guid: 1a64eb9380bc3394cb9ad079c8c600ee, type: 3}
       propertyPath: m_Name
       value: WaveModel (1)
