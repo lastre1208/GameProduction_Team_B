@@ -16,6 +16,12 @@ public class ChangeAudioVolume : MonoBehaviour
     [Header("調節用スライダー")]
     [SerializeField] Slider _slider;//調節用スライダー
 
+    [Header("調節時に出す音&AudioSource")]
+    [SerializeField] AudioClip _se;
+    [SerializeField] AudioSource _audioSource;
+    const int _countIgnore_PlayAudio = 1;//音を出すときに無視する回数、(Startのタイミングでバーの値の変更が一回されるため、その時に音が鳴るのを防ぐため)
+    int _countChangeValue = 0;//値が変更された回数
+
     void Start()
     {
         //バーの値に現在の音量を入れる
@@ -26,10 +32,19 @@ public class ChangeAudioVolume : MonoBehaviour
         _slider.value = audioVolume;
     }
 
-   public void SetAudioVolume(float volume)//音量の変更
-   {
+    public void SetAudioVolume(float volume)//音量の変更
+    {
+        _countChangeValue++;
+        PlayAudio();
         //変更したら音量をセーブする
         _audioMixer.SetFloat(_audioTypeName, volume);
         SaveData.SaveAudioVolume(_audioType, volume);
-   }
+    }
+
+    void PlayAudio()//音を鳴らす
+    {
+        if (!(_countChangeValue > _countIgnore_PlayAudio)) return;
+
+        if(_se!=null&&_audioSource!=null) _audioSource.PlayOneShot(_se);
+    }
 }
