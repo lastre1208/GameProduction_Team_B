@@ -2207,7 +2207,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1464221733}
+  m_Father: {fileID: 2013484152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3061,7 +3061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeOut: {fileID: 2013484154}
-  _waitTime: 0
+  _waitTime: 0.1
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -4314,7 +4314,6 @@ RectTransform:
   - {fileID: 310400963}
   - {fileID: 1529070865}
   - {fileID: 191049588}
-  - {fileID: 614956421}
   - {fileID: 608986736}
   - {fileID: 86869953}
   m_Father: {fileID: 2013484152}
@@ -6461,6 +6460,7 @@ RectTransform:
   - {fileID: 1464221733}
   - {fileID: 206361464}
   - {fileID: 1544434090}
+  - {fileID: 614956421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
