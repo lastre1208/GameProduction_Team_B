@@ -14998,6 +14998,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6c4c027960733004a8087d46c90d75af, type: 2}
+    - target: {fileID: 5836407730174155451, guid: 832aecdc2ed6ce043badee3e74c260d6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c4c027960733004a8087d46c90d75af, type: 2}
     - target: {fileID: 9066316685635566823, guid: 832aecdc2ed6ce043badee3e74c260d6, type: 3}
       propertyPath: m_Name
       value: kuromakuro_model
