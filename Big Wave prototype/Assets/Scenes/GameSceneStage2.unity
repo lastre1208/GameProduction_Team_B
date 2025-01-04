@@ -19970,7 +19970,7 @@ GameObject:
   - component: {fileID: 880128826}
   - component: {fileID: 880128825}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SkipText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19993,7 +19993,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 753.24, y: -473.95}
-  m_SizeDelta: {x: 473.78, y: 50}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880128825
 MonoBehaviour:
@@ -20015,7 +20015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "S\u30AD\u30FC or \u5DE6\u30DC\u30BF\u30F3...Skip"
+  m_text: "SKIP...S\u30AD\u30FC or Y(Switch) or  X(Xbox)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c57e26c1045a63c4da5a9997557a1597, type: 2}
   m_sharedMaterial: {fileID: -6172825417883373690, guid: c57e26c1045a63c4da5a9997557a1597, type: 2}
@@ -55482,7 +55482,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 2
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 0
@@ -60556,7 +60556,7 @@ Transform:
   m_GameObject: {fileID: 530303319417980688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.112, y: 0.002, z: -3.19}
+  m_LocalPosition: {x: 0.112, y: 0.502, z: -3.1900005}
   m_LocalScale: {x: 0.04999999, y: 0.05, z: 0.04999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63914,7 +63914,7 @@ Transform:
   m_GameObject: {fileID: 5576232958513303214}
   serializedVersion: 2
   m_LocalRotation: {x: 8.6614704e-10, y: 0.00000020861623, z: 0.00000001277477, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.02, z: -3.009}
+  m_LocalPosition: {x: 0.1, y: 0.52, z: -3.0089998}
   m_LocalScale: {x: 0.050000012, y: 0.05000001, z: 0.050000016}
   m_ConstrainProportionsScale: 0
   m_Children: []
