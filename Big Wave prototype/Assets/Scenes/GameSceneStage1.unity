@@ -4084,7 +4084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
+  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10382,7 +10382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13125,7 +13125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: 40}
+  m_AnchoredPosition: {x: -280, y: -240}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &615097178
@@ -14860,8 +14860,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.70980394, g: 0.6132804, b: 0.79622644, a: 1}
-  m_Intensity: 15
+  m_Color: {r: 0.7152168, g: 0.70972586, b: 0.8415094, a: 1}
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -18513,10 +18513,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SKIP...S\u30AD\u30FC or Y(Switch) or  X(Xbox)"
+  m_text: SKIP...S OR Y(SWITCH) OR  X(XBOX)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c57e26c1045a63c4da5a9997557a1597, type: 2}
-  m_sharedMaterial: {fileID: -6172825417883373690, guid: c57e26c1045a63c4da5a9997557a1597, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a69b714d5c8d699468497acc6255622f, type: 2}
+  m_sharedMaterial: {fileID: -21385085090457684, guid: a69b714d5c8d699468497acc6255622f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18540,8 +18540,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -49780,7 +49780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -59454,7 +59454,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8255497921437555292, guid: 9043c1e8aa55a064ca0bb38c607597d5, type: 3}
+  - {fileID: 2100000, guid: 7712e3639b9f158409619db101541658, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60809,7 +60809,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8255497921437555292, guid: 9043c1e8aa55a064ca0bb38c607597d5, type: 3}
+  - {fileID: 2100000, guid: 7712e3639b9f158409619db101541658, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
