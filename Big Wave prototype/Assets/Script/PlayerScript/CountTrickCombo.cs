@@ -11,7 +11,7 @@ public class CountTrickCombo : MonoBehaviour
     private int m_comboCount = 0;//コンボ回数
     private int m_comboCountMax = 0;//最大コンボ回数
     private bool m_continueCombo=false;//コンボが続いているか
-    const int m_resetComboCount = 0;//リセット時のコンボ回数
+    //const int m_resetComboCount = 0;//リセット時のコンボ回数
 
     public int ComboCount{ get { return m_comboCount; } }
 
@@ -48,7 +48,7 @@ public class CountTrickCombo : MonoBehaviour
         if(m_comboCount>m_comboCountMax) m_comboCountMax = m_comboCount;
 
         //コンボ回数をリセット
-        m_comboCount = m_resetComboCount;
+       // m_comboCount = m_resetComboCount;
 
         m_continueCombo = false;
     }

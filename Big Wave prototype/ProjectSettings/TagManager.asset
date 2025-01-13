@@ -21,6 +21,7 @@ TagManager:
   - LineManager
   - CloseTab
   - CloseButton
+  - ScoreManager_HP
   layers:
   - Default
   - TransparentFX

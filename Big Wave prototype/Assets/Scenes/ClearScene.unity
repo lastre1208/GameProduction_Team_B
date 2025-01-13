@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38940737}
   m_Layer: 5
-  m_Name: ComboMax
+  m_Name: SuccessTrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1989,7 +1989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 858572275}
   m_Layer: 5
-  m_Name: TrickCombo
+  m_Name: Trick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3373,7 +3373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scoreText: {fileID: 1912723494}
   m_showScores:
-  - {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
+  - {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
 --- !u!1 &1325683741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5102,7 +5102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scoreText: {fileID: 98281475}
   m_showScores:
-  - {fileID: 11400000, guid: f3868e88852003f4690c0b2fe034e7c6, type: 2}
+  - {fileID: 11400000, guid: fce8290401aacc444900b0459de9d8ad, type: 2}
 --- !u!1 &1867573059
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 
 //作成者:杉山
 //ゲームシーンでの最大コンボ回数スコアの計測・判定
+//トリックを何回成功させたかのスコアに変更
 public class ScoreGameScene_ComboMax : MonoBehaviour
 {
     [Header("コンボ1回ごとのスコア")]
@@ -24,8 +25,8 @@ public class ScoreGameScene_ComboMax : MonoBehaviour
 
     public void Reflect()//スコア反映
     {
-        float score = countTrickCombo.ComboCountMax * m_scorePerCombo;//スコアの計算式
+        float score = countTrickCombo.ComboCount * m_scorePerCombo;//スコアの計算式
 
-        score_ComboMax.Rewrite(score, countTrickCombo.ComboCountMax, m_scorePerCombo);
+        score_ComboMax.Rewrite(score, countTrickCombo.ComboCount, m_scorePerCombo);
     }
 }
