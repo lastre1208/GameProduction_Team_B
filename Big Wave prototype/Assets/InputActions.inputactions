@@ -590,7 +590,7 @@
                 {
                     "name": "",
                     "id": "db9a4b37-e0ea-4b87-91fb-998fefe03ef1",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -601,7 +601,7 @@
                 {
                     "name": "",
                     "id": "6aa15a67-d599-4f92-b204-ce7d605ddddc",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -623,7 +623,7 @@
                 {
                     "name": "",
                     "id": "226288dd-1309-4773-b605-4443ba7248c1",
-                    "path": "<SwitchProControllerHID>/buttonWest",
+                    "path": "<SwitchProControllerHID>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
