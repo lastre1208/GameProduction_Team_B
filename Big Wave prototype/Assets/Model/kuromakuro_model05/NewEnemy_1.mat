@@ -404,7 +404,7 @@ Material:
     - _Offset_Z: -0.5
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
-    - _Outline_Width: 30
+    - _Outline_Width: 60
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5

@@ -9,35 +9,50 @@ using System.Runtime.CompilerServices;
 public class ComboPopUp : MonoBehaviour
 {
     public TMP_Text text_countPrefab;
+    [SerializeField] string[] PopUpTexts;
     [SerializeField] RectTransform target;
     [SerializeField] Transform parent;
     [SerializeField] CountTrickCombo countTrickCombo;
-    [SerializeField] float ScaleLimit;
+    [SerializeField] JudgeJumpNow judgeJumpNow;
+    [SerializeField] float ScaleText;
     [SerializeField] float StartSize;
     private float DefaultSize;
+    private int comboCount = 0;
+
+   
+
     public void Start()
     {
         DefaultSize = StartSize;
         text_countPrefab.fontSize = DefaultSize;
+        judgeJumpNow.StartJumpAction+=ResetCombo;
     }
     public void PopUp()
     {
         if (countTrickCombo.ContinueCombo)
         {
-            int comboCount = countTrickCombo.ComboCount;
-            if (ScaleLimit >= countTrickCombo.ComboCount)
+
+            if (comboCount > PopUpTexts.Length)
             {
-                text_countPrefab.fontSize += comboCount;
+                comboCount = PopUpTexts.Length;
             }
-               
-                text_countPrefab.text = (comboCount + ("COMBO!!"));
-                Instantiate(text_countPrefab, target.position, target.rotation, parent);// Canvas の子要素としてtargetの位置にインスタンスを生成
             
+                text_countPrefab.fontSize += ScaleText;
+            
+
+            text_countPrefab.text = PopUpTexts[comboCount];
+            Instantiate(text_countPrefab, target.position, target.rotation, parent);// Canvas の子要素としてtargetの位置にインスタンスを生成
+            comboCount++;
         }
         else
         {
-            text_countPrefab.fontSize = DefaultSize;
+
+            ResetCombo();
         }
     }
-    
+    void ResetCombo()
+    {
+        text_countPrefab.fontSize = DefaultSize;
+        comboCount = 0;
+    }
 }
