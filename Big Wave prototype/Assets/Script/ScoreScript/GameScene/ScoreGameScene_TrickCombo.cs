@@ -51,7 +51,14 @@ public class ScoreGameScene_TrickCombo : MonoBehaviour
 
     public void Reflect()//スコア反映
     {
-        m_score += failedTrick == 0 ? m_perfectScore : m_perfectScore / (failedTrick / countTrickCombo.ComboCount);//100%でなかった場合、全トリック数から失敗の割合だけスコアを削る
+        if (countTrickCombo.ComboCount != 0)//ゼロ除算が起こらないように
+        {
+            m_score += failedTrick == 0
+         ? m_perfectScore
+         : m_perfectScore * (1 - (float)failedTrick / countTrickCombo.ComboCount); // 失敗の割合だけスコアを削減 
+        }
+    
+       
         score_TrickCombo.Rewrite(m_score);
     }
 }

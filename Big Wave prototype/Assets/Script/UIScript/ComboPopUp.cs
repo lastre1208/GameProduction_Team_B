@@ -18,7 +18,11 @@ public class ComboPopUp : MonoBehaviour
     [SerializeField] float StartSize;
     private float DefaultSize;
     private int comboCount = 0;
-
+    public int ComboCount
+    {
+        get { return comboCount; }
+        set { comboCount = value; }
+    }
    
 
     public void Start()
@@ -50,9 +54,9 @@ public class ComboPopUp : MonoBehaviour
             ResetCombo();
         }
     }
-    void ResetCombo()
+  public  void ResetCombo()
     {
         text_countPrefab.fontSize = DefaultSize;
-        comboCount = 0;
+        ComboCount = 0;
     }
 }

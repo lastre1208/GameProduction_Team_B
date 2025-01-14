@@ -38,6 +38,11 @@ public class ScoreGameScene_HP : MonoBehaviour
     public void Reflect(bool gameClear)//スコア反映
     {
         float hpScore = gameClear ? baseScore-(damageCount*decreaseScore) : hpRatio_GameOver;//スコアの計算式
+
+        if(hpScore < 0)
+        {
+            hpScore = 0;
+        }
        // float hpPercent = hpRatio * ratioToPercent;//割合をパーセントに直したもの
 
         //float score= hpPercent * m_scorePerOnePercent;//スコアの計算式
