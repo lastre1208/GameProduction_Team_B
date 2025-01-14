@@ -23,17 +23,25 @@ public class MovieFadeOut : MonoBehaviour
     {
         nowValue = videoImage.color.a;
         fadeInObject.SetActive(false);
-        _activeDuringMovieObject.SetActive(true);
+        if (_activeDuringMovieObject != null)
+        {
+            _activeDuringMovieObject.SetActive(true);
+        }
+
         fadeInAudio.SetActive(false);
         videoPlayer.Play();
         videoPlayer.loopPointReached += VideoPlayer_loopPointReached;
-        
+
     }
 
     private void VideoPlayer_loopPointReached(VideoPlayer vb)
     {
         fadeInObject.SetActive(true);
-        _activeDuringMovieObject.SetActive(false);
+        if(_activeDuringMovieObject != null)
+        {
+            _activeDuringMovieObject.SetActive(false);
+        }
+      
         Isfade = true;
         AudioSource.PlayClipAtPoint(clip,new(0,0,0));
     }
