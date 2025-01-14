@@ -4918,7 +4918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209041838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.24090569, y: 0.7537286, z: -0.37752032, w: -0.48097408}
+  m_LocalRotation: {x: -0.24090567, y: 0.7537286, z: -0.37752035, w: -0.48097402}
   m_LocalPosition: {x: -862.1672, y: -639.00946, z: -123.190834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11228,7 +11228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480318073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0811714, y: -0.000000017149597, z: 0.0000000013966657, w: 0.99670017}
+  m_LocalRotation: {x: 0.08117141, y: 0.00000001714961, z: -0.0000000013966668, w: 0.99670017}
   m_LocalPosition: {x: -880.46716, y: -679.9595, z: -190.44083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15274,7 +15274,7 @@ MonoBehaviour:
   _targetCamera: {fileID: 963194227}
   _target: {fileID: 1244729529}
   _smoothMovement:
-    _bufferNum: 7
+    _bufferNum: 10
 --- !u!1 &651057535
 GameObject:
   m_ObjectHideFlags: 0
@@ -28388,7 +28388,7 @@ GameObject:
   - component: {fileID: 1239453833}
   m_Layer: 0
   m_Name: HP
-  m_TagString: Untagged
+  m_TagString: ScoreManager_HP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32311,11 +32311,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_countPrefab: {fileID: 5540319640275630485, guid: 145769507210e8e49a0ce2d4b61e50bb, type: 3}
-  PopUpTexts: []
+  PopUpTexts:
+  - GOOD!
+  - NICE!
+  - GREAT!!
+  - AMAZING!!
+  - FANTASTIC!!!
+  - PERFECT!!!
   target: {fileID: 647215248}
   parent: {fileID: 2111325019}
   countTrickCombo: {fileID: 1105820353}
-  judgeJumpNow: {fileID: 0}
+  judgeJumpNow: {fileID: 1017912876}
   ScaleText: 0
   StartSize: 120
 --- !u!1 &1424343079
@@ -48653,8 +48659,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1923540439}
   - component: {fileID: 1923540438}
+  - component: {fileID: 1923540441}
   - component: {fileID: 1923540440}
-  - component: {fileID: 1923540444}
   m_Layer: 0
   m_Name: GamePos
   m_TagString: Untagged
@@ -48725,11 +48731,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923540436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ac9c77239059c4c86cf8d18763e0a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f063bead382ad344ba78e48f716a5885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
---- !u!114 &1923540444
+  _target: {fileID: 473982371}
+  _followObject: {fileID: 1923540439}
+  _speed: 50
+  _follow: {fileID: 1923540441}
+--- !u!114 &1923540441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48738,12 +48747,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923540436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4380f9b42b05610449997306043d3a0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8811e96ec25ca754bb55509c9bb18bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadingObject: {fileID: 473982371}
-  waitTime: 1
-  lerpSpeed: 1
+  _target: {fileID: 473982371}
+  _followObject: {fileID: 1923540439}
 --- !u!1001 &1925288439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51746,7 +51754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

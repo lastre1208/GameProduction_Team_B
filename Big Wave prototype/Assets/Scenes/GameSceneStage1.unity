@@ -13400,7 +13400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14046,7 +14046,7 @@ MonoBehaviour:
   _targetCamera: {fileID: 963194227}
   _target: {fileID: 1244729529}
   _smoothMovement:
-    _bufferNum: 7
+    _bufferNum: 10
 --- !u!1 &651057535
 GameObject:
   m_ObjectHideFlags: 0
@@ -27559,7 +27559,7 @@ GameObject:
   - component: {fileID: 1239453833}
   m_Layer: 0
   m_Name: HP
-  m_TagString: Untagged
+  m_TagString: ScoreManager_HP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47284,8 +47284,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1923540439}
   - component: {fileID: 1923540438}
-  - component: {fileID: 1923540440}
-  - component: {fileID: 1923540444}
+  - component: {fileID: 1923540446}
+  - component: {fileID: 1923540445}
   m_Layer: 0
   m_Name: GamePos
   m_TagString: Untagged
@@ -47347,7 +47347,7 @@ Transform:
   - {fileID: 1838587516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1923540440
+--- !u!114 &1923540445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47356,11 +47356,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923540436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ac9c77239059c4c86cf8d18763e0a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f063bead382ad344ba78e48f716a5885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
---- !u!114 &1923540444
+  _target: {fileID: 473982371}
+  _followObject: {fileID: 1923540439}
+  _speed: 50
+  _follow: {fileID: 1923540446}
+--- !u!114 &1923540446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47369,12 +47372,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923540436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4380f9b42b05610449997306043d3a0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8811e96ec25ca754bb55509c9bb18bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadingObject: {fileID: 473982371}
-  waitTime: 1
-  lerpSpeed: 1
+  _target: {fileID: 473982371}
+  _followObject: {fileID: 1923540439}
 --- !u!1001 &1925288439
 PrefabInstance:
   m_ObjectHideFlags: 0

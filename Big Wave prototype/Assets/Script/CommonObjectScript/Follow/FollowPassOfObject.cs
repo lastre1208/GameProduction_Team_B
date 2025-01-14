@@ -10,7 +10,11 @@ public class FollowPassOfObject : MonoBehaviour
     [SerializeField] Transform _target;
     [Header("追跡させるオブジェクト")]
     [SerializeField] Transform _followObject;
-    Queue<Transform> _targetTransformQueue=new Queue<Transform>();//追跡するターゲットの位置情報を保存するキュー
+    //[Header("補間速度")]
+    //[Range(0f, 1f)]
+    //[SerializeField] float lerpSpeed;  // 補完速度
+    Queue<Vector3> _targetPosQueue=new Queue<Vector3>();//追跡するターゲットの位置を保存するキュー
+    Queue<Quaternion> _targetRotQueue=new Queue<Quaternion>();//追跡するターゲットの回転を保存するキュー
     JudgePauseNow _judgePauseNow;
     bool _isFollow = false;//追跡するか
 
@@ -34,9 +38,10 @@ public class FollowPassOfObject : MonoBehaviour
         Follow();
     }
 
-    void EnQueueTargetPos()//追跡するターゲットの位置情報をキューに登録
+    void EnQueueTargetPos()//追跡するターゲットの位置と回転をキューに登録
     {
-        _targetTransformQueue.Enqueue(_target);
+        _targetPosQueue.Enqueue(_target.position);
+        _targetRotQueue.Enqueue(_target.rotation);
     }
 
     void Follow()//追跡させる
@@ -44,12 +49,10 @@ public class FollowPassOfObject : MonoBehaviour
         if(!_isFollow) return;
 
         //位置と回転を取り出してそれを追跡させるオブジェクトに適用
-        Transform _targetTransform = _targetTransformQueue.Dequeue();
+        Vector3 targetPos= _targetPosQueue.Dequeue();
+        Quaternion targetRot = _targetRotQueue.Dequeue();
 
-        Vector3 _targetPos= _targetTransform.position;
-        Quaternion _targetRot = _targetTransform.rotation;
-
-        _followObject.position = _targetPos;
-        _followObject.rotation = _targetRot;
+        _followObject.position = targetPos;
+        _followObject.rotation = targetRot;
     }
 }
