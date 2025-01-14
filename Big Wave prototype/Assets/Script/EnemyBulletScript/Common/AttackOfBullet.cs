@@ -18,13 +18,12 @@ public class AttackOfBullet : MonoBehaviour
     [SerializeField] OnTriggerActionEvent onTriggerEvent;//接触判定のコンポーネント
     [Header("被弾時に発生させるエフェクト")]
     [SerializeField] GameObject damageEffect;
-   
+    [Header("ダメージ回数をカウントするコンポーネント")]
     private ScoreGameScene_HP scoreGameScene_HP;
     bool hit = false;//当たったか
 
     void Start()
     {
-        
         onTriggerEvent.EnterAction += HitTrigger;//当たった時の処理を登録
     }
 
@@ -35,7 +34,6 @@ public class AttackOfBullet : MonoBehaviour
             hit = true;
 
             scoreGameScene_HP = GameObject.FindWithTag("ScoreManager_HP").GetComponent<ScoreGameScene_HP>();
-
             scoreGameScene_HP.DamageCount++;//ダメージを受けた回数を増やす
 
             damageToPlayer.Damage(t);//プレイヤーにダメージを与える
