@@ -30,6 +30,8 @@ public class FadeInAfterMovie : MonoBehaviour
     {
         if (_movieEnded) return;//ムービーが既に終了してるならスキップ
 
+        _movieEnded = true;
+
         //動画をスキップさせる
         videoPlayer.time = videoPlayer.length- _skipTimeBeforeEnd;
     }
