@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //作成者:杉山
-//フェードイン
-public class FadeIn : MonoBehaviour
+//フェードイン(RawImageで使える)
+public class FadeIn_RawImage : MonoBehaviour
 {
     [Header("▼完全に画面がフェードインするまでにかかる時間")]
     [SerializeField] float fadeDuration = 1.0f;
     [Header("▼フェードインに使う画像")]
-    [SerializeField] Image fadeImage;
+    [SerializeField] RawImage fadeImage;
     private float fadeTimer = 0f;//フェードイン時間の管理用
     const float _maxAlpha = 1;
     State_Fade _state = State_Fade.off;//フェードアウトの状況
