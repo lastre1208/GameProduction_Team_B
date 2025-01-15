@@ -53,7 +53,7 @@ public class MovieFadeOut : MonoBehaviour
         {
             nowValue-= Time.deltaTime*fadeOutSpeed;
             countTime += Time.deltaTime;
-            GetValue();
+            //GetValue();
             if (countTime>fadeInAudio_delay)
             {
                 fadeInAudio.SetActive(true);

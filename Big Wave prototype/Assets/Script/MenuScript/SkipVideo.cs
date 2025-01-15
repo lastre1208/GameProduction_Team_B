@@ -18,7 +18,7 @@ public class SkipVideo : MonoBehaviour
         _skipped = true;
 
         //動画をスキップさせる
-        _videoPlayer.time = _videoPlayer.length;
+        _videoPlayer.time = _videoPlayer.length-0.5; // 再生位置を終了時点に設定
 
         //操作をムービーのものからUIにする
         _playerInput.SwitchCurrentActionMap(_actionMapNameAfterSkip);

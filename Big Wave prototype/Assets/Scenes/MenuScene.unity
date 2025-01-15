@@ -950,7 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -971,73 +971,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206361463}
   m_CullTransparentMesh: 1
---- !u!1 &207728480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 207728481}
-  - component: {fileID: 207728482}
-  - component: {fileID: 207728483}
-  m_Layer: 0
-  m_Name: FadeOutManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &207728481
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207728480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1412559827}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &207728482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207728480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c67785b51537c468e0ae09ca6b8f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeInObject: {fileID: 1464221732}
-  _activeDuringMovieObject: {fileID: 1544434089}
-  fadeInAudio: {fileID: 1606233657}
-  videoPlayer: {fileID: 1412559828}
-  videoImage: {fileID: 206361465}
-  fadeOutSpeed: 0.7
-  fadeInAudio_delay: 1.5
-  clip: {fileID: 8300000, guid: 556ed9c07fd9c984dbb39945fb16cf93, type: 3}
---- !u!114 &207728483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207728480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ee22e7f190a6b4ebaf629bce15599c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _videoPlayer: {fileID: 1412559828}
-  _playerInput: {fileID: 2043038852}
 --- !u!1 &218881765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1553,77 @@ MonoBehaviour:
   blinkSpeed: 0.5
   blinkMin: 0.4
   blinkMax: 1
+--- !u!1 &473906923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473906924}
+  - component: {fileID: 473906926}
+  - component: {fileID: 473906927}
+  m_Layer: 0
+  m_Name: Movie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473906924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473906923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1412559827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473906926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473906923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a437f4d625f86264aa7cc8ff8c3d2645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeAfterMovieEnd:
+  - {fileID: 1464221732}
+  - {fileID: 1606233657}
+  _activeDuringMovieObject:
+  - {fileID: 1544434089}
+  _fadeIn: {fileID: 473906927}
+  videoPlayer: {fileID: 1412559828}
+  _se: {fileID: 8300000, guid: 556ed9c07fd9c984dbb39945fb16cf93, type: 3}
+  _audioSource: {fileID: 1166634475}
+  _playerInput: {fileID: 2043038852}
+  _actionMapNameAfterMovie: UI
+  _skipTimeBeforeEnd: 1
+--- !u!114 &473906927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473906923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf10ea57c4e68134cae0284da8fd0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1.2
+  fadeImage: {fileID: 206361465}
 --- !u!1 &566344526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,7 +1636,7 @@ GameObject:
   - component: {fileID: 566344529}
   - component: {fileID: 566344528}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: B TeamProduction Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,11 +1654,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1840747372}
+  m_Father: {fileID: 1464221733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 80}
+  m_AnchoredPosition: {x: 710, y: -410}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566344528
@@ -4171,7 +4175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 207728481}
+  - {fileID: 473906924}
   m_Father: {fileID: 2084449543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!328 &1412559828
@@ -4297,7 +4301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1464221733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4311,6 +4315,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1840747372}
+  - {fileID: 566344527}
   - {fileID: 683835928}
   - {fileID: 310400963}
   - {fileID: 1529070865}
@@ -5487,7 +5492,7 @@ GameObject:
   - component: {fileID: 1840747374}
   - component: {fileID: 1840747373}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5506,7 +5511,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 800798362}
-  - {fileID: 566344527}
   m_Father: {fileID: 1464221733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6677,8 +6681,8 @@ MonoBehaviour:
     m_ActionName: PlayGuide/Cancel[/Keyboard/p,/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 207728483}
-        m_TargetAssemblyTypeName: SkipVideo, Assembly-CSharp
+      - m_Target: {fileID: 473906926}
+        m_TargetAssemblyTypeName: FadeInAfterMovie, Assembly-CSharp
         m_MethodName: Skip
         m_Mode: 1
         m_Arguments:
