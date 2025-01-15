@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2202,19 +2202,19 @@ PrefabInstance:
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1789808105}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1789808105}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 1789808105}
+      objectReference: {fileID: 0}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 1789808105}
+      objectReference: {fileID: 0}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -2357,11 +2357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: -409
       objectReference: {fileID: 0}
     - target: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3290,7 +3290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: 0}
+  m_AnchoredPosition: {x: 360, y: -121.24}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1509723532
@@ -3697,19 +3697,19 @@ PrefabInstance:
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1282144075}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1282144075}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 1282144075}
+      objectReference: {fileID: 0}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 1282144075}
+      objectReference: {fileID: 0}
     - target: {fileID: 1645709244067188672, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -3888,7 +3888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 3928467196939247133, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5231,8 +5231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 314.7, y: 50}
+  m_AnchoredPosition: {x: 35.1, y: -85}
+  m_SizeDelta: {x: 396.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015011580
 MonoBehaviour:
@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -------------------------
+  m_text: --------------------------------
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
