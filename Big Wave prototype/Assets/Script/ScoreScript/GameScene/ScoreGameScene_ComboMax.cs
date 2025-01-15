@@ -13,7 +13,7 @@ public class ScoreGameScene_ComboMax : MonoBehaviour
     [Header("スコア反映に使うコンポーネント")]
     [SerializeField] Score_ComboMax score_ComboMax;//スコア反映
     [Header("コンボ回数を数えるコンポーネント")]
-    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] Count_Trick_Critical countTrickCombo;
     [Header("ゲーム終了を判断するコンポーネント")]
     [SerializeField] JudgeGameSet judgeGameSet;
 
@@ -25,8 +25,8 @@ public class ScoreGameScene_ComboMax : MonoBehaviour
 
     public void Reflect()//スコア反映
     {
-        float score = countTrickCombo.ComboCount * m_scorePerCombo;//スコアの計算式
+        float score = countTrickCombo.TotalCriticalCount * m_scorePerCombo;//スコアの計算式
 
-        score_ComboMax.Rewrite(score, countTrickCombo.ComboCount, m_scorePerCombo);
+        score_ComboMax.Rewrite(score, countTrickCombo.TotalCriticalCount, m_scorePerCombo);
     }
 }

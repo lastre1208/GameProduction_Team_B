@@ -19,7 +19,7 @@ public partial class Trick : MonoBehaviour
     [SerializeField] TrickPoint player_TrickPoint;
     [SerializeField] PushedButton_CurrentTrickPattern pushedButton_TrickPattern;
     [SerializeField] Critical critical;
-    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] Count_Trick_Critical countTrickCombo;
     [SerializeField] CountTrickWhileJump countTrickWhileJump;
     public event Action TrickAction;//トリック時に呼ぶイベント
 

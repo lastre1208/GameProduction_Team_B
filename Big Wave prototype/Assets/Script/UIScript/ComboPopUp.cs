@@ -12,7 +12,7 @@ public class ComboPopUp : MonoBehaviour
     [SerializeField] string[] PopUpTexts;
     [SerializeField] RectTransform target;
     [SerializeField] Transform parent;
-    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] Count_Trick_Critical countTrickCombo;
     [SerializeField] JudgeJumpNow judgeJumpNow;
     [SerializeField] float ScaleText;
     [SerializeField] float StartSize;
@@ -33,7 +33,7 @@ public class ComboPopUp : MonoBehaviour
     }
     public void PopUp()
     {
-        if (countTrickCombo.ContinueCombo)
+        if (countTrickCombo.ContinueCritical)
         {
 
             if (comboCount > PopUpTexts.Length)
