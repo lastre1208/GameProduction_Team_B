@@ -16,7 +16,16 @@ public partial class Count_Trick_Critical : MonoBehaviour
 
     public int TotalTrickCount { get { return _totalTrickCount; } }//合計トリック回数
 
-    public float CriticalRate { get { return (float)(_totalCriticalCount / _totalTrickCount); } }//クリティカルの成功率
+    public float CriticalRate//クリティカルの成功率
+    {
+        get
+        {
+            const float retDividedByZero = 0;//0による除算時に返す値
+            if (_totalTrickCount == 0) return retDividedByZero;//0による除算が起こる場合は0を返す
+
+            return (float)(_totalCriticalCount / _totalTrickCount); 
+        } 
+    }
 
     public int ContinuanceCriticalCount { get { return _continuanceCritical.ContinuanceCriticalCount; } }//連続クリティカル回数
 

@@ -5460,9 +5460,9 @@ RectTransform:
   m_Children:
   - {fileID: 329466570}
   - {fileID: 1802267286}
-  - {fileID: 328649752}
   - {fileID: 2108043426}
   - {fileID: 1575468549}
+  - {fileID: 328649752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6411,7 +6411,7 @@ PrefabInstance:
       objectReference: {fileID: -21385085090457684, guid: a69b714d5c8d699468497acc6255622f, type: 2}
     - target: {fileID: 7468680528635117025, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294309365
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7468680528635117025, guid: 60fe8034fecf6ea4eaee353e16d1cf68, type: 3}
       propertyPath: m_VerticalAlignment
