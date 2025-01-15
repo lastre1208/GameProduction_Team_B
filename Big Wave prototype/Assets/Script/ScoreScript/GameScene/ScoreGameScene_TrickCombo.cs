@@ -19,13 +19,10 @@ public class ScoreGameScene_TrickCombo : MonoBehaviour
     [Header("スコア反映に使うコンポーネント")]
     [SerializeField] Score_TrickCombo score_TrickCombo;//スコア反映
     [Header("コンボ回数を数えるコンポーネント")]
-    [SerializeField] CountTrickCombo countTrickCombo;
+    [SerializeField] Count_Trick_Critical countTrickCombo;
     [Header("ゲーム終了を判断するコンポーネント")]
     [SerializeField] JudgeGameSet judgeGameSet;
-  
-    private int failedTrick=0;
-
-    private float m_score=0;
+    private float m_score=0;//スコア合計
 
     public float Score { get { return m_score; }  }
 
@@ -36,28 +33,20 @@ public class ScoreGameScene_TrickCombo : MonoBehaviour
 
     public void AddScore()//スコア加算(トリック時に呼ぶ)
     {
-        if(countTrickCombo.ContinueCombo)//トリックが成功したら
-        {
-            int comboCount = countTrickCombo.ComboCount > m_maxAddComboCount ? m_maxAddComboCount : countTrickCombo.ComboCount;//コンボ回数(最大コンボ回数を超えていたら最大コンボ回数の値にする)
-            m_score += m_defaultScore + m_addComboScore*comboCount;//連続コンボ回数に応じてスコアを加算
-         
-        }
-        else //コンボが途切れたら(普通のトリックだったら)
-        {
-            m_score += m_defaultScore;//基本スコア分加算
-            failedTrick++;
-        }
+        //コンボ回数を取得(最大コンボ回数を超えていたら最大コンボ回数の値にする)
+        int comboCount = Mathf.Min(countTrickCombo.ContinuanceCriticalCount, m_maxAddComboCount);
+
+        m_score += m_defaultScore + m_addComboScore * comboCount;//連続コンボ回数に応じてスコアを加算
+    }
+
+    float AddCriticalSuccessRateScore()//クリティカルの成功率により加算されるスコアの算出
+    {
+        return m_perfectScore * countTrickCombo.CriticalRate;
     }
 
     public void Reflect()//スコア反映
     {
-        if (countTrickCombo.ComboCount != 0)//ゼロ除算が起こらないように
-        {
-            m_score += failedTrick == 0
-         ? m_perfectScore
-         : m_perfectScore * (1 - (float)failedTrick / countTrickCombo.ComboCount); // 失敗の割合だけスコアを削減 
-        }
-    
+        m_score += AddCriticalSuccessRateScore();
        
         score_TrickCombo.Rewrite(m_score);
     }
