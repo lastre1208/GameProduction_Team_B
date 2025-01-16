@@ -17,11 +17,6 @@ public class Land : MonoBehaviour
     [Header("クリティカルフィーバー時")]
     [SerializeField] AudioSource _sourceCriticalFever;
     [SerializeField] AudioClip _seCriticalFever;
-
-    [SerializeField] AudioSource source;
-    [SerializeField] AudioClip clip_Critical;
-    [SerializeField] AudioClip clip_Normal;
-    [SerializeField] AudioClip clip_Fever;
     [SerializeField] Generate_AlongWay generate_AlongWay;
 
     void Start()
@@ -33,19 +28,16 @@ public class Land : MonoBehaviour
 
      public void LandEffect_Normal()//通常時
     {
-        //source.PlayOneShot(clip_Normal);
         _sourceNormal.PlayOneShot(_seNormal);
     }
     public void LandEffect()//クリティカル時
     {
         damageMotion_Enemy.DamageTrigger();
-        //source.PlayOneShot(clip_Critical);
         _sourceCritical.PlayOneShot(_seCritical);
     }
     public void LandEffect_Fever()//クリティカル＆フィーバー時
     {
         damageMotion_Enemy.DamageTrigger();
-        //source.PlayOneShot(clip_Fever);
         _sourceCriticalFever.PlayOneShot(_seCriticalFever);
     }
    

@@ -41,6 +41,11 @@ public class FadeInAfterMovie : MonoBehaviour
         videoPlayer.time = videoPlayer.length- _skipTimeBeforeEnd;
     }
 
+    private void Awake()
+    {
+        videoPlayer.loopPointReached += MovieEndEvent;
+    }
+
     void Start()
     {
         Trigger();
@@ -60,7 +65,7 @@ public class FadeInAfterMovie : MonoBehaviour
 
         //ムービーを流し始める
         videoPlayer.Play();
-        videoPlayer.loopPointReached += MovieEndEvent;
+        
     }
 
     void MovieEndEvent(VideoPlayer vb)//ムービーが流れ終わった時に起こすイベント
