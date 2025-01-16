@@ -26,19 +26,19 @@ public class FadeInAfterMovie : MonoBehaviour
     [Header("0にしてしまうと動画が最後まで再生されないことがあります")]
     [SerializeField] double _skipTimeBeforeEnd;
 
-    bool _movieEnded=false;//ムービーが終了したか
+    double SkipTime { get { return videoPlayer.length - _skipTimeBeforeEnd; } }//スキップでどの時間まで飛ばすか
+
+    bool Skipable { get { return videoPlayer.time < SkipTime; } }//スキップ可能か(現在の再生箇所がスキップする箇所の前であればスキップ可能)
 
     public void Skip()
     {
-        if (_movieEnded) return;//ムービーが既に終了してるならスキップ
-
-        _movieEnded = true;
+        if (!Skipable) return;//ムービー出来ないなら無視
 
         //再生中アクティブ(スキップされた瞬間非アクティブ)にするオブジェクトを隠す
         SwitchActiveObject(_activeDuringMovie_SkippedDeactiveObjects, false);
 
         //動画をスキップさせる
-        videoPlayer.time = videoPlayer.length- _skipTimeBeforeEnd;
+        videoPlayer.time = SkipTime;
     }
 
     private void Awake()
@@ -69,8 +69,6 @@ public class FadeInAfterMovie : MonoBehaviour
 
     void MovieEndEvent(VideoPlayer vb)//ムービーが流れ終わった時に起こすイベント
     {
-        _movieEnded = true;
-
         //再生後アクティブにするオブジェクトを表示
         SwitchActiveObject(_activeAfterMovieEndObjects, true);
 
