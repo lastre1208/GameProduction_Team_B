@@ -3021,7 +3021,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6838948236822458190, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10382,7 +10383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503087858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023613513, y: 0.0000000010750989, z: -2.5393942e-11, w: 0.99972117}
+  m_LocalRotation: {x: 0.023613513, y: -0.0000000010750989, z: 2.5393942e-11, w: 0.99972117}
   m_LocalPosition: {x: -880.46716, y: -673.2095, z: -158.42084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13400,7 +13401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15263,7 +15264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 734518581}
-  - component: {fileID: 734518582}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
@@ -15286,20 +15286,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814354298}
   m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
---- !u!114 &734518582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734518580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6c62e65c02d884ba3d28061b60505e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  judgeJumpNow: {fileID: 1017912876}
 --- !u!4 &739861873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4382775025040100022, guid: d50dbcb7a99b5ef4aa8d007f4a0c40d7, type: 3}
@@ -21544,7 +21530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993304508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.948833}
+  m_LocalRotation: {x: 0.31577846, y: -0, z: -0, w: 0.9488329}
   m_LocalPosition: {x: 0.7660992, y: 13.002456, z: -8.760218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22741,7 +22727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1244729524}
   _judgeJumpNow: {fileID: 1017912876}
-  _waterSplashEffect: {fileID: 1814354297}
   _jumpEffect: {fileID: 1078945043200046714, guid: 29884e264e4c52c45aac11d6967fddc8, type: 3}
   _audioSource: {fileID: 1778482265}
   _jumpSE: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
@@ -28288,12 +28273,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player_animator: {fileID: 2012403515}
   _deadTriggerName: Dead
+  _waterSplashEffect_Player: {fileID: 1621591152}
   _changeObjects:
     _objects:
     - _object: {fileID: 919132148156821028}
-      _active: 0
-      _changeTime: 3.5
-    - _object: {fileID: 1814354297}
       _active: 0
       _changeTime: 3.5
 --- !u!1 &1261476078
@@ -31963,7 +31946,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1401361795}
-  - component: {fileID: 1401361796}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -31986,20 +31968,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814354298}
   m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
---- !u!114 &1401361796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401361794}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6c62e65c02d884ba3d28061b60505e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterSplashParticle: {fileID: 7122684175169730406, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
-  judgeJumpNow: {fileID: 1017912876}
 --- !u!1 &1402738850
 GameObject:
   m_ObjectHideFlags: 0
@@ -33796,7 +33764,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6838948236822458190, guid: c021463dfbdf8f941a772fa9a62602a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -35696,6 +35665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621591150}
   - component: {fileID: 1621591151}
+  - component: {fileID: 1621591152}
   m_Layer: 0
   m_Name: Etc
   m_TagString: Untagged
@@ -35734,6 +35704,20 @@ MonoBehaviour:
   _critical: {fileID: 1438732579}
   _barrierPrefab: {fileID: 4375858249386935575, guid: 093b95fbf9043f747a59b211f96139b5, type: 3}
   _barrierTime: 1.1
+--- !u!114 &1621591152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621591149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d440365ef133f3842a18c8fea40b76a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _judgeJumpNow: {fileID: 1017912876}
+  _waterSplashEffect: {fileID: 1814354297}
 --- !u!1 &1622314984
 GameObject:
   m_ObjectHideFlags: 0

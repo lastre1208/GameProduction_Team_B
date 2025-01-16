@@ -6,7 +6,6 @@ public class JumpEffect : MonoBehaviour
 {
     [SerializeField] GameObject _target;
     [SerializeField] JudgeJumpNow _judgeJumpNow;
-    [SerializeField] GameObject _waterSplashEffect;
     [SerializeField] GameObject _jumpEffect;
     [SerializeField] AudioSource _audioSource;
     [SerializeField] AudioClip _jumpSE;
@@ -19,8 +18,6 @@ public class JumpEffect : MonoBehaviour
 
     public void Effect(bool switchJumpNow)
     {
-        _waterSplashEffect.SetActive(!switchJumpNow);//水しぶきをジャンプ開始時に消す、着地時に出す
-
         //ジャンプ開始
         if (switchJumpNow)
         {

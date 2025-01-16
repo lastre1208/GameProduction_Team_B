@@ -14516,7 +14516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623807707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07471572, y: -0.000000017686357, z: 0.000000001325153, w: 0.9972049}
+  m_LocalRotation: {x: 0.07471572, y: 0.000000017686357, z: -0.000000001325153, w: 0.9972049}
   m_LocalPosition: {x: -880.46716, y: -673.7095, z: -199.63083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23922,7 +23922,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1244729524}
   _judgeJumpNow: {fileID: 1017912876}
-  _waterSplashEffect: {fileID: 1814354297}
   _jumpEffect: {fileID: 1078945043200046714, guid: 29884e264e4c52c45aac11d6967fddc8, type: 3}
   _audioSource: {fileID: 1778482265}
   _jumpSE: {fileID: 8300000, guid: c7297686d3a02264586d661f35e38d86, type: 3}
@@ -29117,12 +29116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player_animator: {fileID: 707573367}
   _deadTriggerName: Dead
+  _waterSplashEffect_Player: {fileID: 1621591152}
   _changeObjects:
     _objects:
     - _object: {fileID: 919132148156821028}
-      _active: 0
-      _changeTime: 3.5
-    - _object: {fileID: 1814354297}
       _active: 0
       _changeTime: 3.5
 --- !u!1 &1261476078
@@ -36777,6 +36774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621591150}
   - component: {fileID: 1621591151}
+  - component: {fileID: 1621591152}
   m_Layer: 0
   m_Name: Etc
   m_TagString: Untagged
@@ -36815,6 +36813,20 @@ MonoBehaviour:
   _critical: {fileID: 1438732579}
   _barrierPrefab: {fileID: 4375858249386935575, guid: 093b95fbf9043f747a59b211f96139b5, type: 3}
   _barrierTime: 1.1
+--- !u!114 &1621591152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621591149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d440365ef133f3842a18c8fea40b76a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _judgeJumpNow: {fileID: 1017912876}
+  _waterSplashEffect: {fileID: 1814354297}
 --- !u!1 &1622314984
 GameObject:
   m_ObjectHideFlags: 0
@@ -51754,7 +51766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046056980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048218075, y: 0.0000000065200325, z: 3.1474953e-10, w: 0.9988369}
+  m_LocalRotation: {x: -0.04821807, y: -9.870562e-10, z: -4.764934e-11, w: 0.9988369}
   m_LocalPosition: {x: -880.46716, y: -679.10944, z: -199.59084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
