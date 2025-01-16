@@ -6,6 +6,7 @@ public class PlayerDeadMotion : MonoBehaviour
 {
     [SerializeField] Animator _player_animator;
     [SerializeField] string _deadTriggerName;
+    [SerializeField] WaterSplashEffect_Player _waterSplashEffect_Player;//プレイヤーの水しぶき
     [Header("表示状態を切り替えるオブジェクト")]
     [SerializeField] ChangeActiveOfObject _changeObjects;
     bool _startMotion = false;
@@ -13,6 +14,7 @@ public class PlayerDeadMotion : MonoBehaviour
     public void Trigger()
     {
         _player_animator.SetTrigger(_deadTriggerName);
+        _waterSplashEffect_Player.enabled = false;
         _startMotion = true;
     }
 

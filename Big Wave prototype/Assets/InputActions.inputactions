@@ -612,7 +612,7 @@
                 {
                     "name": "",
                     "id": "1321672d-46e8-44ed-8d4e-1b70298bca4c",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1536,17 +1536,6 @@
                 },
                 {
                     "name": "",
-                    "id": "06fcf25c-cd5f-402f-bfac-df4d5d0b1c83",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "298a6bd0-ddf4-4570-829a-445ab53928cb",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -1571,28 +1560,6 @@
                     "name": "",
                     "id": "f79070b4-03cc-40e1-b3f1-e292d818266d",
                     "path": "<SwitchProControllerHID>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2e980978-e5f1-44bd-a493-5bab0682a5f6",
-                    "path": "<SwitchProControllerHID>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0356ffcb-7578-4c44-ac71-5f6254bcaa90",
-                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
