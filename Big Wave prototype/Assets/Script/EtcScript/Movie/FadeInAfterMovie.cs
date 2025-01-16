@@ -43,11 +43,15 @@ public class FadeInAfterMovie : MonoBehaviour
 
     private void Awake()
     {
+        videoPlayer.Stop();
+        videoPlayer.frame = 0;
         videoPlayer.loopPointReached += MovieEndEvent;
-    }
+      
 
+    }
     void Start()
     {
+        
         Trigger();
     }
 
@@ -62,7 +66,7 @@ public class FadeInAfterMovie : MonoBehaviour
         //再生中アクティブ(スキップされた瞬間非アクティブ)にするオブジェクトを表示
         SwitchActiveObject(_activeDuringMovie_SkippedDeactiveObjects, true);
 
-
+        
         //ムービーを流し始める
         videoPlayer.Play();
         
@@ -91,6 +95,7 @@ public class FadeInAfterMovie : MonoBehaviour
         if(_audioSource!=null&&_se!=null)
         {
             _audioSource.PlayOneShot(_se);
+           
         }
         
     }
