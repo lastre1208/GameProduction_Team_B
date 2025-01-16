@@ -17,6 +17,7 @@ public class ChargeTrickPoint : MonoBehaviour
     [SerializeField] ChangeChargeRateTheSurfer changeChargeRateTheSurfer;
 
     const float chargeTrickGrowthRate_Normal = 1;//等倍(チャージトリック量アップの増加率)
+    bool _switch = true;//これがfalseだとチャージされない
 
     /////private(別クラスは使用不可)のメソッド/////
 
@@ -32,8 +33,16 @@ public class ChargeTrickPoint : MonoBehaviour
 
     /////public(別クラスも使用可能)のメソッド/////
    
+    public bool Switch
+    {
+        get { return _switch; }
+        set { _switch = value; }
+    }
+
     public void Charge(float chargeAmount)//トリックのチャージ
     {
+        if (!_switch) return;
+
         player_TrickPoint.Charge(ChargeTrickAmount(chargeAmount));//トリックをチャージ
         judgeChargeTrickPointNow.ResetSinceLastChargedTime();//最後にチャージされてからの時間をリセット
     }

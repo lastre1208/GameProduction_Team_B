@@ -51,7 +51,7 @@ public class DefeatEnemyEffect : MonoBehaviour
         _player_HP.Fix = true;//プレイヤーのHPを固定
         _duringGame_UI.SetActive(false);//ゲームのUIの非表示
         _playerInput.SwitchCurrentActionMap(_actionMapName);//操作の変更
-        _chargeTrickPoint.enabled = false;//チャージしないようにする
+        _chargeTrickPoint.Switch = false;//チャージしないようにする
         _clearCamera.enabled = true;//クリア時のカメラの移動を開始(実装予定)
         _enemyDeadMotion.Trigger();//敵の撃破モーションの再生
         _playerWinMotion.Trigger();//プレイヤーの勝利モーションの再生

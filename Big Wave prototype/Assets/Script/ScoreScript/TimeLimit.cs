@@ -31,7 +31,7 @@ public class TimeLimit : MonoBehaviour
 
     void UpdateTime()//時間の更新(スイッチがオフの時は時間を止める)
     {
-        if (_timeUp) return;//スイッチがOFFまたは時間切れの時は残り時間が減らないようにする
+        if (_timeUp) return;//時間切れの時は残り時間が減らないようにする
 
         _remainingTime -= Time.deltaTime;
 
