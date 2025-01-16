@@ -1565,6 +1565,7 @@ GameObject:
   - component: {fileID: 473906924}
   - component: {fileID: 473906926}
   - component: {fileID: 473906927}
+  - component: {fileID: 473906928}
   m_Layer: 0
   m_Name: Movie
   m_TagString: Untagged
@@ -1626,7 +1627,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 1.2
   fadeImage: {fileID: 206361465}
-  videoPlayer: {fileID: 1412559828}
+--- !u!114 &473906928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473906923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76480e9fb285be45969deb190d35fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _videoPlayer: {fileID: 1412559828}
 --- !u!1 &566344526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,6 +3160,18 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 473906928}
+        m_TargetAssemblyTypeName: MovieReset, Assembly-CSharp
+        m_MethodName: ResetMovie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1552875808}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: StageSelectScene
@@ -4584,6 +4609,18 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 473906928}
+        m_TargetAssemblyTypeName: MovieReset, Assembly-CSharp
+        m_MethodName: ResetMovie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1552875808}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: EndGame

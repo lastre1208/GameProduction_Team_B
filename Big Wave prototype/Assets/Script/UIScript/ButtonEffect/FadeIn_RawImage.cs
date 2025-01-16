@@ -12,7 +12,6 @@ public class FadeIn_RawImage : MonoBehaviour
     [SerializeField] float fadeDuration = 1.0f;
     [Header("▼フェードインに使う画像")]
     [SerializeField] RawImage fadeImage;
-    [SerializeField] VideoPlayer videoPlayer;
     private float fadeTimer = 0f;//フェードイン時間の管理用
     const float _maxAlpha = 1;
     State_Fade _state = State_Fade.off;//フェードアウトの状況
@@ -46,15 +45,6 @@ public class FadeIn_RawImage : MonoBehaviour
         _state = State_Fade.fading;
     }
 
-    public void CompleteTrigger()
-    {
-        if (_state == State_Fade.completed)
-        {
-            videoPlayer.frame = 0;
-            videoPlayer.Pause();
-        }
-       
-    }
     void Update()
     {
         FadeInDisplay();
@@ -79,7 +69,6 @@ public class FadeIn_RawImage : MonoBehaviour
         {
             //完全に画面が明転したら完了状態に
             _state = State_Fade.completed;
-            CompleteTrigger();
         }
     }
 }
