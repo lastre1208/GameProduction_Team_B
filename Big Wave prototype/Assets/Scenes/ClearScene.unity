@@ -3979,9 +3979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a437f4d625f86264aa7cc8ff8c3d2645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeAfterMovieEnd:
+  _activeAfterMovieEndObjects:
   - {fileID: 2108043425}
-  _activeDuringMovieObject:
+  _activeDuringMovieObjects: []
+  _activeDuringMovie_SkippedDeactiveObjects:
   - {fileID: 208127769}
   _fadeIn: {fileID: 1328796110}
   videoPlayer: {fileID: 304810684}

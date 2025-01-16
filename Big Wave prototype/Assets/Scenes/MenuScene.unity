@@ -1599,10 +1599,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a437f4d625f86264aa7cc8ff8c3d2645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeAfterMovieEnd:
+  _activeAfterMovieEndObjects:
   - {fileID: 1464221732}
   - {fileID: 1606233657}
-  _activeDuringMovieObject:
+  _activeDuringMovieObjects: []
+  _activeDuringMovie_SkippedDeactiveObjects:
   - {fileID: 1544434089}
   _fadeIn: {fileID: 473906927}
   videoPlayer: {fileID: 1412559828}

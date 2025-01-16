@@ -8,9 +8,11 @@ using UnityEngine.Video;
 public class FadeInAfterMovie : MonoBehaviour
 {
     [Header("動画再生後アクティブにする(再生中は非アクティブ)オブジェクト")]
-    [SerializeField] GameObject[] _activeAfterMovieEnd;//動画再生後アクティブにする(再生中は非アクティブ)オブジェクト
+    [SerializeField] GameObject[] _activeAfterMovieEndObjects;//動画再生後アクティブにする(再生中は非アクティブ)オブジェクト
     [Header("動画再生中にのみアクティブにするオブジェクト")]
-    [SerializeField] GameObject[] _activeDuringMovieObject;//動画再生中にのみアクティブにするオブジェクト
+    [SerializeField] GameObject[] _activeDuringMovieObjects;//動画再生中にのみアクティブにするオブジェクト
+    [Header("動画再生中にのみアクティブだが、スキップされた瞬間非アクティブになるオブジェクト")]
+    [SerializeField] GameObject[] _activeDuringMovie_SkippedDeactiveObjects;
     [SerializeField] FadeIn_RawImage _fadeIn;
     [SerializeField] VideoPlayer videoPlayer;
     [Header("音関係")]
@@ -32,6 +34,9 @@ public class FadeInAfterMovie : MonoBehaviour
 
         _movieEnded = true;
 
+        //再生中アクティブ(スキップされた瞬間非アクティブ)にするオブジェクトを隠す
+        SwitchActiveObject(_activeDuringMovie_SkippedDeactiveObjects, false);
+
         //動画をスキップさせる
         videoPlayer.time = videoPlayer.length- _skipTimeBeforeEnd;
     }
@@ -44,16 +49,13 @@ public class FadeInAfterMovie : MonoBehaviour
     void Trigger()//ムービー開始のトリガー
     {
         //再生後アクティブにするオブジェクトを一旦隠す
-        for(int i=0; i<_activeAfterMovieEnd.Length ;i++)
-        {
-            _activeAfterMovieEnd[i].SetActive(false);
-        }
+        SwitchActiveObject(_activeAfterMovieEndObjects, false);
 
         //再生中アクティブにするオブジェクトを表示
-        for(int i=0; i<_activeDuringMovieObject.Length ;i++)
-        {
-            _activeDuringMovieObject[i].SetActive(true);
-        }
+        SwitchActiveObject(_activeDuringMovieObjects, true);
+
+        //再生中アクティブ(スキップされた瞬間非アクティブ)にするオブジェクトを表示
+        SwitchActiveObject(_activeDuringMovie_SkippedDeactiveObjects, true);
 
 
         //ムービーを流し始める
@@ -66,16 +68,13 @@ public class FadeInAfterMovie : MonoBehaviour
         _movieEnded = true;
 
         //再生後アクティブにするオブジェクトを表示
-        for (int i = 0; i < _activeAfterMovieEnd.Length; i++)
-        {
-            _activeAfterMovieEnd[i].SetActive(true);
-        }
+        SwitchActiveObject(_activeAfterMovieEndObjects, true);
 
         //再生中アクティブにするオブジェクトを隠す
-        for (int i = 0; i < _activeDuringMovieObject.Length; i++)
-        {
-            _activeDuringMovieObject[i].SetActive(false);
-        }
+        SwitchActiveObject(_activeDuringMovieObjects, false);
+
+        //再生中アクティブ(スキップされた瞬間非アクティブ)にするオブジェクトを隠す
+        SwitchActiveObject(_activeDuringMovie_SkippedDeactiveObjects, false);
 
         //フェードイン開始
         _fadeIn.StartTrigger();
@@ -89,5 +88,13 @@ public class FadeInAfterMovie : MonoBehaviour
             _audioSource.PlayOneShot(_se);
         }
         
+    }
+
+    void SwitchActiveObject(GameObject[] gameObjects,bool active)
+    {
+        for(int i=0; i<gameObjects.Length ;i++)
+        {
+            gameObjects[i].SetActive(active);
+        }
     }
 }
