@@ -3180,7 +3180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeOut: {fileID: 2013484154}
-  _waitTime: 0.01
+  _waitTime: 0.1
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -4629,7 +4629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeOut: {fileID: 0}
-  _waitTime: 0.1
+  _waitTime: 0.3
   _event:
     m_PersistentCalls:
       m_Calls:
