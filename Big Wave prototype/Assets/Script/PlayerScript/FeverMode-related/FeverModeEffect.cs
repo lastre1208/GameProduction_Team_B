@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 //作成者:杉山
@@ -15,8 +16,7 @@ public class FeverModeEffect : MonoBehaviour
     [SerializeField] GameObject[] _feverNowEffect;//フィーバー状態中ずっと表示するエフェクト
     [Header("フィーバーモードのコンポーネント")]
     [SerializeField] FeverMode _feverMode;
-
-
+    
     void Start()
     {
         _feverMode.TransitToFeverAction += Trigger;
@@ -47,5 +47,6 @@ public class FeverModeEffect : MonoBehaviour
         //エフェクトを出す
         _feverEffect.gameObject.SetActive(true);
         _feverEffect.Play();
+       
     }
 }
