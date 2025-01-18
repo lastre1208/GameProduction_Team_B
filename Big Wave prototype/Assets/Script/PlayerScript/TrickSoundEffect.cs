@@ -25,6 +25,7 @@ public class TrickSoundEffect : MonoBehaviour
     [SerializeField]FeverMode feverMode;
     [SerializeField] CountTrickWhileJump count;
     private float startPitch;
+    private int trickCount;
     private void Start()
     {
        startPitch= audioSource.pitch;
@@ -41,8 +42,16 @@ public class TrickSoundEffect : MonoBehaviour
           audioSource.pitch =startPitch ;
         }
         audioSource.PlayOneShot(se);
-
-        audioSource2.PlayOneShot(trickSE[count.TrickCount-1]);//連続で成功した回数によって鳴らす音を変える
+        trickCount = count.TrickCount - 1;
+        if (trickCount < 0)//配列の外を参照しないようにする
+        {
+            trickCount= 0;
+        }
+        else if(trickCount > 5)
+        {
+            trickCount= 5;
+        }
+        audioSource2.PlayOneShot(trickSE[trickCount]);//連続で成功した回数によって鳴らす音を変える
     }
     public void PlayTrickEffect()//トリックの成否や状態に合わせて表示させるエフェクトを変える
     {
