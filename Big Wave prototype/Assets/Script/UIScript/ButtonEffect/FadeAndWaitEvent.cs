@@ -59,5 +59,6 @@ public class FadeAndWaitEvent : MonoBehaviour
 
         _switch = false;
         _event.Invoke();
+      
     }
 }

@@ -11,7 +11,12 @@ public class MovieReset : MonoBehaviour
 
     public void ResetMovie()
     {
-        _videoPlayer.frame = 0;
+      //  Debug.Log(_videoPlayer.frame);
+
         _videoPlayer.Pause();
+        _videoPlayer.frame =0;
+        _videoPlayer.Play(); 
+        _videoPlayer.Pause();
+      //  Debug.Log(_videoPlayer.frame);
     }
 }
